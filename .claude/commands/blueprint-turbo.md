@@ -932,7 +932,109 @@ Write complete HTML file with:
 - File path returned to user
 - Ready to send to prospect immediately
 
-**Progress Hook:** "✅ Wave 4/4: HTML playbook ready! → [filename]"
+---
+
+### Wave 4.5: Automatic GitHub Pages Publishing (1-2 min)
+
+**Objective:** Automatically commit and push playbook to GitHub, generate shareable URL
+
+**Important:** This step executes automatically after HTML write. If git operations fail, gracefully skip and output local file path only.
+
+Execute these steps sequentially:
+
+**Step 1: Verify Git Repository**
+```bash
+git rev-parse --git-dir 2>/dev/null
+```
+
+- If command succeeds → Continue to Step 2
+- If command fails (not a git repo) → Skip publishing, output warning:
+  ```
+  ⚠️  No git repository detected. Skipping GitHub Pages publish.
+  💾 Local file: [filename]
+
+  To enable auto-publishing, initialize git:
+  git init && gh repo create blueprint-gtm-playbooks --public --source=. --remote=origin
+  ```
+  Then end execution.
+
+**Step 2: Extract GitHub Remote Information**
+```bash
+git config --get remote.origin.url
+```
+
+Parse the result to extract:
+- GitHub username (e.g., "SantaJordan")
+- Repository name (e.g., "blueprint-gtm-playbooks")
+
+Use this logic:
+- If URL format is `https://github.com/[username]/[repo].git` → Extract username and repo
+- If URL format is `git@github.com:[username]/[repo].git` → Extract username and repo
+- If no remote found → Skip publishing, output warning and local file path
+
+**Step 3: Commit and Push Playbook**
+
+Execute these git commands sequentially:
+
+```bash
+# Add the HTML file
+git add [filename]
+
+# Create commit with timestamp
+git commit -m "Publish playbook: [company-name] ($(date +"%Y-%m-%d %H:%M:%S"))"
+
+# Push to GitHub (try main first, fallback to master)
+git push origin main 2>/dev/null || git push origin master 2>/dev/null
+```
+
+**Error Handling:**
+- If git add fails → Output error, skip to local file output
+- If git commit fails (e.g., nothing to commit) → That's OK, continue (file was already committed in initial setup)
+- If git push fails → Output error, but still generate and show the URL (might already be published)
+
+**Step 4: Generate GitHub Pages URL**
+
+Construct the URL:
+```
+https://[username].github.io/[repo-name]/[filename]
+```
+
+Example:
+```
+https://santajordan.github.io/blueprint-gtm-playbooks/blueprint-gtm-playbook-mirrorweb.html
+```
+
+**Step 5: Output Final Results**
+
+**Success Case (git operations succeeded):**
+```
+✅ Wave 4/4: HTML playbook published!
+
+📎 Shareable URL:
+   https://[username].github.io/[repo-name]/[filename]
+
+💾 Local file: [filename]
+
+Note: GitHub Pages may take 1-2 minutes to build. If URL doesn't work immediately, wait a moment and refresh.
+```
+
+**Failure Case (git operations failed):**
+```
+✅ Wave 4/4: HTML playbook generated!
+
+💾 Local file: [filename]
+
+⚠️  GitHub Pages publishing failed. To publish manually:
+   ./publish-playbook.sh [filename]
+```
+
+**Wave 4.5 Output:**
+- HTML file committed to git repository
+- Changes pushed to GitHub
+- GitHub Pages URL generated and displayed
+- User has instant shareable link
+
+**Progress Hook:** See Step 5 above for dynamic output based on success/failure
 
 ---
 

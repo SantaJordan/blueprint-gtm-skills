@@ -1,6 +1,6 @@
 # Blueprint Turbo
 
-**Speed-optimized GTM intelligence system - complete Blueprint execution in 12-15 minutes.**
+**Speed-optimized GTM intelligence system - complete Blueprint execution in 13-17 minutes with automatic GitHub Pages publishing.**
 
 ## Quick Start
 
@@ -8,23 +8,32 @@
 /blueprint-turbo https://owner.com
 ```
 
-That's it. Wait 12-15 minutes and receive a complete HTML playbook with:
-- 2 PQS (Pain-Qualified Segment) messages with calculation worksheets
-- 2 PVP (Permissionless Value Proposition) messages with data sources
-- Buyer-validated scores (all ≥8.0/10)
-- Ready to send to prospects immediately
+That's it. Wait 13-17 minutes and receive:
+- ✅ Complete HTML playbook with 2 PQS + 2 PVP messages
+- ✅ Instant shareable GitHub Pages URL
+- ✅ Calculation worksheets for every data claim
+- ✅ Buyer-validated scores (≥7.0/10 for Strong PQS, ≥8.5/10 for TRUE PVPs)
+- ✅ Ready to send to prospects immediately
 
 ## Output Example
 
 ```
-✅ Wave 4/4: HTML playbook ready! → blueprint-gtm-playbook-owner-com.html
+✅ Wave 4/4: HTML playbook published!
+
+📎 Shareable URL:
+   https://santajordan.github.io/blueprint-gtm-playbooks/blueprint-gtm-playbook-owner.html
+
+💾 Local file: blueprint-gtm-playbook-owner.html
+
+Note: GitHub Pages may take 1-2 minutes to build. If URL doesn't work immediately, wait a moment and refresh.
 ```
 
-Open the HTML file to see:
+**What you get:**
 - Company-specific pain segments backed by real data
 - Hyper-specific outreach messages with calculation worksheets
 - Data source citations (government databases, competitive intelligence, velocity signals)
 - Before/after comparison showing transformation from generic outreach
+- **Automatic GitHub publishing** - No manual upload needed!
 
 ## Prerequisites
 
@@ -42,12 +51,13 @@ Open the HTML file to see:
 
 | Factor | Blueprint Turbo | Original Blueprint Skills |
 |--------|----------------|---------------------------|
-| **Speed** | 12-15 minutes | 30-45 minutes |
+| **Speed** | 13-17 minutes | 30-45 minutes |
 | **Use Case** | Sales calls, fast turnaround | Strategic analysis, thoroughness |
 | **Execution** | Single command | Multi-stage manual invocation |
 | **Parallelization** | 4 waves with 15-20 parallel calls | Sequential execution |
-| **Quality** | Same (buyer-validated ≥8.0/10) | Same (buyer-validated ≥8.0/10) |
-| **Output** | HTML playbook | HTML playbook |
+| **Quality** | Same (buyer-validated ≥7.0/10) | Same (buyer-validated ≥7.0/10) |
+| **Output** | HTML playbook + GitHub Pages URL | HTML playbook (local file) |
+| **Auto-Publish** | ✅ Yes (automatic) | ❌ No (manual script) |
 
 **Rule of Thumb:**
 - Need it fast (during sales call)? → Blueprint Turbo

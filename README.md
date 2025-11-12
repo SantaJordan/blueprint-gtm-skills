@@ -14,10 +14,11 @@ Transform company URLs into data-driven GTM intelligence and mobile-responsive H
 ### Two Workflow Options
 
 #### 🚀 Blueprint Turbo (Recommended for Speed)
-**12-15 minutes** | Single command | Parallel execution
+**13-17 minutes** | Single command | Parallel execution | Auto-publishes to GitHub Pages
 ```bash
 /blueprint-turbo https://company.com
 ```
+**Outputs:** HTML playbook + Instant shareable GitHub Pages URL
 
 #### 🔬 Original Blueprint Skills (Maximum Thoroughness)
 **30-45 minutes** | Multi-stage | Sequential deep-dive
@@ -51,12 +52,16 @@ cd "/Users/jordancrawford/Desktop/Claude Skills"
 
 ### Step 3: Receive Your Deliverable
 
-Claude outputs: `blueprint-gtm-playbook-[company-name].html`
+**Blueprint Turbo automatically outputs:**
+1. **Shareable GitHub Pages URL:** `https://[username].github.io/blueprint-gtm-playbooks/blueprint-gtm-playbook-[company-name].html`
+2. **Local HTML file:** `blueprint-gtm-playbook-[company-name].html`
 
+**Playbook features:**
 - Self-contained (inline CSS, no dependencies)
 - Mobile-responsive
-- Ready to share with clients/team
+- Instantly shareable via URL (no manual upload needed)
 - Professional Blueprint branding
+- Version controlled in git
 
 ---
 
@@ -246,13 +251,14 @@ Claude Skills/
 
 | Factor | Blueprint Turbo | Original Blueprint Skills |
 |--------|----------------|---------------------------|
-| **Speed** | 12-15 minutes | 30-45 minutes |
+| **Speed** | 13-17 minutes | 30-45 minutes |
 | **Use Case** | Sales calls, fast turnaround | Strategic analysis, thoroughness |
 | **Execution** | `/blueprint-turbo URL` | Auto-chains through 4 stages |
 | **Parallelization** | 4 waves with 15-20 parallel calls | Sequential execution |
 | **Quality** | Same (buyer-validated) | Same (buyer-validated) |
 | **MCP Required** | Browser + Sequential Thinking | None (uses WebFetch) |
-| **Output** | HTML playbook | HTML playbook |
+| **Output** | HTML playbook + GitHub Pages URL | HTML playbook (local file) |
+| **Auto-Publish** | ✅ Yes (automatic) | ❌ No (manual script) |
 
 **Rule of Thumb:**
 - Need it fast (during sales call)? → **Blueprint Turbo**
@@ -524,11 +530,25 @@ Claude invokes message-generation skill directly.
 
 ## Sharing Playbooks via GitHub Pages
 
-### Quick Setup (One-Time)
+### ✨ Automatic Publishing (Default for Blueprint Turbo)
+
+**Blueprint Turbo now automatically publishes to GitHub Pages!**
+
+When you run `/blueprint-turbo https://company.com`, it will:
+1. Generate the HTML playbook
+2. Automatically commit and push to GitHub
+3. Output the shareable GitHub Pages URL instantly
+
+**No manual steps needed** - just run turbo and get your URL.
+
+### Quick Setup (One-Time - Required for Auto-Publishing)
 
 1. **Create GitHub Repository:**
    ```bash
-   # Repository should already be initialized
+   # Initialize git (if not already done)
+   git init
+
+   # Create public GitHub repo
    gh repo create blueprint-gtm-playbooks --public --source=. --remote=origin
    ```
 
@@ -538,9 +558,11 @@ Claude invokes message-generation skill directly.
    - Save changes
    - Your playbooks will be accessible at: `https://[username].github.io/blueprint-gtm-playbooks/[filename].html`
 
-### Publishing New Playbooks
+**That's it!** All future `/blueprint-turbo` runs will auto-publish.
 
-After generating a new playbook with `/blueprint-turbo`, publish it:
+### Manual Publishing (Fallback Method)
+
+If you need to manually publish an existing playbook or if auto-publishing fails:
 
 ```bash
 ./publish-playbook.sh blueprint-gtm-playbook-[company-name].html
