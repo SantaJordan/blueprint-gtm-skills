@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blueprint GTM Playbook for DoorKind</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        :root {
+            --print-blue: #5611A6;
+            --dark-print: #280A4A;
+            --light-print: #D6B2FF;
+            --corn: #FFF277;
+            --ice: #F5F8FF;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: var(--dark-print);
+            background: var(--ice);
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--dark-print);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--light-print);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--dark-print);
+            margin: 2.5rem 0 1rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--print-blue);
+        }
+
+        h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--dark-print);
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            font-size: 1rem;
+            color: rgba(40, 10, 74, 0.9);
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .section {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 2px 8px rgba(86, 17, 166, 0.08);
+            margin-bottom: 2rem;
+        }
+
+        .highlight-box {
+            background: var(--corn);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+
+        .old-way-example {
+            background: #FFF8DC;
+            border: 2px solid #F0E68C;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .message-example {
+            background: var(--ice);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            overflow-x: auto;
+            margin: 0.5rem 0;
+        }
+
+        .play-card {
+            background: var(--white);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(86, 17, 166, 0.08);
+            border: 1px solid var(--light-print);
+        }
+
+        .play-type {
+            display: inline-block;
+            background: var(--print-blue);
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .play-type.pvp {
+            background: var(--dark-print);
+        }
+
+        .play-explanation {
+            background: var(--ice);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .data-sources {
+            background: var(--corn);
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+        }
+
+        .why-section {
+            font-size: 0.875rem;
+            color: rgba(40, 10, 74, 0.8);
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                max-width: 900px;
+                padding: 2rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.75rem;
+            }
+
+            .section, .play-card {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- SECTION 1: Title & Jordan's Bio -->
+        <div class="section">
+            <h1>Blueprint GTM Playbook for DoorKind</h1>
+
+            <h2>Who the Hell is Jordan Crawford?</h2>
+
+            <p>Founder of Blueprint GTM. Built a business by scraping 25M+ job posts to find company pain points. Believes the Predictable Revenue model is dead. Thinks mounting an AI SDR on outdated methodology is like putting a legless robot on a horse—no one gets anywhere, and it still shits along the way.</p>
+
+            <p>The core philosophy is simple: The message isn't the problem. The LIST is the message. When you know exactly who to target and why they need you right now, the message writes itself.</p>
+        </div>
+
+        <!-- SECTION 2: The Old Way -->
+        <div class="section">
+            <h2>The Old Way (What Everyone Does)</h2>
+
+            <p>Let's be brutally honest about what your GTM team is doing right now. They're buying lists from ZoomInfo, adding some "personalization" like mentioning a LinkedIn post, then blasting generic messages about features. Here's what it actually looks like:</p>
+
+            <div class="old-way-example">
+                <p><strong>The Typical DoorKind SDR Email:</strong></p>
+                <div class="message-example">Subject: Quick Question about Your Property Portfolio
+
+Hi [Property Owner First Name],
+
+I noticed on LinkedIn that you own multiple residential properties in [City]. Congrats on building your portfolio!
+
+I wanted to reach out because we work with property owners like those at ABC Properties and XYZ Investments to help with property management challenges.
+
+Our AI-powered platform automates tenant communication, maintenance coordination, and rent collection. We've helped property owners reduce management costs by up to 80% while improving response times.
+
+Would you have 15 minutes next week to explore how DoorKind might be able to help you manage your properties more efficiently?
+
+Best,
+Generic SDR
+DoorKind</div>
+            </div>
+
+            <p><strong>Why this fails:</strong> The property owner is an expert in their market. They've seen this template 1,000 times from every PropTech vendor. There's zero indication you actually understand their specific situation—their actual properties, their actual costs, their actual problems. It's interruption disguised as personalization. Delete.</p>
+        </div>
+
+        <!-- SECTION 3: The New Way -->
+        <div class="section">
+            <h2>The New Way: Intelligence-Driven GTM</h2>
+
+            <p>Blueprint GTM flips the entire approach. Instead of interrupting prospects with pitches, you deliver insights so valuable they'd pay consulting fees to receive them. You become the person who helps them see around corners, not another vendor in their inbox.</p>
+
+            <p>This requires two fundamental shifts:</p>
+
+            <div class="highlight-box">
+                <h3>1. Hard Data Over Soft Signals</h3>
+                <p><strong>Stop:</strong> "I see you own multiple properties" (LinkedIn - everyone sees this)</p>
+                <p><strong>Start:</strong> "Your building at 245 East 19th Street has 14 open Housing Maintenance Code violations (IDs: 9847362, 9823451...) with average 47-day resolution vs 28-day NYC median" (government database with record numbers)</p>
+            </div>
+
+            <div class="highlight-box">
+                <h3>2. Mirror Situations, Don't Pitch Solutions</h3>
+                <p><strong>PQS (Pain-Qualified Segment):</strong> Reflect their exact situation with such specificity they think "how did you know?" Use government data with dates, record numbers, building addresses.</p>
+                <p><strong>Strong PQS (Competitive Intelligence):</strong> Deliver market insights they don't have access to—rent gap analysis, competitive pricing intelligence, occupancy signals—with disclosed confidence levels when using estimates.</p>
+            </div>
+        </div>
+
+        <!-- SECTION 4: PQS Examples -->
+        <div class="section">
+            <h2>DoorKind PQS Plays: Mirroring Exact Situations</h2>
+
+            <p>These messages demonstrate such precise understanding of the prospect's current situation that they feel genuinely seen. Every claim traces to a specific government database or market data source with verifiable evidence.</p>
+
+            <!-- PQS Play Card 1 -->
+            <div class="play-card">
+                <span class="play-type">PQS</span>
+                <h3>Play 1: NYC Property Owners with Accumulating Code Violations</h3>
+
+                <div class="play-explanation">
+                    <p><strong>What's the play?</strong> Target NYC property owners (3-10 units) who have open Housing Maintenance Code violations that are taking longer than city median to resolve. These owners are experiencing the exact pain point DoorKind solves: slow maintenance response leading to tenant complaints, code violations, and potential fines. DoorKind's 2.7-hour average repair dispatch vs their current 47-day average resolution is a 17x improvement.</p>
+                </div>
+
+                <div class="why-section">
+                    <p><strong>Why this works:</strong> Buyer critique score 8.8/10. Property owner knows they have violations, but doesn't know: (1) their exact total count across all properties, (2) their resolution time vs city benchmark, (3) how DoorKind's automated dispatch prevents violations. The message uses exact violation IDs and government timestamps—impossible to fake, immediately verifiable. Non-obvious insight: "47 days vs 28 median" gives them benchmark they didn't have.</p>
+                </div>
+
+                <div class="data-sources">
+                    <strong>Data source:</strong> NYC Open Data - Housing Maintenance Code Violations (data.cityofnewyork.us/Housing-Development/Housing-Maintenance-Code-Violations). Fields: ViolationID, BuildingID, ViolationStatus, InspectionDate, CertifiedDate. Confidence: 95% (pure government data, updated daily, 100% verifiable).
+                </div>
+
+                <p><strong>The message:</strong></p>
+                <div class="message-example">Subject: 14 Open Violations
+
+Your building at 245 East 19th Street has 14 open Housing Maintenance Code violations (IDs: 9847362, 9823451, 9801234...) filed between January 2024-present. Average time-to-close across your violations: 47 days vs NYC median of 28 days. DoorKind's automated maintenance dispatch closes repairs in 2.7 hours average. Worth exploring how AI triage could prevent future violations and speed resolution?</div>
+            </div>
+
+            <!-- PQS Play Card 2 -->
+            <div class="play-card">
+                <span class="play-type">PQS</span>
+                <h3>Play 2: Properties with Recurring Emergency Maintenance Issues</h3>
+
+                <div class="play-explanation">
+                    <p><strong>What's the play?</strong> Target property owners who have received multiple Class C violations (Immediately Hazardous) for heat, hot water, or other emergency maintenance issues. These create the 2AM tenant calls DoorKind promises to eliminate. Each Class C violation triggers mandatory 24-hour emergency inspection, creating regulatory pressure and tenant satisfaction risk.</p>
+                </div>
+
+                <div class="why-section">
+                    <p><strong>Why this works:</strong> Buyer critique score 8.4/10. Class C violations are serious legal and tenant retention issues. Property owner knows heating is a problem, but message provides: (1) exact count of emergency violations, (2) regulatory 24-hour inspection requirement they're triggering repeatedly, (3) their 3.2-day resolution vs DoorKind's 3-hour dispatch. Emotional resonance is high—heat violations = angry tenants + 2AM calls + potential fines.</p>
+                </div>
+
+                <div class="data-sources">
+                    <strong>Data source:</strong> NYC Open Data - Housing Maintenance Code Violations. Fields: ViolationID, ViolationClass, ViolationDescription, ViolationDate, CertifiedDate. NYC Housing Code (public regulation): Class C violations require 24-hour emergency response. Calculation: Average resolution time = (CertifiedDate - ViolationDate) across violations. Confidence: 90% (government data + disclosed proxy: violation close dates may include inspection delays).
+                </div>
+
+                <p><strong>The message:</strong></p>
+                <div class="message-example">Subject: Recurring Heating Violations
+
+245 East 19th Street received 6 Heat/Hot Water violations (Class C - Immediately Hazardous) in the past 18 months. Each triggered emergency inspection within 24 hours. Your traditional property manager averaged 3.2 days from tenant complaint to repair completion based on violation close dates. DoorKind eliminates the 2AM tenant call and dispatches HVAC vendors in under 3 hours. How are you currently triaging emergency vs routine maintenance?</div>
+            </div>
+        </div>
+
+        <!-- SECTION 5: Strong PQS Examples (Competitive Intelligence) -->
+        <div class="section">
+            <h2>DoorKind Strong PQS Plays: Market Intelligence</h2>
+
+            <p>These messages provide market insights the property owner doesn't have access to. Using competitive pricing data and occupancy signals, we quantify exactly how much money they're leaving on the table. Confidence levels are disclosed when using market estimates.</p>
+
+            <!-- Strong PQS Play Card 1 -->
+            <div class="play-card">
+                <span class="play-type">PQS</span>
+                <h3>Play 1: Small Multifamily Owners Under-Pricing vs Market</h3>
+
+                <div class="play-explanation">
+                    <p><strong>What's the play?</strong> Target 3-10 unit property owners whose current rent listings are 10-20% below market comparables. Combine RentCast market estimates with actual Apartments.com listing scraping to show exact dollar gap per unit. Use Google Maps review velocity as occupancy signal—high reviews + low pricing = pricing power they're not using. DoorKind's AI pricing optimization could capture this margin automatically.</p>
+                </div>
+
+                <div class="why-section">
+                    <p><strong>Why this works:</strong> Buyer critique score 8.4/10. Property owner may not actively track competitive pricing across comparables. Message provides: (1) exact current rent from their listings, (2) market benchmark from RentCast, (3) specific dollar gap per unit and total monthly opportunity, (4) occupancy signal from review velocity proving they have pricing power. $840/month = $10k annually is immediate financial impact.</p>
+                </div>
+
+                <div class="data-sources">
+                    <strong>Data source:</strong> Current rent: Apartments.com web scraping (Apify/ScrapingBee, $200-500/mo). Market estimates: RentCast API (50 free calls/mo, then usage-based). Review data: Google Maps Places API (free tier generous). Calculation: Market avg - Current listing = Gap × Unit count. Confidence: 65-75% (hybrid approach using market estimates + scraping, disclosed with "comparable" and "potential" language). Verification: Owner can check Apartments.com listings + recent comps on Zillow/StreetEasy.
+                </div>
+
+                <p><strong>The message:</strong></p>
+                <div class="message-example">Subject: $840/month you're leaving on the table
+
+I pulled RentCast market data for your 6-unit building at 245 East 19th Street. Your current 2BR listings on Apartments.com average $2,450/month, but comparable units within 0.3 miles (same bed/bath, similar sqft) are renting for $2,590-2,730. That's $140/unit × 6 units = $840/month potential revenue increase. Your 127 Google reviews in the past year signal strong demand and 95%+ occupancy—you have pricing power. Want the full comp analysis showing which units are furthest below market?</div>
+            </div>
+
+            <!-- Strong PQS Play Card 2 -->
+            <div class="play-card">
+                <span class="play-type">PQS</span>
+                <h3>Play 2: Unit-Level Rent Gap Analysis</h3>
+
+                <div class="play-explanation">
+                    <p><strong>What's the play?</strong> Provide unit-specific rent gap analysis showing exactly which units are furthest below market. Property owners often price all units similarly without analyzing unit-by-unit opportunity. Message delivers two concrete examples (studio and 2BR) with specific unit identifiers and market gaps, then extrapolates annual opportunity across portfolio.</p>
+                </div>
+
+                <div class="why-section">
+                    <p><strong>Why this works:</strong> Buyer critique score 7.8/10 after revision. Unit-level granularity is more actionable than portfolio-wide averages. Owner can immediately verify the two examples given, building trust. Annual opportunity (~$15-18k) is significant enough to warrant action. Message offers to send full breakdown, creating natural reply opportunity.</p>
+                </div>
+
+                <div class="data-sources">
+                    <strong>Data source:</strong> Current unit rents: Apartments.com scraping (specific unit listings). Market averages: RentCast API (comparable properties by bedroom count within radius). Calculation: For each unit type, market avg - current listing = gap. Annual opportunity = sum of gaps × 12 months. Confidence: 65-70% (unit-level data is factual, market averages are estimates, annual extrapolation assumes ability to raise rents). Disclosed with "market average" and "likely leaving" language.
+                </div>
+
+                <p><strong>The message:</strong></p>
+                <div class="message-example">Subject: Your Rent Gap Analysis
+
+I analyzed your 6 units at 245 East 19th Street against 12 comparable properties within 0.3 miles. Two examples: Your Studio (Unit 1A) is listed at $1,650/mo vs $1,820 market average = -$170/mo. Your 2BR (Unit 3C) is at $2,400/mo vs $2,680 market average = -$280/mo. Across all units, you're likely leaving $15-18k annually on the table. I can send the full unit-by-unit breakdown if useful. Should this go to you or your current property manager?</div>
+            </div>
+        </div>
+
+        <!-- SECTION 6: The Transformation -->
+        <div class="section">
+            <h2>The Transformation</h2>
+
+            <p>Notice the difference? Traditional outreach talks about YOUR product and YOUR benefits. Blueprint GTM talks about THEIR situation and THEIR challenges using verifiable data they can look up themselves.</p>
+
+            <div class="highlight-box">
+                <p><strong>The shift is simple but profound:</strong></p>
+                <p>Stop sending messages about what you do. Start sending intelligence about what they need to know right now. When you lead with "14 open violations (IDs: 9847362, 9823451...)" instead of "I see you own properties," you're not another sales email—you're the person who actually did the research.</p>
+            </div>
+
+            <p>This isn't about templates or tactics. It's about building a systematic way to identify property owners experiencing specific, urgent challenges where DoorKind's 2% fee and 2.7-hour maintenance dispatch provide unique value—and proving you've done the homework with government database record numbers and market intelligence.</p>
+
+            <p>The companies that master this approach don't compete on features. They compete on intelligence.</p>
+        </div>
+
+    </div>
+</body>
+</html>
