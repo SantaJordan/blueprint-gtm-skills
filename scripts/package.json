@@ -1,0 +1,13 @@
+{
+  "name": "blueprint-worker",
+  "version": "1.0.0",
+  "description": "Worker script to process Blueprint GTM analysis jobs",
+  "type": "module",
+  "scripts": {
+    "start": "node blueprint-worker.js",
+    "install-service": "node install-launchagent.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0"
+  }
+}

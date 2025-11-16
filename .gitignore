@@ -59,3 +59,11 @@ outputs/
 
 # Local settings (not global settings)
 .claude/settings.local.json
+
+# Vercel
+.vercel
+blueprint-trigger-api/.vercel
+blueprint-trigger-api/node_modules
+
+# Worker scripts
+scripts/node_modules

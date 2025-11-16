@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Blueprint">
+    <title>Blueprint Turbo Trigger</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 100%;
+            padding: 40px 30px;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo h1 {
+            font-size: 32px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+
+        .logo p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        input[type="url"],
+        input[type="password"],
+        input[type="text"] {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            -webkit-appearance: none;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .checkbox-group label {
+            margin: 0;
+            font-weight: 400;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        button {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            -webkit-appearance: none;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .status {
+            margin-top: 20px;
+            padding: 16px;
+            border-radius: 10px;
+            font-size: 14px;
+            display: none;
+        }
+
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 2px solid #c3e6cb;
+        }
+
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 2px solid #f5c6cb;
+        }
+
+        .status.show {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .help-text {
+            font-size: 12px;
+            color: #666;
+            margin-top: 6px;
+        }
+
+        .error-message {
+            font-size: 13px;
+            color: #dc3545;
+            margin-top: 8px;
+            display: none;
+            padding: 8px 12px;
+            background: #f8d7da;
+            border-radius: 6px;
+            border-left: 3px solid #dc3545;
+        }
+
+        .error-message.show {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+
+        input.error {
+            border-color: #dc3545;
+        }
+
+        #passcodeSection {
+            display: block;
+        }
+
+        #mainSection {
+            display: none;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .footer p {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <h1>Blueprint Turbo</h1>
+            <p>Trigger GTM Intelligence from Anywhere</p>
+        </div>
+
+        <!-- Passcode Entry Section -->
+        <div id="passcodeSection">
+            <form id="passcodeForm">
+                <div class="form-group">
+                    <label for="passcode">Enter Passcode</label>
+                    <input
+                        type="password"
+                        id="passcode"
+                        name="passcode"
+                        placeholder="Enter your passcode"
+                        autocomplete="current-password"
+                        required
+                    >
+                    <p class="help-text">Ask Jordan for the passcode</p>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="rememberMe" name="rememberMe" checked>
+                    <label for="rememberMe">Remember me on this device</label>
+                </div>
+
+                <button type="submit">Unlock</button>
+
+                <div id="passcodeStatus" class="status"></div>
+            </form>
+        </div>
+
+        <!-- Main Trigger Section -->
+        <div id="mainSection">
+            <form id="triggerForm">
+                <div class="form-group">
+                    <label for="companyUrl">Company Website</label>
+                    <input
+                        type="text"
+                        id="companyUrl"
+                        name="companyUrl"
+                        placeholder="example.com or www.example.com"
+                        autocomplete="url"
+                    >
+                    <p class="help-text">Enter company domain (https:// is optional)</p>
+                    <div id="urlError" class="error-message"></div>
+                </div>
+
+                <button type="submit" id="submitBtn">
+                    Analyze Company
+                </button>
+
+                <div id="status" class="status"></div>
+            </form>
+
+            <div class="footer">
+                <p>Your Mac will process this in ~12-15 minutes</p>
+                <p><a href="#" onclick="logout(); return false;">Logout</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Configuration
+        const PASSCODE_HASH = 'ca13291769abbe7d6492dcaf567b02a954833e438b2d531bf0b3235ad2e55598'; // SHA-256 of 'blueprint2025'
+        const API_ENDPOINT = '/api/queue-job';
+        const STORAGE_KEY = 'blueprint_auth';
+
+        // Utility: SHA-256 hash
+        async function sha256(message) {
+            const msgBuffer = new TextEncoder().encode(message);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+
+        // Check if already authenticated
+        function checkAuth() {
+            const stored = localStorage.getItem(STORAGE_KEY);
+            if (stored === PASSCODE_HASH) {
+                showMainSection();
+                return true;
+            }
+            return false;
+        }
+
+        // Show/hide sections
+        function showMainSection() {
+            document.getElementById('passcodeSection').style.display = 'none';
+            document.getElementById('mainSection').style.display = 'block';
+        }
+
+        function showPasscodeSection() {
+            document.getElementById('passcodeSection').style.display = 'block';
+            document.getElementById('mainSection').style.display = 'none';
+        }
+
+        // Logout
+        function logout() {
+            localStorage.removeItem(STORAGE_KEY);
+            showPasscodeSection();
+            showStatus('passcodeStatus', 'Logged out successfully', 'success');
+        }
+
+        // Show status message
+        function showStatus(elementId, message, type) {
+            const statusEl = document.getElementById(elementId);
+            statusEl.textContent = message;
+            statusEl.className = `status ${type} show`;
+
+            if (type === 'success') {
+                setTimeout(() => {
+                    statusEl.classList.remove('show');
+                }, 5000);
+            }
+        }
+
+        // Passcode form submission
+        document.getElementById('passcodeForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const passcode = document.getElementById('passcode').value;
+            const rememberMe = document.getElementById('rememberMe').checked;
+
+            const hash = await sha256(passcode);
+
+            if (hash === PASSCODE_HASH) {
+                if (rememberMe) {
+                    localStorage.setItem(STORAGE_KEY, hash);
+                }
+                showMainSection();
+                showStatus('status', 'Welcome! Ready to analyze companies.', 'success');
+            } else {
+                showStatus('passcodeStatus', 'Incorrect passcode. Please try again.', 'error');
+                document.getElementById('passcode').value = '';
+            }
+        });
+
+        // Helper: Normalize URL (auto-add https://)
+        function normalizeUrl(input) {
+            let url = input.trim();
+
+            // If empty, return null
+            if (!url) return null;
+
+            // If already has protocol, validate and return
+            if (url.startsWith('http://') || url.startsWith('https://')) {
+                try {
+                    new URL(url);
+                    return url;
+                } catch {
+                    return null;
+                }
+            }
+
+            // Auto-prepend https://
+            url = 'https://' + url;
+
+            // Validate the constructed URL
+            try {
+                new URL(url);
+                return url;
+            } catch {
+                return null;
+            }
+        }
+
+        // Show URL error
+        function showUrlError(message) {
+            const errorEl = document.getElementById('urlError');
+            const inputEl = document.getElementById('companyUrl');
+
+            errorEl.textContent = message;
+            errorEl.classList.add('show');
+            inputEl.classList.add('error');
+        }
+
+        // Clear URL error
+        function clearUrlError() {
+            const errorEl = document.getElementById('urlError');
+            const inputEl = document.getElementById('companyUrl');
+
+            errorEl.classList.remove('show');
+            inputEl.classList.remove('error');
+        }
+
+        // Main trigger form submission
+        document.getElementById('triggerForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            clearUrlError();
+
+            const submitBtn = document.getElementById('submitBtn');
+            const inputUrl = document.getElementById('companyUrl').value;
+
+            // Normalize and validate URL
+            const companyUrl = normalizeUrl(inputUrl);
+
+            if (!companyUrl) {
+                showUrlError('Please enter a valid domain (e.g., owner.com or www.owner.com)');
+                return;
+            }
+
+            // Disable button and show loading
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Queueing...';
+
+            try {
+                const response = await fetch(API_ENDPOINT, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ companyUrl })
+                });
+
+                const data = await response.json();
+
+                if (response.ok && data.success) {
+                    // Redirect to status page with job ID
+                    window.location.href = `/status.html?jobId=${data.job.id}`;
+                } else {
+                    showStatus('status', `❌ Error: ${data.error || 'Failed to queue job'}`, 'error');
+                }
+            } catch (err) {
+                showStatus('status', `❌ Network error: ${err.message}`, 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Analyze Company';
+            }
+        });
+
+        // Clear URL error when user starts typing
+        document.getElementById('companyUrl').addEventListener('input', () => {
+            clearUrlError();
+        });
+
+        // Check auth on load
+        checkAuth();
+
+        // Auto-focus on URL field when in main section
+        const observer = new MutationObserver(() => {
+            if (document.getElementById('mainSection').style.display === 'block') {
+                document.getElementById('companyUrl').focus();
+            }
+        });
+        observer.observe(document.getElementById('mainSection'), { attributes: true });
+    </script>
+</body>
+</html>

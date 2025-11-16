@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Blueprint">
+    <title>Blueprint Job Status</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 100%;
+            padding: 40px 30px;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo h1 {
+            font-size: 32px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+
+        .logo p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .status-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+
+        .status-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .status-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .status-icon.processing {
+            background: #fff3cd;
+            color: #856404;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .status-icon.completed {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-icon.failed {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .status-text {
+            flex: 1;
+        }
+
+        .status-text h2 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 4px;
+        }
+
+        .status-text p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .company-url {
+            font-size: 14px;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 12px;
+            word-break: break-all;
+        }
+
+        .job-id {
+            font-size: 12px;
+            color: #999;
+            font-family: monospace;
+            margin-bottom: 16px;
+        }
+
+        .progress-message {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 16px;
+            padding: 12px;
+            background: white;
+            border-radius: 8px;
+            border-left: 3px solid #667eea;
+        }
+
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 16px;
+        }
+
+        .link-buttons {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .link-buttons button {
+            flex: 1;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .copy-btn {
+            background: #667eea;
+            color: white;
+        }
+
+        .open-btn {
+            background: #764ba2;
+            color: white;
+        }
+
+        .link-buttons button:active {
+            transform: scale(0.98);
+        }
+
+        .link-buttons button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .submit-another-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .submit-another-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .submit-another-btn:active {
+            transform: translateY(0);
+        }
+
+        .error-details {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            margin-bottom: 16px;
+            border-left: 3px solid #dc3545;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .footer p {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .playbook-url {
+            font-size: 12px;
+            color: #667eea;
+            word-break: break-all;
+            margin-bottom: 12px;
+            padding: 8px;
+            background: white;
+            border-radius: 6px;
+            font-family: monospace;
+        }
+
+        .copy-success {
+            font-size: 12px;
+            color: #155724;
+            text-align: center;
+            padding: 8px;
+            background: #d4edda;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            display: none;
+            animation: slideIn 0.3s ease;
+        }
+
+        .copy-success.show {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <h1>Blueprint Turbo</h1>
+            <p>Job Status Tracker</p>
+        </div>
+
+        <div class="status-card">
+            <div class="status-header">
+                <div id="statusIcon" class="status-icon processing">⏳</div>
+                <div class="status-text">
+                    <h2 id="statusTitle">Processing...</h2>
+                    <p id="statusSubtitle">Generating GTM intelligence</p>
+                </div>
+            </div>
+
+            <div class="company-url" id="companyUrl">Loading...</div>
+            <div class="job-id" id="jobId">Job ID: Loading...</div>
+
+            <!-- Processing state -->
+            <div id="processingState">
+                <div class="spinner"></div>
+                <div class="progress-message">
+                    Your Mac is running Blueprint Turbo. This typically takes 12-15 minutes. The page will automatically update when complete.
+                </div>
+            </div>
+
+            <!-- Completed state -->
+            <div id="completedState" style="display: none;">
+                <div id="copySuccess" class="copy-success">✓ Link copied to clipboard!</div>
+                <div class="playbook-url" id="playbookUrl"></div>
+                <div class="link-buttons">
+                    <button class="copy-btn" onclick="copyLink()">Copy Link</button>
+                    <button class="open-btn" onclick="openLink()">Open Link</button>
+                </div>
+            </div>
+
+            <!-- Failed state -->
+            <div id="failedState" style="display: none;">
+                <div class="error-details" id="errorMessage"></div>
+            </div>
+
+            <button class="submit-another-btn" onclick="submitAnother()">Submit Another</button>
+        </div>
+
+        <div class="footer">
+            <p id="lastUpdated">Last checked: Never</p>
+        </div>
+    </div>
+
+    <script>
+        const API_ENDPOINT = '/api/get-job-status';
+        const POLL_INTERVAL_MS = 30000; // 30 seconds
+
+        let jobId = null;
+        let playbookUrl = null;
+        let pollTimer = null;
+
+        // Get job ID from URL parameters
+        function getJobIdFromUrl() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('jobId');
+        }
+
+        // Format timestamp
+        function formatTime(date) {
+            return date.toLocaleTimeString('en-US', {
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            });
+        }
+
+        // Update last checked timestamp
+        function updateTimestamp() {
+            document.getElementById('lastUpdated').textContent = `Last checked: ${formatTime(new Date())}`;
+        }
+
+        // Fetch job status from API
+        async function fetchJobStatus() {
+            if (!jobId) return;
+
+            try {
+                const response = await fetch(`${API_ENDPOINT}?jobId=${jobId}`);
+                const data = await response.json();
+
+                updateTimestamp();
+
+                if (!response.ok || !data.success) {
+                    showError('Failed to fetch job status');
+                    return;
+                }
+
+                updateUI(data.job);
+
+            } catch (err) {
+                console.error('Error fetching job status:', err);
+                updateTimestamp();
+            }
+        }
+
+        // Update UI based on job status
+        function updateUI(job) {
+            const statusIcon = document.getElementById('statusIcon');
+            const statusTitle = document.getElementById('statusTitle');
+            const statusSubtitle = document.getElementById('statusSubtitle');
+            const companyUrl = document.getElementById('companyUrl');
+            const jobIdEl = document.getElementById('jobId');
+            const processingState = document.getElementById('processingState');
+            const completedState = document.getElementById('completedState');
+            const failedState = document.getElementById('failedState');
+
+            // Always update company URL and job ID
+            companyUrl.textContent = job.companyUrl;
+            jobIdEl.textContent = `Job ID: ${job.id}`;
+
+            if (job.status === 'pending') {
+                statusIcon.className = 'status-icon processing';
+                statusIcon.textContent = '⏳';
+                statusTitle.textContent = 'Queued';
+                statusSubtitle.textContent = 'Waiting for worker to pick up';
+                processingState.style.display = 'block';
+                completedState.style.display = 'none';
+                failedState.style.display = 'none';
+            } else if (job.status === 'processing') {
+                statusIcon.className = 'status-icon processing';
+                statusIcon.textContent = '⏳';
+                statusTitle.textContent = 'Processing';
+                statusSubtitle.textContent = 'Generating GTM intelligence';
+                processingState.style.display = 'block';
+                completedState.style.display = 'none';
+                failedState.style.display = 'none';
+            } else if (job.status === 'completed') {
+                statusIcon.className = 'status-icon completed';
+                statusIcon.textContent = '✓';
+                statusTitle.textContent = 'Completed!';
+                statusSubtitle.textContent = 'Playbook ready';
+                processingState.style.display = 'none';
+                completedState.style.display = 'block';
+                failedState.style.display = 'none';
+
+                if (job.playbookUrl) {
+                    playbookUrl = job.playbookUrl;
+                    document.getElementById('playbookUrl').textContent = playbookUrl;
+                } else {
+                    document.getElementById('playbookUrl').textContent = 'Playbook URL not available';
+                }
+
+                // Stop polling when completed
+                if (pollTimer) {
+                    clearInterval(pollTimer);
+                    pollTimer = null;
+                }
+            } else if (job.status === 'failed') {
+                statusIcon.className = 'status-icon failed';
+                statusIcon.textContent = '✗';
+                statusTitle.textContent = 'Failed';
+                statusSubtitle.textContent = 'Job encountered an error';
+                processingState.style.display = 'none';
+                completedState.style.display = 'none';
+                failedState.style.display = 'block';
+
+                const errorMessage = document.getElementById('errorMessage');
+                errorMessage.textContent = job.errorMessage || 'Unknown error occurred';
+
+                // Stop polling when failed
+                if (pollTimer) {
+                    clearInterval(pollTimer);
+                    pollTimer = null;
+                }
+            }
+        }
+
+        // Show error state
+        function showError(message) {
+            const statusIcon = document.getElementById('statusIcon');
+            const statusTitle = document.getElementById('statusTitle');
+            const statusSubtitle = document.getElementById('statusSubtitle');
+
+            statusIcon.className = 'status-icon failed';
+            statusIcon.textContent = '✗';
+            statusTitle.textContent = 'Error';
+            statusSubtitle.textContent = message;
+
+            document.getElementById('processingState').style.display = 'none';
+            document.getElementById('completedState').style.display = 'none';
+            document.getElementById('failedState').style.display = 'block';
+            document.getElementById('errorMessage').textContent = message;
+
+            // Stop polling on error
+            if (pollTimer) {
+                clearInterval(pollTimer);
+                pollTimer = null;
+            }
+        }
+
+        // Copy link to clipboard
+        async function copyLink() {
+            if (!playbookUrl) return;
+
+            try {
+                await navigator.clipboard.writeText(playbookUrl);
+                const successEl = document.getElementById('copySuccess');
+                successEl.classList.add('show');
+                setTimeout(() => {
+                    successEl.classList.remove('show');
+                }, 3000);
+            } catch (err) {
+                alert('Failed to copy link');
+            }
+        }
+
+        // Open link in new tab
+        function openLink() {
+            if (!playbookUrl) return;
+            window.open(playbookUrl, '_blank');
+        }
+
+        // Submit another company
+        function submitAnother() {
+            window.location.href = '/';
+        }
+
+        // Initialize on page load
+        function init() {
+            jobId = getJobIdFromUrl();
+
+            if (!jobId) {
+                showError('No job ID provided in URL');
+                return;
+            }
+
+            // Initial fetch
+            fetchJobStatus();
+
+            // Set up polling every 30 seconds
+            pollTimer = setInterval(fetchJobStatus, POLL_INTERVAL_MS);
+        }
+
+        // Start when page loads
+        init();
+    </script>
+</body>
+</html>

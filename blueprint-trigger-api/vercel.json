@@ -1,0 +1,12 @@
+{
+  "env": {
+    "SUPABASE_URL": "https://hvuwlhdaswixbkglnrxu.supabase.co",
+    "SUPABASE_ANON_KEY": "sb_publishable_Ks2Nsh9bpNHgqo5CYx5kiA_Y2INUzdp"
+  },
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/public/index.html"
+    }
+  ]
+}

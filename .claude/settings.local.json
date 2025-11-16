@@ -41,7 +41,18 @@
       "WebFetch(domain:ocrportal.hhs.gov)",
       "WebFetch(domain:www.mimilabs.ai)",
       "Bash(ln:*)",
-      "Bash(git init:*)"
+      "Bash(git init:*)",
+      "Bash(git push:*)",
+      "Bash",
+      "mcp__browser-mcp__*",
+      "mcp__apify__*",
+      "mcp__supabase__*",
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "Task"
     ],
     "deny": [],
     "ask": []
