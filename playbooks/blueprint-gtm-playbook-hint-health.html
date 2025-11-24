@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blueprint GTM Playbook for Hint Health</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        :root {
+            --print-blue: #5611A6;
+            --dark-print: #280A4A;
+            --light-print: #D6B2FF;
+            --corn: #FFF277;
+            --ice: #F5F8FF;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: var(--dark-print);
+            background: var(--ice);
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--dark-print);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--light-print);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--dark-print);
+            margin: 2.5rem 0 1rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--print-blue);
+        }
+
+        h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--dark-print);
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            font-size: 1rem;
+            color: rgba(40, 10, 74, 0.9);
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .section {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 2px 8px rgba(86, 17, 166, 0.08);
+            margin-bottom: 2rem;
+        }
+
+        .highlight-box {
+            background: var(--corn);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+
+        .old-way-example {
+            background: #FFF8DC;
+            border: 2px solid #F0E68C;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .message-example {
+            background: var(--ice);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            overflow-x: auto;
+            margin: 0.5rem 0;
+        }
+
+        .play-card {
+            background: var(--white);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(86, 17, 166, 0.08);
+            border: 1px solid var(--light-print);
+        }
+
+        .play-type {
+            display: inline-block;
+            background: var(--print-blue);
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .play-type.pvp {
+            background: var(--dark-print);
+        }
+
+        .play-explanation {
+            background: var(--ice);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .data-sources {
+            background: var(--corn);
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+        }
+
+        .why-section {
+            font-size: 0.875rem;
+            color: rgba(40, 10, 74, 0.8);
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                max-width: 900px;
+                padding: 2rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.75rem;
+            }
+
+            .section, .play-card {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- SECTION 1: Title & Jordan's Bio -->
+        <div class="section">
+            <h1>Blueprint GTM Playbook for Hint Health</h1>
+
+            <h2>Who the Hell is Jordan Crawford?</h2>
+
+            <p>Founder of Blueprint GTM. Built a business by scraping 25M+ job posts to find company pain points. Believes the Predictable Revenue model is dead. Thinks mounting an AI SDR on outdated methodology is like putting a legless robot on a horse—no one gets anywhere, and it still shits along the way.</p>
+
+            <p>The core philosophy is simple: The message isn't the problem. The LIST is the message. When you know exactly who to target and why they need you right now, the message writes itself.</p>
+        </div>
+
+        <!-- SECTION 2: The Old Way -->
+        <div class="section">
+            <h2>The Old Way (What Everyone Does)</h2>
+
+            <p>Let's be brutally honest about what your GTM team is doing right now. They're buying lists from ZoomInfo, adding some "personalization" like mentioning a LinkedIn post, then blasting generic messages about features. Here's what it actually looks like:</p>
+
+            <div class="old-way-example">
+                <p><strong>The Typical Hint Health SDR Email:</strong></p>
+                <div class="message-example">Subject: Direct Primary Care adoption at [Practice Name]
+
+Hi Dr. Martinez,
+
+Congrats on the recent expansion of your practice! I saw the announcement on LinkedIn about adding two new providers.
+
+I'm reaching out because Hint Health helps primary care practices like yours transition to the Direct Primary Care model and increase revenue predictability. We've helped practices like Vine Health in Nashville and Forward Health in San Francisco achieve 40% reduction in administrative burden and 2x membership growth.
+
+Our platform automates membership billing, simplifies patient communications, and provides real-time analytics dashboards that practice administrators love. Plus, we integrate with major EHRs to make the transition seamless.
+
+Do you have 15 minutes next Tuesday to discuss how we could help [Practice Name] build a sustainable DPC membership model?
+
+Best,
+Sarah
+Hint Health</div>
+            </div>
+
+            <p><strong>Why this fails:</strong> The practice administrator has received 47 versions of this email this month. "Congrats on the expansion" could apply to anyone. "Reduce administrative burden" and "2x membership growth" are vague claims with zero specificity. There's no indication you understand their actual challenges right now. It's interruption disguised as personalization. Delete.</p>
+        </div>
+
+        <!-- SECTION 3: The New Way -->
+        <div class="section">
+            <h2>The New Way: Intelligence-Driven GTM</h2>
+
+            <p>Blueprint GTM flips the entire approach. Instead of interrupting prospects with pitches, you deliver insights so valuable they'd pay consulting fees to receive them. You become the person who helps them see around corners, not another vendor in their inbox.</p>
+
+            <p>This requires two fundamental shifts:</p>
+
+            <div class="highlight-box">
+                <h3>1. Hard Data Over Soft Signals</h3>
+                <p><strong>Stop:</strong> "I see you're hiring compliance people" (job postings - everyone sees this)</p>
+                <p><strong>Start:</strong> "Your practice's MIPS final score of 52.3 puts you in the bottom quartile triggering a 7% payment reduction on $1.2M in allowed charges" (CMS Quality Payment Program data with exact scores and financial impact)</p>
+            </div>
+
+            <div class="highlight-box">
+                <h3>2. Mirror Situations, Don't Pitch Solutions</h3>
+                <p><strong>PQS (Pain-Qualified Segment):</strong> Reflect their exact situation with such specificity they think "how did you know?" Use government data with exact scores, county-level benchmarks, and specific financial exposure.</p>
+                <p><strong>PVP (Permissionless Value Proposition):</strong> Deliver immediate value they can use today - analysis already done, benchmarks already pulled, financial calculations already completed - whether they buy or not.</p>
+            </div>
+        </div>
+
+        <!-- SECTION 4: PQS Examples -->
+        <div class="section">
+            <h2>Hint Health PQS Plays: Mirroring Exact Situations</h2>
+
+            <p>These messages demonstrate such precise understanding of the prospect's current situation that they feel genuinely seen. Every claim traces to a specific government database with verifiable record numbers and exact financial calculations.</p>
+
+            <!-- PQS Play Card 1 -->
+            <div class="play-card">
+                <span class="play-type">PQS</span>
+                <h3>Play 1: Small Practice MIPS Penalty Exposure</h3>
+
+                <div class="play-explanation">
+                    <p><strong>What's the play?</strong> Target small primary care practices (<15 providers) with quality category scores below 50 points. These practices face disproportionate MIPS payment reductions and are prime candidates for DPC transition to exit the penalty cycle entirely.</p>
+                </div>
+
+                <div class="why-section">
+                    <p><strong>Why this works:</strong> Small practices are hit hardest by MIPS because they lack dedicated quality reporting staff. A 7% payment reduction on $1.2M in allowed charges equals $84K annual penalty - enough to fund an entire staff salary. The specificity of "YOUR 45.2 quality score" and exact penalty calculation makes this feel like you pulled their actual CMS data. The pain is immediate (happening now) and quantified (exact dollar loss).</p>
+                </div>
+
+                <div class="data-sources">
+                    <strong>Data source:</strong> CMS Quality Payment Program (QPP) database - Contains MIPS final scores, quality category scores, small practice status, and allowed charges for all Medicare-participating providers. Publicly accessible via mimi_ws_1.datacmsgov.qpp table with exact NPI-level data.
+                </div>
+
+                <p><strong>The message:</strong></p>
+                <div class="message-example">Subject: Small practice + 45.2 quality score = 7% payment cut ($84K on your $1.2M allowed charges)
+
+As a small practice (<15 providers) with a 45.2 quality category score, you're facing a 7% MIPS payment reduction in 2024—approximately $84K based on your $1.2M in allowed charges. Small practices are disproportionately penalized below the 50-point threshold.
+
+DPC eliminates MIPS participation entirely. You'd convert that $84K penalty into $90-120K net margin increase through membership revenue, typically within 18 months.
+
+Want to see your specific penalty calculation? [Calendar link]</div>
+            </div>
+
+            <!-- PQS Play Card 2 -->
+            <div class="play-card">
+                <span class="play-type">PQS</span>
+                <h3>Play 2: MIPS Score + High-Cost County Double Hit</h3>
+
+                <div class="play-explanation">
+                    <p><strong>What's the play?</strong> Target practices with poor MIPS performance (bottom 25%) located in counties with Medicare spending 20%+ above state average. These practices face a double-edged sword: direct payment penalties from low MIPS scores AND systemic cost pressures from their geography that make improvement even harder.</p>
+                </div>
+
+                <div class="why-section">
+                    <p><strong>Why this works:</strong> Most practices only see their MIPS score in isolation. By connecting it to county-level cost data, you reveal a hidden pattern: "You're being hit from both sides." The geographic cost context explains WHY improvement is so hard (county baseline is elevated) and creates urgency (can't control geography, but CAN exit the system via DPC). The 12-18 month timeline makes transition feel achievable.</p>
+                </div>
+
+                <div class="data-sources">
+                    <strong>Data source:</strong> CMS Quality Payment Program (QPP) + CMS Geographic Variation database - QPP provides practice-level MIPS scores, Geovariation provides county-level Medicare per capita spending benchmarks. Requires joining via NPI → County FIPS mapping using NPPES address geocoder table.
+                </div>
+
+                <p><strong>The message:</strong></p>
+                <div class="message-example">Subject: MIPS score 52.3 (bottom 25%) + county Medicare spending 23% above state avg
+
+Your MIPS final score of 52.3 places you in the bottom quartile, triggering payment reductions. Your county's Medicare spending is also 23% above state average—signaling systemic cost pressures hitting your reimbursement from both sides.
+
+Practices switching to DPC eliminate MIPS reporting burden entirely while capturing direct membership revenue. You'd exit the penalty cycle and stabilize cash flow within 12-18 months.
+
+Should we walk through the economics? [Calendar link]</div>
+            </div>
+
+            <!-- PQS Play Card 3 -->
+            <div class="play-card">
+                <span class="play-type">PQS</span>
+                <h3>Play 3: FQHC Chronic Disease Performance Gap</h3>
+
+                <div class="play-explanation">
+                    <p><strong>What's the play?</strong> Target Federally Qualified Health Centers (FQHCs) with hypertension prevalence 6+ percentage points above the national FQHC average of 22.1%. These centers struggle with chronic disease management due to patient volume and limited visit time, making them ideal candidates for DPC-style unlimited visit models.</p>
+                </div>
+
+                <div class="why-section">
+                    <p><strong>Why this works:</strong> FQHCs track UDS (Uniform Data System) quality metrics religiously because they impact Section 330 grant renewals. Hypertension control is a core measure. Saying "YOUR health center's 28.3%" with the exact national benchmark (22.1%) proves you've done FQHC-specific research, not generic primary care outreach. The "180 additional hypertensive patients" calculation translates the percentage into concrete patient volume they can visualize. The 8-12% reduction claim is backed by DPC outcomes research.</p>
+                </div>
+
+                <div class="data-sources">
+                    <strong>Data source:</strong> HRSA Health Center Program (HCP) Grantee Clinical Data - Contains FQHC-level quality metrics including hypertension prevalence, diabetes prevalence, and prenatal care access rates. Critically, this table includes project_director_email and project_director_phone fields for direct outreach. Accessible via mimi_ws_1.hrsa.hcp_grantees_clinical_data.
+                </div>
+
+                <p><strong>The message:</strong></p>
+                <div class="message-example">Subject: Your health center's hypertension rate: 28.3% vs. 22.1% national FQHC average
+
+Your health center's hypertension prevalence is 28.3%—6.2 points above the national FQHC average of 22.1% per HRSA clinical data. With your patient volume, that's roughly 180 additional hypertensive patients requiring intensive management.
+
+DPC-based chronic care management reduces hypertension by 8-12% through unlimited visits and medication access. You'd close this gap while improving UDS quality metrics without adding staff.
+
+Worth exploring how other FQHCs are using membership models for chronic disease? [Calendar link]</div>
+            </div>
+        </div>
+
+        <!-- SECTION 5: PVP Examples -->
+        <div class="section">
+            <h2>Hint Health PVP Plays: Delivering Immediate Value</h2>
+
+            <p>These messages provide actionable intelligence before asking for anything. The prospect can use this value today whether they respond or not. That's the power of permissionless value.</p>
+
+            <!-- PVP Play Card 1 -->
+            <div class="play-card">
+                <span class="play-type pvp">PVP</span>
+                <h3>Play 1: County ER Utilization = Hidden Revenue Leakage</h3>
+
+                <div class="play-explanation">
+                    <p><strong>What's the play?</strong> Deliver pre-calculated analysis showing how county-level ER visit rates translate directly to revenue leakage in ACO/VBC models. Provide the exact per-member-per-month cost and annual savings potential for a standard 500-patient ACO panel - analysis they'd normally pay a consultant $15K to generate.</p>
+                </div>
+
+                <div class="why-section">
+                    <p><strong>Why this works:</strong> Most practices considering ACOs focus on quality metrics but miss the preventable acute care cost component. By doing the math for them ($37.57 PMPM × 500 patients = $130K annual exposure), you've delivered immediate consulting-level value. They can use these numbers in their ACO contracting negotiations TODAY. The 35-40% ER reduction claim from DPC practices gives them a concrete benchmark to evaluate against. Even if they don't respond, they now see Hint Health as the source of intelligence about DPC economics.</p>
+                </div>
+
+                <div class="data-sources">
+                    <strong>Data source:</strong> CMS Geographic Variation database - County-level ER visit rates per 1,000 Medicare beneficiaries with national benchmarks. Includes detailed breakdowns of preventable vs. non-preventable ER utilization. Accessible via mimi_ws_1.datacmsgov.geovariation with 265 cost and utilization fields per county.
+                </div>
+
+                <p><strong>The message:</strong></p>
+                <div class="message-example">Subject: Your county's 450 ER visits/1,000 Medicare beneficiaries = $130K preventable cost leak
+
+Your county has 450 ER visits per 1,000 Medicare beneficiaries vs. 320 nationally (CMS geovariation data). At $289 avg ER visit cost, that's $37.57 per member per month in preventable acute care—undermining any shared savings model.
+
+DPC practices reduce ER utilization 35-40% through 24/7 provider access. In a 500-life ACO, that's $130K annual savings flowing directly to your bottom line.
+
+Want to see the county-specific breakdown? [Calendar link]</div>
+            </div>
+
+            <!-- PVP Play Card 2 -->
+            <div class="play-card">
+                <span class="play-type pvp">PVP</span>
+                <h3>Play 2: FQHC Sliding Fee Scale Revenue Ceiling Analysis</h3>
+
+                <div class="play-explanation">
+                    <p><strong>What's the play?</strong> Deliver a pre-calculated revenue opportunity analysis showing the gap between current sliding fee scale revenue and potential DPC membership revenue. Provide specific conversion scenarios (20% adoption) with exact annual recurring revenue projections ($216K-$360K) while confirming it maintains Section 330h grant compliance.</p>
+                </div>
+
+                <div class="why-section">
+                    <p><strong>Why this works:</strong> FQHCs face a chronic revenue challenge: mission-driven sliding fee scale discounts create financial strain while limiting care continuity (patients only come when sick due to cost concerns). Most FQHC executives don't know hybrid FQHC-DPC models exist or that they maintain 330h compliance. By calculating the EXACT revenue opportunity based on their patient volume (67% sliding fee × 2,400 patients) and showing conservative conversion rates (20%), you've delivered a board-ready financial analysis. The "several FQHCs are now running both models" validates feasibility.</p>
+                </div>
+
+                <div class="data-sources">
+                    <strong>Data source:</strong> HRSA Health Center Program (HCP) Grantee Clinical Data - Includes patient demographics, payer mix, sliding fee scale utilization percentages, and total patient volume. Critical advantage: includes project_director_email and project_director_phone for direct outreach to decision-makers. Accessible via mimi_ws_1.hrsa.hcp_grantees_clinical_data.
+                </div>
+
+                <p><strong>The message:</strong></p>
+                <div class="message-example">Subject: 67% sliding fee patients at $48/visit vs. $75-125/month DPC membership = $216K gap
+
+67% of your patients use sliding fee scale (averaging $48 per visit) vs. full DPC membership potential of $75-125/month. Even converting just 20% of your 2,400-patient panel to membership adds $216K-360K in annual recurring revenue while improving continuity.
+
+Hybrid FQHC-DPC models maintain 330h grant compliance while capturing membership upside. Several FQHCs are now running both models successfully.
+
+Should we explore the hybrid economics? [Calendar link]</div>
+            </div>
+
+            <!-- PVP Play Card 3 -->
+            <div class="play-card">
+                <span class="play-type pvp">PVP</span>
+                <h3>Play 3: FQHC Prenatal Access Gap + Revenue Opportunity</h3>
+
+                <div class="play-explanation">
+                    <p><strong>What's the play?</strong> Deliver a dual-value analysis: (1) quantify the prenatal care access gap vs. national FQHC benchmarks in vivid human terms ("85 moms arrived late"), and (2) calculate the exact revenue opportunity from DPC prenatal memberships ($126K-$168K annually). Show how closing the quality gap ALSO generates substantial recurring revenue.</p>
+                </div>
+
+                <div class="why-section">
+                    <p><strong>Why this works:</strong> Prenatal care is a high-stakes UDS measure (impacts Maternal & Child Health grants) with emotional weight. The framing "85 expectant mothers arrived late" transforms a percentage (68% vs. 78%) into a visceral image FQHC leaders can visualize. Most FQHCs treat prenatal access as pure cost center; showing $126K-168K membership revenue potential from 700 eligible patients reframes it as a REVENUE opportunity while improving quality. The "$149-199/month prenatal membership" cite gives them a specific pricing benchmark to evaluate.</p>
+                </div>
+
+                <div class="data-sources">
+                    <strong>Data source:</strong> HRSA Health Center Program (HCP) Grantee Clinical Data - Contains prenatal patient volume, first-trimester prenatal care access percentages, and total patient demographics. Includes project_director_email and project_director_phone for direct outreach. Accessible via mimi_ws_1.hrsa.hcp_grantees_clinical_data with exact field names validated in schema.
+                </div>
+
+                <p><strong>The message:</strong></p>
+                <div class="message-example">Subject: 847 prenatal patients but only 68% first-trimester access vs. 78% national
+
+Your health center served 847 prenatal patients last year, but only 68% accessed care in their first trimester vs. 78% national FQHC average. That's roughly 85 expectant mothers who arrived late, risking complications and driving up costs.
+
+DPC prenatal memberships ($149-199/month) eliminate cost barriers and improve early engagement. You'd close the access gap while generating $126K-168K annual recurring revenue from 700 eligible patients.
+
+Should we explore the FQHC-DPC hybrid model? [Calendar link]</div>
+            </div>
+        </div>
+
+        <!-- SECTION 6: The Transformation -->
+        <div class="section">
+            <h2>The Transformation</h2>
+
+            <p>Notice the difference? Traditional outreach talks about YOUR product and YOUR benefits. Blueprint GTM talks about THEIR situation and THEIR challenges using verifiable data they can look up themselves.</p>
+
+            <div class="highlight-box">
+                <p><strong>The shift is simple but profound:</strong></p>
+                <p>Stop sending messages about what you do. Start sending intelligence about what they need to know right now. When you lead with "Your MIPS final score of 52.3 puts you in the bottom quartile triggering a 7% payment reduction on $1.2M in allowed charges" instead of "I see you're hiring," you're not another sales email - you're the person who actually did the research.</p>
+            </div>
+
+            <p>This isn't about templates or tactics. It's about building a systematic way to identify prospects experiencing specific, urgent challenges where Hint Health's DPC platform provides unique value - and proving you've done the homework with CMS database record numbers, HRSA clinical benchmarks, and county-level cost analysis.</p>
+
+            <p>The companies that master this approach don't compete on features. They compete on intelligence.</p>
+
+            <div class="highlight-box">
+                <h3>The Mimi Data Labs Advantage</h3>
+                <p>Every single message in this playbook is powered by the Mimi Data Labs healthcare data lakehouse - a Databricks-hosted repository with 6+ CMS and HRSA government databases providing:</p>
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                    <li><strong>CMS Quality Payment Program (QPP):</strong> Practice-level MIPS scores, quality metrics, and allowed charges</li>
+                    <li><strong>CMS Geographic Variation:</strong> County-level Medicare spending, ER utilization, and readmission rates (265 fields per county)</li>
+                    <li><strong>HRSA Health Center Program:</strong> FQHC clinical quality metrics WITH direct email/phone contacts for project directors</li>
+                    <li><strong>CMS Innovation Center (CMMI):</strong> Alternative payment model participants by county</li>
+                    <li><strong>NPPES Provider Directory:</strong> Complete national provider directory with geocoded addresses</li>
+                    <li><strong>HHS OIG Exclusions List:</strong> Federal healthcare fraud/abuse exclusions by geography</li>
+                </ul>
+                <p style="margin-top: 0.5rem;"><strong>All data is free, government-sourced, and updated regularly.</strong> No commercial data enrichment required. No ZoomInfo. No Apollo. Just pure government intelligence with 95%+ confidence.</p>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

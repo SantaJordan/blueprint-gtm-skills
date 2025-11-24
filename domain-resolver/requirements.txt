@@ -1,0 +1,22 @@
+# Core dependencies
+aiohttp==3.9.1
+asyncio==3.4.3
+pandas==2.1.4
+tqdm==4.66.1
+
+# Domain/URL parsing
+tldextract==5.1.1
+dnspython==2.4.2
+
+# Fuzzy matching
+rapidfuzz==3.5.2
+
+# Web scraping
+trafilatura==1.6.3
+requests==2.31.0
+
+# YAML config
+pyyaml==6.0.1
+
+# HTTP client for Ollama
+httpx==0.25.2

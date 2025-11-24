@@ -13,6 +13,21 @@ Execute the complete Blueprint GTM methodology in **12-15 minutes** during a sal
 /blueprint-turbo <company-url>
 ```
 
+**Optional Parameter:**
+```
+deepPVP: boolean (default: false)
+```
+
+Set `deepPVP: true` to invoke the deep PVP generation agent for Gold Standard 8.0+ PVPs (adds 5-10 minutes).
+
+**Example with deep PVP:**
+```
+/blueprint-turbo <company-url>
+deepPVP: true
+```
+
+**Note:** Turbo now uses modular architecture. Wave 1, Wave 2, and Synthesis logic are available as standalone modules in `.claude/skills/blueprint-turbo/modules/` for reuse by other skills (like blueprint-pvp-deep).
+
 ## Overview
 
 This command orchestrates 4 waves of parallel execution:
@@ -323,9 +338,30 @@ OUTPUT: 2-3 pain segment hypotheses with:
 
 ---
 
-### WAVE 3: Message Generation + Buyer Critique (9-13 min)
+### WAVE 3: Message Generation + Buyer Critique (9-13 min OR 14-24 min with deepPVP)
 
 **Objective:** Generate and validate 2 PQS + 2 PVP messages (≥7.0/10 for Strong PQS, ≥8.5/10 for TRUE PVP)
+
+**IMPORTANT:** Check for deepPVP parameter at start of Wave 3:
+
+```
+IF deepPVP parameter = true:
+  → Invoke: Skill(skill: "blueprint-pvp-deep")
+  → Pass context: Company (Wave 1), ICP/Persona (Wave 1), Data Landscape (Wave 2), Pain Segments (Synthesis)
+  → Deep PVP agent will:
+    - Validate context quality
+    - Generate 8-12 synthesis insights using Sequential Thinking
+    - Draft 8-12 PVP concepts + messages
+    - Evaluate each from buyer perspective (8.0+ threshold)
+    - Select top 5 Gold Standard PVPs
+    - Validate data feasibility
+    - Return results (10-17 minutes)
+  → Skip standard Wave 3 logic below
+  → Proceed directly to Wave 4 with deep PVP results
+
+ELSE (deepPVP = false OR not specified):
+  → Continue with standard Wave 3 message generation below (current fast process)
+```
 
 **Phase A: Message Generation + Calculation Worksheets**
 
@@ -1013,16 +1049,7 @@ git push $REMOTE_NAME main 2>/dev/null || git push $REMOTE_NAME master 2>/dev/nu
 - If git commit fails (e.g., nothing to commit) → That's OK, continue (file was already committed in initial setup)
 - If git push fails → Output error, but still generate and show the URL (might already be published)
 
-**Step 5: Wait for Deployment**
-
-After successful push, wait for GitHub Pages to deploy (much faster with .nojekyll):
-
-```bash
-# Wait 15 seconds for GitHub Pages deployment (no Jekyll processing)
-sleep 15
-```
-
-**Step 6: Generate GitHub Pages URL**
+**Step 5: Generate GitHub Pages URL**
 
 Construct the URL:
 ```
@@ -1034,9 +1061,43 @@ Example:
 https://santajordan.github.io/blueprint-gtm-playbooks/blueprint-gtm-playbook-mirrorweb.html
 ```
 
-**Step 7: Output Final Results**
+**Step 6: Verify Deployment with Retries**
 
-**Success Case (git operations succeeded):**
+**CRITICAL:** Do not report success until the URL is verified to be accessible. Use HTTP requests with retries to confirm GitHub Pages has deployed the file.
+
+```bash
+# Verify deployment with retries
+VERIFY_ATTEMPTS=0
+MAX_VERIFY_ATTEMPTS=4
+VERIFY_SUCCESS=false
+
+while [ $VERIFY_ATTEMPTS -lt $MAX_VERIFY_ATTEMPTS ]; do
+  # Calculate wait time: 5s, 10s, 15s, 20s (total max ~50s)
+  WAIT_TIME=$(( 5 + (VERIFY_ATTEMPTS * 5) ))
+  sleep $WAIT_TIME
+
+  # Check if URL returns 200
+  HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$PAGES_URL" --max-time 5 2>/dev/null || echo "000")
+
+  if [ "$HTTP_STATUS" = "200" ]; then
+    VERIFY_SUCCESS=true
+    break
+  fi
+
+  VERIFY_ATTEMPTS=$((VERIFY_ATTEMPTS + 1))
+done
+```
+
+**Verification Logic:**
+- Attempt 1: Wait 5s, check URL
+- Attempt 2: Wait 10s, check URL
+- Attempt 3: Wait 15s, check URL
+- Attempt 4: Wait 20s, check URL
+- Total maximum wait: ~50 seconds (covers even slow deployments)
+
+**Step 7: Output Final Results Based on Verification**
+
+**Verified Success Case (URL returns 200):**
 ```
 ✅ Wave 4/4: HTML playbook published!
 
@@ -1045,11 +1106,26 @@ https://santajordan.github.io/blueprint-gtm-playbooks/blueprint-gtm-playbook-mir
 
 💾 Local file: [filename]
 
-Note: GitHub Pages deployment completes in ~10-15 seconds (.nojekyll bypasses Jekyll).
-If URL doesn't load, wait another 10 seconds and refresh.
+✅ GitHub Pages deployment verified (URL is live and accessible)
 ```
 
-**Failure Case (git operations failed):**
+**Deployment In Progress Case (verification timed out but git push succeeded):**
+```
+✅ Wave 4/4: HTML playbook published to GitHub!
+
+📎 Shareable URL:
+   https://[username].github.io/[repo-name]/[filename]
+
+💾 Local file: [filename]
+
+⏳ GitHub Pages deployment still in progress...
+   - The file is safely committed to GitHub (not lost)
+   - Wait 30-60 seconds, then refresh the URL
+   - Under heavy load, GitHub Pages can take up to 2 minutes
+   - To check status: curl -I [URL]
+```
+
+**Git Push Failure Case:**
 ```
 ✅ Wave 4/4: HTML playbook generated!
 
@@ -1062,10 +1138,10 @@ If URL doesn't load, wait another 10 seconds and refresh.
 **Wave 4.5 Output:**
 - HTML file committed to git repository
 - Changes pushed to GitHub
-- GitHub Pages URL generated and displayed
-- User has instant shareable link
+- GitHub Pages URL verified with HTTP request (or timeout warning provided)
+- User gets confirmed-working URL or clear guidance on what to do
 
-**Progress Hook:** See Step 5 above for dynamic output based on success/failure
+**Progress Hook:** Dynamic output based on verification status - either confirmed live or with clear next steps
 
 ---
 
