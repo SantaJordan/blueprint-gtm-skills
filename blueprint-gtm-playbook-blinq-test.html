@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blueprint GTM Playbook for Blinq</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        :root {
+            --print-blue: #5611A6;
+            --dark-print: #280A4A;
+            --light-print: #D6B2FF;
+            --corn: #FFF277;
+            --ice: #F5F8FF;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: var(--dark-print);
+            background: var(--ice);
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--dark-print);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--light-print);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--dark-print);
+            margin: 2.5rem 0 1rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--print-blue);
+        }
+
+        h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--dark-print);
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            font-size: 1rem;
+            color: rgba(40, 10, 74, 0.9);
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .section {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 2px 8px rgba(86, 17, 166, 0.08);
+            margin-bottom: 2rem;
+        }
+
+        .highlight-box {
+            background: var(--corn);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+
+        .success-box {
+            background: #d4edda;
+            border: 2px solid #28a745;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .rejected-box {
+            background: #f8d7da;
+            border: 2px solid #dc3545;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .old-way-example {
+            background: #FFF8DC;
+            border: 2px solid #F0E68C;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .message-example {
+            background: var(--ice);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            overflow-x: auto;
+            margin: 0.5rem 0;
+        }
+
+        .play-card {
+            background: var(--white);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(86, 17, 166, 0.08);
+            border: 1px solid var(--light-print);
+        }
+
+        .play-type {
+            display: inline-block;
+            background: var(--print-blue);
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .play-type.pvp {
+            background: var(--dark-print);
+        }
+
+        .play-type.situation {
+            background: #17a2b8;
+        }
+
+        .play-explanation {
+            background: var(--ice);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .data-sources {
+            background: var(--corn);
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+        }
+
+        .why-section {
+            font-size: 0.875rem;
+            color: rgba(40, 10, 74, 0.8);
+            margin-bottom: 1rem;
+        }
+
+        .gate-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.875rem;
+        }
+
+        .gate-table th, .gate-table td {
+            border: 1px solid var(--light-print);
+            padding: 0.5rem;
+            text-align: left;
+        }
+
+        .gate-table th {
+            background: var(--ice);
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                max-width: 900px;
+                padding: 2rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.75rem;
+            }
+
+            .section, .play-card {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- SECTION 1: Title & Jordan's Bio -->
+        <div class="section">
+            <h1>Blueprint GTM Playbook for Blinq</h1>
+
+            <h2>Who the Hell is Jordan Crawford?</h2>
+
+            <p>Founder of Blueprint GTM. Built a business by scraping 25M+ job posts to find company pain points. Believes the Predictable Revenue model is dead. Thinks mounting an AI SDR on outdated methodology is like putting a legless robot on a horse—no one gets anywhere, and it still shits along the way.</p>
+
+            <p>The core philosophy is simple: The message isn't the problem. The LIST is the message. When you know exactly who to target and why they need you right now, the message writes itself.</p>
+        </div>
+
+        <!-- SECTION 2: Product-Fit Analysis (NEW) -->
+        <div class="section">
+            <h2>Product-Fit Analysis: Why This Playbook is Different</h2>
+
+            <p><strong>Blinq sells digital business cards.</strong> This is a horizontal product—it serves any business, not specific regulated industries. The old approach would have found data-rich niches like insurance agents (NIPR database) and generated messages about CE deadlines and license cascades.</p>
+
+            <div class="rejected-box">
+                <h3>What We REJECTED (Gate 5 Failure)</h3>
+                <table class="gate-table">
+                    <tr>
+                        <th>Niche</th>
+                        <th>Data Score</th>
+                        <th>Product-Fit (C5)</th>
+                        <th>Verdict</th>
+                    </tr>
+                    <tr>
+                        <td>Insurance Agents (NIPR)</td>
+                        <td>34/40</td>
+                        <td>2/10</td>
+                        <td>REJECT - Cards don't solve CE compliance</td>
+                    </tr>
+                    <tr>
+                        <td>Real Estate Agents</td>
+                        <td>29/40</td>
+                        <td>2/10</td>
+                        <td>REJECT - Cards don't solve license renewals</td>
+                    </tr>
+                </table>
+                <p><strong>The old system would have generated messages like:</strong> "Your CE deadline is in 45 days and you have 14 licenses across 3 states..."</p>
+                <p><strong>Problem:</strong> Digital business cards don't solve CE compliance. Excellent data, zero product-fit.</p>
+            </div>
+
+            <div class="success-box">
+                <h3>What We GENERATED Instead (Gate 5 Pass)</h3>
+                <p>We pivoted to <strong>situation-based plays</strong> that connect DATA → SITUATION → PAIN → PRODUCT:</p>
+                <ul>
+                    <li><strong>Rebrand Transition:</strong> Companies that just rebranded have obsolete printed cards → Digital cards update instantly</li>
+                    <li><strong>Rapid Onboarding Scale:</strong> Companies hiring fast can't provision cards fast enough → Digital cards deploy in 2 minutes</li>
+                </ul>
+                <p>These segments pass Gate 5 because <strong>digital business cards ARE the direct solution</strong> to these timing problems.</p>
+            </div>
+        </div>
+
+        <!-- SECTION 3: The Old Way -->
+        <div class="section">
+            <h2>The Old Way (What Everyone Does)</h2>
+
+            <p>Let's be brutally honest about what your GTM team is doing right now. They're buying lists from ZoomInfo, adding some "personalization" like mentioning a LinkedIn post, then blasting generic messages about features. Here's what it actually looks like:</p>
+
+            <div class="old-way-example">
+                <p><strong>The Typical Blinq SDR Email:</strong></p>
+                <div class="message-example">Subject: Quick Question about [Company Name]
+
+Hi [First Name],
+
+I noticed on LinkedIn that [Company Name] recently expanded your sales team. Congrats on the growth!
+
+I wanted to reach out because we work with companies like Hilton and McKinsey to help sales teams share contact information more efficiently.
+
+Blinq offers digital business cards that let you share your info via QR code, NFC, or Apple Wallet. We've helped companies save 50% on printing costs.
+
+Would you have 15 minutes next week to explore how we might be able to help [Company Name]?
+
+Best,
+Generic SDR</div>
+            </div>
+
+            <p><strong>Why this fails:</strong> The prospect is an expert. They've seen this template 1,000 times. "Companies like Hilton and McKinsey" doesn't prove you understand THEIR situation. It's interruption disguised as personalization. Delete.</p>
+        </div>
+
+        <!-- SECTION 4: The New Way -->
+        <div class="section">
+            <h2>The New Way: Situation-Driven GTM</h2>
+
+            <p>For horizontal products like Blinq, Blueprint GTM identifies <strong>situations where timing creates urgency</strong>. Instead of generic vertical pain, we find specific trigger events that make the product necessary RIGHT NOW.</p>
+
+            <div class="highlight-box">
+                <h3>1. Situation Over Vertical</h3>
+                <p><strong>Stop:</strong> "Insurance agents need business cards" (no product-fit to their ACTUAL pain)</p>
+                <p><strong>Start:</strong> "You announced a rebrand 3 weeks ago—are you reprinting 200 employee cards, or going digital?" (direct product-fit)</p>
+            </div>
+
+            <div class="highlight-box">
+                <h3>2. Timing Creates Urgency</h3>
+                <p><strong>Time Pressure:</strong> Conference in 2 weeks, no time to print</p>
+                <p><strong>Scale Pressure:</strong> Hiring 15 people/month, can't provision cards fast enough</p>
+                <p><strong>Change Pressure:</strong> Rebrand announced, all printed cards now obsolete</p>
+            </div>
+        </div>
+
+        <!-- SECTION 5: PQS Examples -->
+        <div class="section">
+            <h2>Blinq PQS Plays: Situation-Based Triggers</h2>
+
+            <p>These messages target specific <strong>timing situations</strong> where digital business cards become the obvious solution. Every claim traces to observable data (press releases, LinkedIn, state filings).</p>
+
+            <!-- PQS Play Card 1 -->
+            <div class="play-card">
+                <span class="play-type situation">SITUATION PQS</span>
+                <h3>Play 1: Rebrand Transition</h3>
+
+                <div class="play-explanation">
+                    <p><strong>What's the play?</strong> Target companies that announced a rebrand or name change in the past 60 days. Their entire workforce now has boxes of obsolete printed business cards with the old brand. Reprinting takes weeks and costs thousands.</p>
+                </div>
+
+                <div class="why-section">
+                    <p><strong>Why this works (Score: 8.6/10):</strong> The rebrand date is public record (press release). The card obsolescence problem is obvious. Digital cards update instantly—one admin change pushes to everyone's Apple Wallet. This is a TIMING play where the product IS the solution.</p>
+                </div>
+
+                <div class="data-sources">
+                    <strong>Data sources:</strong> Business Wire "company name change" category, PR Newswire, State Secretary of State name change filings, SEC filings for public companies
+                </div>
+
+                <p><strong>The message:</strong></p>
+                <div class="message-example">Subject: [NewCo] cards
+
+Your rebrand from [OldName] to [NewCo] was announced November 8th. Your team likely still has boxes of [OldName] cards—and reprinting 200+ employee cards takes 2-3 weeks plus $4-8 per person.
+
+With digital cards, one admin update pushes the new brand to everyone's Apple Wallet instantly. No reprints, no obsolete inventory.
+
+Who handles your employee card provisioning?</div>
+            </div>
+
+            <!-- PQS Play Card 2 -->
+            <div class="play-card">
+                <span class="play-type situation">SITUATION PQS</span>
+                <h3>Play 2: Post-Rebrand Follow-Up</h3>
+
+                <div class="play-explanation">
+                    <p><strong>What's the play?</strong> A lighter-touch version for companies earlier in their rebrand journey. Opens a conversation about their current card approach without assuming they're already in pain.</p>
+                </div>
+
+                <div class="why-section">
+                    <p><strong>Why this works (Score: 7.4/10):</strong> The rebrand is verifiable, the question is low-friction, and it positions Blinq as a thought partner rather than a vendor pushing product.</p>
+                </div>
+
+                <div class="data-sources">
+                    <strong>Data sources:</strong> Business Wire, PR Newswire, company press room announcements
+                </div>
+
+                <p><strong>The message:</strong></p>
+                <div class="message-example">Subject: [OldName] → [NewCo]
+
+Saw [NewCo]'s rebrand announcement on [date]. Quick question: are you reprinting business cards for the whole team, or going digital?
+
+Most companies discover mid-rebrand that printed cards create a 3-week delay between "new brand approved" and "cards in hands." Digital cards update in 60 seconds.
+
+Worth a 5-minute demo?</div>
+            </div>
+        </div>
+
+        <!-- SECTION 6: PVP Examples -->
+        <div class="section">
+            <h2>Blinq PVP Plays: Scaling Pain Identified</h2>
+
+            <p>These messages target companies experiencing <strong>scale pressure</strong>—hiring so fast that traditional card provisioning can't keep up. The value is immediate: we've already done the math on their hiring velocity.</p>
+
+            <!-- PVP Play Card 1 -->
+            <div class="play-card">
+                <span class="play-type pvp">STRONG PQS</span>
+                <h3>Play 1: Rapid Onboarding Scale</h3>
+
+                <div class="play-explanation">
+                    <p><strong>What's the play?</strong> Target companies that added 30+ employees in the past 90 days. Calculate the card provisioning burden: each new hire needs design, print, and shipping. What happens when their first client meeting is Day 3 but cards arrive Day 14?</p>
+                </div>
+
+                <div class="why-section">
+                    <p><strong>Why this works (Score: 8.4/10):</strong> LinkedIn headcount data is observable. The math is simple but they haven't done it. Digital cards eliminate the provisioning bottleneck entirely—admin creates card in 2 minutes, pushes to Apple Wallet instantly.</p>
+                </div>
+
+                <div class="data-sources">
+                    <strong>Data sources:</strong> LinkedIn Company Page employee count, Thinknum/Coresignal historical headcount API, job posting volume on Indeed/LinkedIn
+                </div>
+
+                <p><strong>The message:</strong></p>
+                <div class="message-example">Subject: 47 new hires, 47 card orders?
+
+LinkedIn shows [Company] added 47 people in the last 90 days—congrats on the growth. Quick math: 47 design requests, 47 print orders, 47 shipments to coordinate. Average time from "new hire starts" to "cards in hand": 2-3 weeks.
+
+What happens when someone's first client meeting is Day 3?
+
+With Blinq, admin creates card in 2 minutes, pushes to new hire's Apple Wallet instantly. No waiting, no shipping, no outdated cards when their title changes in 6 months.
+
+Should this go to you or your onboarding team?</div>
+            </div>
+
+            <!-- PVP Play Card 2 -->
+            <div class="play-card">
+                <span class="play-type pvp">STRONG PQS</span>
+                <h3>Play 2: Open Roles Signal</h3>
+
+                <div class="play-explanation">
+                    <p><strong>What's the play?</strong> Target companies with 15+ open client-facing roles. If even half fill in the next quarter, that's a card provisioning challenge coming. Offer a proactive ROI comparison before they hit the wall.</p>
+                </div>
+
+                <div class="why-section">
+                    <p><strong>Why this works (Score: 7.6/10):</strong> Job postings are public data. Client-facing roles (sales, account management, customer success) definitionally need business cards. The offer of an ROI comparison is concrete value, not a vague meeting request.</p>
+                </div>
+
+                <div class="data-sources">
+                    <strong>Data sources:</strong> Company careers page, Indeed API, LinkedIn Jobs, Greenhouse/Lever public job boards
+                </div>
+
+                <p><strong>The message:</strong></p>
+                <div class="message-example">Subject: scaling card provisioning
+
+Your careers page shows 23 open client-facing roles (12 sales, 6 account management, 5 customer success). If even half fill in the next quarter, that's 12 new employees who need business cards before their first customer meeting.
+
+I put together a quick ROI comparison: print cards at $6/person with 2-week lead time vs. digital at $4/person with instant provisioning. For a team scaling like yours, the time savings alone is worth a look.
+
+Want me to send the comparison, or does your ops team handle this?</div>
+            </div>
+        </div>
+
+        <!-- SECTION 7: The Transformation -->
+        <div class="section">
+            <h2>The Transformation</h2>
+
+            <p>Notice the difference? These messages don't talk about CE deadlines, license renewals, or carrier appointments—because digital business cards don't solve those problems. Instead, they target <strong>situations where timing creates genuine need</strong>:</p>
+
+            <div class="highlight-box">
+                <p><strong>The key insight for horizontal products:</strong></p>
+                <p>You can't force product-fit onto data-rich verticals. Insurance agents have excellent NIPR data, but their pain is compliance—not business cards. Instead, find the <strong>timing triggers</strong> that make your product necessary RIGHT NOW: rebrands, rapid hiring, conferences, office moves.</p>
+            </div>
+
+            <table class="gate-table">
+                <tr>
+                    <th>Old Approach</th>
+                    <th>New Approach</th>
+                </tr>
+                <tr>
+                    <td>Find data-rich vertical (insurance agents)</td>
+                    <td>Validate product-fit FIRST (Gate 5)</td>
+                </tr>
+                <tr>
+                    <td>Generate messages about vertical pain (CE deadlines)</td>
+                    <td>Generate messages about timing situations (rebrand)</td>
+                </tr>
+                <tr>
+                    <td>High data score, zero product relevance</td>
+                    <td>Moderate data score, direct product connection</td>
+                </tr>
+                <tr>
+                    <td>Prospect thinks "why are you telling me about my licenses?"</td>
+                    <td>Prospect thinks "oh yeah, we DO need to solve the card problem"</td>
+                </tr>
+            </table>
+
+            <p>This isn't about templates or tactics. It's about ensuring every segment connects DATA → SITUATION → PAIN → PRODUCT. When the product IS the solution to the identified pain, the message writes itself.</p>
+
+            <p>The companies that master this approach don't compete on features. They compete on timing intelligence.</p>
+        </div>
+
+    </div>
+</body>
+</html>
