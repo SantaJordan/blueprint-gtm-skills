@@ -1,15 +1,17 @@
 # Hard Gate Validator
 
-**Purpose:** Four mandatory gates that AUTO-REJECT invalid patterns. Apply to every segment and PVP before proceeding.
+**Purpose:** Five mandatory gates that AUTO-REJECT invalid patterns. Apply to every segment and PVP before proceeding.
 
 **Rule:** Fail ANY gate = AUTO-DESTROY. No exceptions. No "but in this case..." rationalizations.
 
+**CRITICAL DEPENDENCY:** Gate 5 requires Product Value Analysis output from Wave 0.5 (valid/invalid pain domains)
+
 ---
 
-## The Four Hard Gates
+## The Five Hard Gates
 
 ```
-INPUT: Segment concept OR PVP message
+INPUT: Segment concept OR PVP message + Product Value Analysis from Wave 0.5
 
 → GATE 1: Horizontal Disqualification
    "Is the ICP operationally specific?"
@@ -26,6 +28,10 @@ INPUT: Segment concept OR PVP message
 → GATE 4: Technical Feasibility Audit
    "Can we actually detect this data?"
    FAIL → AUTO-DESTROY
+
+→ GATE 5: Product Connection (NEW - CRITICAL)
+   "Does the product solve this pain?"
+   FAIL → AUTO-DESTROY (fundamental flaw, no revision)
 
 → ALL PASS → VALIDATED ✓ (proceed to next phase)
 ```
@@ -269,6 +275,92 @@ For EACH claim:
 
 ---
 
+## Gate 5: Product Connection (NEW - CRITICAL)
+
+**Question:** Does resolving this pain require/benefit from our product? Would they NEED this product to solve this problem?
+
+**CRITICAL:** Gate 5 failure is a FUNDAMENTAL FLAW. No revision is possible - the pain domain is wrong for this product. The segment must be DESTROYED.
+
+### The Product Connection Test
+
+Ask: "If this prospect resolves this pain, would they NEED this product to do it?"
+
+- If YES → ✅ PASS (product is the solution)
+- If MAYBE/PARTIALLY → ⚠️ Weak fit, may need revision
+- If NO → ❌ FAIL (product doesn't solve this pain)
+
+### Referencing Wave 0.5 Product Value Analysis
+
+From Wave 0.5, retrieve:
+- **Valid Pain Domains:** What the product CAN solve
+- **Invalid Pain Domains:** What the product CANNOT solve
+- **Core Problem:** The fundamental problem the product addresses
+
+### FAIL Conditions (Auto-Reject if ANY are true)
+
+The segment/message FAILS Gate 5 if:
+- Pain can be resolved without the product
+- Product is only tangentially related to pain domain
+- Any competitor could solve this pain with their (different) product
+- Pain falls into an INVALID domain from Wave 0.5 Product Value Analysis
+- The connection between pain and product requires >2 logical jumps
+
+### PASS Conditions
+
+The segment/message PASSES Gate 5 if:
+- Product is the PRIMARY solution to this pain
+- Buying the product materially addresses the identified situation
+- Pain domain matches the product's core value proposition
+- Pain is in a VALID domain from Wave 0.5
+
+### Examples
+
+| Pain Identified | Product | Gate 5 Result | Rationale |
+|-----------------|---------|---------------|-----------|
+| "CE deadline in 45 days" | Digital business cards | ❌ FAIL | Cards don't help with CE compliance |
+| "No time to print cards before conference" | Digital business cards | ✅ PASS | Product is direct solution |
+| "EPA violation deadline" | Compliance software | ✅ PASS | Product tracks/remediates violations |
+| "EPA violation deadline" | Digital business cards | ❌ FAIL | Wrong product domain |
+| "Hiring 15 people/month, can't provision cards fast enough" | Digital business cards | ✅ PASS | Product scales instantly |
+| "CMS <3 star rating" | Compliance training software | ✅ PASS | Training addresses quality issues |
+| "CMS <3 star rating" | Sales engagement platform | ❌ FAIL | Sales tools don't fix care quality |
+
+### Gate 5 Validation Format
+
+```markdown
+**Gate 5: Product Connection**
+
+Pain Identified: [From segment/message]
+Product: [What the company sells]
+Product Value Analysis Reference: [From Wave 0.5]
+- Valid Domains: [List]
+- Invalid Domains: [List]
+
+Domain Check:
+- Pain Domain: [What domain is this pain in?]
+- Domain Status: VALID / INVALID
+
+Validation Question:
+"If this prospect resolves [pain], would they NEED [product] to do it?"
+- Answer: YES / MAYBE / NO
+- Explanation: [Why]
+
+Check:
+- [ ] Pain is in VALID domain (from Wave 0.5)
+- [ ] Product is PRIMARY solution (not tangential)
+- [ ] Buying product resolves the pain
+- [ ] Connection requires ≤2 logical jumps
+
+**Result:** ✅ PASS / ❌ FAIL
+**Rationale:** [Why the product does/doesn't connect to this pain]
+
+[If FAIL:]
+**Revision Possible?** NO - Gate 5 failures are fundamental flaws
+**Action:** AUTO-DESTROY, consider situation-based fallback
+```
+
+---
+
 ## Complete Validation Process
 
 ### For Segments (Synthesis Phase)
@@ -288,6 +380,9 @@ For EACH claim:
 ### Gate 4: Technical Feasibility Audit
 [Validation format from above]
 
+### Gate 5: Product Connection
+[Validation format from above]
+
 ---
 
 ## FINAL VERDICT
@@ -298,18 +393,21 @@ For EACH claim:
 | Gate 2: Causal Link | ✅/❌ |
 | Gate 3: Aggregates | ✅/❌ |
 | Gate 4: Feasibility | ✅/❌ |
+| Gate 5: Product Connection | ✅/❌ |
 
 **VERDICT:** ✅ VALIDATED - Proceed / ❌ AUTO-DESTROY
 
 [If any gate failed:]
 **Failed Gate(s):** [List]
 **Failure Reason:** [Specific issue]
-**Revision Possible?** YES (one attempt) / NO (fundamental flaw)
+**Revision Possible?**
+- Gate 3 or 4 only: YES (one attempt)
+- Gate 1, 2, or 5: NO (fundamental flaw)
 ```
 
 ### For PVP Messages (Evaluation Phase)
 
-Apply same format, but check the actual MESSAGE text against all four gates.
+Apply same format, but check the actual MESSAGE text against all five gates.
 
 ---
 
@@ -324,7 +422,7 @@ If segment/message fails due to:
 **Revision Steps:**
 1. Identify specific failure point
 2. Propose one fix
-3. Re-validate through all 4 gates
+3. Re-validate through all 5 gates
 4. If still fails → DESTROY (no second revision)
 
 ### When Revision is NOT Possible
@@ -333,8 +431,15 @@ If segment/message fails due to:
 - Gate 1 (fundamental ICP issue) → Need different vertical
 - Gate 2 (no strong signal exists) → Concept is invalid
 - Gate 4 (core premise is undetectable) → Concept impossible
+- **Gate 5 (product doesn't solve this pain) → Pain domain mismatch, need different approach**
 
 **Action:** DESTROY immediately, don't attempt revision
+
+**Special Note on Gate 5 Failures:**
+Gate 5 failures indicate the system found valid pain in a data-rich niche, but the product doesn't solve that pain. This is a FUNDAMENTAL mismatch. Options:
+1. Try situation-based fallback (if product is horizontal)
+2. Trigger no-fit response
+3. Suggest vertical pivot where product-fit is stronger
 
 ---
 
@@ -351,6 +456,10 @@ If segment/message fails due to:
 
 **Gate 4 Quick Check:**
 > "Can I name the API field or scraping selector for this data?" If NO → FAIL
+
+**Gate 5 Quick Check:**
+> "Would they NEED this product to resolve this pain?" If NO → FAIL
+> "Is this pain in a VALID domain from Wave 0.5?" If NO → FAIL
 
 ---
 
@@ -373,6 +482,8 @@ If segment/message fails due to:
 
 ---
 
-**Version:** 1.0.0 (November 2025)
+**Version:** 2.0.0 (November 2025) - Added Gate 5: Product Connection
 
 **Principle:** These gates are non-negotiable. If a message is good enough to pass, it passes. If not, destroy it. There is no "almost passes" or "close enough."
+
+**Critical Addition (v2.0):** Gate 5 ensures that excellent data and specific pain are not wasted on product-irrelevant messages. Data quality without product-fit = useless content.

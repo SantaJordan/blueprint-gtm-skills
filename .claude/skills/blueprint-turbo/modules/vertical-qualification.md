@@ -1,12 +1,14 @@
 # Vertical Qualification Module
 
-**Purpose:** Convert generic verticals to regulated niches with data moats BEFORE data discovery begins.
+**Purpose:** Convert generic verticals to regulated niches with data moats AND product-fit BEFORE data discovery begins.
 
-**When:** Execute immediately after Wave 1 industry identification, BEFORE Wave 2.
+**When:** Execute immediately after Wave 0.5 Product Value Analysis, BEFORE Wave 2.
 
 **Time:** 3-5 minutes
 
-**Output:** 1-2 qualified niches with scores ≥25/40, ready for Wave 2 data discovery
+**Output:** 1-2 qualified niches with scores ≥30/50 AND Criterion 5 ≥5, ready for Wave 2 data discovery
+
+**CRITICAL DEPENDENCY:** Requires Product Value Analysis output from Wave 0.5 (valid/invalid pain domains)
 
 ---
 
@@ -84,7 +86,41 @@ For verticals NOT on auto-reject list, score using the rubric:
 - 4-6: Basic entity data
 - 0-3: Aggregate data only
 
-**Total Score = Sum of 4 criteria (max 40)**
+**Criterion 5: Product-Solution Alignment (0-10) - CRITICAL**
+
+This criterion uses the Product Value Analysis from Wave 0.5:
+
+| Score | Description |
+|-------|-------------|
+| 9-10 | Niche's PRIMARY pain is directly solved by this product |
+| 7-8 | Product solves one of niche's top 3 pains |
+| 5-6 | Product tangentially helps with niche's pain |
+| 3-4 | Weak connection, product is nice-to-have |
+| 0-2 | No connection between niche pain and product value |
+
+**How to Score Criterion 5:**
+
+1. From Wave 0.5, retrieve:
+   - Valid Pain Domains (product can solve)
+   - Invalid Pain Domains (product cannot solve)
+
+2. Identify the niche's PRIMARY pain (what the regulatory data reveals)
+
+3. Check domain match:
+   - Pain in VALID domain → Start at 7, adjust based on directness
+   - Pain in INVALID domain → Auto-score 0-4 (product mismatch)
+
+4. Ask validation question:
+   "If this niche resolves this pain, would they NEED this product to do it?"
+   - YES = 8-10
+   - MAYBE = 5-7
+   - NO = 0-4
+
+**Total Score = Sum of 5 criteria (max 50)**
+
+**CRITICAL: Criterion 5 is a HARD GATE**
+- Criterion 5 < 5 → AUTO-REJECT regardless of data score
+- A niche can have excellent data (40/40) but if product doesn't solve its pain → REJECT
 
 ### Step 4: Convert Auto-Reject Verticals to Niches
 
@@ -112,24 +148,45 @@ Reference: data-moat-verticals.md Niche Conversion Table
 
 ### Step 5: Score Converted Niches
 
-Apply same 4-criterion rubric to each converted niche.
+Apply same 5-criterion rubric to each converted niche.
 
 ### Step 6: Select Best Niche(s)
 
-**Decision Matrix:**
+**Decision Matrix (NEW - includes Product-Fit Gate):**
 
-| Score | Decision |
-|-------|----------|
-| ≥30 | **PROCEED** - Tier 1 vertical, excellent data moat |
-| 25-29 | **PROCEED** - Tier 2 vertical, good data moat |
-| 20-24 | **CONDITIONAL** - Try internal data combinations first |
-| <20 | **REJECT** - Find different niche |
+**FIRST: Check Criterion 5 (Product-Fit)**
+
+| Criterion 5 Score | Action |
+|-------------------|--------|
+| ≥7 | Excellent product-fit, proceed to total score check |
+| 5-6 | Acceptable product-fit, proceed to total score check |
+| <5 | **AUTO-REJECT** regardless of data score |
+
+**THEN: Check Total Score (only if Criterion 5 ≥5)**
+
+| Total Score | Criterion 5 | Decision |
+|-------------|-------------|----------|
+| ≥35 | ≥7 | **TIER 1** - Excellent data moat + product-fit |
+| ≥30 | ≥5 | **TIER 2** - Good data moat + acceptable product-fit |
+| 25-29 | ≥5 | **CONDITIONAL** - Try internal data combinations |
+| <25 OR C5<5 | Any | **REJECT** - Insufficient fit |
 
 **Selection Rules:**
-1. Select highest-scoring niche (≥25/40)
-2. If multiple niches qualify, select top 2 max
-3. If NO niche scores ≥25: Try internal data hybrid approach
-4. If still nothing: Warn user, this may not be Blueprint-compatible
+1. **Criterion 5 is the FIRST filter** - reject all niches with C5 < 5
+2. From remaining niches, select highest total score (≥30/50)
+3. If multiple niches qualify, select top 2 max
+4. If NO niche has C5 ≥5: **TRIGGER SITUATION-BASED FALLBACK**
+5. If still nothing: Warn user, this may not be Blueprint-compatible
+
+**Example: Blinq (Digital Business Cards)**
+
+| Niche | Data Score (C1-C4) | C5 (Product-Fit) | Total | Decision |
+|-------|-------------------|------------------|-------|----------|
+| Insurance agents (NIPR) | 32/40 | 2/10 ❌ | 34/50 | REJECT (C5<5) |
+| Real estate agents | 28/40 | 3/10 ❌ | 31/50 | REJECT (C5<5) |
+| Conference attendees | 18/40 | 9/10 ✅ | 27/50 | CONDITIONAL (weak data) |
+
+**Result:** All high-data niches fail C5 → Trigger Situation-Based Fallback
 
 ---
 
@@ -172,20 +229,27 @@ Apply same 4-criterion rubric to each converted niche.
 | Compliance-Driven Pain | X/10 | [Why] |
 | Data Accessibility | X/10 | [Why] |
 | Specificity Potential | X/10 | [Why] |
-| **TOTAL** | **XX/40** | |
+| **Product-Solution Alignment** | **X/10** | [Pain domain: VALID/INVALID, Why product does/doesn't solve] |
+| **TOTAL** | **XX/50** | |
 
-**Verdict:** PROCEED / CONDITIONAL / REJECT
+**Product-Fit Gate:** ✅ PASS (C5≥5) / ❌ FAIL (C5<5)
+**Verdict:** PROCEED / CONDITIONAL / REJECT / TRIGGER SITUATION FALLBACK
 
 [Repeat for each niche/vertical]
 
 ## Final Selection
 
 **Selected Niche(s) for Wave 2:**
-1. [Niche] - Score: XX/40 - Data Source: [source]
-2. [Niche] - Score: XX/40 - Data Source: [source] (if applicable)
+1. [Niche] - Score: XX/50 (C5: X/10) - Data Source: [source]
+2. [Niche] - Score: XX/50 (C5: X/10) - Data Source: [source] (if applicable)
 
 **Rejected:**
-- [Vertical/Niche] - Score: XX/40 - Reason: [why]
+- [Vertical/Niche] - Score: XX/50 (C5: X/10) - Reason: [why]
+
+**Product-Fit Summary:**
+- Niches passing C5 gate (≥5): [N]
+- Niches failing C5 gate (<5): [N]
+- Action: PROCEED / TRIGGER SITUATION FALLBACK / NO-FIT WARNING
 
 ## Proceeding to Wave 2 with: [Selected Niche(s)]
 ```
@@ -288,12 +352,18 @@ Instead of searching for generic industry data, Wave 2 receives:
 
 Vertical qualification succeeds when:
 
+- [ ] Product Value Analysis (Wave 0.5) output available with valid/invalid pain domains
 - [ ] All Wave 1 verticals checked against auto-reject list
 - [ ] Auto-rejected verticals converted to niches
-- [ ] All niches scored using 4-criterion rubric
-- [ ] At least 1 niche scores ≥25/40
+- [ ] All niches scored using 5-criterion rubric (including Product-Solution Alignment)
+- [ ] At least 1 niche has Criterion 5 ≥5 (product-fit gate passed)
+- [ ] At least 1 niche scores ≥30/50 total with C5≥5
 - [ ] Selected niche has identifiable data source
-- [ ] Wave 2 receives specific niche (not generic vertical)
+- [ ] Wave 2 receives specific niche with confirmed product-fit
+
+**If NO niche passes Criterion 5 gate:**
+- [ ] Situation-based fallback triggered (Wave 2.5)
+- [ ] OR No-fit warning issued with clear recommendations
 
 ---
 

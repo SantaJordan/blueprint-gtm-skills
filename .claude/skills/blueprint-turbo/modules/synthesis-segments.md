@@ -7,15 +7,21 @@
 **Input:**
 - Company context from Wave 1
 - ICP and persona profiles from Wave 1
+- **Product Value Analysis from Wave 0.5 (valid/invalid pain domains)**
 - Data Availability Report from Wave 2
+- Niche Qualification Results from Wave 1.5 (including Criterion 5 scores)
 
-**Output:** 2-3 validated pain segments with data source combinations
+**Output:** 2-3 validated pain segments with data source combinations that PASS Gate 5 (Product Connection)
 
 ---
 
-## CRITICAL CHANGE
+## CRITICAL CHANGES
 
-Sequential Thinking now receives the Data Availability Report from Wave 2 as INPUT. Segments MUST use only discovered data sources.
+1. Sequential Thinking now receives the Data Availability Report from Wave 2 as INPUT. Segments MUST use only discovered data sources.
+
+2. **NEW: Product-Fit Validation Required.** Every segment MUST pass Gate 5 (Product Connection) before proceeding. Pain that doesn't connect to product value = AUTO-DESTROY.
+
+3. **NEW: If all vertical segments fail Gate 5**, trigger Situation-Based Fallback (see bottom of this document).
 
 ---
 
@@ -98,6 +104,10 @@ REQUIREMENTS:
 - Hybrid combinations (gov + competitive + velocity) = good confidence (60-75%) if disclosed
 - Avoid segments requiring INFERENCE without data proof
 - Must be situations the persona DOESN'T already know about (non-obvious synthesis)
+- **NEW: Segments MUST pass Gate 5 (Product Connection)**
+  - Pain identified must be in a VALID domain from Wave 0.5 Product Value Analysis
+  - Resolving this pain must REQUIRE or BENEFIT FROM the product
+  - If pain is in INVALID domain → AUTO-REJECT before drafting
 
 EXAMPLE (OWNER.COM):
 
@@ -237,13 +247,16 @@ Each segment must meet ALL of these criteria:
 
 ## HARD GATE VALIDATION (MANDATORY)
 
-**CRITICAL:** After generating segments, EACH segment MUST pass all 4 hard gates before proceeding to message generation.
+**CRITICAL:** After generating segments, EACH segment MUST pass all 5 hard gates before proceeding to message generation.
 
 **Load Validator:**
 ```
 Read: .claude/skills/blueprint-pvp-deep/prompts/hard-gate-validator.md
 Reference: .claude/skills/blueprint-pvp-deep/prompts/banned-patterns-registry.md
+Reference: .claude/skills/blueprint-turbo/modules/product-fit-triage.md
 ```
+
+**CRITICAL DEPENDENCY:** Gate 5 requires Product Value Analysis output from Wave 0.5
 
 ### Gate 1: Horizontal Disqualification
 
@@ -316,6 +329,38 @@ Reference: .claude/skills/blueprint-pvp-deep/prompts/banned-patterns-registry.md
 - Budget constraints (not public)
 - "BuiltWith for [non-web technology]"
 
+### Gate 5: Product Connection (NEW - CRITICAL)
+
+**Question:** Does resolving this pain require/benefit from our product?
+
+**Referencing Wave 0.5 Product Value Analysis:**
+- Valid Pain Domains: [List from Wave 0.5]
+- Invalid Pain Domains: [List from Wave 0.5]
+
+**FAIL if:**
+- Pain is in INVALID domain from Wave 0.5
+- Product is only tangentially related to pain
+- Any competitor could solve this pain with their (different) product
+- Connection between pain and product requires >2 logical jumps
+
+**PASS if:**
+- Pain is in VALID domain from Wave 0.5
+- Product is PRIMARY solution to this pain
+- Buying the product materially addresses the situation
+
+**Validation Question:**
+"If this prospect resolves this pain, would they NEED this product to do it?"
+- YES = ✅ PASS
+- MAYBE = ⚠️ Weak fit, may need revision
+- NO = ❌ FAIL → AUTO-DESTROY (no revision possible)
+
+**Gate 5 Examples:**
+| Pain | Product | Gate 5 | Rationale |
+|------|---------|--------|-----------|
+| "CE deadline in 45 days" | Digital business cards | ❌ FAIL | Cards don't help with CE compliance |
+| "No time to print cards before conference" | Digital business cards | ✅ PASS | Product is direct solution |
+| "CMS <3 star rating" | Compliance training software | ✅ PASS | Training addresses quality issues |
+
 ### Validation Output Format
 
 For EACH segment, document:
@@ -343,6 +388,13 @@ For EACH segment, document:
 - Detection mechanism for each: [API field/selector]
 - Rationale: [why passes/fails]
 
+**Gate 5 (Product Connection):** ✅ PASS / ❌ FAIL
+- Pain identified: [what pain]
+- Product: [what company sells]
+- Pain domain: VALID / INVALID (from Wave 0.5)
+- "Would they NEED this product to resolve?": YES/NO/MAYBE
+- Rationale: [why passes/fails]
+
 **VERDICT:** ✅ VALIDATED / ❌ AUTO-DESTROY
 ```
 
@@ -350,18 +402,24 @@ For EACH segment, document:
 
 | Result | Action |
 |--------|--------|
-| All 4 gates PASS | ✅ Proceed to message generation |
+| All 5 gates PASS | ✅ Proceed to message generation |
 | Gate 3 only fails | ONE revision attempt (add specific data) |
 | Gate 4 only fails | ONE revision attempt (substitute data source) |
-| Gate 1 or 2 fails | ❌ DESTROY immediately (fundamental flaw) |
+| Gate 1, 2, or 5 fails | ❌ DESTROY immediately (fundamental flaw) |
 | 2+ gates fail | ❌ DESTROY immediately |
 | Still fails after revision | ❌ DESTROY (no second attempt) |
 
+**CRITICAL: Gate 5 failures indicate product-pain mismatch.**
+- If segment passes Gates 1-4 but fails Gate 5: The data is good but doesn't connect to product
+- Do NOT attempt revision - the pain domain is wrong
+- Consider situation-based fallback or no-fit response
+
 ### Minimum Requirement
 
-- At least 2 segments MUST pass all 4 gates
-- If <2 pass: Generate 2 replacement segments, re-validate
-- If still <2 after retry: Proceed with 1 + warn user
+- At least 2 segments MUST pass all 5 gates
+- If <2 pass all 5 gates: Check if Gate 5 was the blocker
+- If Gate 5 blocked all segments: Trigger SITUATION-BASED FALLBACK
+- If still <2 after situation fallback: Trigger NO-FIT RESPONSE
 
 ---
 
@@ -398,7 +456,84 @@ For EACH segment, document:
 
 ---
 
+## SITUATION-BASED FALLBACK (CONDITIONAL)
+
+**TRIGGER:** Execute when ALL vertical segments fail Gate 5 (Product Connection)
+
+**Objective:** Generate SITUATION-based segments instead of forcing irrelevant vertical data
+
+**Load Module:**
+```
+Read: .claude/skills/blueprint-turbo/modules/situation-segments.md
+```
+
+### When to Trigger
+
+| Condition | Action |
+|-----------|--------|
+| All segments pass Gates 1-4 but fail Gate 5 | TRIGGER situation fallback |
+| Product type is "horizontal" (serves any business) | TRIGGER situation fallback |
+| All regulated niches have Criterion 5 < 5 | TRIGGER situation fallback |
+
+### Situation Fallback Process
+
+1. **From Wave 0.5 Product Value Analysis, extract:**
+   - Core Problem Solved
+   - Urgency Triggers (time/scale/change pressure)
+   - Who Experiences This
+
+2. **For each urgency trigger, generate situation segment:**
+   - What data proves this situation exists?
+   - Is that data externally observable?
+   - Does the situation create IMMEDIATE need for product?
+
+3. **Validate situation segments against Gate 5:**
+   - Situation must create direct need for product (not tangential)
+   - Product must be the solution to the situation
+   - Buying product must resolve the immediate problem
+
+### Example: Blinq (Digital Business Cards)
+
+**Vertical Segments (ALL FAILED Gate 5):**
+- Insurance agents (NIPR data) → Pain: CE deadlines → ❌ Cards don't solve CE
+- Real estate agents (license data) → Pain: License renewal → ❌ Cards don't solve renewal
+
+**Situation Segments (TRIGGERED):**
+1. **Conference Urgency**
+   - Data: New license + conference attendance signal
+   - Pain: No time to print cards before event
+   - Gate 5: ✅ PASS (digital cards = instant solution)
+
+2. **Rapid Onboarding**
+   - Data: LinkedIn hiring velocity (15+ hires/month)
+   - Pain: Can't provision cards fast enough
+   - Gate 5: ✅ PASS (digital cards scale instantly)
+
+### Situation Fallback Output
+
+If situation segments pass Gate 5:
+```
+🔄 Situation Fallback: Generated [N] timing plays (vertical segments failed product-fit)
+```
+
+If situation segments also fail:
+```
+⚠️ No-Fit: Both vertical and situation segments failed product-fit. See recommendations.
+```
+
+---
+
 **Progress Output:**
 ```
 🧠 Synthesis: Generated [N] pain segments from available data sources (Sequential Thinking MCP complete)
+```
+
+**Progress Output (Situation Fallback):**
+```
+🔄 Synthesis: Vertical segments failed Gate 5. Generated [N] situation-based segments (Product-fit validated)
+```
+
+**Progress Output (No-Fit):**
+```
+⚠️ Synthesis: No segments passed Gate 5 (Product Connection). Triggering No-Fit Response.
 ```

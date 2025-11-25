@@ -55,7 +55,8 @@
       "Task",
       "mcp__databricks-mimi__query_databricks",
       "mcp__databricks-mimi__list_tables",
-      "mcp__databricks-mimi__describe_table"
+      "mcp__databricks-mimi__describe_table",
+      "Skill(blueprint-pvp-deep)"
     ],
     "deny": [],
     "ask": []

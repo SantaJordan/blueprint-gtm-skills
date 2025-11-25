@@ -95,6 +95,76 @@ Extract:
 
 ---
 
+### WAVE 0.5: Product Value Analysis (MANDATORY)
+
+**CRITICAL:** This step executes AUTOMATICALLY after Wave 1, BEFORE niche exploration. It anchors all subsequent work on what the product ACTUALLY solves.
+
+**Objective:** Prevent generating segments with data that doesn't connect to product value.
+
+**Load Module:**
+```
+Read: .claude/skills/blueprint-turbo/modules/product-fit-triage.md
+```
+
+**Execute Product Value Analysis:**
+
+Answer these questions BEFORE proceeding to niche exploration:
+
+**1. Core Problem Solved:**
+What specific problem does this product eliminate?
+- Not features, not benefits - the PROBLEM
+- Example (Blinq): "Need to share contact info quickly without paper cards"
+- Example (Medtrainer): "Need to track compliance training completion to avoid survey deficiencies"
+
+**2. Urgency Triggers:**
+What SITUATIONS create urgency for this product?
+- **Time pressure:** Conference tomorrow, audit next week, deadline approaching
+- **Scale pressure:** 100 new employees, can't process fast enough manually
+- **Change pressure:** Rebranding, moving, acquisition - old solution obsolete
+
+**3. Who Experiences This?**
+What personas/roles face this problem?
+- Be specific: "New sales hires who need cards immediately" not "sales teams"
+- Include context: "HR managers at companies hiring 10+/month"
+
+**4. Valid Pain Domains:**
+Based on product type from Product-Fit Triage, what pain domains are VALID?
+- List 3-5 valid pain domains for this product
+- List 3-5 INVALID pain domains (for rejection later)
+
+**5. Product-Pain Match Requirements:**
+For a niche to be valid, the detected pain must be:
+- ✅ DIRECTLY solved by the product (not tangentially)
+- ✅ URGENT enough to drive a purchase decision
+- ✅ ACTIONABLE (buying this product fixes it)
+
+**Wave 0.5 Output:**
+```
+PRODUCT VALUE ANALYSIS: [Company Name]
+
+Core Problem: [1-2 sentences]
+Product Type: [from Product-Fit Triage categories]
+
+Urgency Triggers:
+1. [Time pressure example]
+2. [Scale pressure example]
+3. [Change pressure example]
+
+Target Personas:
+1. [Persona + context]
+2. [Persona + context]
+
+VALID Pain Domains: [list]
+INVALID Pain Domains: [list - will auto-reject niches with these pains]
+
+Product-Fit Gate Question:
+"Would resolving [identified pain] require buying [this product]?"
+```
+
+**Progress Hook:** "🎯 Wave 0.5: Product value anchored (valid: [domains], invalid: [domains])"
+
+---
+
 ### WAVE 1.5: Niche Conversion (AUTOMATIC)
 
 **CRITICAL:** This step executes AUTOMATICALLY after Wave 1 to convert generic verticals to regulated niches.
@@ -126,33 +196,127 @@ For EACH generic vertical from Wave 1:
    WebSearch: "[vertical] compliance violations database"
    ```
 
-3. **Score Each Niche (4 criteria, max 40):**
+3. **Score Each Niche (5 criteria, max 50):**
    - Regulatory Footprint (0-10)
    - Compliance-Driven Pain (0-10)
    - Data Accessibility (0-10)
    - Specificity Potential (0-10)
+   - **Product-Solution Alignment (0-10) - NEW, CRITICAL**
 
-4. **Select Best Niche:**
-   - Score ≥30 → Tier 1 (proceed with HIGH confidence)
-   - Score 25-29 → Tier 2 (proceed with MEDIUM confidence)
-   - Score 20-24 → Try internal data combination
-   - Score <20 → Warn user, may not be Blueprint-compatible
+   **Criterion 5: Product-Solution Alignment Scoring:**
+   | Score | Description |
+   |-------|-------------|
+   | 9-10 | Niche's PRIMARY pain is directly solved by this product |
+   | 7-8 | Product solves one of niche's top 3 pains |
+   | 5-6 | Product tangentially helps with niche's pain |
+   | 3-4 | Weak connection, product is nice-to-have |
+   | 0-2 | No connection between niche pain and product value |
 
-**Example Conversion (Blinq):**
+4. **Select Best Niche (NEW DECISION LOGIC):**
 
-| Generic from Wave 1 | Auto-Reject? | Converted Niche | Score |
-|---------------------|--------------|-----------------|-------|
-| "Sales teams" | YES | Multi-state insurance agents | 35/40 |
-| "Professional services" | YES | Licensed real estate agents | 32/40 |
+   **CRITICAL: Criterion 5 is a HARD GATE**
+   - Criterion 5 < 5 → AUTO-REJECT regardless of other scores (product mismatch)
 
-**Selected:** Multi-state insurance agents (NIPR data)
+   **If Criterion 5 ≥ 5:**
+   - Total ≥ 35 + Criterion 5 ≥ 7 → Tier 1 (proceed with HIGH confidence)
+   - Total ≥ 30 + Criterion 5 ≥ 5 → Tier 2 (proceed with MEDIUM confidence)
+   - Total 25-29 → Try internal data combination
+   - Total < 25 → Warn user, may not be Blueprint-compatible
+
+   **If ALL niches score Criterion 5 < 5:**
+   → Trigger SITUATION-BASED FALLBACK (see Wave 2.5)
+
+**Example Conversion (Blinq - Digital Business Cards):**
+
+**Product Value Analysis Output (from Wave 0.5):**
+- Core Problem: "Need to share contact info quickly without paper cards"
+- Valid Domains: Contact sharing, networking events, rapid onboarding, rebranding
+- Invalid Domains: Compliance deadlines, license management, regulatory violations
+
+**Niche Scoring with Product-Fit:**
+
+| Generic | Converted Niche | Data Score (4 criteria) | Criterion 5 (Product-Fit) | Total | Result |
+|---------|-----------------|-------------------------|---------------------------|-------|--------|
+| "Sales teams" | Multi-state insurance agents (NIPR) | 32/40 | **2/10** ❌ | 34/50 | **REJECT** (cards don't solve CE compliance) |
+| "Professional services" | Licensed real estate agents | 28/40 | **3/10** ❌ | 31/50 | **REJECT** (cards don't solve license renewal) |
+| "Networking professionals" | Conference attendees | 18/40 | **9/10** ✅ | 27/50 | **WEAK DATA** but product fit! |
+
+**Result:** ALL regulated niches fail Criterion 5 → **TRIGGER SITUATION-BASED FALLBACK**
 
 **Wave 1.5 Output:**
-- Selected niche(s) with scores
-- Specific data sources to search in Wave 2
-- Rejected generics with reasons
+- Selected niche(s) with scores (including Criterion 5)
+- If Criterion 5 < 5 for all: Flag for situation-based fallback
+- Rejected niches with product-fit failure reasons
 
-**Progress Hook:** "🎯 Wave 1.5: Niche qualified ([Niche] @ [Score]/40)"
+**Progress Hook:** "🎯 Wave 1.5: Niche qualified ([Niche] @ [Score]/50, Product-Fit: [X]/10)"
+
+---
+
+### WAVE 2.5: Situation-Based Fallback (CONDITIONAL)
+
+**TRIGGER:** All evaluated niches scored <5 on Criterion 5 (Product-Solution Alignment)
+
+**Objective:** Generate SITUATION-based segments instead of forcing irrelevant vertical data
+
+**Load Module:**
+```
+Read: .claude/skills/blueprint-turbo/modules/situation-segments.md
+```
+
+**When to Execute:**
+- ALL vertical niches from Wave 1.5 have Criterion 5 < 5
+- Product type is "horizontal" (serves any business, not specific vertical)
+- Product-Fit Triage shows pain domains don't match any data-rich verticals
+
+**Execute Situation Discovery:**
+
+From Wave 0.5 Product Value Analysis, extract urgency triggers:
+
+1. **Time Pressure Situations:**
+   ```
+   WebSearch: "[product use case] conference preparation"
+   WebSearch: "[product use case] event deadline urgent"
+   WebSearch: "trade show attendee lists [industry]"
+   ```
+
+2. **Scale Pressure Situations:**
+   ```
+   WebSearch: "rapid hiring onboarding challenges"
+   WebSearch: "high growth company operational gaps"
+   WebSearch: "companies hiring 10+ employees month data"
+   ```
+
+3. **Change Pressure Situations:**
+   ```
+   WebSearch: "company rebrand announcement [year]"
+   WebSearch: "office relocation filings database"
+   WebSearch: "M&A integration challenges"
+   ```
+
+**Evaluate Each Situation:**
+
+For each discovered situation, validate:
+
+1. **Product-Fit Check:**
+   - Does this situation create DIRECT need for this product?
+   - Would buying this product resolve the immediate problem?
+   - Score: Must be ≥7 to proceed
+
+2. **Data Detectability:**
+   - Can we externally detect companies in this situation?
+   - What data source proves the situation exists?
+   - Must have at least MEDIUM feasibility
+
+3. **Urgency Validity:**
+   - Is the time pressure real (not manufactured)?
+   - Does waiting have clear cost/risk?
+
+**Wave 2.5 Output:**
+- 2-3 situation-based segments with product-fit scores
+- Data sources for detecting each situation
+- If no situations pass: Trigger NO-FIT RESPONSE
+
+**Progress Hook:** "🔄 Wave 2.5: Situation fallback ([N] timing plays identified)"
 
 ---
 
@@ -435,6 +599,22 @@ Reference: .claude/skills/blueprint-pvp-deep/prompts/banned-patterns-registry.md
 - NOT "we could infer" or "likely detectable"
 - FAIL = AUTO-DESTROY segment
 
+**Gate 5: Product Connection (NEW - CRITICAL)**
+- Does resolving this pain require/benefit from our product?
+- Ask: "If this prospect resolves this pain, would they NEED this product to do it?"
+- Check against Product-Fit Triage valid/invalid domains from Wave 0.5
+- YES = ✅ PASS
+- MAYBE/PARTIALLY = ⚠️ Weak fit, consider revision
+- NO = ❌ FAIL → AUTO-DESTROY
+
+**Gate 5 Examples:**
+| Pain | Product | Gate 5 | Rationale |
+|------|---------|--------|-----------|
+| "CE deadline in 45 days" | Digital business cards | ❌ FAIL | Cards don't help with CE compliance |
+| "No time to print cards before conference" | Digital business cards | ✅ PASS | Product is direct solution |
+| "EPA violation deadline" | Compliance software | ✅ PASS | Product tracks/remediates violations |
+| "EPA violation deadline" | Digital business cards | ❌ FAIL | Wrong product domain |
+
 **Validation Output Format:**
 
 ```
@@ -460,6 +640,13 @@ Gate 4 (Feasibility): ✅ PASS / ❌ FAIL
 - Detection mechanism: [API field/selector for each]
 - Rationale: [why passes/fails]
 
+Gate 5 (Product Connection): ✅ PASS / ❌ FAIL
+- Pain identified: [what pain segment addresses]
+- Product: [what the company sells]
+- "Would they NEED this product to resolve this pain?": YES/NO/MAYBE
+- Pain domain check: VALID / INVALID (from Wave 0.5)
+- Rationale: [why passes/fails]
+
 VERDICT: ✅ PROCEED / ❌ DESTROY
 ```
 
@@ -467,19 +654,128 @@ VERDICT: ✅ PROCEED / ❌ DESTROY
 
 | Gates Passed | Action |
 |--------------|--------|
-| All 4 gates | ✅ PROCEED to Wave 3 |
+| All 5 gates | ✅ PROCEED to Wave 3 |
 | Failed Gate 3 only | ONE revision attempt (add specific data) |
 | Failed Gate 4 only | ONE revision attempt (substitute data source) |
-| Failed Gate 1 or 2 | ❌ DESTROY immediately (fundamental flaw) |
+| Failed Gate 1, 2, or 5 | ❌ DESTROY immediately (fundamental flaw) |
 | Failed 2+ gates | ❌ DESTROY immediately |
 | Still fails after revision | ❌ DESTROY (no second revision) |
 
-**Minimum Requirement:**
-- At least 2 segments MUST pass all 4 gates
-- If <2 segments pass: Return to Synthesis, generate 2 more segments (+2 min)
-- If still <2 after retry: WARN user, proceed with 1 segment + disclaimer
+**CRITICAL: Gate 5 Failure = Fundamental Flaw**
+- Gate 5 failure means the segment has NO product-fit
+- Do NOT attempt revision - the pain domain is wrong
+- Return to Wave 2.5 (Situation Fallback) or trigger No-Fit Response
 
-**Progress Hook:** "🚦 Hard Gates: [N]/[M] segments validated (passed 4 gates)"
+**Minimum Requirement:**
+- At least 2 segments MUST pass all 5 gates
+- If <2 segments pass: Check if situation-based segments available from Wave 2.5
+- If no situation segments: Trigger NO-FIT RESPONSE (see below)
+- If still <2 after all attempts: Output honest no-fit assessment
+
+**Progress Hook:** "🚦 Hard Gates: [N]/[M] segments validated (passed 5 gates)"
+
+---
+
+### NO-FIT RESPONSE PROTOCOL (CONDITIONAL)
+
+**TRIGGER:** Execute when ALL of these conditions are true:
+- Zero segments pass Gate 5 (Product Connection)
+- Situation-based fallback (Wave 2.5) produced no viable segments
+- Best segment scores <5 on Criterion 5 (Product-Solution Alignment)
+
+**Objective:** Be honest about limitations rather than forcing garbage output
+
+**Three-Tier Response:**
+
+**Tier 1: Honest Rejection**
+```
+⚠️ HONEST ASSESSMENT: NO STRONG PRODUCT-FIT FOUND
+
+After analyzing [Company Name], we could not identify data-driven segments
+that connect available public data to [Product]'s core value proposition.
+
+WHAT WE TRIED:
+1. Vertical niche analysis: [N] regulated industries evaluated
+   - Best fit: [Niche] scored [X]/10 on product-fit (threshold: 5)
+   - Reason: [Why the pain doesn't connect to product]
+
+2. Situation-based fallback: [N] timing plays evaluated
+   - Best fit: [Situation] at [X]% confidence
+   - Reason: [Why data detectability was insufficient]
+
+WHY THIS MATTERS:
+The Blueprint GTM system excels at products where:
+- Regulatory/compliance pain creates urgency (violations, deadlines, audits)
+- External data PROVES the prospect is in a painful situation
+- Buying the product directly resolves that documented pain
+
+[Product] appears to solve a real problem, but one that's:
+- Not externally detectable through public data
+- Not tied to regulatory/compliance pressure
+- Better suited for traditional demand-gen approaches
+
+RECOMMENDATION:
+Use traditional ICP + persona research rather than forcing PVP/PQS
+segments that don't connect to product value.
+```
+
+**Tier 2: Fallback to Situations (if some situations passed)**
+```
+⚠️ LIMITED FIT FOUND: SITUATION-BASED PLAYS ONLY
+
+While no regulated vertical has strong product-fit, we identified
+[N] SITUATION-based segments that could work:
+
+SITUATION PLAYS:
+1. [Situation Name] - [Confidence]%
+   - Trigger: [What creates urgency]
+   - Data: [How we detect it]
+   - Product-fit: [X]/10
+
+2. [Situation Name] - [Confidence]%
+   - Trigger: [What creates urgency]
+   - Data: [How we detect it]
+   - Product-fit: [X]/10
+
+IMPORTANT CAVEATS:
+- These are TIMING plays, not PAIN plays
+- Lower conversion than true PVPs (expect 2-5% vs 8-15%)
+- Require higher outreach volume
+- Best for SDR-driven campaigns with quick follow-up
+
+Proceed with situational playbook? [Y/N]
+```
+
+**Tier 3: Suggest Pivots**
+```
+⚠️ VERTICAL PIVOT RECOMMENDED
+
+[Product] would have STRONG data-driven fit if positioned for:
+
+PIVOT OPTION 1: [Vertical A]
+- Why it would work: [Specific pain that product could solve]
+- Data sources available: [List]
+- Example segment: [What it would look like]
+- Product enhancement needed: [If any]
+
+PIVOT OPTION 2: [Vertical B]
+- Why it would work: [Specific pain that product could solve]
+- Data sources available: [List]
+- Example segment: [What it would look like]
+- Product enhancement needed: [If any]
+
+CONSIDERATION:
+Could [Product] be repositioned or feature-enhanced to address these
+verticals? If yes, re-run Blueprint Turbo with adjusted positioning.
+```
+
+**No-Fit Output:**
+- Do NOT generate HTML playbook
+- Output one of the three tier responses above
+- Document what was tried and why it failed
+- Provide clear next steps
+
+**Progress Hook:** "⚠️ No-Fit: Product-fit validation failed. See honest assessment above."
 
 ---
 
