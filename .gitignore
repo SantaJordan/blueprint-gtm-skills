@@ -67,3 +67,9 @@ blueprint-trigger-api/node_modules
 
 # Worker scripts
 scripts/node_modules
+
+# Contact Finder
+contact-finder/config.yaml
+contact-finder/checkpoints/
+contact-finder/*.json
+!contact-finder/config.yaml.example
