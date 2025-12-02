@@ -73,3 +73,4 @@ contact-finder/config.yaml
 contact-finder/checkpoints/
 contact-finder/*.json
 !contact-finder/config.yaml.example
+domain-resolver/config.yaml
