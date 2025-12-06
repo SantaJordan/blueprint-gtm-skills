@@ -1,0 +1,232 @@
+{
+  "metadata": {
+    "analysis_date": "2025-12-01",
+    "input_file": "yelp_940_results.json",
+    "total_companies": 940,
+    "analysis_focus": "failure_patterns"
+  },
+  "executive_summary": {
+    "success_rate": "69.8%",
+    "total_failures": 284,
+    "total_failure_rate": "30.2%",
+    "breakdown": {
+      "no_contacts_found": {
+        "count": 144,
+        "rate": "15.3%",
+        "root_cause": "Data sources returning empty results"
+      },
+      "all_contacts_invalid": {
+        "count": 140,
+        "rate": "14.9%",
+        "root_cause": "CRITICAL BUG: Missing validation_score field in stored results"
+      }
+    },
+    "companies_with_errors": 0,
+    "errors_rate": "0.0%"
+  },
+  "critical_bug": {
+    "description": "Results file is missing validation_score field for all contacts",
+    "impact": "Contacts that should score 65-100 are marked as invalid",
+    "evidence": "Re-validation shows contacts pass threshold but were stored as invalid",
+    "estimated_false_negatives": "~140 companies (14.9%)",
+    "priority": "URGENT - Fix immediately"
+  },
+  "source_effectiveness": {
+    "best_sources": [
+      {
+        "name": "page_scrape",
+        "total": 6,
+        "valid_rate": "100.0%",
+        "invalid_rate": "0.0%",
+        "note": "Low volume but perfect accuracy"
+      },
+      {
+        "name": "google_maps_owner",
+        "total": 627,
+        "valid_rate": "90.1%",
+        "invalid_rate": "9.9%",
+        "note": "Most reliable high-volume source"
+      },
+      {
+        "name": "social_links",
+        "total": 296,
+        "valid_rate": "83.1%",
+        "invalid_rate": "16.9%",
+        "note": "Good supplementary source"
+      }
+    ],
+    "worst_sources": [
+      {
+        "name": "schema_org",
+        "total": 8,
+        "valid_rate": "12.5%",
+        "invalid_rate": "87.5%",
+        "recommendation": "ABANDON - Nearly useless"
+      },
+      {
+        "name": "openweb_contacts",
+        "total": 397,
+        "valid_rate": "47.6%",
+        "invalid_rate": "52.4%",
+        "recommendation": "INVESTIGATE - High volume but poor quality"
+      },
+      {
+        "name": "serper_osint",
+        "total": 144,
+        "valid_rate": "72.2%",
+        "invalid_rate": "27.8%",
+        "recommendation": "ACCEPTABLE - Could be improved"
+      }
+    ]
+  },
+  "vertical_failure_rates": {
+    "worst_performers": [
+      {
+        "vertical": "movers",
+        "total_failures": 40,
+        "failure_rate": "42.6%",
+        "no_contacts": 24,
+        "all_invalid": 16,
+        "recommendation": "Vertical-specific strategy needed - franchise model issues"
+      },
+      {
+        "vertical": "hvac",
+        "total_failures": 39,
+        "failure_rate": "41.5%",
+        "no_contacts": 14,
+        "all_invalid": 25,
+        "recommendation": "Similar franchise issues - target regional managers"
+      },
+      {
+        "vertical": "auto_repair",
+        "total_failures": 34,
+        "failure_rate": "36.2%",
+        "no_contacts": 22,
+        "all_invalid": 12,
+        "recommendation": "Investigate why Google Maps returns no data"
+      }
+    ],
+    "best_performers": [
+      {
+        "vertical": "electricians",
+        "total_failures": 19,
+        "failure_rate": "20.2%",
+        "no_contacts": 6,
+        "all_invalid": 13
+      },
+      {
+        "vertical": "tree_services",
+        "total_failures": 19,
+        "failure_rate": "20.2%",
+        "no_contacts": 15,
+        "all_invalid": 4
+      }
+    ]
+  },
+  "invalid_contact_breakdown": {
+    "total_invalid_contacts": 1182,
+    "categories": [
+      {
+        "category": "has_both_name_and_contact",
+        "count": 617,
+        "percentage": "52.2%",
+        "note": "CRITICAL - These should NOT be invalid!"
+      },
+      {
+        "category": "has_contact_no_name",
+        "count": 404,
+        "percentage": "34.2%",
+        "note": "Missing name field - could extract from email or improve scraping"
+      },
+      {
+        "category": "has_name_no_contact",
+        "count": 161,
+        "percentage": "13.6%",
+        "note": "Missing email/phone - need better contact extraction"
+      },
+      {
+        "category": "has_neither",
+        "count": 0,
+        "percentage": "0.0%",
+        "note": "None - good!"
+      }
+    ]
+  },
+  "recommendations": {
+    "priority_1_immediate": [
+      {
+        "action": "Fix validation_score storage bug",
+        "impact": "+10-15% success rate",
+        "effort": "Low - code fix",
+        "expected_result": "Failure rate drops from 30.2% to 15-20%"
+      }
+    ],
+    "priority_2_short_term": [
+      {
+        "action": "Abandon schema_org source",
+        "impact": "Minimal (only 8 contacts)",
+        "effort": "Low - remove from pipeline",
+        "expected_result": "Cleaner pipeline, no performance loss"
+      },
+      {
+        "action": "Investigate openweb_contacts quality",
+        "impact": "+5% success rate",
+        "effort": "Medium - debug scraping logic",
+        "expected_result": "Better email/name extraction from websites"
+      },
+      {
+        "action": "Add error tracking for data quality",
+        "impact": "Better visibility",
+        "effort": "Medium - add logging",
+        "expected_result": "Surface why Google Maps / websites return empty"
+      }
+    ],
+    "priority_3_medium_term": [
+      {
+        "action": "Add fallback sources for no-contact companies",
+        "impact": "+5% success rate",
+        "effort": "High - integrate new APIs",
+        "expected_result": "Reduce no-contact rate from 15.3% to 10%"
+      },
+      {
+        "action": "Implement vertical-specific strategies",
+        "impact": "+5-10% for worst verticals",
+        "effort": "High - custom logic per vertical",
+        "expected_result": "Movers/HVAC failure rate drops from 42% to 30%"
+      }
+    ],
+    "priority_4_long_term": [
+      {
+        "action": "Re-evaluate validation threshold",
+        "impact": "TBD - test after bug fix",
+        "effort": "Low - config change",
+        "expected_result": "Possibly lower from 50 to 40 points"
+      }
+    ]
+  },
+  "expected_outcomes": {
+    "current_state": {
+      "success_rate": "69.8%",
+      "failure_rate": "30.2%"
+    },
+    "after_immediate_fixes": {
+      "success_rate": "80-85%",
+      "failure_rate": "15-20%",
+      "improvements": "Fix validation_score bug"
+    },
+    "after_all_fixes": {
+      "success_rate": "85-90%",
+      "failure_rate": "10-15%",
+      "improvements": "Bug fix + source quality + fallbacks + vertical strategies"
+    }
+  },
+  "key_insights": [
+    "Pipeline is robust - 0% errors, 100% stage completion",
+    "The 30.2% failure rate is NOT due to pipeline failures",
+    "Critical bug inflates failure rate by ~15%",
+    "Data source quality varies wildly (12% to 100% valid rates)",
+    "Vertical-specific patterns exist (movers 42% fail vs electricians 20%)",
+    "Most 'invalid' contacts actually have good data (52% have name AND contact)",
+    "No-contact failures complete all stages - issue is with data sources, not pipeline logic"
+  ]
+}

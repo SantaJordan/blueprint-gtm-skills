@@ -1,0 +1,628 @@
+{
+  "metadata": {
+    "input_file": "evaluation/data/yelp_diverse_1000.json",
+    "limit": 20,
+    "concurrency": 5,
+    "skip_stages": [],
+    "timestamp": "2025-12-01T22:30:42.011518"
+  },
+  "summary": {
+    "total_companies": 20,
+    "companies_processed": 20,
+    "contacts_found": 17,
+    "contacts_validated": 3,
+    "serper_queries": 11,
+    "leadmagic_credits": 0,
+    "zenrows_requests": 0,
+    "estimated_cost": 0.137
+  },
+  "stage_stats": {
+    "input_analysis": {
+      "total_rows": 940,
+      "companies_loaded": 20,
+      "detected_fields": [
+        "company_name",
+        "domain",
+        "vertical",
+        "address",
+        "phone",
+        "rating",
+        "reviews_count"
+      ],
+      "missing_fields": [],
+      "has_domain": "100.0%",
+      "has_owner": "0.0%"
+    }
+  },
+  "results": [
+    {
+      "company_name": "Nickel Bros",
+      "domain": "nickelbros.com",
+      "vertical": "general_contractors",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 9430.561065673828,
+      "contacts": [
+        {
+          "name": null,
+          "email": "enquiry@nickelbros.com",
+          "phone": "2507532268",
+          "title": null,
+          "linkedin_url": "https://www.linkedin.com/company/nickel-bros-house-moving-ltd",
+          "sources": [
+            "openweb_contacts"
+          ],
+          "is_valid": false,
+          "confidence": 0.0,
+          "validation_reasons": [
+            "The contact is invalid as the company name 'Nickel Bros' is posing as a person name, which violates the critical rules.",
+            "RED FLAG: Company name posing as a person name"
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Esteban Construction",
+      "domain": "estebanconstruction.com",
+      "vertical": "roofing",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "data_fill",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 11608.42514038086,
+      "contacts": []
+    },
+    {
+      "company_name": "Junkaway",
+      "domain": "junkawayllc.com",
+      "vertical": "junk_removal",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 8548.965215682983,
+      "contacts": [
+        {
+          "name": null,
+          "email": "junkawayservicesllc@gmail.com",
+          "phone": "817357680610",
+          "title": null,
+          "linkedin_url": "https://www.linkedin.com/company/east-tennessee-junk-away-llc",
+          "sources": [
+            "openweb_contacts"
+          ],
+          "is_valid": false,
+          "confidence": 0.0,
+          "validation_reasons": [
+            "The contact name is unknown and the company name is used as the owner name, which violates the critical rules.",
+            "RED FLAG: Company name used as contact name",
+            "RED FLAG: No valid person identified"
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Miller's Services",
+      "domain": "millers-va.com",
+      "vertical": "hvac",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 10441.220045089722,
+      "contacts": [
+        {
+          "name": null,
+          "email": "kristen@millers-va.com",
+          "phone": "8047584314",
+          "title": null,
+          "linkedin_url": "https://www.linkedin.com/company/millers-va",
+          "sources": [
+            "openweb_contacts"
+          ],
+          "is_valid": false,
+          "confidence": 0.0,
+          "validation_reasons": [
+            "The contact is invalid as the company name 'Miller's Services' is posing as a person name, and no real person name is provided.",
+            "RED FLAG: Company name posing as person name",
+            "RED FLAG: Unknown candidate name and title"
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Moover Dudes",
+      "domain": "mooverdudes.com",
+      "vertical": "movers",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 9265.569925308228,
+      "contacts": [
+        {
+          "name": null,
+          "email": "apply@mooverdudes.com",
+          "phone": null,
+          "title": null,
+          "linkedin_url": "https://www.linkedin.com/in/davissharp",
+          "sources": [
+            "openweb_contacts"
+          ],
+          "is_valid": false,
+          "confidence": 0.0,
+          "validation_reasons": [
+            "The contact is invalid as the owner of 'Moover Dudes' is listed as 'Moover Dudes', which is a company name posing as a person name (evidence [1]).",
+            "RED FLAG: Company name used as contact",
+            "RED FLAG: No real person identified"
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Muscle Beach Moving and Transport",
+      "domain": "musclebeachmovingandtransport.\u2026",
+      "vertical": "movers",
+      "stages_completed": [
+        "google_maps",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 3517.9309844970703,
+      "contacts": []
+    },
+    {
+      "company_name": "Wilson Services",
+      "domain": "wilsonservices.com",
+      "vertical": "electricians",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 7794.857025146484,
+      "contacts": [
+        {
+          "name": null,
+          "email": "kim.peterson@colepublishing.com",
+          "phone": "9733832112",
+          "title": null,
+          "linkedin_url": "https://www.linkedin.com/company/wilson-services",
+          "sources": [
+            "openweb_contacts"
+          ],
+          "is_valid": false,
+          "confidence": 0.0,
+          "validation_reasons": [
+            "The contact is invalid as there is no real person identified, only a company name, which violates the critical rules.",
+            "RED FLAG: Company name 'Wilson Services' does not correspond to a real person name."
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Norhio Plumbing",
+      "domain": "norhioplumbing.com",
+      "vertical": "plumbing",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 4721.10390663147,
+      "contacts": []
+    },
+    {
+      "company_name": "Jason Mazzer Plumbing & HVAC",
+      "domain": "mazzerplumbing.com",
+      "vertical": "hvac",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 7041.04208946228,
+      "contacts": [
+        {
+          "name": null,
+          "email": "workorders@mazzerplumbing.com",
+          "phone": "2016156672",
+          "title": null,
+          "linkedin_url": "https://www.linkedin.com/company/jason-mazzer-plumbing-hvac-llc",
+          "sources": [
+            "openweb_contacts"
+          ],
+          "is_valid": false,
+          "confidence": 0.0,
+          "validation_reasons": [
+            "The contact is invalid as the company name 'Jason Mazzer Plumbing & HVAC' poses as a person name, leading to a rejection.",
+            "RED FLAG: Company name posing as a person name"
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Kirk R. Wainwright Construction",
+      "domain": "krwainwrightconst.com",
+      "vertical": "general_contractors",
+      "stages_completed": [
+        "google_maps",
+        "data_fill",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 14288.671970367432,
+      "contacts": [
+        {
+          "name": "Kirk R. Wainwright",
+          "email": null,
+          "phone": null,
+          "title": "Owner",
+          "linkedin_url": null,
+          "sources": [
+            "serper_osint"
+          ],
+          "is_valid": true,
+          "confidence": 90.0,
+          "validation_reasons": [
+            "Kirk R. Wainwright is a real person name and is verified as the owner of the company via Google Maps (evidence [1])."
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Crary Project Garage",
+      "domain": "craryprojectgarage.com",
+      "vertical": "auto_repair",
+      "stages_completed": [
+        "google_maps",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 6685.213088989258,
+      "contacts": [
+        {
+          "name": "The Cherry Garage",
+          "email": null,
+          "phone": "+13148285777",
+          "title": "Owner",
+          "linkedin_url": null,
+          "sources": [
+            "google_maps_owner"
+          ],
+          "is_valid": false,
+          "confidence": 0.0,
+          "validation_reasons": [
+            "The contact name 'The Cherry Garage' is a company name posing as a person name, which violates the critical rules.",
+            "RED FLAG: Company name as contact, no real person identified"
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Champion Mulch & Landscape Supply",
+      "domain": "gotochampion.com",
+      "vertical": "landscaping",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 7836.852312088013,
+      "contacts": [
+        {
+          "name": null,
+          "email": "mailus@gardenhub.com",
+          "phone": "9372282730",
+          "title": null,
+          "linkedin_url": "https://www.linkedin.com/in/chad-cerrone-8712ba10",
+          "sources": [
+            "openweb_contacts"
+          ],
+          "is_valid": false,
+          "confidence": 0.0,
+          "validation_reasons": [
+            "The contact name is unknown and the company name is used as the owner name, which violates the critical rules.",
+            "RED FLAG: Company name used as contact name",
+            "RED FLAG: No valid person identified"
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Property Proz Site Services",
+      "domain": "propertyprozsiteservices.com",
+      "vertical": "landscaping",
+      "stages_completed": [
+        "google_maps",
+        "data_fill",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 8940.256357192993,
+      "contacts": [
+        {
+          "name": "Facility Proz",
+          "email": null,
+          "phone": "+13167685868",
+          "title": "Owner",
+          "linkedin_url": null,
+          "sources": [
+            "google_maps_owner"
+          ],
+          "is_valid": false,
+          "confidence": 0.0,
+          "validation_reasons": [
+            "The name 'Facility Proz' appears to be a company name rather than a real person name, leading to rejection.",
+            "RED FLAG: Company name posing as a person name"
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Decook Excavating",
+      "domain": "decookexcavating.com",
+      "vertical": "landscaping",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 6808.862924575806,
+      "contacts": [
+        {
+          "name": null,
+          "email": "chris@decookexcavating.com",
+          "phone": null,
+          "title": null,
+          "linkedin_url": "https://www.linkedin.com/company/decook-companies",
+          "sources": [
+            "openweb_contacts"
+          ],
+          "is_valid": false,
+          "confidence": 0.0,
+          "validation_reasons": [
+            "The contact name is unknown and the company name is used as the owner, which violates the critical rules.",
+            "RED FLAG: Company name used as contact name",
+            "RED FLAG: No valid person identified"
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Alford Plumbing",
+      "domain": "alfordplumbing.com",
+      "vertical": "plumbing",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 6466.899871826172,
+      "contacts": [
+        {
+          "name": null,
+          "email": "alfordplumbing@gmail.com",
+          "phone": "9312880332",
+          "title": null,
+          "linkedin_url": null,
+          "sources": [
+            "openweb_contacts"
+          ],
+          "is_valid": false,
+          "confidence": 0.0,
+          "validation_reasons": [
+            "The contact name is unknown and the company name is used as the owner name, which violates the critical rules.",
+            "RED FLAG: Company name used as contact name",
+            "RED FLAG: No real person identified"
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "A&D Land Services",
+      "domain": "adlandservice.com",
+      "vertical": "tree_services",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 4003.86905670166,
+      "contacts": []
+    },
+    {
+      "company_name": "Trash B Gone Junk Removal",
+      "domain": "trashbgonenc.com",
+      "vertical": "junk_removal",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 5933.402061462402,
+      "contacts": [
+        {
+          "name": null,
+          "email": "trashbgonellc@gmail.com",
+          "phone": "9199721854",
+          "title": null,
+          "linkedin_url": null,
+          "sources": [
+            "openweb_contacts"
+          ],
+          "is_valid": false,
+          "confidence": 0.0,
+          "validation_reasons": [
+            "The contact name is unknown and the company name is used as the owner name, which violates the critical rules.",
+            "RED FLAG: Company name used as contact name",
+            "RED FLAG: No valid person identified"
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Mid TN Underground",
+      "domain": "midtnunderground.com",
+      "vertical": "electricians",
+      "stages_completed": [
+        "google_maps",
+        "data_fill",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 10170.651912689209,
+      "contacts": []
+    },
+    {
+      "company_name": "Colton's Handyman Services",
+      "domain": "coltonshandyman.wixsite.com",
+      "vertical": "junk_removal",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "data_fill",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 16496.491193771362,
+      "contacts": [
+        {
+          "name": null,
+          "email": "coltons022@icloud.com",
+          "phone": "3527373145",
+          "title": null,
+          "linkedin_url": null,
+          "sources": [
+            "openweb_contacts"
+          ],
+          "is_valid": false,
+          "confidence": 30.0,
+          "validation_reasons": [
+            "The contact name is unknown and the company name appears to be a business name rather than a real person, leading to significant uncertainty.",
+            "RED FLAG: Company name as contact, no real person identified",
+            "RED FLAG: Unknown title and name"
+          ]
+        },
+        {
+          "name": "Brian Justin",
+          "email": null,
+          "phone": null,
+          "title": "Owner",
+          "linkedin_url": null,
+          "sources": [
+            "serper_osint"
+          ],
+          "is_valid": false,
+          "confidence": 30.0,
+          "validation_reasons": [
+            "The name 'Brian Justin' is a real person name, but the company name 'Colton's Handyman Services' raises concerns as it includes a corporate indicator, and there is limited verification of the contact.",
+            "RED FLAG: Company name contains 'Services', which is a corporate indicator",
+            "RED FLAG: No email provided",
+            "RED FLAG: No phone number provided"
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Doug Campbell Backhoe",
+      "domain": "backhoeman.com",
+      "vertical": "plumbing",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "bbb_discovery",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 13500.705003738403,
+      "contacts": [
+        {
+          "name": null,
+          "email": "doug@backhoeman.com",
+          "phone": "7062550714",
+          "title": null,
+          "linkedin_url": null,
+          "sources": [
+            "openweb_contacts"
+          ],
+          "is_valid": true,
+          "confidence": 90.0,
+          "validation_reasons": [
+            "Doug Campbell is a real person name associated with the business Doug Campbell Backhoe, verified through Google Maps and the company website."
+          ]
+        },
+        {
+          "name": "Doug Campbell",
+          "email": null,
+          "phone": null,
+          "title": "Owner",
+          "linkedin_url": null,
+          "sources": [
+            "serper_osint"
+          ],
+          "is_valid": true,
+          "confidence": 90.0,
+          "validation_reasons": [
+            "Doug Campbell is a real person name confirmed as the owner of Doug Campbell Backhoe via Google Maps and the company website, which provides a valid email and phone number."
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -62,7 +62,8 @@
       "WebFetch(domain:rapidapi.com)",
       "WebFetch(domain:leadmagic.io)",
       "WebFetch(domain:docs.leadmagic.io)",
-      "WebFetch(domain:www.openwebninja.com)"
+      "WebFetch(domain:www.openwebninja.com)",
+      "WebFetch(domain:santajordan.github.io)"
     ],
     "deny": [],
     "ask": []

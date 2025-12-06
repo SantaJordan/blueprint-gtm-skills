@@ -1,0 +1,5422 @@
+{
+  "metrics": {
+    "total_companies": 100,
+    "with_contact": 87,
+    "contact_rate": 87.0,
+    "early_exits": 19,
+    "early_exit_rate": 19.0,
+    "total_cost": 0.45900000000000035,
+    "avg_cost_per_company": 0.004590000000000004,
+    "avg_stages": 2.79,
+    "avg_time_ms": 12756.883792877197,
+    "avg_confidence": 90.28735632183908,
+    "confidence_distribution": {
+      "high_80+": 86,
+      "medium_50-79": 1,
+      "low_below_50": 0
+    }
+  },
+  "controller_stats": {
+    "total_llm_calls": 379,
+    "total_tool_calls": 279,
+    "early_exits": 87,
+    "early_exit_rate": 0.2979452054794521
+  },
+  "results": [
+    {
+      "company_name": "Ragone's Plumbing Services",
+      "domain": "ragonesplumbingservices.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Ragone's Plumbing Services",
+          "title": "Owner",
+          "phone": "+18059805188",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "ragonedillon@gmail.com",
+          "phone": null,
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "dillonragone91@gmail.com",
+          "phone": null,
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Dillon Scott Ragone",
+          "title": "Owner",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Dillon Scott Ragone",
+        "email": "dillonragone91@gmail.com",
+        "phone": "+18059805188",
+        "title": "Owner",
+        "confidence": 90,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 13287.669897079468,
+      "input": {
+        "company_name": "Ragone's Plumbing Services",
+        "domain": "ragonesplumbingservices.com",
+        "vertical": "plumbers",
+        "address": null,
+        "phone": "+1 805-980-5188",
+        "place_id": "ChIJ186Mj6POWSkRjfb99P9E5qU",
+        "rating": 5.0,
+        "reviews": 11
+      }
+    },
+    {
+      "company_name": "Riverhead Brew House",
+      "domain": "riverheadbrewhouse.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Riverhead Brew House",
+          "title": "Owner",
+          "phone": "+16312121265",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "contact@moonfishbrew.com",
+          "phone": "6312121265",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Robert Kurtz",
+          "title": "Owner",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Robert Kurtz",
+        "email": "",
+        "phone": "",
+        "title": "Owner",
+        "confidence": 90.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 14557.260036468506,
+      "input": {
+        "company_name": "Riverhead Brew House",
+        "domain": "riverheadbrewhouse.com",
+        "vertical": "breweries_and_brewpubs",
+        "address": "221 E Main St Suite 5, Riverhead, NY 11901",
+        "phone": "(631) 212-1265",
+        "place_id": "ChIJAYGDwCuL6IkR8mGSMCRD5FQ",
+        "rating": 4.7,
+        "reviews": 281
+      }
+    },
+    {
+      "company_name": "K J Lee's Automotive",
+      "domain": "kjleesauto.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "K J Lee's Automotive",
+          "title": "Owner",
+          "phone": "+15625993314",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "name": "Reinaldo A. Piedra",
+          "title": "Owner/Operator",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Reinaldo A. Piedra",
+        "email": "None",
+        "phone": "None",
+        "title": "Owner/Operator",
+        "confidence": 95.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 13452.148914337158,
+      "input": {
+        "company_name": "K J Lee's Automotive",
+        "domain": "kjleesauto.com",
+        "vertical": "auto_body_shops",
+        "address": "1301 Atlantic Ave, Long Beach, CA 90813",
+        "phone": "(562) 599-3314",
+        "place_id": "ChIJ2ZWs4kIx3YARgkWFgG2O8VE",
+        "rating": 4.3,
+        "reviews": 97
+      }
+    },
+    {
+      "company_name": "Pig Pounder Brewery",
+      "domain": "pigpounder.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Pig Pounder Brewery",
+          "title": "Owner",
+          "phone": "+13365531290",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "blair@pigpounder.com",
+          "phone": "3365007935",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "wholesale@pigpounder.com",
+          "phone": "3365007935",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Marty Kotis",
+          "title": "Owner",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Marty Kotis",
+        "email": "blair@pigpounder.com",
+        "phone": "3365007935",
+        "title": "Owner",
+        "confidence": 85.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 13239.045143127441,
+      "input": {
+        "company_name": "Pig Pounder Brewery",
+        "domain": "pigpounder.com",
+        "vertical": "breweries_and_brewpubs",
+        "address": "1107 Grecade St, Greensboro, NC 27408",
+        "phone": "(336) 553-1290",
+        "place_id": "ChIJweLCTDQZU4gR8EpdYR591r0",
+        "rating": 4.6,
+        "reviews": 214
+      }
+    },
+    {
+      "company_name": "DaVita Wilshire Dialysis Center",
+      "domain": "davita.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "DaVita Independence Dialysis Center",
+          "title": "Owner",
+          "phone": "+18333200707",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "newsroom@davita.com",
+          "phone": "18004246589",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "careers@davita.com",
+          "phone": "18004246589",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Javier J. Rodriguez",
+          "title": "CEO",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Javier J. Rodriguez",
+        "email": "newsroom@davita.com",
+        "phone": "18004246589",
+        "title": "CEO",
+        "confidence": 90,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 14304.675102233887,
+      "input": {
+        "company_name": "DaVita Wilshire Dialysis Center",
+        "domain": "davita.com",
+        "vertical": "dialysis_centers",
+        "address": "1212 Wilshire Blvd, Los Angeles, CA 90017",
+        "phone": "(833) 319-3094",
+        "place_id": "ChIJUy0tRKXHwoARwFTSr3g7JXg",
+        "rating": 3.7,
+        "reviews": 7
+      }
+    },
+    {
+      "company_name": "Georgetown Cupcake",
+      "domain": "georgetowncupcake.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Georgetown Cupcake",
+          "title": "Owner",
+          "phone": "+12023338448",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "corporateorders@georgetowncupcake.com",
+          "phone": "18885027447",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "media@georgetowncupcake.com",
+          "phone": "18885027447",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Katherine Kallinis Berman",
+          "title": "Co-Owner/Founder",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Katherine Kallinis Berman",
+        "email": "corporateorders@georgetowncupcake.com",
+        "phone": "+12023338448",
+        "title": "Co-Owner/Founder",
+        "confidence": 95,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 15752.923011779785,
+      "input": {
+        "company_name": "Georgetown Cupcake",
+        "domain": "georgetowncupcake.com",
+        "vertical": "bakeries",
+        "address": "3301 M St NW, Washington, DC 20007",
+        "phone": "(202) 333-8448",
+        "place_id": "ChIJoWte30i2t4kRr7fNIVGuDx0",
+        "rating": 4.1,
+        "reviews": 6249
+      }
+    },
+    {
+      "company_name": "Dunkin'",
+      "domain": "locations.dunkindonuts.com",
+      "stages_completed": [
+        "website_contacts",
+        "serper_osint",
+        "data_fill",
+        "google_maps_lookup"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 4,
+      "candidates": [
+        {
+          "name": "Dunkin'",
+          "title": "Owner",
+          "phone": "+15018037007",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        }
+      ],
+      "contact": null,
+      "no_contact_reason": "Only company name found as owner, no valid person name available.",
+      "processing_time_ms": 11310.66918373108,
+      "input": {
+        "company_name": "Dunkin'",
+        "domain": "locations.dunkindonuts.com",
+        "vertical": "coffee_shops_in_the_usa",
+        "address": "325 Elsbree St, Fall River, MA 02720",
+        "phone": "(774) 488-3388",
+        "place_id": "ChIJO_WM_wn55IkRKQ_5lP62YFg",
+        "rating": 3.9,
+        "reviews": 298
+      }
+    },
+    {
+      "company_name": "DARCARS Honda Service Center",
+      "domain": "darcarshonda.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "DARCARS Honda Service Center",
+          "title": "Owner",
+          "phone": "+13012183100",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "customerrelations@darcars.com",
+          "phone": "3012183100",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "compliance@darcars.com",
+          "phone": "3012183100",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "John Darvish",
+          "title": "President/CEO",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "John Darvish",
+        "email": "customerrelations@darcars.com",
+        "phone": "+13012183100",
+        "title": "President/CEO",
+        "confidence": 90,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 17634.01985168457,
+      "input": {
+        "company_name": "DARCARS Honda Service Center",
+        "domain": "darcarshonda.com",
+        "vertical": "auto_body_shops",
+        "address": "2260 Crain Hwy, Bowie, MD 20716",
+        "phone": "(301) 218-3100",
+        "place_id": "ChIJTxS_7l7tt4kRAaPM93jdgn4",
+        "rating": 4.3,
+        "reviews": 223
+      }
+    },
+    {
+      "company_name": "Los Angeles Kidney Center - Nephrology",
+      "domain": "losangeleskidneycenter.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Los Angeles Kidney Center - Nephrology",
+          "title": "Owner",
+          "phone": "+12135370328",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "kidneylosangeles@gmail.com",
+          "phone": "2135370328",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Ardavan Mashhadian",
+          "title": "Nephrologist",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Ardavan Mashhadian",
+        "email": "kidneylosangeles@gmail.com",
+        "phone": "2135370328",
+        "title": "Nephrologist",
+        "confidence": 90,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 13636.573076248169,
+      "input": {
+        "company_name": "Los Angeles Kidney Center - Nephrology",
+        "domain": "losangeleskidneycenter.com",
+        "vertical": "dialysis_centers",
+        "address": "1414 S Grand Ave #100, Los Angeles, CA 90015",
+        "phone": "(213) 537-0328",
+        "place_id": "ChIJoX0o-a_HwoARdwRyLqin9ds",
+        "rating": 4.8,
+        "reviews": 60
+      }
+    },
+    {
+      "company_name": "Christine's Kitchen",
+      "domain": "facebook.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "serper_osint"
+      ],
+      "total_cost": 0.003,
+      "llm_stages": 2,
+      "candidates": [
+        {
+          "name": "Christine's Kitchen",
+          "title": "Owner",
+          "phone": "+16156661234",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "name": "Christine Pattison",
+          "title": "Owner",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Christine Pattison",
+        "email": null,
+        "phone": "+16156661234",
+        "title": "Owner",
+        "confidence": 90.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 11041.091918945312,
+      "input": {
+        "company_name": "Christine's Kitchen",
+        "domain": "facebook.com",
+        "vertical": "bakeries",
+        "address": "603 E Chamberlin St, Dixon, IL 61021",
+        "phone": null,
+        "place_id": "ChIJo-nCDdetCYgRqzpS7gTcJ2Q",
+        "rating": 5.0,
+        "reviews": 2
+      }
+    },
+    {
+      "company_name": "Atomic Rooter Plumbing Sewer & Drain Cleaning",
+      "domain": "atomicrooterinc.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Atomic Rooter Plumbing Sewer & Drain Cleaning",
+          "title": "Owner",
+          "phone": "+12038551977",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "name": "Steven Tricarico",
+          "title": "Owner",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Steven Tricarico",
+        "email": null,
+        "phone": null,
+        "title": "Owner",
+        "confidence": 95.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 13336.550951004028,
+      "input": {
+        "company_name": "Atomic Rooter Plumbing Sewer & Drain Cleaning",
+        "domain": "atomicrooterinc.com",
+        "vertical": "plumbers",
+        "address": "2 Prospect St, Norwalk, CT 06850, Vereinigte Staaten",
+        "phone": "+1 203-855-1977",
+        "place_id": "ChIJCS5e01ID6IkRHtoB4Wdd-z0",
+        "rating": 5.0,
+        "reviews": 21
+      }
+    },
+    {
+      "company_name": "The Baklava",
+      "domain": "thebaklavaca.com",
+      "stages_completed": [
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.003,
+      "llm_stages": 2,
+      "candidates": [
+        {
+          "email": "info@thebaklavaca.com",
+          "phone": "14055329013",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Tolgay Karabulut",
+          "title": "Owner",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Tolgay Karabulut",
+        "email": "info@thebaklavaca.com",
+        "phone": "14055329013",
+        "title": "Owner",
+        "confidence": 90.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 13320.394039154053,
+      "input": {
+        "company_name": "The Baklava",
+        "domain": "thebaklavaca.com",
+        "vertical": "bakeries",
+        "address": "555 The, Shops At Mission Viejo, Mission Viejo, CA 92691",
+        "phone": "(949) 685-2662",
+        "place_id": "ChIJg72NP6Un3YAR61V46Zgl8UU",
+        "rating": 4.6,
+        "reviews": 121
+      }
+    },
+    {
+      "company_name": "Fresenius Kidney Care Greece",
+      "domain": "freseniuskidneycare.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Fresenius Kidney Care Greece",
+          "title": "Owner",
+          "phone": "+18008815101",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "thriveon@freseniuskidneycare.com",
+          "phone": "18008815101",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "privacy@freseniusmedicalcare.com",
+          "phone": "18008815101",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Helen Giza",
+          "title": "CEO and Chair of the Management Board",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Helen Giza",
+        "email": "thriveon@freseniuskidneycare.com",
+        "phone": "+18008815101",
+        "title": "CEO and Chair of the Management Board",
+        "confidence": 95.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 16814.523935317993,
+      "input": {
+        "company_name": "Fresenius Kidney Care Greece",
+        "domain": "freseniuskidneycare.com",
+        "vertical": "dialysis_centers",
+        "address": "1570 Long Pond Rd, Rochester, NY 14626",
+        "phone": "(800) 881-5101",
+        "place_id": "ChIJ3aZZQjOy1okRi1kiYFHPYSQ",
+        "rating": 3.0,
+        "reviews": 2
+      }
+    },
+    {
+      "company_name": "Texacone Snowcones and Ice Cream",
+      "domain": "texacone.square.site",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Texacone Snowcones and Ice Cream",
+          "title": "Owner",
+          "phone": null,
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "texacone@yahoo.com",
+          "phone": null,
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Erika Lee",
+          "title": "Owner",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Erika Lee",
+        "email": "texacone@yahoo.com",
+        "phone": "",
+        "title": "Owner",
+        "confidence": 95.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 14597.397089004517,
+      "input": {
+        "company_name": "Texacone Snowcones and Ice Cream",
+        "domain": "texacone.square.site",
+        "vertical": "bakeries",
+        "address": "105 S 2nd St, La Porte, TX 77571",
+        "phone": null,
+        "place_id": "ChIJeaXXWgBhP4YR3VuSAEAGZlI",
+        "rating": 4.9,
+        "reviews": 124
+      }
+    },
+    {
+      "company_name": "Rivertowne Brewing Company",
+      "domain": "myrivertowne.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Rivertowne Brewing Company",
+          "title": "Owner",
+          "phone": "+17245198354",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "519-8354brewing@myrivertowne.com",
+          "phone": "7245198354",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "brewing@myrivertowne.com",
+          "phone": "7245198354",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Arnie Burchianti",
+          "title": "Majority Owner",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Arnie Burchianti",
+        "email": "rob.johnson@myrivertowne.com",
+        "phone": "7245198354",
+        "title": "Majority Owner",
+        "confidence": 90.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 18942.111015319824,
+      "input": {
+        "company_name": "Rivertowne Brewing Company",
+        "domain": "myrivertowne.com",
+        "vertical": "breweries_and_brewpubs",
+        "address": "5578 Old William Penn Hwy, Export, PA 15632",
+        "phone": "(724) 519-8354",
+        "place_id": "ChIJCx8WxqTGNIgR6UWMPicRufE",
+        "rating": 4.6,
+        "reviews": 89
+      }
+    },
+    {
+      "company_name": "Thriftway Super Stops",
+      "domain": "thriftwayss.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Thriftway Super Stops",
+          "title": "Owner",
+          "phone": "+18665578977",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "thriftwayloyaltyclub@cstoresupport.com",
+          "phone": "8665578977",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Linda Sutey",
+          "title": "President",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Linda Sutey",
+        "email": "",
+        "phone": "",
+        "title": "President",
+        "confidence": 90,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 14040.056943893433,
+      "input": {
+        "company_name": "Thriftway Super Stops",
+        "domain": "thriftwayss.com",
+        "vertical": "bakeries",
+        "address": "1900 S Montana St, Butte, MT 59701",
+        "phone": "(406) 782-5661",
+        "place_id": "ChIJSdZrPD0IW1MRrTlkYjk7mc4",
+        "rating": 4.5,
+        "reviews": 10
+      }
+    },
+    {
+      "company_name": "Linc Home Services",
+      "domain": "linc-htx.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Linc Plumbing",
+          "title": "Owner",
+          "phone": "+18326236965",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "careers@linc-htx.com",
+          "phone": "3467358513",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "poleth.guerrero@linc-htx.com",
+          "phone": "3467358513",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Scott Giacobbe",
+          "title": "CEO",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Scott Giacobbe",
+        "email": "careers@linc-htx.com",
+        "phone": "3467358513",
+        "title": "CEO",
+        "confidence": 90.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 14724.908113479614,
+      "input": {
+        "company_name": "Linc Home Services",
+        "domain": "linc-htx.com",
+        "vertical": "plumbers",
+        "address": "9424 W Little York Rd Suite 101, Houston, TX 77040, Vereinigte Staaten",
+        "phone": "+1 346-319-5342",
+        "place_id": "ChIJgUlDJejGQIYROpEuO3r_KTQ",
+        "rating": 4.9,
+        "reviews": 394
+      }
+    },
+    {
+      "company_name": "Morocho Auto Body",
+      "domain": "morochoautobody.wixsite.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Morocho Auto Body",
+          "title": "Owner",
+          "phone": "+18287815364",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "morochoautobody@gmail.com",
+          "phone": "8287812837",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Victor Morocho",
+          "title": "Owner",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Victor Morocho",
+        "email": "morochoautobody@gmail.com",
+        "phone": "8287812837",
+        "title": "Owner",
+        "confidence": 90,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 15156.296968460083,
+      "input": {
+        "company_name": "Morocho Auto Body",
+        "domain": "morochoautobody.wixsite.com",
+        "vertical": "auto_body_shops",
+        "address": "627 4th St SW, Hickory, NC 28602",
+        "phone": "(828) 781-5364",
+        "place_id": "ChIJJ5z7614vUYgRegULy-s-fiY",
+        "rating": 4.4,
+        "reviews": 21
+      }
+    },
+    {
+      "company_name": "Guillen Plumbing Inc",
+      "domain": "guillenplumbinginc.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Guillen Plumbing Inc",
+          "title": "Owner",
+          "phone": "+19563672300",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "millennialplumber@yahoo.com",
+          "phone": "9563672300",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Frank Guillen Jr.",
+          "title": "Owner",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Frank Guillen Jr.",
+        "email": "millennialplumber@yahoo.com",
+        "phone": "+19563672300",
+        "title": "Owner",
+        "confidence": 95.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 16306.366920471191,
+      "input": {
+        "company_name": "Guillen Plumbing Inc",
+        "domain": "guillenplumbinginc.com",
+        "vertical": "plumbers",
+        "address": null,
+        "phone": "+1 956-367-2300",
+        "place_id": "ChIJocJQMo6Bb4YRte3LkoaDPfQ",
+        "rating": 5.0,
+        "reviews": 4
+      }
+    },
+    {
+      "company_name": "Walmart Supercenter",
+      "domain": "walmart.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "serper_osint",
+        "website_contacts"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Walmart Supercenter",
+          "title": "Owner",
+          "phone": "+16202514113",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "name": "John Furner",
+          "title": "President and Chief Executive Officer",
+          "sources": [
+            "serper_osint"
+          ]
+        },
+        {
+          "email": "livebetteru@walmart.com",
+          "phone": "7323496464",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "4thwallservices@walmart.com",
+          "phone": "7323496464",
+          "sources": [
+            "website_contacts"
+          ]
+        }
+      ],
+      "contact": null,
+      "no_contact_reason": "No valid contact found after trying all available tools.",
+      "processing_time_ms": 12860.469102859497,
+      "input": {
+        "company_name": "Walmart Supercenter",
+        "domain": "walmart.com",
+        "vertical": "bakeries",
+        "address": "3767 Gulf Breeze Pkwy, Gulf Breeze, FL 32563",
+        "phone": "(850) 934-0362",
+        "place_id": "ChIJq6LxO7LEkIgRztJcO79EvNM",
+        "rating": 4.2,
+        "reviews": 3524
+      }
+    },
+    {
+      "company_name": "Gardner Paint & Body Shop",
+      "domain": "gardnerpaintandbody.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Gardner Paint & Body Shop",
+          "title": "Owner",
+          "phone": "+18037961371",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "name": "Mark Gardner",
+          "title": "Business Owner",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Mark Gardner",
+        "email": null,
+        "phone": null,
+        "title": "Business Owner",
+        "confidence": 95.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 13661.624908447266,
+      "input": {
+        "company_name": "Gardner Paint & Body Shop",
+        "domain": "gardnerpaintandbody.com",
+        "vertical": "auto_body_shops",
+        "address": "1705 Frink St, Cayce, SC 29033",
+        "phone": "(803) 796-1371",
+        "place_id": "ChIJcYK_IzW5-IgRPEw6qV5nnKs",
+        "rating": 4.7,
+        "reviews": 265
+      }
+    },
+    {
+      "company_name": "McDonald's",
+      "domain": "mcdonalds.com",
+      "stages_completed": [
+        "google_maps_lookup"
+      ],
+      "total_cost": 0.002,
+      "llm_stages": 1,
+      "candidates": [
+        {
+          "name": "McDonald's",
+          "title": "Owner",
+          "phone": "+16202513330",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        }
+      ],
+      "contact": null,
+      "no_contact_reason": "Only company name found as owner, no valid person name.",
+      "processing_time_ms": 4046.4179515838623,
+      "input": {
+        "company_name": "McDonald's",
+        "domain": "mcdonalds.com",
+        "vertical": "coffee_shops_in_the_usa",
+        "address": "588 N 24th St, East St Louis, IL 62205",
+        "phone": "(618) 874-6237",
+        "place_id": "ChIJqfgYgQut2IcRQkNwhuwMF5A",
+        "rating": 3.4,
+        "reviews": 1254
+      }
+    },
+    {
+      "company_name": "IU Health University Hospital",
+      "domain": "iuhealth.org",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "IU Health Univ Hospital",
+          "title": "Owner",
+          "phone": "+13179445000",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "tfender1@iuhealth.org",
+          "phone": "2607242145",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "epackard1@iuhealth.org",
+          "phone": "2607242145",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Dennis Murphy",
+          "title": "President and Chief Executive Officer",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Dennis Murphy",
+        "email": "tfender1@iuhealth.org",
+        "phone": "+13179445000",
+        "title": "President and Chief Executive Officer",
+        "confidence": 95.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 14816.456079483032,
+      "input": {
+        "company_name": "IU Health University Hospital",
+        "domain": "iuhealth.org",
+        "vertical": "dialysis_centers",
+        "address": "550 University Blvd, Indianapolis, IN 46202",
+        "phone": "(317) 944-5000",
+        "place_id": "ChIJXVF1kTVXa4gRSwhJDJYRZto",
+        "rating": 3.3,
+        "reviews": 443
+      }
+    },
+    {
+      "company_name": "Dr. Betsy McCormick",
+      "domain": "floridafertility.com",
+      "stages_completed": [
+        "google_maps_lookup"
+      ],
+      "total_cost": 0.002,
+      "llm_stages": 1,
+      "candidates": [
+        {
+          "name": "Betsy McCormick, M.D.",
+          "title": "Owner",
+          "phone": "+17277240702",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Betsy McCormick, M.D.",
+        "email": null,
+        "phone": "+17277240702",
+        "title": "Owner",
+        "confidence": 80,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 5844.900131225586,
+      "input": {
+        "company_name": "Dr. Betsy McCormick",
+        "domain": "floridafertility.com",
+        "vertical": "fertility_and_ivf_clinics",
+        "address": "2919 W Swann Ave #305, Tampa, FL 33609",
+        "phone": "(813) 870-3553",
+        "place_id": "ChIJf7pau27DwogR17Un-sio6ZI",
+        "rating": 3.4,
+        "reviews": 5
+      }
+    },
+    {
+      "company_name": "Oil Changers",
+      "domain": "oilchangers.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "serper_osint"
+      ],
+      "total_cost": 0.003,
+      "llm_stages": 2,
+      "candidates": [
+        {
+          "name": "DriveNow Quick Lane",
+          "title": "Owner",
+          "phone": "+16206886900",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "name": "Eric Frankenberger",
+          "title": "CEO",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Eric Frankenberger",
+        "email": null,
+        "phone": null,
+        "title": "CEO",
+        "confidence": 90,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 9653.888940811157,
+      "input": {
+        "company_name": "Oil Changers",
+        "domain": "oilchangers.com",
+        "vertical": "auto_body_shops",
+        "address": "1874 US-60, Huntington, WV 25705",
+        "phone": "(304) 733-6121",
+        "place_id": "ChIJ1ahyfAMHRogReveoR0h5Shc",
+        "rating": 5.0,
+        "reviews": 391
+      }
+    },
+    {
+      "company_name": "Off Elm",
+      "domain": "offelmstl.com",
+      "stages_completed": [
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.003,
+      "llm_stages": 2,
+      "candidates": [
+        {
+          "email": "aliceelmteam@bcreativbranding.com",
+          "phone": "3145029272",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Matt Longueville",
+          "title": "Owner",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Matt Longueville",
+        "email": "aliceelmteam@bcreativbranding.com",
+        "phone": "3145029272",
+        "title": "Owner",
+        "confidence": 95.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 9775.858879089355,
+      "input": {
+        "company_name": "Off Elm",
+        "domain": "offelmstl.com",
+        "vertical": "breweries_and_brewpubs",
+        "address": "8709 Big Bend Blvd, Webster Groves, MO 63119",
+        "phone": "(314) 502-9272",
+        "place_id": "ChIJYwIoY5jL2IcRPbnGz28co5o",
+        "rating": 4.6,
+        "reviews": 48
+      }
+    },
+    {
+      "company_name": "BrewWall",
+      "domain": "brewwall.com",
+      "stages_completed": [
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.003,
+      "llm_stages": 2,
+      "candidates": [
+        {
+          "name": "Vince LoSchiavo",
+          "title": "Co-owner",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Vince LoSchiavo",
+        "email": null,
+        "phone": null,
+        "title": "Co-owner",
+        "confidence": 90.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 12400.996208190918,
+      "input": {
+        "company_name": "BrewWall",
+        "domain": "brewwall.com",
+        "vertical": "breweries_and_brewpubs",
+        "address": "1350 W Royalton Rd, Broadview Heights, OH 44147",
+        "phone": "(440) 877-1233",
+        "place_id": "ChIJtyQizqvnMIgRf2ktWcrtD38",
+        "rating": 4.2,
+        "reviews": 308
+      }
+    },
+    {
+      "company_name": "Wooden Spoon Diner Plant City",
+      "domain": "m.facebook.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "serper_osint"
+      ],
+      "total_cost": 0.003,
+      "llm_stages": 2,
+      "candidates": [
+        {
+          "name": "Wooden Spoon Diner Plant City",
+          "title": "Owner",
+          "phone": "+18136528192",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "name": "Manny Roussos",
+          "title": "Owner",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Manny Roussos",
+        "email": null,
+        "phone": null,
+        "title": "Owner",
+        "confidence": 95.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 9669.51608657837,
+      "input": {
+        "company_name": "Wooden Spoon Diner Plant City",
+        "domain": "m.facebook.com",
+        "vertical": "coffee_shops_in_the_usa",
+        "address": "712 S Collins St, Plant City, FL 33563",
+        "phone": "(813) 652-8192",
+        "place_id": "ChIJYwQX1UU33YgRJOMLQq6eiWg",
+        "rating": 4.4,
+        "reviews": 1121
+      }
+    },
+    {
+      "company_name": "Mc Dowell's Auto Body Inc",
+      "domain": "anzaloneautoworks.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "serper_osint",
+        "website_contacts"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Mc Dowell's Auto Body Inc",
+          "title": "Owner",
+          "phone": "+16036225322",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "name": "John McDowell",
+          "title": "Owner",
+          "sources": [
+            "serper_osint"
+          ]
+        },
+        {
+          "email": "anzalone@anzaloneautoworks.com",
+          "phone": "6036225322",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "mcdowellautobody@gmail.com",
+          "phone": "6036225322",
+          "sources": [
+            "website_contacts"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "John McDowell",
+        "email": "mcdowellautobody@gmail.com",
+        "phone": "6036225322",
+        "title": "Owner",
+        "confidence": 90.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 13505.295038223267,
+      "input": {
+        "company_name": "Mc Dowell's Auto Body Inc",
+        "domain": "anzaloneautoworks.com",
+        "vertical": "auto_body_shops",
+        "address": "61 Elm St # 4, Manchester, NH 03101",
+        "phone": "(603) 622-5322",
+        "place_id": "ChIJk3EkBMVO4okR66pqORoMqoI",
+        "rating": 4.7,
+        "reviews": 53
+      }
+    },
+    {
+      "company_name": "Smoking Cannon Brewery",
+      "domain": "smokingcannon.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Smoking Cannon Brewery",
+          "title": "Owner",
+          "phone": "+17604077557",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "contact@smokingcannon.com",
+          "phone": null,
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Eric Goforth",
+          "title": "Owner",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Eric Goforth",
+        "email": null,
+        "phone": null,
+        "title": "Owner",
+        "confidence": 95.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 13487.306118011475,
+      "input": {
+        "company_name": "Smoking Cannon Brewery",
+        "domain": "smokingcannon.com",
+        "vertical": "breweries_and_brewpubs",
+        "address": "entrance on 8th, 780 Main St I, Ramona, CA 92065",
+        "phone": "(760) 407-7557",
+        "place_id": "ChIJWfX2Npjo24ARI-VUFIfkOtA",
+        "rating": 4.8,
+        "reviews": 67
+      }
+    },
+    {
+      "company_name": "Island Root Kava Bar EGAD",
+      "domain": "islandroot.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Island Root Kava Bar EGAD",
+          "title": "Owner",
+          "phone": "+13216004502",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "name": "Tony Waterman",
+          "title": "Owner",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Tony Waterman",
+        "email": null,
+        "phone": null,
+        "title": "Owner",
+        "confidence": 90.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 12114.233255386353,
+      "input": {
+        "company_name": "Island Root Kava Bar EGAD",
+        "domain": "islandroot.com",
+        "vertical": "coffee_shops_in_the_usa",
+        "address": "1372 Highland Ave, Melbourne, FL 32935",
+        "phone": "(321) 600-4502",
+        "place_id": "ChIJLVF3jckR3ogRF9ITJ96n1y8",
+        "rating": 4.8,
+        "reviews": 183
+      }
+    },
+    {
+      "company_name": "Romano Plumbing",
+      "domain": "romanoplumbingutah.com",
+      "stages_completed": [
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.003,
+      "llm_stages": 2,
+      "candidates": [
+        {
+          "email": "jane@romanoplumbingutah.com",
+          "phone": "8017926729",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "corby@romanoplumbingutah.com",
+          "phone": "8017926729",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Corby Romano",
+          "title": "Business Owner",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Corby Romano",
+        "email": "corby@romanoplumbingutah.com",
+        "phone": "8017926729",
+        "title": "Business Owner",
+        "confidence": 95.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 10016.136884689331,
+      "input": {
+        "company_name": "Romano Plumbing",
+        "domain": "romanoplumbingutah.com",
+        "vertical": "plumbers",
+        "address": null,
+        "phone": "+1 801-792-6729",
+        "place_id": "ChIJ11mRZLCFUocR58NLo30MmAQ",
+        "rating": 5.0,
+        "reviews": 217
+      }
+    },
+    {
+      "company_name": "Scott Hale Plumbing, Drains, Heating & Air",
+      "domain": "scotthale.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Scott Hale Plumbing, Drains, Heating & Air",
+          "title": "Owner",
+          "phone": "+18013129038",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "privacy@scotthale.com",
+          "phone": "8014066797",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Scott Hale",
+          "title": "Owner",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Scott Hale",
+        "email": "privacy@scotthale.com",
+        "phone": "8014066797",
+        "title": "Owner",
+        "confidence": 95,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 14136.516094207764,
+      "input": {
+        "company_name": "Scott Hale Plumbing, Drains, Heating & Air",
+        "domain": "scotthale.com",
+        "vertical": "plumbers",
+        "address": "5490 S Riley Ln, Murray, UT 84107, Vereinigte Staaten",
+        "phone": "+1 801-312-9038",
+        "place_id": "ChIJ_W3snYaJUocRbcjDOHuIZAc",
+        "rating": 4.8,
+        "reviews": 6752
+      }
+    },
+    {
+      "company_name": "Gerber Collision & Glass",
+      "domain": "gerbercollision.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Gerber Collision & Glass",
+          "title": "Owner",
+          "phone": "+19187440050",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "ce@gerbercollision.com",
+          "phone": "18777437237",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "gerbercare@gerbercollision.com",
+          "phone": "18777437237",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Billy Reed",
+          "title": "Business Owner",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Billy Reed",
+        "email": "ce@gerbercollision.com",
+        "phone": "+19187440050",
+        "title": "Business Owner",
+        "confidence": 85,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 14454.54216003418,
+      "input": {
+        "company_name": "Gerber Collision & Glass",
+        "domain": "gerbercollision.com",
+        "vertical": "auto_body_shops",
+        "address": "2838 Black Lake Blvd SW, Tumwater, WA 98512",
+        "phone": "(360) 943-4542",
+        "place_id": "ChIJo09hsdJ1kVQRCqVYfcRItSU",
+        "rating": 4.2,
+        "reviews": 42
+      }
+    },
+    {
+      "company_name": "Grease Monkey",
+      "domain": "greasemonkey.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Grease Monkey",
+          "title": "Owner",
+          "phone": "+12818075823",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "fleet@fullspeedautomotive.com",
+          "phone": "18008227706",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "retail9@fullspeedautomotive.com",
+          "phone": "18008227706",
+          "sources": [
+            "website_contacts"
+          ]
+        }
+      ],
+      "contact": null,
+      "no_contact_reason": "No valid contact found with a real person name; only company name and generic emails were available.",
+      "processing_time_ms": 10264.139890670776,
+      "input": {
+        "company_name": "Grease Monkey",
+        "domain": "greasemonkey.com",
+        "vertical": "auto_body_shops",
+        "address": "1200 Broadway Ave, Bowling Green, KY 42104",
+        "phone": "(270) 904-9122",
+        "place_id": "ChIJ0z68X1XpZYgRKdpFtbo4rR0",
+        "rating": 4.4,
+        "reviews": 189
+      }
+    },
+    {
+      "company_name": "Sideros Automotive",
+      "domain": "siderosautomotive.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Sideros Automotive",
+          "title": "Owner",
+          "phone": "+15156646949",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "collectabletoys2000@hotmail.com",
+          "phone": "7180970007",
+          "sources": [
+            "website_contacts"
+          ]
+        }
+      ],
+      "contact": null,
+      "no_contact_reason": "No valid contact found; only company name as owner and a generic email without a name.",
+      "processing_time_ms": 11738.954067230225,
+      "input": {
+        "company_name": "Sideros Automotive",
+        "domain": "siderosautomotive.com",
+        "vertical": "auto_body_shops",
+        "address": "808 SW Cherry St UNIT 103, Ankeny, IA 50023",
+        "phone": "(515) 664-6949",
+        "place_id": "ChIJS-A0R7KF7ocRXxSTrujl23A",
+        "rating": 5.0,
+        "reviews": 12
+      }
+    },
+    {
+      "company_name": "DaVita Gardner Dialysis",
+      "domain": "davita.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "DaVita Gardner Dialysis",
+          "title": "Owner",
+          "phone": "+18334202773",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "newsroom@davita.com",
+          "phone": "18004246589",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "hospitals@davita.com",
+          "phone": "18004246589",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Javier J. Rodriguez",
+          "title": "CEO",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Javier J. Rodriguez",
+        "email": "newsroom@davita.com",
+        "phone": "+18334202773",
+        "title": "CEO",
+        "confidence": 90,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 12804.534912109375,
+      "input": {
+        "company_name": "DaVita Gardner Dialysis",
+        "domain": "davita.com",
+        "vertical": "dialysis_centers",
+        "address": "328 E Main St, Gardner, KS 66030",
+        "phone": "(833) 420-2773",
+        "place_id": "ChIJl-_9iGWjwIcR-dE2KCd5uqs",
+        "rating": 0.0,
+        "reviews": 0
+      }
+    },
+    {
+      "company_name": "Dave's Collision",
+      "domain": "davescollisioninc.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Daves Body Shop and 24 Hour Wrecker Service",
+          "title": "Owner",
+          "phone": "+16203316907",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "name": "Dave Fischbach",
+          "title": "President/CEO",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Dave Fischbach",
+        "email": null,
+        "phone": null,
+        "title": "President/CEO",
+        "confidence": 90.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 13059.367895126343,
+      "input": {
+        "company_name": "Dave's Collision",
+        "domain": "davescollisioninc.com",
+        "vertical": "auto_body_shops",
+        "address": "3341 Fox Hill Rd, Easton, PA 18045",
+        "phone": "(610) 252-8485",
+        "place_id": "ChIJ1ezAPb9rxIkRECO7YSedcFE",
+        "rating": 4.9,
+        "reviews": 259
+      }
+    },
+    {
+      "company_name": "Sanford Temperature Control",
+      "domain": "choosesanford.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Sanford Temperature Control",
+          "title": "Owner",
+          "phone": "+18884157792",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "services@choosesanford.com",
+          "phone": "6037693956",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "customer.support@daikincomfort.com",
+          "phone": "6037693956",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Dale Sanford",
+          "title": "Owner",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Dale Sanford",
+        "email": "services@choosesanford.com",
+        "phone": "+18884157792",
+        "title": "Owner",
+        "confidence": 95.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 12115.440845489502,
+      "input": {
+        "company_name": "Sanford Temperature Control",
+        "domain": "choosesanford.com",
+        "vertical": "plumbers",
+        "address": "96 Old Wilton Rd #1, Milford, NH 03055, Vereinigte Staaten",
+        "phone": "+1 888-415-7792",
+        "place_id": "ChIJAQAAALAs4okRJvAaEkZtrMI",
+        "rating": 4.9,
+        "reviews": 1744
+      }
+    },
+    {
+      "company_name": "Clara Barton Medical Clinic - Great Bend",
+      "domain": "clarabartonhospital.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Clara Barton Medical Clinic - Great Bend",
+          "title": "Owner",
+          "phone": "+16207936990",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "foundation@cbhks.com",
+          "phone": "6206534566",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "him@cbhks.com",
+          "phone": "6206534566",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Jay Tusten",
+          "title": "President/CEO",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Jay Tusten",
+        "email": "foundation@cbhks.com",
+        "phone": "6206534566",
+        "title": "President/CEO",
+        "confidence": 95.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 12560.394048690796,
+      "input": {
+        "company_name": "Clara Barton Medical Clinic - Great Bend",
+        "domain": "clarabartonhospital.com",
+        "vertical": "fertility_and_ivf_clinics",
+        "address": "906 McKinley St, Great Bend, KS 67530",
+        "phone": "(620) 793-6990",
+        "place_id": "ChIJ22AychaLo4cRCOdElvwffPk",
+        "rating": 3.1,
+        "reviews": 7
+      }
+    },
+    {
+      "company_name": "DaVita Salem Northeast Dialysis",
+      "domain": "davita.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "DaVita Salem Northeast Dialysis",
+          "title": "Owner",
+          "phone": "+18333582960",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "newsroom@davita.com",
+          "phone": "18004246589",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "careers@davita.com",
+          "phone": "18004246589",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Javier Rodriguez",
+          "title": "CEO",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Javier Rodriguez",
+        "email": "newsroom@davita.com",
+        "phone": "18004246589",
+        "title": "CEO",
+        "confidence": 90.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 13335.94799041748,
+      "input": {
+        "company_name": "DaVita Salem Northeast Dialysis",
+        "domain": "davita.com",
+        "vertical": "dialysis_centers",
+        "address": "207 Highland Ave Ste 2, Salem, MA 01970",
+        "phone": "(833) 358-2960",
+        "place_id": "ChIJ0_uvD4QU44kRATzMX6BkvUo",
+        "rating": 3.8,
+        "reviews": 5
+      }
+    },
+    {
+      "company_name": "Benoure Plumbing, Heating & Air Conditioning",
+      "domain": "benoure.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Benoure Plumbing, Heating & Air Conditioning",
+          "title": "Owner",
+          "phone": "+18028647156",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "info@benoure.com",
+          "phone": "8028647156",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Rob Benoure",
+          "title": "Business Owner",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Rob Benoure",
+        "email": null,
+        "phone": null,
+        "title": "Business Owner",
+        "confidence": 70,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 14971.175909042358,
+      "input": {
+        "company_name": "Benoure Plumbing, Heating & Air Conditioning",
+        "domain": "benoure.com",
+        "vertical": "plumbers",
+        "address": "34 Commerce Ave, South Burlington, VT 05403, Vereinigte Staaten",
+        "phone": "+1 802-864-7156",
+        "place_id": "ChIJg5ur3B16ykwRcL80i2clKws",
+        "rating": 4.4,
+        "reviews": 234
+      }
+    },
+    {
+      "company_name": "Differential Brewing Co.",
+      "domain": "differentialbrewing.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Differential Brewing Co.",
+          "title": "Owner",
+          "phone": null,
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "name": "Tino Nellos",
+          "title": "Co-owner",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Tino Nellos",
+        "email": null,
+        "phone": null,
+        "title": "Co-owner",
+        "confidence": 90,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 13898.51188659668,
+      "input": {
+        "company_name": "Differential Brewing Co.",
+        "domain": "differentialbrewing.com",
+        "vertical": "breweries_and_brewpubs",
+        "address": "500 Yale Blvd SE, Albuquerque, NM 87106",
+        "phone": null,
+        "place_id": "ChIJSy50PFcLIocRLv8AyhxjNu0",
+        "rating": 4.5,
+        "reviews": 274
+      }
+    },
+    {
+      "company_name": "Pico Rivera Healthcare",
+      "domain": "picoriverahealthcare.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Pico Rivera Healthcare",
+          "title": "Owner",
+          "phone": "+15629481961",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        }
+      ],
+      "contact": null,
+      "no_contact_reason": "No valid contact found; only company name was returned as owner with no personal name.",
+      "processing_time_ms": 10985.712051391602,
+      "input": {
+        "company_name": "Pico Rivera Healthcare",
+        "domain": "picoriverahealthcare.com",
+        "vertical": "dialysis_centers",
+        "address": "9140 Verner St, Pico Rivera, CA 90660",
+        "phone": "(562) 948-1961",
+        "place_id": "ChIJd2d_35PRwoARMG4dIQoHVzA",
+        "rating": 4.3,
+        "reviews": 32
+      }
+    },
+    {
+      "company_name": "Munchy Macarons",
+      "domain": "munchymacarons.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Munchy Macarons",
+          "title": "Owner",
+          "phone": "+18017068669",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "munchymacarons@gmail.com",
+          "phone": "8017068669",
+          "sources": [
+            "website_contacts"
+          ]
+        }
+      ],
+      "contact": null,
+      "no_contact_reason": "No valid contact found with a real person name. The owner name returned was the company name, and the email found does not have a corresponding name.",
+      "processing_time_ms": 11990.516185760498,
+      "input": {
+        "company_name": "Munchy Macarons",
+        "domain": "munchymacarons.com",
+        "vertical": "bakeries",
+        "address": "6351 S 900 E, Murray, UT 84121",
+        "phone": "(801) 706-8669",
+        "place_id": "ChIJB23oFkCJUocRbO2HVJ0ZUCU",
+        "rating": 5.0,
+        "reviews": 21
+      }
+    },
+    {
+      "company_name": "California Dialysis Management Services",
+      "domain": "californiadialysismanagement.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "California Dialysis Management Services",
+          "title": "Owner",
+          "phone": "+19095422900",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "aaguilar@cdmsrenal.com",
+          "phone": null,
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Mitra Arbab",
+          "title": null,
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Mitra Arbab",
+        "email": "aaguilar@cdmsrenal.com",
+        "phone": "+19095422900",
+        "title": "Owner",
+        "confidence": 80,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 11191.883087158203,
+      "input": {
+        "company_name": "California Dialysis Management Services",
+        "domain": "californiadialysismanagement.com",
+        "vertical": "dialysis_centers",
+        "address": "1335 Cypress St # 207, San Dimas, CA 91773",
+        "phone": "(909) 542-2900",
+        "place_id": "ChIJAUCXitIow4AROemQkfncg6c",
+        "rating": 5.0,
+        "reviews": 1
+      }
+    },
+    {
+      "company_name": "Fresenius Kidney Care West Plano",
+      "domain": "freseniuskidneycare.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Fresenius Kidney Care West Plano",
+          "title": "Owner",
+          "phone": "+18008815101",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "thriveon@freseniuskidneycare.com",
+          "phone": "18664342597",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "privacy@freseniusmedicalcare.com",
+          "phone": "18664342597",
+          "sources": [
+            "website_contacts"
+          ]
+        }
+      ],
+      "contact": null,
+      "no_contact_reason": "No valid contact found with a real person name. All tools have been tried.",
+      "processing_time_ms": 11481.654167175293,
+      "input": {
+        "company_name": "Fresenius Kidney Care West Plano",
+        "domain": "freseniuskidneycare.com",
+        "vertical": "dialysis_centers",
+        "address": "4405 Tradition Trail, Plano, TX 75093",
+        "phone": "(800) 881-5101",
+        "place_id": "ChIJk_6br0giTIYRfI-0TKmW1no",
+        "rating": 4.2,
+        "reviews": 10
+      }
+    },
+    {
+      "company_name": "Brown's Automotive & Service Center, Inc",
+      "domain": "brownsautoerie.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Brown's Automotive & Service Center, Inc",
+          "title": "Owner",
+          "phone": "+18148999853",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "brownsauto3322@gmail.com",
+          "phone": "8148999853",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Brian Brown",
+          "title": "Owner",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Brian Brown",
+        "email": "brownsauto3322@gmail.com",
+        "phone": "8148999853",
+        "title": "Owner",
+        "confidence": 95.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 13287.751913070679,
+      "input": {
+        "company_name": "Brown's Automotive & Service Center, Inc",
+        "domain": "brownsautoerie.com",
+        "vertical": "auto_body_shops",
+        "address": "3322 Station Rd, Erie, PA 16510",
+        "phone": "(814) 899-9853",
+        "place_id": "ChIJX0ML5TF9LYgRQYclot3l3Ug",
+        "rating": 4.5,
+        "reviews": 83
+      }
+    },
+    {
+      "company_name": "GNM Coffee Shop",
+      "domain": "facebook.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "serper_osint"
+      ],
+      "total_cost": 0.003,
+      "llm_stages": 2,
+      "candidates": [
+        {
+          "name": "GNM Coffee Shop",
+          "title": "Owner",
+          "phone": null,
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "name": "Geo Naomi Manny",
+          "title": "Owner",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Geo Naomi Manny",
+        "email": null,
+        "phone": null,
+        "title": "Owner",
+        "confidence": 80,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 9170.727968215942,
+      "input": {
+        "company_name": "GNM Coffee Shop",
+        "domain": "facebook.com",
+        "vertical": "coffee_shops_in_the_usa",
+        "address": "237 S Main St, Barnegat, NJ 08005",
+        "phone": null,
+        "place_id": "ChIJZ22TiEQJwYkRFmuEhHzjO5A",
+        "rating": 4.6,
+        "reviews": 183
+      }
+    },
+    {
+      "company_name": "BruCo Taproom",
+      "domain": "brucoqc.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Br\u00fcCo Taproom",
+          "title": "Owner",
+          "phone": "+14806877562",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "brucotaproomqc@gmail.com",
+          "phone": "4806877562",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Randy Waldref",
+          "title": "Owner",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Randy Waldref",
+        "email": "brucotaproomqc@gmail.com",
+        "phone": "+14806877562",
+        "title": "Owner",
+        "confidence": 95.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 12392.564058303833,
+      "input": {
+        "company_name": "BruCo Taproom",
+        "domain": "brucoqc.com",
+        "vertical": "breweries_and_brewpubs",
+        "address": "7529 S Power Rd #103, Queen Creek, AZ 85142",
+        "phone": "(480) 687-7562",
+        "place_id": "ChIJP0vGpWitK4cR-cB5Iuk9JHs",
+        "rating": 4.8,
+        "reviews": 231
+      }
+    },
+    {
+      "company_name": "Mimi's Cafe",
+      "domain": "mimiscafe.com",
+      "stages_completed": [
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.003,
+      "llm_stages": 2,
+      "candidates": [
+        {
+          "email": "guestrelations@mimiscafe.com",
+          "phone": "8669266636",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "mediarelations@mimiscafe.com",
+          "phone": "8669266636",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Juan Nieves",
+          "title": "Chief Executive Officer",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Juan Nieves",
+        "email": "None",
+        "phone": "None",
+        "title": "Chief Executive Officer",
+        "confidence": 90.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 12311.858177185059,
+      "input": {
+        "company_name": "Mimi's Cafe",
+        "domain": "mimiscafe.com",
+        "vertical": "bakeries",
+        "address": "19710 Nordhoff Pl, Chatsworth, CA 91311",
+        "phone": "(818) 717-8334",
+        "place_id": "ChIJb_1KQHebwoARPBlguwNwvzk",
+        "rating": 4.2,
+        "reviews": 1594
+      }
+    },
+    {
+      "company_name": "Shorty Cakes",
+      "domain": "m.facebook.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "serper_osint"
+      ],
+      "total_cost": 0.003,
+      "llm_stages": 2,
+      "candidates": [
+        {
+          "name": "Shorty Cakes",
+          "title": "Owner",
+          "phone": "+13603227225",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "name": "Arianna Sanchez",
+          "title": "Independent Business Owner",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Arianna Sanchez",
+        "email": null,
+        "phone": null,
+        "title": "Independent Business Owner",
+        "confidence": 90.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 10117.311954498291,
+      "input": {
+        "company_name": "Shorty Cakes",
+        "domain": "m.facebook.com",
+        "vertical": "bakeries",
+        "address": "3813 168th St NE, Arlington, WA 98223",
+        "phone": "(360) 322-7225",
+        "place_id": "ChIJyfOPektQhVQRvnV-WNJwFgI",
+        "rating": 3.9,
+        "reviews": 16
+      }
+    },
+    {
+      "company_name": "Woodcock Brothers Brewery",
+      "domain": "woodcockbrothersbrewery.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Woodcock Brothers Brewery",
+          "title": "Owner",
+          "phone": "+17162601284",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "leslie@woodcockbrothersbrewery.com",
+          "phone": "7163334000",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "randy@woodcockbrothersbrewery.com",
+          "phone": "7163334000",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Tim Woodcock",
+          "title": "Owner",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Tim Woodcock",
+        "email": "leslie@woodcockbrothersbrewery.com",
+        "phone": "7163334000",
+        "title": "Owner",
+        "confidence": 90.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 14945.306062698364,
+      "input": {
+        "company_name": "Woodcock Brothers Brewery",
+        "domain": "woodcockbrothersbrewery.com",
+        "vertical": "breweries_and_brewpubs",
+        "address": "908 Niagara Fls Blvd, North Tonawanda, NY 14120",
+        "phone": "(716) 260-1284",
+        "place_id": "ChIJISmx1Jxv04kRQsy_fysnR-0",
+        "rating": 4.4,
+        "reviews": 1219
+      }
+    },
+    {
+      "company_name": "Defiance",
+      "domain": "goodnewsbrewing.com",
+      "stages_completed": [
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.003,
+      "llm_stages": 2,
+      "candidates": [
+        {
+          "email": "gather@goodnewsbrewing.com",
+          "phone": "6365442965",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "laura@goodnewsbrewing.com",
+          "phone": "6365442965",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Sylvia Jablonski",
+          "title": "CEO",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Unknown",
+        "email": "gather@goodnewsbrewing.com",
+        "phone": "6365442965",
+        "title": "Unknown",
+        "confidence": 80,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 10110.891103744507,
+      "input": {
+        "company_name": "Defiance",
+        "domain": "goodnewsbrewing.com",
+        "vertical": "breweries_and_brewpubs",
+        "address": "2886 S Missouri 94, Defiance, MO 63341",
+        "phone": "(636) 987-1002",
+        "place_id": "ChIJY5EHMBwz2YcRkUNRN3NUbDE",
+        "rating": 4.5,
+        "reviews": 351
+      }
+    },
+    {
+      "company_name": "DaVita Duncan Dialysis Center",
+      "domain": "davita.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "DaVita Duncan Dialysis Center",
+          "title": "Owner",
+          "phone": "+18333232648",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "newsroom@davita.com",
+          "phone": "18004246589",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "guestservices@davita.com",
+          "phone": "18004246589",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Nicholas Duncan",
+          "title": null,
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Nicholas Duncan",
+        "email": "newsroom@davita.com",
+        "phone": "+18333232648",
+        "title": "Group Regional Operations Director",
+        "confidence": 80,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 11293.454885482788,
+      "input": {
+        "company_name": "DaVita Duncan Dialysis Center",
+        "domain": "davita.com",
+        "vertical": "dialysis_centers",
+        "address": "2845 W Elk Ave bldg 400, Duncan, OK 73533",
+        "phone": "(833) 323-2648",
+        "place_id": "ChIJQWaQVGZDrYcRtYXKBTk9B-k",
+        "rating": 2.8,
+        "reviews": 4
+      }
+    },
+    {
+      "company_name": "Bainbridge Naturopathic Clinic",
+      "domain": "bainbridgend.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Bainbridge Naturopathic Clinic",
+          "title": "Owner",
+          "phone": "+12068424841",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "hsqa.csc@doh.wa.gov",
+          "phone": "2068424841",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "info@nabne.org",
+          "phone": "2068424841",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Christina M. Hinchcliffe",
+          "title": "Naturopathic Doctor",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Christina M. Hinchcliffe",
+        "email": "doctorhinchcliffe@gmail.com",
+        "phone": "+12068424841",
+        "title": "Naturopathic Doctor",
+        "confidence": 90,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 14826.951026916504,
+      "input": {
+        "company_name": "Bainbridge Naturopathic Clinic",
+        "domain": "bainbridgend.com",
+        "vertical": "fertility_and_ivf_clinics",
+        "address": "727 Ericksen Ave NE #220, Bainbridge Island, WA 98110",
+        "phone": "(206) 842-4841",
+        "place_id": "ChIJVwp74bY-kFQRAhgREoyDIRU",
+        "rating": 0.0,
+        "reviews": 0
+      }
+    },
+    {
+      "company_name": "C & B Body & Auto Service",
+      "domain": "cbbodyshop.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "C & B Body & Auto Service",
+          "title": "Owner",
+          "phone": "+13308751670",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "name": "David Varian",
+          "title": "Owner",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "David Varian",
+        "email": null,
+        "phone": null,
+        "title": "Owner",
+        "confidence": 95.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 13161.628007888794,
+      "input": {
+        "company_name": "C & B Body & Auto Service",
+        "domain": "cbbodyshop.com",
+        "vertical": "auto_body_shops",
+        "address": "1704 W Main St, Louisville, OH 44641",
+        "phone": "(330) 875-1670",
+        "place_id": "ChIJI2ArLuHONogRBzFLj9ntAp8",
+        "rating": 4.6,
+        "reviews": 193
+      }
+    },
+    {
+      "company_name": "Rockfish Brewing Company Preston",
+      "domain": "rockfishbrewcompany.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Rockfish Brewing Company Preston",
+          "title": "Owner",
+          "phone": "+14345660969",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "rockfishbrew@gmail.com",
+          "phone": "4345660969",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Peter McMindes",
+          "title": "Owner & Head Brewer",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Peter McMindes",
+        "email": "rockfishbrew@gmail.com",
+        "phone": "+14345660969",
+        "title": "Owner & Head Brewer",
+        "confidence": 95.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 12294.94023323059,
+      "input": {
+        "company_name": "Rockfish Brewing Company Preston",
+        "domain": "rockfishbrewcompany.com",
+        "vertical": "breweries_and_brewpubs",
+        "address": "900 Preston Ave, Charlottesville, VA 22903",
+        "phone": "(434) 566-0969",
+        "place_id": "ChIJbfFldNeHs4kRr_tRRhjShtw",
+        "rating": 4.6,
+        "reviews": 94
+      }
+    },
+    {
+      "company_name": "Fresenius Kidney Care Gateway",
+      "domain": "freseniuskidneycare.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Fresenius Kidney Care Gateway",
+          "title": "Owner",
+          "phone": "+18008815101",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "thriveon@freseniuskidneycare.com",
+          "phone": "18008815101",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "privacy@freseniusmedicalcare.com",
+          "phone": "18008815101",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Helen Giza",
+          "title": "CEO",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Helen Giza",
+        "email": "thriveon@freseniuskidneycare.com",
+        "phone": "+18008815101",
+        "title": "CEO",
+        "confidence": 90,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 12194.910049438477,
+      "input": {
+        "company_name": "Fresenius Kidney Care Gateway",
+        "domain": "freseniuskidneycare.com",
+        "vertical": "dialysis_centers",
+        "address": "450 S Gilbert Rd, Chandler, AZ 85225",
+        "phone": "(800) 881-5101",
+        "place_id": "ChIJ2RpmVJSpK4cRa3fwT3QTMTE",
+        "rating": 5.0,
+        "reviews": 2
+      }
+    },
+    {
+      "company_name": "Ollies Pub",
+      "domain": "olliespublodi.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Ollie's Pub & Grub Breck",
+          "title": "Owner",
+          "phone": "+19704236284",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "olliespublodi@gmail.com",
+          "phone": "952402093339933",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "obrinepicklejuice@gmail.com",
+          "phone": "952402093339933",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Alan Bullock",
+          "title": "Owner",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Alan Bullock",
+        "email": "olliespublodi@gmail.com",
+        "phone": "+19704236284",
+        "title": "Owner",
+        "confidence": 90.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 15703.548908233643,
+      "input": {
+        "company_name": "Ollies Pub",
+        "domain": "olliespublodi.com",
+        "vertical": "coffee_shops_in_the_usa",
+        "address": "22 N School St, Lodi, CA 95240",
+        "phone": "(209) 333-9933",
+        "place_id": "ChIJGbJdIhigmoARQyahzfIzLvc",
+        "rating": 4.3,
+        "reviews": 375
+      }
+    },
+    {
+      "company_name": "Eudora Brewing Company",
+      "domain": "eudorabrewing.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Eudora Brewing Company",
+          "title": "Owner",
+          "phone": null,
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "taproom@eudorabrewing.com",
+          "phone": null,
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "ryan@eudorabrewing.com",
+          "phone": null,
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Neil Chabut",
+          "title": "Owner and Founder",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Neil Chabut",
+        "email": "ryan@eudorabrewing.com",
+        "phone": "",
+        "title": "Owner and Founder",
+        "confidence": 95.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 13060.06407737732,
+      "input": {
+        "company_name": "Eudora Brewing Company",
+        "domain": "eudorabrewing.com",
+        "vertical": "breweries_and_brewpubs",
+        "address": "3022 Wilmington Pike, Dayton, OH 45429",
+        "phone": null,
+        "place_id": "ChIJMcCVvVuFQIgRmKpoo7gUk9k",
+        "rating": 4.4,
+        "reviews": 636
+      }
+    },
+    {
+      "company_name": "Schnitz Ale Brewery",
+      "domain": "schnitzalebrewery.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Schnitz Ale Brewery",
+          "title": "Owner",
+          "phone": "+14403404353",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "events@dshrestaurant.com",
+          "phone": "4403404353",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "care@locatestore.com",
+          "phone": "4403404353",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Igor Djurin",
+          "title": "Owner",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Igor Djurin",
+        "email": null,
+        "phone": "+14403404353",
+        "title": "Owner",
+        "confidence": 95.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 13899.288177490234,
+      "input": {
+        "company_name": "Schnitz Ale Brewery",
+        "domain": "schnitzalebrewery.com",
+        "vertical": "breweries_and_brewpubs",
+        "address": "5729 Pearl Rd, Parma, OH 44129",
+        "phone": "(440) 340-4353",
+        "place_id": "ChIJAYYkJ7bvMIgRUhOfHDh9bGs",
+        "rating": 4.5,
+        "reviews": 547
+      }
+    },
+    {
+      "company_name": "Beth Israel OBGYN",
+      "domain": "bidmc.org",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Obstetrics & Gynecology",
+          "title": "Owner",
+          "phone": "+16176670475",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "vector@vectorlabs.com",
+          "phone": "6172788162",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "leadershipgiving@bidmc.harvard.edu",
+          "phone": "6172788162",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Blair J. Wylie",
+          "title": "Chair, Department of Obstetrics and Gynecology",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Blair J. Wylie",
+        "email": null,
+        "phone": "+16176670475",
+        "title": "Chair, Department of Obstetrics and Gynecology",
+        "confidence": 90,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 13338.366985321045,
+      "input": {
+        "company_name": "Beth Israel OBGYN",
+        "domain": "bidmc.org",
+        "vertical": "fertility_and_ivf_clinics",
+        "address": "910 Washington St, Dedham, MA 02026",
+        "phone": "(781) 453-7240",
+        "place_id": "ChIJ13U4LIp_44kRLXz4nyvg5Pg",
+        "rating": 2.6,
+        "reviews": 5
+      }
+    },
+    {
+      "company_name": "Dove's Landing Cardiology",
+      "domain": "orovillehospital.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Dove's Landing Cardiology",
+          "title": "Owner",
+          "phone": "+15307122171",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "telehealth@orovillehospital.com",
+          "phone": "5305338500",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "hrrecruiting@orohosp.com",
+          "phone": "5305338500",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Deepak Khanna",
+          "title": "MD",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Deepak Khanna",
+        "email": "telehealth@orovillehospital.com",
+        "phone": "5305338500",
+        "title": "MD",
+        "confidence": 80,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 15821.850061416626,
+      "input": {
+        "company_name": "Dove's Landing Cardiology",
+        "domain": "orovillehospital.com",
+        "vertical": "fertility_and_ivf_clinics",
+        "address": "2450 Oro Dam Blvd E, Oroville, CA 95966",
+        "phone": "(530) 712-2171",
+        "place_id": "ChIJ90y62Ci0nIARCSKqbWGY-e0",
+        "rating": 3.6,
+        "reviews": 12
+      }
+    },
+    {
+      "company_name": "Coffee Klatch",
+      "domain": "coffeecateringgreenville.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "serper_osint",
+        "website_contacts"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Koffee Klatch",
+          "title": "Owner",
+          "phone": "+19562304199",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "name": "Heather Perry",
+          "title": "CEO",
+          "sources": [
+            "serper_osint"
+          ]
+        },
+        {
+          "email": "events@clement-coffee.com",
+          "phone": null,
+          "sources": [
+            "website_contacts"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Heather Perry",
+        "email": null,
+        "phone": null,
+        "title": "CEO",
+        "confidence": 95.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 15473.517656326294,
+      "input": {
+        "company_name": "Coffee Klatch",
+        "domain": "coffeecateringgreenville.com",
+        "vertical": "coffee_shops_in_the_usa",
+        "address": "2 Longfellow Wy, Simpsonville, SC 29681",
+        "phone": "(864) 501-4050",
+        "place_id": "ChIJEzD33DknWIgRd5iJ9av2Hjw",
+        "rating": 5.0,
+        "reviews": 46
+      }
+    },
+    {
+      "company_name": "Fertility Doctor NYC",
+      "domain": "ferny.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "serper_osint",
+        "website_contacts"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "NYU Langone Fertility Center",
+          "title": "Owner",
+          "phone": "+12122638990",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "name": "George D. Kofinas",
+          "title": "Founder & Medical Director",
+          "sources": [
+            "serper_osint"
+          ]
+        },
+        {
+          "email": "info@ferny.com",
+          "phone": "2125355350",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "feedback@ferny.com",
+          "phone": "2125355350",
+          "sources": [
+            "website_contacts"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "George D. Kofinas",
+        "email": null,
+        "phone": null,
+        "title": "Founder & Medical Director",
+        "confidence": 90.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 14126.283168792725,
+      "input": {
+        "company_name": "Fertility Doctor NYC",
+        "domain": "ferny.com",
+        "vertical": "fertility_and_ivf_clinics",
+        "address": "27 Leonard St, New York, NY 10013",
+        "phone": null,
+        "place_id": "ChIJ3VR6S5BbwokRIIgc6e1a4j8",
+        "rating": 0.0,
+        "reviews": 0
+      }
+    },
+    {
+      "company_name": "Nunes Auto Repairing",
+      "domain": "facebook.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "serper_osint",
+        "website_contacts"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Nunes Auto Repairing",
+          "title": "Owner",
+          "phone": "+12033330016",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "name": "Antonio Nunes",
+          "title": "Owner",
+          "sources": [
+            "serper_osint"
+          ]
+        },
+        {
+          "email": "nancy@yahoo.com",
+          "phone": "07464686832",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "christy@yahoo.com",
+          "phone": "07464686832",
+          "sources": [
+            "website_contacts"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Antonio Nunes",
+        "email": null,
+        "phone": null,
+        "title": "Owner",
+        "confidence": 90.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 13396.474838256836,
+      "input": {
+        "company_name": "Nunes Auto Repairing",
+        "domain": "facebook.com",
+        "vertical": "auto_body_shops",
+        "address": "840 South Ave, Bridgeport, CT 06604",
+        "phone": "(203) 333-0016",
+        "place_id": "ChIJnSAaqhMO6IkRow8yLnqiDcc",
+        "rating": 3.8,
+        "reviews": 43
+      }
+    },
+    {
+      "company_name": "DaVita Flatlands At Home",
+      "domain": "davita.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "DaVita Flatlands At Home",
+          "title": "Owner",
+          "phone": "+18334630764",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "newsroom@davita.com",
+          "phone": "18004246589",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "careers@davita.com",
+          "phone": "18004246589",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Javier Rodriguez",
+          "title": "CEO",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Javier Rodriguez",
+        "email": "None",
+        "phone": "+18334630764",
+        "title": "CEO",
+        "confidence": 90,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 13468.203067779541,
+      "input": {
+        "company_name": "DaVita Flatlands At Home",
+        "domain": "davita.com",
+        "vertical": "dialysis_centers",
+        "address": "1641 East 16th Street Fl 5, Brooklyn, NY 11229",
+        "phone": "(833) 463-0764",
+        "place_id": "ChIJ7f2vI9JFwokR7BbNzXjknR0",
+        "rating": 0.0,
+        "reviews": 0
+      }
+    },
+    {
+      "company_name": "Eckert's Country Store",
+      "domain": "eckerts.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Eckert's Country Store",
+          "title": "Owner",
+          "phone": "+16182330513",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "angie.eckert@eckerts.com",
+          "phone": "8007450513",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "tickets@eckerts.com",
+          "phone": "8007450513",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Chris Eckert",
+          "title": "President and CEO",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Chris Eckert",
+        "email": "angie.eckert@eckerts.com",
+        "phone": "+16182330513",
+        "title": "President and CEO",
+        "confidence": 95.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 12904.858112335205,
+      "input": {
+        "company_name": "Eckert's Country Store",
+        "domain": "eckerts.com",
+        "vertical": "coffee_shops_in_the_usa",
+        "address": "951 S Green Mt Rd, Belleville, IL 62220",
+        "phone": "(618) 233-0513",
+        "place_id": "ChIJcdfIdM4ddogRKjYSfQPB6OE",
+        "rating": 4.6,
+        "reviews": 473
+      }
+    },
+    {
+      "company_name": "Rooter Hero Plumbing & Air",
+      "domain": "rooterhero.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Rooter Hero Plumbing & Air of Phoenix",
+          "title": "Owner",
+          "phone": "+14803510043",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "info@rooterhero.com",
+          "phone": "8669418214",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "john.bergeron@rooterhero.com",
+          "phone": "8669418214",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "John Akhoian",
+          "title": "Founder",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "John Akhoian",
+        "email": "john.bergeron@rooterhero.com",
+        "phone": "+14803510043",
+        "title": "Founder",
+        "confidence": 95.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 13249.232053756714,
+      "input": {
+        "company_name": "Rooter Hero Plumbing & Air",
+        "domain": "rooterhero.com",
+        "vertical": "plumbers",
+        "address": "2040 N Towne Ave, Pomona, CA 91767, Vereinigte Staaten",
+        "phone": "+1 909-939-4575",
+        "place_id": "ChIJEWmfx8Qvw4ARVY6FBJryWoY",
+        "rating": 4.9,
+        "reviews": 1566
+      }
+    },
+    {
+      "company_name": "C & C Plumbing & Heating",
+      "domain": "ccplumbingnd.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "CRI Plumbing",
+          "title": "Owner",
+          "phone": "+16205157277",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "info@ccplumbingnd.com",
+          "phone": "7018528464",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "ccplumb@srt.com",
+          "phone": "7018528464",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Chris Canning",
+          "title": "Owner",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Chris Canning",
+        "email": "info@ccplumbingnd.com",
+        "phone": "7018528464",
+        "title": "Owner",
+        "confidence": 95.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 13368.555068969727,
+      "input": {
+        "company_name": "C & C Plumbing & Heating",
+        "domain": "ccplumbingnd.com",
+        "vertical": "plumbers",
+        "address": "3808 E Burdick Expy, Minot, ND 58701, Vereinigte Staaten",
+        "phone": "+1 701-852-8464",
+        "place_id": "ChIJTQ2vqLjV3lIRa91bPY_NNqo",
+        "rating": 4.9,
+        "reviews": 158
+      }
+    },
+    {
+      "company_name": "Mangiamo Gelato Caffe",
+      "domain": "mangiamo-gelato.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Mangiamo Gelato Caffe",
+          "title": "Owner",
+          "phone": "+16195492479",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "info@mangiamo-gelato.com",
+          "phone": "6195492479",
+          "sources": [
+            "website_contacts"
+          ]
+        }
+      ],
+      "contact": null,
+      "no_contact_reason": "No valid contact found; only company name as owner and generic email without a name.",
+      "processing_time_ms": 12489.590644836426,
+      "input": {
+        "company_name": "Mangiamo Gelato Caffe",
+        "domain": "mangiamo-gelato.com",
+        "vertical": "coffee_shops_in_the_usa",
+        "address": "124 Main St Unit 101, Huntington Beach, CA 92648",
+        "phone": "(619) 549-2479",
+        "place_id": "ChIJpywDK0Ih3YARgb845hLmRsk",
+        "rating": 4.6,
+        "reviews": 132
+      }
+    },
+    {
+      "company_name": "Gerber Collision & Glass",
+      "domain": "gerbercollision.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Gerber Collision & Glass",
+          "title": "Owner",
+          "phone": "+19187440050",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "ce@gerbercollision.com",
+          "phone": "18777437237",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "gerbercare@gerbercollision.com",
+          "phone": "18777437237",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Billy Reed",
+          "title": "Business Owner",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Billy Reed",
+        "email": "ce@gerbercollision.com",
+        "phone": "+19187440050",
+        "title": "Business Owner",
+        "confidence": 85,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 12546.208143234253,
+      "input": {
+        "company_name": "Gerber Collision & Glass",
+        "domain": "gerbercollision.com",
+        "vertical": "auto_body_shops",
+        "address": "5900 Palmer Park Blvd, Colorado Springs, CO 80915",
+        "phone": "(719) 574-3000",
+        "place_id": "ChIJi3eKfkhGE4cRCMdUU0_Ocuw",
+        "rating": 3.7,
+        "reviews": 146
+      }
+    },
+    {
+      "company_name": "Garden City Auto Body",
+      "domain": "kpsearch.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Garden City Auto Body",
+          "title": "Owner",
+          "phone": "+15162289200",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "keith@kpsearch.com",
+          "phone": "8335665821",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "info@towndiscountcard.com",
+          "phone": "8335665821",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Paul Wilson",
+          "title": "Owner",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Paul Wilson",
+        "email": "keith@kpsearch.com",
+        "phone": "8335665821",
+        "title": "Owner",
+        "confidence": 90,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 13427.213907241821,
+      "input": {
+        "company_name": "Garden City Auto Body",
+        "domain": "kpsearch.com",
+        "vertical": "auto_body_shops",
+        "address": "91c Commercial Ave, Garden City, NY 11530",
+        "phone": "(516) 228-9200",
+        "place_id": "ChIJOXN41XZ9wokR0NLmzGn2_4Y",
+        "rating": 5.0,
+        "reviews": 305
+      }
+    },
+    {
+      "company_name": "Master Rooter Plumbing Inc.",
+      "domain": "themasterrooter.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Master Rooter Plumbing LLC",
+          "title": "Owner",
+          "phone": "+17204343406",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "themasterrooter@gmail.com",
+          "phone": "7089856393",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Anthony Akers",
+          "title": "Owner",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Anthony Akers",
+        "email": null,
+        "phone": null,
+        "title": "Owner",
+        "confidence": 95,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 13186.148881912231,
+      "input": {
+        "company_name": "Master Rooter Plumbing Inc.",
+        "domain": "themasterrooter.com",
+        "vertical": "plumbers",
+        "address": null,
+        "phone": "+1 708-985-6393",
+        "place_id": "ChIJZwxqwxnLD4gRy4pWU8c7aGs",
+        "rating": 4.8,
+        "reviews": 32
+      }
+    },
+    {
+      "company_name": "Lawton Health & Wellness",
+      "domain": "lawtonhealthandwellness.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Lawton Health & Wellness",
+          "title": "Owner",
+          "phone": "+15803089490",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "name": "Tia Lawton",
+          "title": "Health and Wellness Coach/Entrepreneur",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Tia Lawton",
+        "email": null,
+        "phone": null,
+        "title": "Health and Wellness Coach/Entrepreneur",
+        "confidence": 85,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 12646.000862121582,
+      "input": {
+        "company_name": "Lawton Health & Wellness",
+        "domain": "lawtonhealthandwellness.com",
+        "vertical": "fertility_and_ivf_clinics",
+        "address": "904 SW 38th St, Lawton, OK 73505",
+        "phone": "(580) 308-9490",
+        "place_id": "ChIJT6j7vaUfrYcR2aMeCZJkNU0",
+        "rating": 5.0,
+        "reviews": 3
+      }
+    },
+    {
+      "company_name": "Tifton Woman's Center, P.C.",
+      "domain": "twctifton.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Tifton Woman\u2019s Center, P.C.",
+          "title": "Owner",
+          "phone": "+12293861528",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "name": "Dr. Nathan Mordel",
+          "title": "President",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Dr. Nathan Mordel",
+        "email": null,
+        "phone": null,
+        "title": "President",
+        "confidence": 90.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 18655.88402748108,
+      "input": {
+        "company_name": "Tifton Woman's Center, P.C.",
+        "domain": "twctifton.com",
+        "vertical": "fertility_and_ivf_clinics",
+        "address": "1806 Lee Ave, Tifton, GA 31794",
+        "phone": "(229) 386-1528",
+        "place_id": "ChIJI1w-BPH98YgRmx62S0zt0Bc",
+        "rating": 3.6,
+        "reviews": 58
+      }
+    },
+    {
+      "company_name": "Dublin Nephrology Care, LLC- Zhang, Zhiqiang M.D., Phd",
+      "domain": "dublinnephrologycare.com",
+      "stages_completed": [
+        "google_maps_lookup"
+      ],
+      "total_cost": 0.002,
+      "llm_stages": 1,
+      "candidates": [
+        {
+          "name": "Dublin Nephrology Care, LLC- Zhang, Zhiqiang M.D., Phd",
+          "title": "Owner",
+          "phone": "+14782752828",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Zhiqiang Zhang",
+        "email": null,
+        "phone": "+14782752828",
+        "title": "M.D., PhD",
+        "confidence": 80,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 5603.097200393677,
+      "input": {
+        "company_name": "Dublin Nephrology Care, LLC- Zhang, Zhiqiang M.D., Phd",
+        "domain": "dublinnephrologycare.com",
+        "vertical": "dialysis_centers",
+        "address": "203 Fairview Park Dr, Dublin, GA 31021",
+        "phone": "(478) 275-2828",
+        "place_id": "ChIJI7d-g9Eh8YgR3jj91NuQ9qA",
+        "rating": 4.1,
+        "reviews": 9
+      }
+    },
+    {
+      "company_name": "Tangie's Cafe",
+      "domain": "tangiescafe.restaurant",
+      "stages_completed": [
+        "google_maps_lookup",
+        "serper_osint",
+        "website_contacts"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Tangie's Cafe",
+          "title": "Owner",
+          "phone": "+18017564955",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "name": "Tanga Fotheringham",
+          "title": "Owner",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Tanga Fotheringham",
+        "email": null,
+        "phone": null,
+        "title": "Owner",
+        "confidence": 90.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 12243.508100509644,
+      "input": {
+        "company_name": "Tangie's Cafe",
+        "domain": "tangiescafe.restaurant",
+        "vertical": "coffee_shops_in_the_usa",
+        "address": "2 E Main St, American Fork, UT 84003",
+        "phone": "(801) 756-4955",
+        "place_id": "ChIJC2VFyXGBTYcRDhW-N3jyEDA",
+        "rating": 4.3,
+        "reviews": 485
+      }
+    },
+    {
+      "company_name": "Steady Brewing",
+      "domain": "steadybrewing.com",
+      "stages_completed": [
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.003,
+      "llm_stages": 2,
+      "candidates": [
+        {
+          "name": "Dennis Russo",
+          "title": "Co-owner and Brew Master",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Dennis Russo",
+        "email": null,
+        "phone": null,
+        "title": "Co-owner and Brew Master",
+        "confidence": 90,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 8317.847967147827,
+      "input": {
+        "company_name": "Steady Brewing",
+        "domain": "steadybrewing.com",
+        "vertical": "breweries_and_brewpubs",
+        "address": "2950 Clark Ave, Long Beach, CA 90815",
+        "phone": "(562) 982-4046",
+        "place_id": "ChIJuYl8uh8y3YARWo1j9UP73hA",
+        "rating": 4.7,
+        "reviews": 127
+      }
+    },
+    {
+      "company_name": "Wellstar Reproductive Medicine Infertility",
+      "domain": "wellstar.org",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Wellstar Reproductive Medicine Infertility",
+          "title": "Owner",
+          "phone": "+17067224434",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "mycharthelp@wellstar.org",
+          "phone": "7709567827",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "kelsey.mccullough@wellstar.org",
+          "phone": "7709567827",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Ketul J. Patel",
+          "title": "President and CEO",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Ketul J. Patel",
+        "email": "mycharthelp@wellstar.org",
+        "phone": "7709567827",
+        "title": "President and CEO",
+        "confidence": 90.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 11720.464944839478,
+      "input": {
+        "company_name": "Wellstar Reproductive Medicine Infertility",
+        "domain": "wellstar.org",
+        "vertical": "fertility_and_ivf_clinics",
+        "address": "810 Chafee Ave, Augusta, GA 30904",
+        "phone": "(706) 722-4434",
+        "place_id": "ChIJFw0QQEnM-YgR1DD1jjPfhUs",
+        "rating": 3.2,
+        "reviews": 51
+      }
+    },
+    {
+      "company_name": "American Family Care Tillmans Corner",
+      "domain": "afcurgentcare.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "American Family Care Tillmans Corner",
+          "title": "Owner",
+          "phone": "+12515446449",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "jfromm@afcurgentcare.com",
+          "phone": "5033056262",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "edgewaterteam@afcurgentcare.com",
+          "phone": "5033056262",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Daniel Ofosu",
+          "title": "Franchise Operator",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Daniel Ofosu",
+        "email": "jfromm@afcurgentcare.com",
+        "phone": "5033056262",
+        "title": "Franchise Operator",
+        "confidence": 85.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 11305.710077285767,
+      "input": {
+        "company_name": "American Family Care Tillmans Corner",
+        "domain": "afcurgentcare.com",
+        "vertical": "dialysis_centers",
+        "address": "5235 Rangeline Service Rd, Mobile, AL 36619",
+        "phone": "(251) 544-6449",
+        "place_id": "ChIJWb6M_1FLmogRbV745I-reSI",
+        "rating": 4.2,
+        "reviews": 1279
+      }
+    },
+    {
+      "company_name": "Cookeville Plumbing & Electric",
+      "domain": "cookevillecomfort.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Cookeville Plumbing & Electric",
+          "title": "Owner",
+          "phone": "+19315269290",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "name": "Joe Spiecker",
+          "title": "Owner",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Joe Spiecker",
+        "email": null,
+        "phone": null,
+        "title": "Owner",
+        "confidence": 90.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 11648.29683303833,
+      "input": {
+        "company_name": "Cookeville Plumbing & Electric",
+        "domain": "cookevillecomfort.com",
+        "vertical": "plumbers",
+        "address": "1765 Lee Seminary Rd, Cookeville, TN 38506, Vereinigte Staaten",
+        "phone": "+1 931-526-9290",
+        "place_id": "ChIJzYsZyh4hZ4gRoyi_5ULzvtM",
+        "rating": 4.7,
+        "reviews": 49
+      }
+    },
+    {
+      "company_name": "Baylor Scott & White Medical Center - Sunnyvale",
+      "domain": "bswhealthsunnyvale.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "serper_osint",
+        "website_contacts"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Baylor Scott & White Medical Ctr - Sunnyvale",
+          "title": "Owner",
+          "phone": "+19728923000",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "name": "Jason D.",
+          "title": "Chief Executive Officer",
+          "sources": [
+            "serper_osint"
+          ]
+        },
+        {
+          "email": "privacysecurityoffice@tenethealth.com",
+          "phone": "9728923000",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "noreply@iqhealth.com",
+          "phone": "9728923000",
+          "sources": [
+            "website_contacts"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Jason D.",
+        "email": null,
+        "phone": null,
+        "title": "Chief Executive Officer",
+        "confidence": 85.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 14994.082927703857,
+      "input": {
+        "company_name": "Baylor Scott & White Medical Center - Sunnyvale",
+        "domain": "bswhealthsunnyvale.com",
+        "vertical": "dialysis_centers",
+        "address": "231 S Collins Rd, Sunnyvale, TX 75182",
+        "phone": "(972) 892-3000",
+        "place_id": "ChIJN64PqnCvToYRcnIpcDdPtd4",
+        "rating": 2.1,
+        "reviews": 693
+      }
+    },
+    {
+      "company_name": "Pocatello Free Clinic",
+      "domain": "pocatellofreeclinic.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Pocatello Free Clinic",
+          "title": "Owner",
+          "phone": "+12082336245",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "name": "Kristina Pasquella-Jordan",
+          "title": "Executive Director",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Kristina Pasquella-Jordan",
+        "email": null,
+        "phone": null,
+        "title": "Executive Director",
+        "confidence": 90,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 14943.427085876465,
+      "input": {
+        "company_name": "Pocatello Free Clinic",
+        "domain": "pocatellofreeclinic.com",
+        "vertical": "fertility_and_ivf_clinics",
+        "address": "1001 N 7th Ave Suite 155, Pocatello, ID 83201",
+        "phone": "(208) 233-6245",
+        "place_id": "ChIJbTKG-URPVVMRirKFcuCOoSA",
+        "rating": 4.5,
+        "reviews": 131
+      }
+    },
+    {
+      "company_name": "West Dearborn Urgent Care",
+      "domain": "wdearbornuc.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "West Dearborn Urgent Care",
+          "title": "Owner",
+          "phone": "+13134470888",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "soha.alfares@wdearbornuc.com",
+          "phone": "3134470888",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Ghattas Alkhoury",
+          "title": "Owner",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Ghattas Alkhoury",
+        "email": "soha.alfares@wdearbornuc.com",
+        "phone": "3134470888",
+        "title": "Owner",
+        "confidence": 90.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 15621.170043945312,
+      "input": {
+        "company_name": "West Dearborn Urgent Care",
+        "domain": "wdearbornuc.com",
+        "vertical": "dialysis_centers",
+        "address": "2421 Monroe St, Dearborn, MI 48124",
+        "phone": "(313) 447-0888",
+        "place_id": "ChIJ2Z5m0Go1O4gRHPTcnaMP68U",
+        "rating": 4.8,
+        "reviews": 236
+      }
+    },
+    {
+      "company_name": "Cottonwood Kitchen + Home",
+      "domain": "cottonwoodshop.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Cottonwood Kitchen + Home",
+          "title": "Owner",
+          "phone": "+13076747980",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "shop@cottonwoodshop.com",
+          "phone": "3076747980",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "674-7980shop@cottonwoodshop.com",
+          "phone": "3076747980",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Jessica Garrelts",
+          "title": "Co-Owner",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Jessica Garrelts",
+        "email": "shop@cottonwoodshop.com",
+        "phone": "3076747980",
+        "title": "Co-Owner",
+        "confidence": 90.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 14279.029846191406,
+      "input": {
+        "company_name": "Cottonwood Kitchen + Home",
+        "domain": "cottonwoodshop.com",
+        "vertical": "coffee_shops_in_the_usa",
+        "address": "234 N Main St, Sheridan, WY 82801",
+        "phone": "(307) 674-7980",
+        "place_id": "ChIJp4EOir76NVMR0YSRutXkzEc",
+        "rating": 4.7,
+        "reviews": 65
+      }
+    },
+    {
+      "company_name": "Mayo Clinic Dialysis - Menomonie",
+      "domain": "mayoclinichealthsystem.org",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Mayo Clinic Dialysis - Menomonie",
+          "title": "Owner",
+          "phone": "+17152327272",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "support@primarycareondemandsupport.mayoclinic.org",
+          "phone": "7158383311",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "privacyoffice@mayo.edu",
+          "phone": "7158383311",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "County became joint",
+          "title": null,
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": null,
+      "no_contact_reason": "No valid contact found; all tools have been tried and only company names or generic emails were returned.",
+      "processing_time_ms": 10552.927017211914,
+      "input": {
+        "company_name": "Mayo Clinic Dialysis - Menomonie",
+        "domain": "mayoclinichealthsystem.org",
+        "vertical": "dialysis_centers",
+        "address": "507 21st St NE, Menomonie, WI 54751",
+        "phone": "(715) 232-7272",
+        "place_id": "ChIJtW3uXXB8-IcRVxW7OB_-HVI",
+        "rating": 5.0,
+        "reviews": 1
+      }
+    },
+    {
+      "company_name": "Sugar Llamas- Mini Donuts, Coffee and Ice Cream",
+      "domain": "sugarllamas.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Sugar Llamas- Mini Donuts, Coffee and Ice Cream",
+          "title": "Owner",
+          "phone": "+14693385192",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "sugarllamas.westmoore@gmail.com",
+          "phone": "4797633655",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "dkornfehl@sugarllamas.com",
+          "phone": "4797633655",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Kim Mallon",
+          "title": "Owner",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Kim Mallon",
+        "email": "dkornfehl@sugarllamas.com",
+        "phone": "4797633655",
+        "title": "Owner",
+        "confidence": 90.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 13573.629140853882,
+      "input": {
+        "company_name": "Sugar Llamas- Mini Donuts, Coffee and Ice Cream",
+        "domain": "sugarllamas.com",
+        "vertical": "coffee_shops_in_the_usa",
+        "address": "6601 Horizon Rd Suite B, Rockwall, TX 75032",
+        "phone": "(469) 338-5192",
+        "place_id": "ChIJ_Z392zmrToYRUtEitbmcZ1I",
+        "rating": 4.7,
+        "reviews": 245
+      }
+    },
+    {
+      "company_name": "Fresenius Kidney Care Waconia",
+      "domain": "freseniuskidneycare.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "serper_osint",
+        "website_contacts"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Fresenius Kidney Care Waconia",
+          "title": "Owner",
+          "phone": "+18008815101",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "thriveon@freseniuskidneycare.com",
+          "phone": "18008815101",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "privacy@freseniusmedicalcare.com",
+          "phone": "18008815101",
+          "sources": [
+            "website_contacts"
+          ]
+        }
+      ],
+      "contact": null,
+      "no_contact_reason": "No valid contact found with a real person name; only company name or generic emails available.",
+      "processing_time_ms": 10356.956005096436,
+      "input": {
+        "company_name": "Fresenius Kidney Care Waconia",
+        "domain": "freseniuskidneycare.com",
+        "vertical": "dialysis_centers",
+        "address": "560 S Maple St Ste 6, Waconia, MN 55387",
+        "phone": "(800) 881-5101",
+        "place_id": "ChIJoVAnwUn89YcRdI3xuHiNLeo",
+        "rating": 0.0,
+        "reviews": 0
+      }
+    },
+    {
+      "company_name": "Rural King",
+      "domain": "ruralking.com",
+      "stages_completed": [
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.003,
+      "llm_stages": 2,
+      "candidates": [
+        {
+          "email": "customerservice@ruralking.com",
+          "phone": "18005611752",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "rkcompliance@ruralking.com",
+          "phone": "18005611752",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Alex Melvin",
+          "title": "Owner & Chairman",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Alex Melvin",
+        "email": "None",
+        "phone": "None",
+        "title": "Owner & Chairman",
+        "confidence": 95.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 12143.79596710205,
+      "input": {
+        "company_name": "Rural King",
+        "domain": "ruralking.com",
+        "vertical": "bakeries",
+        "address": "1702 W Main St, Carbondale, IL 62901",
+        "phone": "(618) 529-8618",
+        "place_id": "ChIJR7rKcfoRd4gRwK7qHqQT99E",
+        "rating": 4.4,
+        "reviews": 1415
+      }
+    },
+    {
+      "company_name": "Sweet Stop",
+      "domain": "islandviewcasino.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Sweetstop",
+          "title": "Owner",
+          "phone": "+14693727557",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "spa@islandviewcasino.com",
+          "phone": "2283142100",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "margaret@thewilcoxagency.com",
+          "phone": "2283142100",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Raina T. Washington",
+          "title": "Owner",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Raina T. Washington",
+        "email": "spa@islandviewcasino.com",
+        "phone": "2283142100",
+        "title": "Owner",
+        "confidence": 95.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 13077.095746994019,
+      "input": {
+        "company_name": "Sweet Stop",
+        "domain": "islandviewcasino.com",
+        "vertical": "bakeries",
+        "address": "3300 W Beach Blvd, Gulfport, MS 39501",
+        "phone": "(228) 314-2100",
+        "place_id": "ChIJd6xlcvs9nIgR98U6Gp7dEVU",
+        "rating": 4.5,
+        "reviews": 4
+      }
+    },
+    {
+      "company_name": "Thirsty Whale Bakery",
+      "domain": "thirstywhalebakery.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Thirsty Whale Bakery",
+          "title": "Owner",
+          "phone": "+16122597168",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "wayzatatwb@gmail.com",
+          "phone": null,
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "thirstywhalebakery@gmail.com",
+          "phone": null,
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Alise McGregor",
+          "title": "Owner",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Alise McGregor",
+        "email": "thirstywhalebakery@gmail.com",
+        "phone": "+16122597168",
+        "title": "Owner",
+        "confidence": 95.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 14028.857231140137,
+      "input": {
+        "company_name": "Thirsty Whale Bakery",
+        "domain": "thirstywhalebakery.com",
+        "vertical": "bakeries",
+        "address": "4149 Fremont Ave N, Minneapolis, MN 55412",
+        "phone": "(612) 259-7168",
+        "place_id": "ChIJLwlMz4gxs1IRSeZNwSWoBDY",
+        "rating": 4.7,
+        "reviews": 530
+      }
+    },
+    {
+      "company_name": "Adjudicake",
+      "domain": "adjudicake.com",
+      "stages_completed": [
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.003,
+      "llm_stages": 2,
+      "candidates": [
+        {
+          "email": "adjudicake@gmail.com",
+          "phone": "8133136292",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "adjudicakes@gmail.com",
+          "phone": "8133136292",
+          "sources": [
+            "website_contacts"
+          ]
+        }
+      ],
+      "contact": null,
+      "no_contact_reason": "No valid contact found with a real person name; only generic emails and unknown candidates available.",
+      "processing_time_ms": 7776.649951934814,
+      "input": {
+        "company_name": "Adjudicake",
+        "domain": "adjudicake.com",
+        "vertical": "bakeries",
+        "address": "9221 Hidden Water Cir, Riverview, FL 33578",
+        "phone": "(813) 313-6292",
+        "place_id": "ChIJ17hVPNDPwogRqml_CwdNhbU",
+        "rating": 5.0,
+        "reviews": 87
+      }
+    },
+    {
+      "company_name": "La Conchita, in Hoover",
+      "domain": "facebook.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "serper_osint"
+      ],
+      "total_cost": 0.003,
+      "llm_stages": 2,
+      "candidates": [
+        {
+          "name": "La Conchita, in Hoover",
+          "title": "Owner",
+          "phone": "+12055366541",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "name": "Alejandro Sanchez",
+          "title": "Owner",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Alejandro Sanchez",
+        "email": null,
+        "phone": null,
+        "title": "Owner",
+        "confidence": 85.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 10857.9683303833,
+      "input": {
+        "company_name": "La Conchita, in Hoover",
+        "domain": "facebook.com",
+        "vertical": "bakeries",
+        "address": "3309 Lorna Rd #10, Birmingham, AL 35216",
+        "phone": "(205) 536-6541",
+        "place_id": "ChIJ12ZmT8AjiYgRiTUvsOTo9ZU",
+        "rating": 4.2,
+        "reviews": 150
+      }
+    },
+    {
+      "company_name": "PEP Bakehouse and Coffee Shop",
+      "domain": "pepbakery.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "PEP Bakehouse and Coffee Shop",
+          "title": "Owner",
+          "phone": "+13473654562",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        }
+      ],
+      "contact": null,
+      "no_contact_reason": "Only company name found as owner with no valid personal contact information.",
+      "processing_time_ms": 8820.405960083008,
+      "input": {
+        "company_name": "PEP Bakehouse and Coffee Shop",
+        "domain": "pepbakery.com",
+        "vertical": "bakeries",
+        "address": "9413 3rd Ave, Brooklyn, NY 11209",
+        "phone": "(917) 482-1167",
+        "place_id": "ChIJXx1VC4lPwokRtGe3vKBfKLA",
+        "rating": 4.5,
+        "reviews": 112
+      }
+    },
+    {
+      "company_name": "DaVita Lake Tapps Dialysis",
+      "domain": "davita.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "DaVita Lake Tapps Dialysis",
+          "title": "Owner",
+          "phone": "+18334522129",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "newsroom@davita.com",
+          "phone": "18004246589",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "ir@davita.com",
+          "phone": "18004246589",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Javier Rodriguez",
+          "title": "CEO",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Javier Rodriguez",
+        "email": "newsroom@davita.com",
+        "phone": "+18334522129",
+        "title": "CEO",
+        "confidence": 90,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 14366.658926010132,
+      "input": {
+        "company_name": "DaVita Lake Tapps Dialysis",
+        "domain": "davita.com",
+        "vertical": "dialysis_centers",
+        "address": "16290 Auto Ln Suite 103, Sumner, WA 98390",
+        "phone": "(833) 452-2129",
+        "place_id": "ChIJSzaKPHv7kFQRblBJL7RlNCE",
+        "rating": 5.0,
+        "reviews": 3
+      }
+    },
+    {
+      "company_name": "Avon Brewing Company",
+      "domain": "avonbrewingcompany.com",
+      "stages_completed": [
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.003,
+      "llm_stages": 2,
+      "candidates": [
+        {
+          "name": "Mathias Hauck",
+          "title": "Co-owner",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Mathias Hauck",
+        "email": null,
+        "phone": "4409371816",
+        "title": "Co-owner",
+        "confidence": 95.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 8052.904844284058,
+      "input": {
+        "company_name": "Avon Brewing Company",
+        "domain": "avonbrewingcompany.com",
+        "vertical": "breweries_and_brewpubs",
+        "address": "37040 Detroit Rd, Avon, OH 44011",
+        "phone": "(440) 937-1816",
+        "place_id": "ChIJ31FkYXmQMIgRIWsujM6oHz4",
+        "rating": 4.5,
+        "reviews": 569
+      }
+    },
+    {
+      "company_name": "Plymwr Plumbing",
+      "domain": "plymwrplumbing.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Plymwr Plumbing",
+          "title": "Owner",
+          "phone": "+19512235668",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "dispatchme@plymwrplumbing.com",
+          "phone": "9512235668",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "name": "Robert Clifford",
+          "title": "Small Business Owner at Plymwr Plumbing",
+          "sources": [
+            "serper_osint"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Robert Clifford",
+        "email": "dispatchme@plymwrplumbing.com",
+        "phone": "9512235668",
+        "title": "Small Business Owner",
+        "confidence": 90.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 15949.532985687256,
+      "input": {
+        "company_name": "Plymwr Plumbing",
+        "domain": "plymwrplumbing.com",
+        "vertical": "plumbers",
+        "address": "6150 Rutland Ave suite 9, Riverside, CA 92503, Vereinigte Staaten",
+        "phone": "+1 951-223-5668",
+        "place_id": "ChIJrTJj-ki23IAR6V26xZVFHJs",
+        "rating": 4.1,
+        "reviews": 583
+      }
+    },
+    {
+      "company_name": "Organic Remedies Dispensary",
+      "domain": "organicremediespa.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "serper_osint",
+        "website_contacts"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Organic remedies",
+          "title": "Owner",
+          "phone": null,
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "name": "Mark Toigo",
+          "title": "CEO",
+          "sources": [
+            "serper_osint"
+          ]
+        },
+        {
+          "email": "info@organicremediespa.com",
+          "phone": "7175627758",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "autismstudy@pcom.edu",
+          "phone": "7175627758",
+          "sources": [
+            "website_contacts"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Mark Toigo",
+        "email": "info@organicremediespa.com",
+        "phone": "7175627758",
+        "title": "CEO",
+        "confidence": 90.0,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 12287.705183029175,
+      "input": {
+        "company_name": "Organic Remedies Dispensary",
+        "domain": "organicremediespa.com",
+        "vertical": "bakeries",
+        "address": "900 Wayne Ave, Chambersburg, PA 17201",
+        "phone": "(717) 251-2321",
+        "place_id": "ChIJrTCYYSCcyYkRJO6Q-1jHNIY",
+        "rating": 4.8,
+        "reviews": 1010
+      }
+    }
+  ],
+  "config": {
+    "input": "evaluation/data/smb_random_200.json",
+    "limit": 100,
+    "concurrency": 10,
+    "max_stages": 5,
+    "cost_budget": 0.015
+  }
+}

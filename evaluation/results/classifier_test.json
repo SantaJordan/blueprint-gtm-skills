@@ -1,0 +1,1011 @@
+{
+  "summary": {
+    "smb": 122,
+    "franchise": 31,
+    "healthcare": 46,
+    "corporate": 1,
+    "unknown": 0
+  },
+  "results": [
+    {
+      "name": "Ragone's Plumbing Services",
+      "category": "plumbers",
+      "type": "smb"
+    },
+    {
+      "name": "Riverhead Brew House",
+      "category": "breweries_and_brewpubs",
+      "type": "smb"
+    },
+    {
+      "name": "K J Lee's Automotive",
+      "category": "auto_body_shops",
+      "type": "smb"
+    },
+    {
+      "name": "Pig Pounder Brewery",
+      "category": "breweries_and_brewpubs",
+      "type": "smb"
+    },
+    {
+      "name": "DaVita Wilshire Dialysis Center",
+      "category": "dialysis_centers",
+      "type": "franchise"
+    },
+    {
+      "name": "Georgetown Cupcake",
+      "category": "bakeries",
+      "type": "smb"
+    },
+    {
+      "name": "Dunkin'",
+      "category": "coffee_shops_in_the_usa",
+      "type": "franchise"
+    },
+    {
+      "name": "DARCARS Honda Service Center",
+      "category": "auto_body_shops",
+      "type": "smb"
+    },
+    {
+      "name": "Los Angeles Kidney Center - Nephrology",
+      "category": "dialysis_centers",
+      "type": "healthcare"
+    },
+    {
+      "name": "Christine's Kitchen",
+      "category": "bakeries",
+      "type": "smb"
+    },
+    {
+      "name": "Atomic Rooter Plumbing Sewer & Drain Cleaning",
+      "category": "plumbers",
+      "type": "smb"
+    },
+    {
+      "name": "The Baklava",
+      "category": "bakeries",
+      "type": "smb"
+    },
+    {
+      "name": "Fresenius Kidney Care Greece",
+      "category": "dialysis_centers",
+      "type": "franchise"
+    },
+    {
+      "name": "Texacone Snowcones and Ice Cream",
+      "category": "bakeries",
+      "type": "smb"
+    },
+    {
+      "name": "Rivertowne Brewing Company",
+      "category": "breweries_and_brewpubs",
+      "type": "smb"
+    },
+    {
+      "name": "Thriftway Super Stops",
+      "category": "bakeries",
+      "type": "smb"
+    },
+    {
+      "name": "Linc Home Services",
+      "category": "plumbers",
+      "type": "smb"
+    },
+    {
+      "name": "Morocho Auto Body",
+      "category": "auto_body_shops",
+      "type": "smb"
+    },
+    {
+      "name": "Guillen Plumbing Inc",
+      "category": "plumbers",
+      "type": "smb"
+    },
+    {
+      "name": "Walmart Supercenter",
+      "category": "bakeries",
+      "type": "franchise"
+    },
+    {
+      "name": "Gardner Paint & Body Shop",
+      "category": "auto_body_shops",
+      "type": "smb"
+    },
+    {
+      "name": "McDonald's",
+      "category": "coffee_shops_in_the_usa",
+      "type": "franchise"
+    },
+    {
+      "name": "IU Health University Hospital",
+      "category": "dialysis_centers",
+      "type": "healthcare"
+    },
+    {
+      "name": "Dr. Betsy McCormick",
+      "category": "fertility_and_ivf_clinics",
+      "type": "healthcare"
+    },
+    {
+      "name": "Oil Changers",
+      "category": "auto_body_shops",
+      "type": "franchise"
+    },
+    {
+      "name": "Off Elm",
+      "category": "breweries_and_brewpubs",
+      "type": "smb"
+    },
+    {
+      "name": "BrewWall",
+      "category": "breweries_and_brewpubs",
+      "type": "smb"
+    },
+    {
+      "name": "Wooden Spoon Diner Plant City",
+      "category": "coffee_shops_in_the_usa",
+      "type": "smb"
+    },
+    {
+      "name": "Mc Dowell's Auto Body Inc",
+      "category": "auto_body_shops",
+      "type": "smb"
+    },
+    {
+      "name": "Smoking Cannon Brewery",
+      "category": "breweries_and_brewpubs",
+      "type": "smb"
+    },
+    {
+      "name": "Island Root Kava Bar EGAD",
+      "category": "coffee_shops_in_the_usa",
+      "type": "smb"
+    },
+    {
+      "name": "Romano Plumbing",
+      "category": "plumbers",
+      "type": "smb"
+    },
+    {
+      "name": "Scott Hale Plumbing, Drains, Heating & Air",
+      "category": "plumbers",
+      "type": "smb"
+    },
+    {
+      "name": "Gerber Collision & Glass",
+      "category": "auto_body_shops",
+      "type": "franchise"
+    },
+    {
+      "name": "Grease Monkey",
+      "category": "auto_body_shops",
+      "type": "franchise"
+    },
+    {
+      "name": "Sideros Automotive",
+      "category": "auto_body_shops",
+      "type": "smb"
+    },
+    {
+      "name": "DaVita Gardner Dialysis",
+      "category": "dialysis_centers",
+      "type": "franchise"
+    },
+    {
+      "name": "Dave's Collision",
+      "category": "auto_body_shops",
+      "type": "smb"
+    },
+    {
+      "name": "Sanford Temperature Control",
+      "category": "plumbers",
+      "type": "smb"
+    },
+    {
+      "name": "Clara Barton Medical Clinic - Great Bend",
+      "category": "fertility_and_ivf_clinics",
+      "type": "healthcare"
+    },
+    {
+      "name": "DaVita Salem Northeast Dialysis",
+      "category": "dialysis_centers",
+      "type": "franchise"
+    },
+    {
+      "name": "Benoure Plumbing, Heating & Air Conditioning",
+      "category": "plumbers",
+      "type": "smb"
+    },
+    {
+      "name": "Differential Brewing Co.",
+      "category": "breweries_and_brewpubs",
+      "type": "smb"
+    },
+    {
+      "name": "Pico Rivera Healthcare",
+      "category": "dialysis_centers",
+      "type": "healthcare"
+    },
+    {
+      "name": "Munchy Macarons",
+      "category": "bakeries",
+      "type": "smb"
+    },
+    {
+      "name": "California Dialysis Management Services",
+      "category": "dialysis_centers",
+      "type": "healthcare"
+    },
+    {
+      "name": "Fresenius Kidney Care West Plano",
+      "category": "dialysis_centers",
+      "type": "franchise"
+    },
+    {
+      "name": "Brown's Automotive & Service Center, Inc",
+      "category": "auto_body_shops",
+      "type": "smb"
+    },
+    {
+      "name": "GNM Coffee Shop",
+      "category": "coffee_shops_in_the_usa",
+      "type": "smb"
+    },
+    {
+      "name": "BruCo Taproom",
+      "category": "breweries_and_brewpubs",
+      "type": "smb"
+    },
+    {
+      "name": "Mimi's Cafe",
+      "category": "bakeries",
+      "type": "smb"
+    },
+    {
+      "name": "Shorty Cakes",
+      "category": "bakeries",
+      "type": "smb"
+    },
+    {
+      "name": "Woodcock Brothers Brewery",
+      "category": "breweries_and_brewpubs",
+      "type": "smb"
+    },
+    {
+      "name": "Defiance",
+      "category": "breweries_and_brewpubs",
+      "type": "smb"
+    },
+    {
+      "name": "DaVita Duncan Dialysis Center",
+      "category": "dialysis_centers",
+      "type": "franchise"
+    },
+    {
+      "name": "Bainbridge Naturopathic Clinic",
+      "category": "fertility_and_ivf_clinics",
+      "type": "healthcare"
+    },
+    {
+      "name": "C & B Body & Auto Service",
+      "category": "auto_body_shops",
+      "type": "smb"
+    },
+    {
+      "name": "Rockfish Brewing Company Preston",
+      "category": "breweries_and_brewpubs",
+      "type": "smb"
+    },
+    {
+      "name": "Fresenius Kidney Care Gateway",
+      "category": "dialysis_centers",
+      "type": "franchise"
+    },
+    {
+      "name": "Ollies Pub",
+      "category": "coffee_shops_in_the_usa",
+      "type": "smb"
+    },
+    {
+      "name": "Eudora Brewing Company",
+      "category": "breweries_and_brewpubs",
+      "type": "smb"
+    },
+    {
+      "name": "Schnitz Ale Brewery",
+      "category": "breweries_and_brewpubs",
+      "type": "smb"
+    },
+    {
+      "name": "Beth Israel OBGYN",
+      "category": "fertility_and_ivf_clinics",
+      "type": "healthcare"
+    },
+    {
+      "name": "Dove's Landing Cardiology",
+      "category": "fertility_and_ivf_clinics",
+      "type": "healthcare"
+    },
+    {
+      "name": "Coffee Klatch",
+      "category": "coffee_shops_in_the_usa",
+      "type": "smb"
+    },
+    {
+      "name": "Fertility Doctor NYC",
+      "category": "fertility_and_ivf_clinics",
+      "type": "healthcare"
+    },
+    {
+      "name": "Nunes Auto Repairing",
+      "category": "auto_body_shops",
+      "type": "smb"
+    },
+    {
+      "name": "DaVita Flatlands At Home",
+      "category": "dialysis_centers",
+      "type": "franchise"
+    },
+    {
+      "name": "Eckert's Country Store",
+      "category": "coffee_shops_in_the_usa",
+      "type": "smb"
+    },
+    {
+      "name": "Rooter Hero Plumbing & Air",
+      "category": "plumbers",
+      "type": "smb"
+    },
+    {
+      "name": "C & C Plumbing & Heating",
+      "category": "plumbers",
+      "type": "smb"
+    },
+    {
+      "name": "Mangiamo Gelato Caffe",
+      "category": "coffee_shops_in_the_usa",
+      "type": "smb"
+    },
+    {
+      "name": "Gerber Collision & Glass",
+      "category": "auto_body_shops",
+      "type": "franchise"
+    },
+    {
+      "name": "Garden City Auto Body",
+      "category": "auto_body_shops",
+      "type": "smb"
+    },
+    {
+      "name": "Master Rooter Plumbing Inc.",
+      "category": "plumbers",
+      "type": "smb"
+    },
+    {
+      "name": "Lawton Health & Wellness",
+      "category": "fertility_and_ivf_clinics",
+      "type": "healthcare"
+    },
+    {
+      "name": "Tifton Woman's Center, P.C.",
+      "category": "fertility_and_ivf_clinics",
+      "type": "healthcare"
+    },
+    {
+      "name": "Dublin Nephrology Care, LLC- Zhang, Zhiqiang M.D., Phd",
+      "category": "dialysis_centers",
+      "type": "healthcare"
+    },
+    {
+      "name": "Tangie's Cafe",
+      "category": "coffee_shops_in_the_usa",
+      "type": "smb"
+    },
+    {
+      "name": "Steady Brewing",
+      "category": "breweries_and_brewpubs",
+      "type": "smb"
+    },
+    {
+      "name": "Wellstar Reproductive Medicine Infertility",
+      "category": "fertility_and_ivf_clinics",
+      "type": "healthcare"
+    },
+    {
+      "name": "American Family Care Tillmans Corner",
+      "category": "dialysis_centers",
+      "type": "healthcare"
+    },
+    {
+      "name": "Cookeville Plumbing & Electric",
+      "category": "plumbers",
+      "type": "smb"
+    },
+    {
+      "name": "Baylor Scott & White Medical Center - Sunnyvale",
+      "category": "dialysis_centers",
+      "type": "healthcare"
+    },
+    {
+      "name": "Pocatello Free Clinic",
+      "category": "fertility_and_ivf_clinics",
+      "type": "healthcare"
+    },
+    {
+      "name": "West Dearborn Urgent Care",
+      "category": "dialysis_centers",
+      "type": "franchise"
+    },
+    {
+      "name": "Cottonwood Kitchen + Home",
+      "category": "coffee_shops_in_the_usa",
+      "type": "smb"
+    },
+    {
+      "name": "Mayo Clinic Dialysis - Menomonie",
+      "category": "dialysis_centers",
+      "type": "healthcare"
+    },
+    {
+      "name": "Sugar Llamas- Mini Donuts, Coffee and Ice Cream",
+      "category": "coffee_shops_in_the_usa",
+      "type": "smb"
+    },
+    {
+      "name": "Fresenius Kidney Care Waconia",
+      "category": "dialysis_centers",
+      "type": "franchise"
+    },
+    {
+      "name": "Rural King",
+      "category": "bakeries",
+      "type": "smb"
+    },
+    {
+      "name": "Sweet Stop",
+      "category": "bakeries",
+      "type": "smb"
+    },
+    {
+      "name": "Thirsty Whale Bakery",
+      "category": "bakeries",
+      "type": "smb"
+    },
+    {
+      "name": "Adjudicake",
+      "category": "bakeries",
+      "type": "smb"
+    },
+    {
+      "name": "La Conchita, in Hoover",
+      "category": "bakeries",
+      "type": "smb"
+    },
+    {
+      "name": "PEP Bakehouse and Coffee Shop",
+      "category": "bakeries",
+      "type": "smb"
+    },
+    {
+      "name": "DaVita Lake Tapps Dialysis",
+      "category": "dialysis_centers",
+      "type": "franchise"
+    },
+    {
+      "name": "Avon Brewing Company",
+      "category": "breweries_and_brewpubs",
+      "type": "smb"
+    },
+    {
+      "name": "Plymwr Plumbing",
+      "category": "plumbers",
+      "type": "smb"
+    },
+    {
+      "name": "Organic Remedies Dispensary",
+      "category": "bakeries",
+      "type": "smb"
+    },
+    {
+      "name": "Walgreens",
+      "category": "bakeries",
+      "type": "smb"
+    },
+    {
+      "name": "McDonald's",
+      "category": "coffee_shops_in_the_usa",
+      "type": "franchise"
+    },
+    {
+      "name": "Water Heaters Express",
+      "category": "plumbers",
+      "type": "smb"
+    },
+    {
+      "name": "Sarat Ford Collision",
+      "category": "auto_body_shops",
+      "type": "smb"
+    },
+    {
+      "name": "Perkins American Food Co.",
+      "category": "bakeries",
+      "type": "smb"
+    },
+    {
+      "name": "Alamo Auto Repair",
+      "category": "auto_body_shops",
+      "type": "smb"
+    },
+    {
+      "name": "Tropical Smoothie Cafe",
+      "category": "coffee_shops_in_the_usa",
+      "type": "smb"
+    },
+    {
+      "name": "Radicle Effect Brewerks",
+      "category": "breweries_and_brewpubs",
+      "type": "smb"
+    },
+    {
+      "name": "David Reichman, MD",
+      "category": "fertility_and_ivf_clinics",
+      "type": "healthcare"
+    },
+    {
+      "name": "Intermountain Transplant Clinic",
+      "category": "dialysis_centers",
+      "type": "healthcare"
+    },
+    {
+      "name": "7-Eleven",
+      "category": "coffee_shops_in_the_usa",
+      "type": "franchise"
+    },
+    {
+      "name": "The Cookie Tin Cafe",
+      "category": "bakeries",
+      "type": "smb"
+    },
+    {
+      "name": "PeaceHealth Southwest Medical Center",
+      "category": "dialysis_centers",
+      "type": "healthcare"
+    },
+    {
+      "name": "Fresenius Medical Care at Community Memorial Hospital",
+      "category": "dialysis_centers",
+      "type": "franchise"
+    },
+    {
+      "name": "Seven Arrows Brewing Company",
+      "category": "bakeries",
+      "type": "smb"
+    },
+    {
+      "name": "Etai's Bakery Cafe on Broadway",
+      "category": "coffee_shops_in_the_usa",
+      "type": "smb"
+    },
+    {
+      "name": "Inland Truck Parts & Service",
+      "category": "auto_body_shops",
+      "type": "smb"
+    },
+    {
+      "name": "West Des Moines OBGYN Associates, PC - Ankeny Location",
+      "category": "fertility_and_ivf_clinics",
+      "type": "healthcare"
+    },
+    {
+      "name": "G & M Auto Repair",
+      "category": "auto_body_shops",
+      "type": "smb"
+    },
+    {
+      "name": "Bonnie's Best Cafe",
+      "category": "bakeries",
+      "type": "smb"
+    },
+    {
+      "name": "Mercedes-Benz of Fort Myers Service Center",
+      "category": "auto_body_shops",
+      "type": "smb"
+    },
+    {
+      "name": "Carter Hays Powers & Associates",
+      "category": "fertility_and_ivf_clinics",
+      "type": "healthcare"
+    },
+    {
+      "name": "LMK Plumbing and Drain",
+      "category": "plumbers",
+      "type": "smb"
+    },
+    {
+      "name": "Denny's",
+      "category": "coffee_shops_in_the_usa",
+      "type": "smb"
+    },
+    {
+      "name": "Ivy's Simply Homemade",
+      "category": "bakeries",
+      "type": "smb"
+    },
+    {
+      "name": "Dunkin'",
+      "category": "bakeries",
+      "type": "franchise"
+    },
+    {
+      "name": "Fresenius Kidney Care Chattanooga North",
+      "category": "dialysis_centers",
+      "type": "franchise"
+    },
+    {
+      "name": "Cris B Automototive Services",
+      "category": "auto_body_shops",
+      "type": "smb"
+    },
+    {
+      "name": "CPMC Mission Bernal Campus & Orthopedic Institute",
+      "category": "fertility_and_ivf_clinics",
+      "type": "healthcare"
+    },
+    {
+      "name": "Sasha Acupuncture & Herbal Medicine LLC",
+      "category": "fertility_and_ivf_clinics",
+      "type": "healthcare"
+    },
+    {
+      "name": "Pitter Patter Surrogacy",
+      "category": "fertility_and_ivf_clinics",
+      "type": "healthcare"
+    },
+    {
+      "name": "Fresh Start A/C & Plumbing",
+      "category": "plumbers",
+      "type": "smb"
+    },
+    {
+      "name": "Bonne Vie",
+      "category": "coffee_shops_in_the_usa",
+      "type": "smb"
+    },
+    {
+      "name": "Direct Collision",
+      "category": "auto_body_shops",
+      "type": "smb"
+    },
+    {
+      "name": "FRESENIUS KIDNEY CARE NORTH THIBODAUX",
+      "category": "dialysis_centers",
+      "type": "franchise"
+    },
+    {
+      "name": "Medley's Auto & Truck Repair Service",
+      "category": "auto_body_shops",
+      "type": "smb"
+    },
+    {
+      "name": "Perea Plumbing LLC",
+      "category": "plumbers",
+      "type": "smb"
+    },
+    {
+      "name": "K & E Auto Body & Collision Center",
+      "category": "auto_body_shops",
+      "type": "smb"
+    },
+    {
+      "name": "Fresenius Kidney Care Riverside",
+      "category": "dialysis_centers",
+      "type": "franchise"
+    },
+    {
+      "name": "Caffe Italia",
+      "category": "coffee_shops_in_the_usa",
+      "type": "smb"
+    },
+    {
+      "name": "River City OB/GYN",
+      "category": "fertility_and_ivf_clinics",
+      "type": "healthcare"
+    },
+    {
+      "name": "Java Espress",
+      "category": "coffee_shops_in_the_usa",
+      "type": "smb"
+    },
+    {
+      "name": "BJ's Restaurant & Brewhouse",
+      "category": "breweries_and_brewpubs",
+      "type": "corporate"
+    },
+    {
+      "name": "Egg Donation Houston",
+      "category": "fertility_and_ivf_clinics",
+      "type": "healthcare"
+    },
+    {
+      "name": "Colorado Kidney Care",
+      "category": "dialysis_centers",
+      "type": "healthcare"
+    },
+    {
+      "name": "Curate By Dorrinda",
+      "category": "bakeries",
+      "type": "smb"
+    },
+    {
+      "name": "Glenn Huerta-Enochian, MD, Gynecology - The Corvallis Clinic",
+      "category": "fertility_and_ivf_clinics",
+      "type": "healthcare"
+    },
+    {
+      "name": "Pats Auto Repair Inc.",
+      "category": "auto_body_shops",
+      "type": "smb"
+    },
+    {
+      "name": "Dialysis Care Center",
+      "category": "dialysis_centers",
+      "type": "healthcare"
+    },
+    {
+      "name": "Martel's Foreign Car Center",
+      "category": "auto_body_shops",
+      "type": "smb"
+    },
+    {
+      "name": "Hutzel Women's Hospital",
+      "category": "fertility_and_ivf_clinics",
+      "type": "healthcare"
+    },
+    {
+      "name": "Prosperi Bakery",
+      "category": "coffee_shops_in_the_usa",
+      "type": "smb"
+    },
+    {
+      "name": "U of U Health South Jordan Health Center",
+      "category": "dialysis_centers",
+      "type": "healthcare"
+    },
+    {
+      "name": "Gerber Collision & Glass",
+      "category": "auto_body_shops",
+      "type": "franchise"
+    },
+    {
+      "name": "Classic Collision",
+      "category": "auto_body_shops",
+      "type": "smb"
+    },
+    {
+      "name": "Qargo Coffee",
+      "category": "bakeries",
+      "type": "smb"
+    },
+    {
+      "name": "Haynes Plumbing Sewer and Water Services",
+      "category": "plumbers",
+      "type": "smb"
+    },
+    {
+      "name": "Miracle Auto Body Work *Mobile",
+      "category": "auto_body_shops",
+      "type": "smb"
+    },
+    {
+      "name": "Sheppard Plumbing Inc",
+      "category": "plumbers",
+      "type": "smb"
+    },
+    {
+      "name": "Stephen Wade Toyota Service",
+      "category": "auto_body_shops",
+      "type": "smb"
+    },
+    {
+      "name": "Bloedow Bakery",
+      "category": "coffee_shops_in_the_usa",
+      "type": "smb"
+    },
+    {
+      "name": "JJ JAC Plumbing",
+      "category": "plumbers",
+      "type": "smb"
+    },
+    {
+      "name": "Empire Plumbing",
+      "category": "plumbers",
+      "type": "smb"
+    },
+    {
+      "name": "CHRISTUS Trinity Clinic",
+      "category": "fertility_and_ivf_clinics",
+      "type": "healthcare"
+    },
+    {
+      "name": "Moke's Bread & Breakfast",
+      "category": "coffee_shops_in_the_usa",
+      "type": "smb"
+    },
+    {
+      "name": "Moorpark Family Medical Clinic",
+      "category": "fertility_and_ivf_clinics",
+      "type": "healthcare"
+    },
+    {
+      "name": "Alpha Pregnancy Care Center",
+      "category": "fertility_and_ivf_clinics",
+      "type": "healthcare"
+    },
+    {
+      "name": "The Plumber Guy",
+      "category": "plumbers",
+      "type": "smb"
+    },
+    {
+      "name": "Fresenius Kidney Care Chambersburg",
+      "category": "dialysis_centers",
+      "type": "franchise"
+    },
+    {
+      "name": "Ben & Jerry's",
+      "category": "bakeries",
+      "type": "smb"
+    },
+    {
+      "name": "Equilibrium Brewery - Henry Street (Production Facility) Visit us at 2 South Street!",
+      "category": "breweries_and_brewpubs",
+      "type": "smb"
+    },
+    {
+      "name": "Fresenius Kidney Care Cambria",
+      "category": "dialysis_centers",
+      "type": "franchise"
+    },
+    {
+      "name": "TKB Bakery & Deli",
+      "category": "coffee_shops_in_the_usa",
+      "type": "smb"
+    },
+    {
+      "name": "Thompson's Plumbing & Repairs",
+      "category": "plumbers",
+      "type": "smb"
+    },
+    {
+      "name": "Cancer Supportive Kidney Care",
+      "category": "dialysis_centers",
+      "type": "healthcare"
+    },
+    {
+      "name": "La Carreta",
+      "category": "coffee_shops_in_the_usa",
+      "type": "smb"
+    },
+    {
+      "name": "Fresenius Kidney Care Thomasville",
+      "category": "dialysis_centers",
+      "type": "franchise"
+    },
+    {
+      "name": "Basin Clinic",
+      "category": "dialysis_centers",
+      "type": "healthcare"
+    },
+    {
+      "name": "Innovative Renal Care Dialysis Center of West Orange",
+      "category": "dialysis_centers",
+      "type": "healthcare"
+    },
+    {
+      "name": "Original Mocha Coffee House",
+      "category": "coffee_shops_in_the_usa",
+      "type": "smb"
+    },
+    {
+      "name": "Seattle Auto Pro",
+      "category": "auto_body_shops",
+      "type": "smb"
+    },
+    {
+      "name": "Pinnacle Fertility Ohio - Youngstown",
+      "category": "fertility_and_ivf_clinics",
+      "type": "healthcare"
+    },
+    {
+      "name": "daydrinkers",
+      "category": "coffee_shops_in_the_usa",
+      "type": "smb"
+    },
+    {
+      "name": "Spencer Auto Repair",
+      "category": "auto_body_shops",
+      "type": "smb"
+    },
+    {
+      "name": "Emergency Plumbers Littleton",
+      "category": "plumbers",
+      "type": "healthcare"
+    },
+    {
+      "name": "FRESENIUS KIDNEY CARE NEWTOWN",
+      "category": "dialysis_centers",
+      "type": "franchise"
+    },
+    {
+      "name": "Gensons Plumbing",
+      "category": "plumbers",
+      "type": "smb"
+    },
+    {
+      "name": "U.S. Renal Care",
+      "category": "dialysis_centers",
+      "type": "healthcare"
+    },
+    {
+      "name": "American RV Technology, Inc.",
+      "category": "auto_body_shops",
+      "type": "smb"
+    },
+    {
+      "name": "The Spot at Belmont Bay",
+      "category": "coffee_shops_in_the_usa",
+      "type": "smb"
+    },
+    {
+      "name": "OSF FertilityCare",
+      "category": "fertility_and_ivf_clinics",
+      "type": "healthcare"
+    },
+    {
+      "name": "In and Out Plumbing",
+      "category": "plumbers",
+      "type": "smb"
+    },
+    {
+      "name": "Starbucks",
+      "category": "coffee_shops_in_the_usa",
+      "type": "franchise"
+    },
+    {
+      "name": "Rai Care Center Burton - Summerville",
+      "category": "dialysis_centers",
+      "type": "healthcare"
+    },
+    {
+      "name": "Outstanding Plumbing & Heating",
+      "category": "plumbers",
+      "type": "smb"
+    },
+    {
+      "name": "Royal Standard Automotive",
+      "category": "auto_body_shops",
+      "type": "smb"
+    },
+    {
+      "name": "Avid Coffee",
+      "category": "bakeries",
+      "type": "smb"
+    },
+    {
+      "name": "American Women's Medical Center",
+      "category": "fertility_and_ivf_clinics",
+      "type": "healthcare"
+    },
+    {
+      "name": "CVS",
+      "category": "bakeries",
+      "type": "smb"
+    },
+    {
+      "name": "Liberty Dialysis Wasatch",
+      "category": "dialysis_centers",
+      "type": "healthcare"
+    }
+  ]
+}

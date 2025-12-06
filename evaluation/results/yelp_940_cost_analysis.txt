@@ -1,0 +1,84 @@
+Loading results from: /Users/jordancrawford/Desktop/Blueprint-GTM-Skills/evaluation/results/yelp_940_results.json
+Calculating cost-effectiveness metrics...
+====================================================================================================
+COST-EFFECTIVENESS ANALYSIS
+====================================================================================================
+
+1. SOURCE COMBINATION ROI (Sorted by Valid Contacts per Dollar)
+====================================================================================================
+
+Source Combination                       Companies    Success%   Avg Cost   Cost/Valid   Valid/$   
+----------------------------------------------------------------------------------------------------
+google_maps_owner + openweb_contacts + s 12           91.7       $0.007     $0.003       306.8     
+openweb_contacts + serper_osint          11           100.0      $0.006     $0.004       281.7     
+google_maps_owner + openweb_contacts + s 25           84.0       $0.007     $0.004       275.7     
+google_maps_owner + page_scrape + social 3            100.0      $0.007     $0.004       272.7     
+google_maps_owner + openweb_contacts     140          94.3       $0.006     $0.004       238.5     
+google_maps_owner + openweb_contacts + s 84           92.9       $0.006     $0.004       233.2     
+google_maps_owner + serper_osint         28           89.3       $0.008     $0.005       208.3     
+openweb_contacts + serper_osint + social 8            87.5       $0.006     $0.005       192.3     
+google_maps_owner + schema_org           3            100.0      $0.007     $0.005       181.8     
+google_maps_owner + serper_osint + socia 31           87.1       $0.009     $0.006       158.5     
+google_maps_owner                        194          92.8       $0.007     $0.007       140.6     
+google_maps_owner + social_links         103          87.4       $0.007     $0.008       128.9     
+serper_osint                             15           73.3       $0.007     $0.009       106.8     
+serper_osint + social_links              14           57.1       $0.007     $0.012       85.1      
+openweb_contacts                         117          37.6       $0.006     $0.016       62.1      
+
+
+2. VERTICAL ROI ANALYSIS (Sorted by Valid Contacts per Dollar)
+====================================================================================================
+
+Vertical                  Companies    Success%   Avg Cost   Cost/Valid   Valid/$   
+----------------------------------------------------------------------------------------------------
+general_contractors       100          76.0       $0.007     $0.006       165.7     
+landscaping               100          74.0       $0.007     $0.006       154.5     
+tree_services             100          81.0       $0.007     $0.007       153.3     
+junk_removal              100          77.0       $0.006     $0.007       151.3     
+plumbing                  100          70.0       $0.006     $0.007       144.9     
+roofing                   100          70.0       $0.007     $0.007       140.1     
+electricians              58           67.2       $0.007     $0.008       126.6     
+movers                    100          60.0       $0.006     $0.008       120.5     
+auto_repair               92           63.0       $0.006     $0.008       119.1     
+hvac                      90           56.7       $0.006     $0.009       114.7     
+
+
+3. STRATEGY RECOMMENDATIONS
+====================================================================================================
+
+BEST ROI STRATEGY:
+  Source: google_maps_owner + openweb_contacts + serper_osint
+  Success Rate: 91.7%
+  Cost per Company: $0.007
+  Cost per Valid Contact: $0.003
+  Valid Contacts per Dollar: 306.8
+
+BEST VERTICAL FOR ROI:
+  Vertical: general_contractors
+  Success Rate: 76.0%
+  Cost per Valid Contact: $0.006
+  Valid Contacts per Dollar: 165.7
+
+
+BUDGET SCENARIOS:
+----------------------------------------------------------------------------------------------------
+
+Scenario 1: $100 Budget - Maximum Volume
+  Strategy: google_maps_owner + openweb_contacts + serper_osint
+  Companies to process: ~13636
+  Expected valid contacts: ~12499
+  Cost per valid: $0.01
+
+Scenario 2: $100 Budget - Best Quality
+  Strategy: openweb_contacts + serper_osint
+  Companies to process: ~15492
+  Expected valid contacts: ~15492
+  Success rate: 100.0%
+
+Scenario 3: $1000 Budget - Focus on Best Vertical
+  Vertical: general_contractors
+  Companies to process: ~145348
+  Expected valid contacts: ~110464
+  Success rate: 76.0%
+
+====================================================================================================

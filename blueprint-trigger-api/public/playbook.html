@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Blueprint">
+    <title>Blueprint Playbook</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #5611A6 0%, #280A4A 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 100%;
+            padding: 40px 30px;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo h1 {
+            font-size: 32px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #5611A6 0%, #280A4A 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+
+        .logo p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .domain-name {
+            font-size: 24px;
+            font-weight: 600;
+            color: #5611A6;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .status-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+
+        .status-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .status-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .status-icon.loading {
+            background: #D6B2FF;
+            color: #5611A6;
+        }
+
+        .status-icon.processing {
+            background: #FFF277;
+            color: #856404;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .status-icon.completed {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-icon.not-found {
+            background: #f8f9fa;
+            color: #666;
+        }
+
+        .status-icon.failed {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(0.95); }
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .status-text {
+            flex: 1;
+        }
+
+        .status-text h2 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 4px;
+        }
+
+        .status-text p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .progress-bar {
+            background: #e0e0e0;
+            border-radius: 10px;
+            height: 8px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .progress-bar-inner {
+            background: linear-gradient(90deg, #5611A6, #D6B2FF, #5611A6);
+            background-size: 200% 100%;
+            height: 100%;
+            width: 100%;
+            animation: shimmer 2s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        .wave-status {
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .wave-item {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #f0f0f0;
+            border-radius: 20px;
+            margin: 4px;
+            font-size: 12px;
+        }
+
+        .wave-item.active {
+            background: #FFF277;
+            color: #5611A6;
+            font-weight: 600;
+        }
+
+        .wave-item.done {
+            background: #D6B2FF;
+            color: #280A4A;
+        }
+
+        .cta-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #5611A6 0%, #280A4A 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(86, 17, 166, 0.4);
+        }
+
+        .cta-btn:active {
+            transform: translateY(0);
+        }
+
+        .cta-btn.secondary {
+            background: white;
+            color: #5611A6;
+            border: 2px solid #5611A6;
+            margin-top: 12px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .footer p {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            margin-bottom: 16px;
+            border-left: 3px solid #dc3545;
+        }
+
+        .not-found-message {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .not-found-message p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .redirect-notice {
+            background: #d4edda;
+            color: #155724;
+            padding: 16px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .redirect-notice strong {
+            display: block;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <h1>Blueprint GTM</h1>
+            <p>Intelligence-Driven Outreach</p>
+        </div>
+
+        <div class="domain-name" id="domainName">Loading...</div>
+
+        <div class="status-card">
+            <div class="status-header">
+                <div id="statusIcon" class="status-icon loading">🔍</div>
+                <div class="status-text">
+                    <h2 id="statusTitle">Loading...</h2>
+                    <p id="statusSubtitle">Checking playbook status</p>
+                </div>
+            </div>
+
+            <!-- Loading State -->
+            <div id="loadingState">
+                <div class="progress-bar">
+                    <div class="progress-bar-inner"></div>
+                </div>
+            </div>
+
+            <!-- Processing State -->
+            <div id="processingState" style="display: none;">
+                <div class="progress-bar">
+                    <div class="progress-bar-inner"></div>
+                </div>
+                <div class="wave-status">
+                    <span class="wave-item done">Research</span>
+                    <span class="wave-item active">Analysis</span>
+                    <span class="wave-item">Messages</span>
+                    <span class="wave-item">Playbook</span>
+                </div>
+                <p style="text-align: center; color: #666; font-size: 14px;">
+                    Typically takes 12-15 minutes. Page will auto-update.
+                </p>
+            </div>
+
+            <!-- Completed State -->
+            <div id="completedState" style="display: none;">
+                <div class="redirect-notice">
+                    <strong>Playbook Ready!</strong>
+                    Redirecting you now...
+                </div>
+            </div>
+
+            <!-- Not Found State -->
+            <div id="notFoundState" style="display: none;">
+                <div class="not-found-message">
+                    <p>No playbook found for this domain yet.</p>
+                    <p>Want to generate one?</p>
+                </div>
+                <a href="/" class="cta-btn">Generate Playbook</a>
+            </div>
+
+            <!-- Failed State -->
+            <div id="failedState" style="display: none;">
+                <div class="error-message" id="errorMessage"></div>
+                <a href="/" class="cta-btn">Try Again</a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p id="lastUpdated">Checking status...</p>
+        </div>
+    </div>
+
+    <script>
+        const API_ENDPOINT = '/api/lookup-domain';
+        const POLL_INTERVAL_MS = 5000; // 5 seconds
+
+        let domain = null;
+        let pollTimer = null;
+
+        // Extract domain from URL path
+        function getDomainFromPath() {
+            const path = window.location.pathname;
+            // Remove leading slash and get the domain
+            const domain = path.replace(/^\//, '').split('/')[0];
+            return domain || null;
+        }
+
+        // Format timestamp
+        function formatTime(date) {
+            return date.toLocaleTimeString('en-US', {
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            });
+        }
+
+        // Update the domain display
+        function updateDomainDisplay(domain) {
+            const displayDomain = domain.replace(/-/g, '.');
+            document.getElementById('domainName').textContent = displayDomain;
+            document.title = `Blueprint Playbook - ${displayDomain}`;
+        }
+
+        // Fetch job status from API
+        async function fetchStatus() {
+            if (!domain) return;
+
+            try {
+                const response = await fetch(`${API_ENDPOINT}?domain=${encodeURIComponent(domain)}`);
+                const data = await response.json();
+
+                document.getElementById('lastUpdated').textContent = `Last checked: ${formatTime(new Date())}`;
+
+                if (!response.ok) {
+                    showError('Failed to check status');
+                    return;
+                }
+
+                updateUI(data);
+
+            } catch (err) {
+                console.error('Error fetching status:', err);
+                document.getElementById('lastUpdated').textContent = `Check failed: ${formatTime(new Date())}`;
+            }
+        }
+
+        // Update UI based on status
+        function updateUI(data) {
+            const statusIcon = document.getElementById('statusIcon');
+            const statusTitle = document.getElementById('statusTitle');
+            const statusSubtitle = document.getElementById('statusSubtitle');
+            const loadingState = document.getElementById('loadingState');
+            const processingState = document.getElementById('processingState');
+            const completedState = document.getElementById('completedState');
+            const notFoundState = document.getElementById('notFoundState');
+            const failedState = document.getElementById('failedState');
+
+            // Hide all states first
+            loadingState.style.display = 'none';
+            processingState.style.display = 'none';
+            completedState.style.display = 'none';
+            notFoundState.style.display = 'none';
+            failedState.style.display = 'none';
+
+            if (data.status === 'not_found') {
+                statusIcon.className = 'status-icon not-found';
+                statusIcon.textContent = '📋';
+                statusTitle.textContent = 'No Playbook Yet';
+                statusSubtitle.textContent = 'Start a new analysis';
+                notFoundState.style.display = 'block';
+                stopPolling();
+
+            } else if (data.status === 'pending') {
+                statusIcon.className = 'status-icon processing';
+                statusIcon.textContent = '⏳';
+                statusTitle.textContent = 'Queued';
+                statusSubtitle.textContent = 'Waiting for worker...';
+                processingState.style.display = 'block';
+
+            } else if (data.status === 'processing') {
+                statusIcon.className = 'status-icon processing';
+                statusIcon.textContent = '⚡';
+                statusTitle.textContent = 'Generating...';
+                statusSubtitle.textContent = data.company_name || 'Running 5-wave analysis';
+                processingState.style.display = 'block';
+
+            } else if (data.status === 'completed') {
+                statusIcon.className = 'status-icon completed';
+                statusIcon.textContent = '✓';
+                statusTitle.textContent = 'Complete!';
+                statusSubtitle.textContent = 'Redirecting to playbook...';
+                completedState.style.display = 'block';
+                stopPolling();
+
+                // Redirect after a brief delay
+                if (data.playbook_url) {
+                    setTimeout(() => {
+                        window.location.href = data.playbook_url;
+                    }, 1500);
+                }
+
+            } else if (data.status === 'failed') {
+                statusIcon.className = 'status-icon failed';
+                statusIcon.textContent = '✗';
+                statusTitle.textContent = 'Failed';
+                statusSubtitle.textContent = 'Generation encountered an error';
+                failedState.style.display = 'block';
+                document.getElementById('errorMessage').textContent = data.error || 'Unknown error';
+                stopPolling();
+            }
+        }
+
+        // Show error state
+        function showError(message) {
+            const statusIcon = document.getElementById('statusIcon');
+            const statusTitle = document.getElementById('statusTitle');
+            const statusSubtitle = document.getElementById('statusSubtitle');
+
+            statusIcon.className = 'status-icon failed';
+            statusIcon.textContent = '✗';
+            statusTitle.textContent = 'Error';
+            statusSubtitle.textContent = message;
+
+            document.getElementById('loadingState').style.display = 'none';
+            document.getElementById('failedState').style.display = 'block';
+            document.getElementById('errorMessage').textContent = message;
+
+            stopPolling();
+        }
+
+        // Stop polling
+        function stopPolling() {
+            if (pollTimer) {
+                clearInterval(pollTimer);
+                pollTimer = null;
+            }
+        }
+
+        // Initialize on page load
+        function init() {
+            domain = getDomainFromPath();
+
+            if (!domain) {
+                showError('No domain specified');
+                return;
+            }
+
+            updateDomainDisplay(domain);
+
+            // Initial fetch
+            fetchStatus();
+
+            // Set up polling every 5 seconds
+            pollTimer = setInterval(fetchStatus, POLL_INTERVAL_MS);
+        }
+
+        // Start when page loads
+        init();
+    </script>
+</body>
+</html>

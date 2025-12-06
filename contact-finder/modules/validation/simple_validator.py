@@ -46,13 +46,14 @@ class SimpleContactValidator:
 
     No LLM needed - owner title + company match is good enough.
 
-    Scoring:
+    RELAXED SCORING (user requirement: just find person name, not require email/phone):
     - Owner/founder title: +40 points
     - 2+ sources agree: +30 points
-    - Email matches domain: +20 points
-    - Has LinkedIn URL: +10 points
+    - Has LinkedIn URL: +20 points (INCREASED - secondary goal)
+    - Has Facebook URL: +15 points (SMB owners use Facebook)
+    - Email matches domain: +10 points (nice-to-have)
     - Google Maps high reviews: +10 points
-    - Has phone number: +15 points (SMBs have phones)
+    - Has phone number: +5 points (nice-to-have)
     - Social presence (FB/IG): +10 points
 
     Source-based scoring:
@@ -62,8 +63,12 @@ class SimpleContactValidator:
     - website_schema: +25 points (Schema.org data)
     - website_scrape: +15 points (page content extraction)
     - serper_osint: +10 points (text extraction)
+    - social_links: +20 points (found LinkedIn via social search)
+    - social_links_fb: +15 points (found Facebook via social search)
 
     Threshold: 50 points = valid
+
+    CONTENT VALIDATION: Reject if name contains company patterns (LLC, Inc, etc.)
     """
 
     # Source-based scoring for SMBs
@@ -75,12 +80,24 @@ class SimpleContactValidator:
         "website_scrape": 15,        # Page content extraction
         "serper_osint": 10,          # Text extraction from search
         "input_csv": 20,             # From input file (assumed valid)
+        "social_links": 20,          # Found LinkedIn via social search
+        "social_links_fb": 15,       # Found Facebook via social search
     }
 
-    # SMB-focused bonus points
+    # SMB-focused bonus points (RELAXED - email/phone are nice-to-have, not required)
     REVIEW_BONUS = 10              # Google Maps reviews > 50
-    PHONE_BONUS = 15               # Has verified phone number
+    PHONE_BONUS = 5                # Has phone (reduced from 15 - nice-to-have)
     SOCIAL_BONUS = 10              # Has FB/Instagram presence
+    LINKEDIN_BONUS = 20            # Has LinkedIn URL (INCREASED - secondary goal)
+    FACEBOOK_BONUS = 15            # Has Facebook URL (SMB owners use FB)
+
+    # Patterns that indicate company name (not person name)
+    COMPANY_NAME_PATTERNS = [
+        "LLC", "L.L.C.", "Inc", "Inc.", "Corp", "Corp.", "Corporation",
+        "Ltd", "Ltd.", "LTD", "Company", "Co.", "& Co", "Services",
+        "Enterprises", "Solutions", "Group", "Holdings", "Partners",
+        " & ", " and ", "Associates", "Consulting", "Agency",
+    ]
 
     # Owner-related titles (case insensitive)
     OWNER_TITLES = [
@@ -171,6 +188,36 @@ class SimpleContactValidator:
 
         return email_domain in personal_domains
 
+    def _is_company_name(self, name: str | None) -> tuple[bool, str | None]:
+        """
+        Check if a name looks like a company name instead of a person name.
+
+        Returns:
+            (is_company, matched_pattern) - True if name appears to be a company name
+        """
+        if not name:
+            return False, None
+
+        name_upper = name.upper()
+
+        # Check for company patterns
+        for pattern in self.COMPANY_NAME_PATTERNS:
+            if pattern.upper() in name_upper:
+                return True, pattern
+
+        # Check for typical company structure (lacks first+last name structure)
+        # e.g., "ABC Plumbing" vs "John Smith"
+        words = name.split()
+        if len(words) >= 1:
+            # All caps is typically a company
+            if name == name.upper() and len(name) > 5:
+                return True, "ALL_CAPS"
+
+            # Single word that's not a common first name is likely company
+            # (but don't reject short single names like "Joe")
+
+        return False, None
+
     def validate(self, contact: ContactCandidate) -> ValidationResult:
         """
         Validate a contact using simple rules.
@@ -184,6 +231,17 @@ class SimpleContactValidator:
         score = 0
         breakdown = {}
         reasons = []
+
+        # 0. CONTENT VALIDATION: Reject company names in person field
+        is_company, pattern = self._is_company_name(contact.name)
+        if is_company:
+            return ValidationResult(
+                is_valid=False,
+                confidence=0,
+                score_breakdown={"rejected_company_name": -100},
+                reasons=[f"Name appears to be company name (matched: '{pattern}'): {contact.name}"],
+                method="simple_rules"
+            )
 
         # 1. Owner/founder title (up to 40 points)
         is_owner, is_strong = self._is_owner_title(contact.title)
@@ -214,10 +272,10 @@ class SimpleContactValidator:
             breakdown["one_source"] = 10
             reasons.append(f"Found in 1 source: {contact.sources[0]}")
 
-        # 3. Email matches domain (20 points)
+        # 3. Email (RELAXED - nice-to-have, not required)
         if self._email_matches_domain(contact.email, contact.company_domain):
-            score += 20
-            breakdown["email_matches_domain"] = 20
+            score += 10  # Reduced from 20 - nice-to-have
+            breakdown["email_matches_domain"] = 10
             reasons.append("Email matches company domain")
         elif contact.email:
             if self._is_personal_email(contact.email):
@@ -226,24 +284,30 @@ class SimpleContactValidator:
                 breakdown["personal_email"] = 5
                 reasons.append("Has personal email (may be owner)")
             else:
-                score += 10
-                breakdown["has_email"] = 10
+                score += 5  # Reduced from 10 - just nice-to-have
+                breakdown["has_email"] = 5
                 reasons.append("Has email address")
 
-        # 4. Has LinkedIn URL (10 points)
+        # 4. Has LinkedIn URL (INCREASED - secondary goal per user requirement)
         if contact.linkedin_url:
-            score += 10
-            breakdown["has_linkedin"] = 10
-            reasons.append("Has LinkedIn profile")
+            score += self.LINKEDIN_BONUS  # 20 points
+            breakdown["has_linkedin"] = self.LINKEDIN_BONUS
+            reasons.append("Has LinkedIn profile (secondary goal)")
 
-        # 5. Has phone (15 points for SMBs - they answer phones!)
+        # 4b. Has Facebook URL (SMB owners use Facebook)
+        if contact.facebook_url:
+            score += self.FACEBOOK_BONUS  # 15 points
+            breakdown["has_facebook"] = self.FACEBOOK_BONUS
+            reasons.append("Has Facebook profile (SMB bonus)")
+
+        # 5. Has phone (REDUCED - nice-to-have)
         if contact.phone:
-            score += self.PHONE_BONUS
+            score += self.PHONE_BONUS  # 5 points (reduced from 15)
             breakdown["has_phone"] = self.PHONE_BONUS
-            reasons.append("Has phone number (SMB bonus)")
+            reasons.append("Has phone number")
 
-        # 6. Google Maps reviews bonus (10 points if > 50 reviews)
-        if contact.google_maps_reviews and contact.google_maps_reviews > 50:
+        # 6. Google Maps reviews bonus (10 points if > 20 reviews - SMB appropriate)
+        if contact.google_maps_reviews and contact.google_maps_reviews > 20:
             score += self.REVIEW_BONUS
             breakdown["google_maps_reviews"] = self.REVIEW_BONUS
             reasons.append(f"Established business ({contact.google_maps_reviews} Google reviews)")

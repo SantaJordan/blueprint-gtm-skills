@@ -1,0 +1,904 @@
+{
+  "metrics": {
+    "total_companies": 20,
+    "with_contact": 2,
+    "contact_rate": 10.0,
+    "early_exits": 2,
+    "early_exit_rate": 10.0,
+    "total_cost": 0.10000000000000003,
+    "avg_cost_per_company": 0.005000000000000002,
+    "avg_stages": 3.1,
+    "avg_time_ms": 8638.419961929321,
+    "avg_confidence": 80.0,
+    "confidence_distribution": {
+      "high_80+": 2,
+      "medium_50-79": 0,
+      "low_below_50": 0
+    }
+  },
+  "controller_stats": {
+    "total_llm_calls": 81,
+    "total_tool_calls": 62,
+    "early_exits": 2,
+    "early_exit_rate": 0.02531645569620253
+  },
+  "results": [
+    {
+      "company_name": "Ragone's Plumbing Services",
+      "domain": "ragonesplumbingservices.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Ragone's Plumbing Services",
+          "title": "Owner",
+          "phone": "+18059805188",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "ragonedillon@gmail.com",
+          "phone": "8059805188",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "dillonragone91@gmail.com",
+          "phone": "8059805188",
+          "sources": [
+            "website_contacts"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Dillon Ragone",
+        "email": "dillonragone91@gmail.com",
+        "phone": "8059805188",
+        "title": "Owner",
+        "confidence": 80,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 10145.766019821167,
+      "input": {
+        "company_name": "Ragone's Plumbing Services",
+        "domain": "ragonesplumbingservices.com",
+        "vertical": "plumbers",
+        "address": null,
+        "phone": "+1 805-980-5188",
+        "place_id": "ChIJ186Mj6POWSkRjfb99P9E5qU",
+        "rating": 5.0,
+        "reviews": 11
+      }
+    },
+    {
+      "company_name": "Riverhead Brew House",
+      "domain": "riverheadbrewhouse.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Riverhead Brew House",
+          "title": "Owner",
+          "phone": "+16312121265",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "contact@moonfishbrew.com",
+          "phone": "6312121265",
+          "sources": [
+            "website_contacts"
+          ]
+        }
+      ],
+      "contact": null,
+      "no_contact_reason": "No valid contact found with a real person name. Only company name and generic email were discovered.",
+      "processing_time_ms": 8613.433122634888,
+      "input": {
+        "company_name": "Riverhead Brew House",
+        "domain": "riverheadbrewhouse.com",
+        "vertical": "breweries_and_brewpubs",
+        "address": "221 E Main St Suite 5, Riverhead, NY 11901",
+        "phone": "(631) 212-1265",
+        "place_id": "ChIJAYGDwCuL6IkR8mGSMCRD5FQ",
+        "rating": 4.7,
+        "reviews": 281
+      }
+    },
+    {
+      "company_name": "K J Lee's Automotive",
+      "domain": "kjleesauto.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "K J Lee's Automotive",
+          "title": "Owner",
+          "phone": "+15625993314",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        }
+      ],
+      "contact": null,
+      "no_contact_reason": "Only company name found as owner with no valid personal contact information.",
+      "processing_time_ms": 8921.39482498169,
+      "input": {
+        "company_name": "K J Lee's Automotive",
+        "domain": "kjleesauto.com",
+        "vertical": "auto_body_shops",
+        "address": "1301 Atlantic Ave, Long Beach, CA 90813",
+        "phone": "(562) 599-3314",
+        "place_id": "ChIJ2ZWs4kIx3YARgkWFgG2O8VE",
+        "rating": 4.3,
+        "reviews": 97
+      }
+    },
+    {
+      "company_name": "Pig Pounder Brewery",
+      "domain": "pigpounder.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.007,
+      "llm_stages": 5,
+      "candidates": [
+        {
+          "name": "Pig Pounder Brewery",
+          "title": "Owner",
+          "phone": "+13365531290",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "blair@pigpounder.com",
+          "phone": "3365007935",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "wholesale@pigpounder.com",
+          "phone": "3365007935",
+          "sources": [
+            "website_contacts"
+          ]
+        }
+      ],
+      "contact": null,
+      "no_contact_reason": "Max stages reached",
+      "processing_time_ms": 12209.256887435913,
+      "input": {
+        "company_name": "Pig Pounder Brewery",
+        "domain": "pigpounder.com",
+        "vertical": "breweries_and_brewpubs",
+        "address": "1107 Grecade St, Greensboro, NC 27408",
+        "phone": "(336) 553-1290",
+        "place_id": "ChIJweLCTDQZU4gR8EpdYR591r0",
+        "rating": 4.6,
+        "reviews": 214
+      }
+    },
+    {
+      "company_name": "DaVita Wilshire Dialysis Center",
+      "domain": "davita.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "DaVita Independence Dialysis Center",
+          "title": "Owner",
+          "phone": "+18333200707",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "newsroom@davita.com",
+          "phone": "18004246589",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "hospitals@davita.com",
+          "phone": "18004246589",
+          "sources": [
+            "website_contacts"
+          ]
+        }
+      ],
+      "contact": null,
+      "no_contact_reason": "No valid contact found with a real person name after trying all available tools.",
+      "processing_time_ms": 9195.334911346436,
+      "input": {
+        "company_name": "DaVita Wilshire Dialysis Center",
+        "domain": "davita.com",
+        "vertical": "dialysis_centers",
+        "address": "1212 Wilshire Blvd, Los Angeles, CA 90017",
+        "phone": "(833) 319-3094",
+        "place_id": "ChIJUy0tRKXHwoARwFTSr3g7JXg",
+        "rating": 3.7,
+        "reviews": 7
+      }
+    },
+    {
+      "company_name": "Georgetown Cupcake",
+      "domain": "georgetowncupcake.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Georgetown Cupcake",
+          "title": "Owner",
+          "phone": "+12023338448",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "corporateorders@georgetowncupcake.com",
+          "phone": "18885027447",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "media@georgetowncupcake.com",
+          "phone": "18885027447",
+          "sources": [
+            "website_contacts"
+          ]
+        }
+      ],
+      "contact": null,
+      "no_contact_reason": "No valid contact found with a real person name; only company name and generic emails available.",
+      "processing_time_ms": 10088.052034378052,
+      "input": {
+        "company_name": "Georgetown Cupcake",
+        "domain": "georgetowncupcake.com",
+        "vertical": "bakeries",
+        "address": "3301 M St NW, Washington, DC 20007",
+        "phone": "(202) 333-8448",
+        "place_id": "ChIJoWte30i2t4kRr7fNIVGuDx0",
+        "rating": 4.1,
+        "reviews": 6249
+      }
+    },
+    {
+      "company_name": "Dunkin'",
+      "domain": "locations.dunkindonuts.com",
+      "stages_completed": [
+        "website_contacts",
+        "serper_osint",
+        "data_fill",
+        "google_maps_lookup"
+      ],
+      "total_cost": 0.006,
+      "llm_stages": 4,
+      "candidates": [
+        {
+          "name": "Dunkin'",
+          "title": "Owner",
+          "phone": "+15053272804",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        }
+      ],
+      "contact": null,
+      "no_contact_reason": "Only company name found as owner, no valid person name available.",
+      "processing_time_ms": 8304.091930389404,
+      "input": {
+        "company_name": "Dunkin'",
+        "domain": "locations.dunkindonuts.com",
+        "vertical": "coffee_shops_in_the_usa",
+        "address": "325 Elsbree St, Fall River, MA 02720",
+        "phone": "(774) 488-3388",
+        "place_id": "ChIJO_WM_wn55IkRKQ_5lP62YFg",
+        "rating": 3.9,
+        "reviews": 298
+      }
+    },
+    {
+      "company_name": "DARCARS Honda Service Center",
+      "domain": "darcarshonda.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "DARCARS Honda Service Center",
+          "title": "Owner",
+          "phone": "+13012183100",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "customerrelations@darcars.com",
+          "phone": "3012183100",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "compliance@darcars.com",
+          "phone": "3012183100",
+          "sources": [
+            "website_contacts"
+          ]
+        }
+      ],
+      "contact": null,
+      "no_contact_reason": "No valid contact found with a real person name; only company name and generic emails were discovered.",
+      "processing_time_ms": 9112.596988677979,
+      "input": {
+        "company_name": "DARCARS Honda Service Center",
+        "domain": "darcarshonda.com",
+        "vertical": "auto_body_shops",
+        "address": "2260 Crain Hwy, Bowie, MD 20716",
+        "phone": "(301) 218-3100",
+        "place_id": "ChIJTxS_7l7tt4kRAaPM93jdgn4",
+        "rating": 4.3,
+        "reviews": 223
+      }
+    },
+    {
+      "company_name": "Los Angeles Kidney Center - Nephrology",
+      "domain": "losangeleskidneycenter.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Los Angeles Kidney Center - Nephrology",
+          "title": "Owner",
+          "phone": "+12135370328",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "kidneylosangeles@gmail.com",
+          "phone": "2135370328",
+          "sources": [
+            "website_contacts"
+          ]
+        }
+      ],
+      "contact": null,
+      "no_contact_reason": "No valid contact found with a real person name. Only company name and generic email were discovered.",
+      "processing_time_ms": 8541.221857070923,
+      "input": {
+        "company_name": "Los Angeles Kidney Center - Nephrology",
+        "domain": "losangeleskidneycenter.com",
+        "vertical": "dialysis_centers",
+        "address": "1414 S Grand Ave #100, Los Angeles, CA 90015",
+        "phone": "(213) 537-0328",
+        "place_id": "ChIJoX0o-a_HwoARdwRyLqin9ds",
+        "rating": 4.8,
+        "reviews": 60
+      }
+    },
+    {
+      "company_name": "Christine's Kitchen",
+      "domain": "facebook.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "serper_osint"
+      ],
+      "total_cost": 0.003,
+      "llm_stages": 2,
+      "candidates": [
+        {
+          "name": "Christine's Kitchen",
+          "title": "Owner",
+          "phone": "+16156661234",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        }
+      ],
+      "contact": null,
+      "no_contact_reason": "Only company name found as owner, no valid person name available.",
+      "processing_time_ms": 5321.794033050537,
+      "input": {
+        "company_name": "Christine's Kitchen",
+        "domain": "facebook.com",
+        "vertical": "bakeries",
+        "address": "603 E Chamberlin St, Dixon, IL 61021",
+        "phone": null,
+        "place_id": "ChIJo-nCDdetCYgRqzpS7gTcJ2Q",
+        "rating": 5.0,
+        "reviews": 2
+      }
+    },
+    {
+      "company_name": "Atomic Rooter Plumbing Sewer & Drain Cleaning",
+      "domain": "atomicrooterinc.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Atomic Rooter Plumbing Sewer & Drain Cleaning",
+          "title": "Owner",
+          "phone": "+12038551977",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        }
+      ],
+      "contact": null,
+      "no_contact_reason": "Only company name found as owner with no valid personal contact information.",
+      "processing_time_ms": 8012.099027633667,
+      "input": {
+        "company_name": "Atomic Rooter Plumbing Sewer & Drain Cleaning",
+        "domain": "atomicrooterinc.com",
+        "vertical": "plumbers",
+        "address": "2 Prospect St, Norwalk, CT 06850, Vereinigte Staaten",
+        "phone": "+1 203-855-1977",
+        "place_id": "ChIJCS5e01ID6IkRHtoB4Wdd-z0",
+        "rating": 5.0,
+        "reviews": 21
+      }
+    },
+    {
+      "company_name": "The Baklava",
+      "domain": "thebaklavaca.com",
+      "stages_completed": [
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.003,
+      "llm_stages": 2,
+      "candidates": [
+        {
+          "email": "info@thebaklavaca.com",
+          "phone": "14055329013",
+          "sources": [
+            "website_contacts"
+          ]
+        }
+      ],
+      "contact": null,
+      "no_contact_reason": "Only generic email found without a real person name.",
+      "processing_time_ms": 5097.009897232056,
+      "input": {
+        "company_name": "The Baklava",
+        "domain": "thebaklavaca.com",
+        "vertical": "bakeries",
+        "address": "555 The, Shops At Mission Viejo, Mission Viejo, CA 92691",
+        "phone": "(949) 685-2662",
+        "place_id": "ChIJg72NP6Un3YAR61V46Zgl8UU",
+        "rating": 4.6,
+        "reviews": 121
+      }
+    },
+    {
+      "company_name": "Fresenius Kidney Care Greece",
+      "domain": "freseniuskidneycare.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Fresenius Kidney Care Greece",
+          "title": "Owner",
+          "phone": "+18008815101",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "thriveon@freseniuskidneycare.com",
+          "phone": "18008815101",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "privacy@freseniusmedicalcare.com",
+          "phone": "18008815101",
+          "sources": [
+            "website_contacts"
+          ]
+        }
+      ],
+      "contact": null,
+      "no_contact_reason": "No valid contact found with a real person name.",
+      "processing_time_ms": 7485.67795753479,
+      "input": {
+        "company_name": "Fresenius Kidney Care Greece",
+        "domain": "freseniuskidneycare.com",
+        "vertical": "dialysis_centers",
+        "address": "1570 Long Pond Rd, Rochester, NY 14626",
+        "phone": "(800) 881-5101",
+        "place_id": "ChIJ3aZZQjOy1okRi1kiYFHPYSQ",
+        "rating": 3.0,
+        "reviews": 2
+      }
+    },
+    {
+      "company_name": "Texacone Snowcones and Ice Cream",
+      "domain": "texacone.square.site",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Texacone Snowcones and Ice Cream",
+          "title": "Owner",
+          "phone": null,
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "texacone@yahoo.com",
+          "phone": null,
+          "sources": [
+            "website_contacts"
+          ]
+        }
+      ],
+      "contact": null,
+      "no_contact_reason": "No valid contact found with a real person name; only company name and generic email available.",
+      "processing_time_ms": 9255.945920944214,
+      "input": {
+        "company_name": "Texacone Snowcones and Ice Cream",
+        "domain": "texacone.square.site",
+        "vertical": "bakeries",
+        "address": "105 S 2nd St, La Porte, TX 77571",
+        "phone": null,
+        "place_id": "ChIJeaXXWgBhP4YR3VuSAEAGZlI",
+        "rating": 4.9,
+        "reviews": 124
+      }
+    },
+    {
+      "company_name": "Rivertowne Brewing Company",
+      "domain": "myrivertowne.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Rivertowne Brewing Company",
+          "title": "Owner",
+          "phone": "+17245198354",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "519-8354brewing@myrivertowne.com",
+          "phone": "7245198354",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "brewing@myrivertowne.com",
+          "phone": "7245198354",
+          "sources": [
+            "website_contacts"
+          ]
+        }
+      ],
+      "contact": null,
+      "no_contact_reason": "No valid contact found with a real person name. Only company name and generic emails were discovered.",
+      "processing_time_ms": 8735.280990600586,
+      "input": {
+        "company_name": "Rivertowne Brewing Company",
+        "domain": "myrivertowne.com",
+        "vertical": "breweries_and_brewpubs",
+        "address": "5578 Old William Penn Hwy, Export, PA 15632",
+        "phone": "(724) 519-8354",
+        "place_id": "ChIJCx8WxqTGNIgR6UWMPicRufE",
+        "rating": 4.6,
+        "reviews": 89
+      }
+    },
+    {
+      "company_name": "Thriftway Super Stops",
+      "domain": "thriftwayss.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Thriftway Super Stops",
+          "title": "Owner",
+          "phone": "+18665578977",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "thriftwayloyaltyclub@cstoresupport.com",
+          "phone": "8665578977",
+          "sources": [
+            "website_contacts"
+          ]
+        }
+      ],
+      "contact": null,
+      "no_contact_reason": "No valid contact found; only company name as owner and a generic email without a personal name.",
+      "processing_time_ms": 8624.701976776123,
+      "input": {
+        "company_name": "Thriftway Super Stops",
+        "domain": "thriftwayss.com",
+        "vertical": "bakeries",
+        "address": "1900 S Montana St, Butte, MT 59701",
+        "phone": "(406) 782-5661",
+        "place_id": "ChIJSdZrPD0IW1MRrTlkYjk7mc4",
+        "rating": 4.5,
+        "reviews": 10
+      }
+    },
+    {
+      "company_name": "Linc Home Services",
+      "domain": "linc-htx.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Linc Plumbing",
+          "title": "Owner",
+          "phone": "+18326236965",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "careers@linc-htx.com",
+          "phone": "3467358513",
+          "sources": [
+            "website_contacts"
+          ]
+        }
+      ],
+      "contact": null,
+      "no_contact_reason": "No valid contact found with a real person name; only company name and generic email were discovered.",
+      "processing_time_ms": 8473.956108093262,
+      "input": {
+        "company_name": "Linc Home Services",
+        "domain": "linc-htx.com",
+        "vertical": "plumbers",
+        "address": "9424 W Little York Rd Suite 101, Houston, TX 77040, Vereinigte Staaten",
+        "phone": "+1 346-319-5342",
+        "place_id": "ChIJgUlDJejGQIYROpEuO3r_KTQ",
+        "rating": 4.9,
+        "reviews": 394
+      }
+    },
+    {
+      "company_name": "Morocho Auto Body",
+      "domain": "morochoautobody.wixsite.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Morocho Auto Body",
+          "title": "Owner",
+          "phone": "+18287815364",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "morochoautobody@gmail.com",
+          "phone": "8287812837",
+          "sources": [
+            "website_contacts"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Morocho Auto Body",
+        "email": "morochoautobody@gmail.com",
+        "phone": "8287812837",
+        "title": "Owner",
+        "confidence": 80,
+        "validation_reason": ""
+      },
+      "processing_time_ms": 8541.108846664429,
+      "input": {
+        "company_name": "Morocho Auto Body",
+        "domain": "morochoautobody.wixsite.com",
+        "vertical": "auto_body_shops",
+        "address": "627 4th St SW, Hickory, NC 28602",
+        "phone": "(828) 781-5364",
+        "place_id": "ChIJJ5z7614vUYgRegULy-s-fiY",
+        "rating": 4.4,
+        "reviews": 21
+      }
+    },
+    {
+      "company_name": "Guillen Plumbing Inc",
+      "domain": "guillenplumbinginc.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint"
+      ],
+      "total_cost": 0.006,
+      "llm_stages": 4,
+      "candidates": [
+        {
+          "name": "Guillen Plumbing Inc",
+          "title": "Owner",
+          "phone": "+19563672300",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "millennialplumber@yahoo.com",
+          "phone": "9563672300",
+          "sources": [
+            "website_contacts"
+          ]
+        }
+      ],
+      "contact": null,
+      "no_contact_reason": "No valid contact found with a real person name. Only company name and a generic email were discovered.",
+      "processing_time_ms": 8923.754930496216,
+      "input": {
+        "company_name": "Guillen Plumbing Inc",
+        "domain": "guillenplumbinginc.com",
+        "vertical": "plumbers",
+        "address": null,
+        "phone": "+1 956-367-2300",
+        "place_id": "ChIJocJQMo6Bb4YRte3LkoaDPfQ",
+        "rating": 5.0,
+        "reviews": 4
+      }
+    },
+    {
+      "company_name": "Walmart Supercenter",
+      "domain": "walmart.com",
+      "stages_completed": [
+        "google_maps_lookup",
+        "serper_osint",
+        "website_contacts"
+      ],
+      "total_cost": 0.005,
+      "llm_stages": 3,
+      "candidates": [
+        {
+          "name": "Walmart Supercenter",
+          "title": "Owner",
+          "phone": "+16202514113",
+          "email": null,
+          "sources": [
+            "google_maps_owner"
+          ]
+        },
+        {
+          "email": "ir@walmart.com",
+          "phone": "7323496464",
+          "sources": [
+            "website_contacts"
+          ]
+        },
+        {
+          "email": "livebetteru@walmart.com",
+          "phone": "7323496464",
+          "sources": [
+            "website_contacts"
+          ]
+        }
+      ],
+      "contact": null,
+      "no_contact_reason": "No valid contact found; only company name or generic emails without a real person name.",
+      "processing_time_ms": 9165.920972824097,
+      "input": {
+        "company_name": "Walmart Supercenter",
+        "domain": "walmart.com",
+        "vertical": "bakeries",
+        "address": "3767 Gulf Breeze Pkwy, Gulf Breeze, FL 32563",
+        "phone": "(850) 934-0362",
+        "place_id": "ChIJq6LxO7LEkIgRztJcO79EvNM",
+        "rating": 4.2,
+        "reviews": 3524
+      }
+    }
+  ],
+  "config": {
+    "input": "evaluation/data/smb_random_200.json",
+    "limit": 20,
+    "concurrency": 5,
+    "max_stages": 5,
+    "cost_budget": 0.015
+  }
+}

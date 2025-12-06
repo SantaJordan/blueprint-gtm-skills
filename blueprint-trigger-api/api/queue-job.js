@@ -54,7 +54,14 @@ export default async function handler(req, res) {
       return res.status(500).json({ error: 'Failed to queue job', details: error.message });
     }
 
-    // Return success response with job details
+    // Generate domain slug for clean URL
+    const domainSlug = companyUrl
+      .replace(/^https?:\/\//, '')
+      .replace(/^www\./, '')
+      .split('/')[0]
+      .replace(/\./g, '-');
+
+    // Return success response with job details and clean URL
     return res.status(200).json({
       success: true,
       job: {
@@ -63,7 +70,8 @@ export default async function handler(req, res) {
         status: data.status,
         createdAt: data.created_at
       },
-      message: 'Job queued successfully! Your Mac will process it soon.'
+      statusUrl: `/${domainSlug}`,
+      message: 'Job queued successfully! Redirecting to status page...'
     });
 
   } catch (error) {

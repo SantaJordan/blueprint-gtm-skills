@@ -1,0 +1,124 @@
+{
+  "description": "Test dataset for Blueprint playbook quality comparison (cloud vs local)",
+  "created": "2024-12-06",
+  "companies": [
+    {
+      "name": "Owner.com",
+      "url": "https://owner.com",
+      "local_playbook": "playbooks/blueprint-gtm-playbook-owner.html",
+      "priority": "high",
+      "vertical": "Restaurant Tech"
+    },
+    {
+      "name": "Canvas Medical",
+      "url": "https://canvasmedical.com",
+      "local_playbook": "playbooks/blueprint-gtm-playbook-canvas-medical.html",
+      "priority": "high",
+      "vertical": "Healthcare"
+    },
+    {
+      "name": "Fountain",
+      "url": "https://fountain.com",
+      "local_playbook": "playbooks/blueprint-gtm-playbook-fountain.html",
+      "priority": "high",
+      "vertical": "HR Tech"
+    },
+    {
+      "name": "MirrorWeb",
+      "url": "https://mirrorweb.com",
+      "local_playbook": "playbooks/blueprint-gtm-playbook-mirrorweb.html",
+      "priority": "medium",
+      "vertical": "Compliance"
+    },
+    {
+      "name": "EliseAI",
+      "url": "https://eliseai.com",
+      "local_playbook": "playbooks/blueprint-gtm-playbook-eliseai.html",
+      "priority": "high",
+      "vertical": "Property Management"
+    },
+    {
+      "name": "Dodge Construction Network",
+      "url": "https://construction.com",
+      "local_playbook": "playbooks/blueprint-gtm-playbook-dodge-construction-network.html",
+      "priority": "high",
+      "vertical": "Construction"
+    },
+    {
+      "name": "Hint Health",
+      "url": "https://hint.com",
+      "local_playbook": "playbooks/blueprint-gtm-playbook-hint-health.html",
+      "priority": "high",
+      "vertical": "Healthcare"
+    },
+    {
+      "name": "PlanHub",
+      "url": "https://planhub.com",
+      "local_playbook": "playbooks/blueprint-gtm-playbook-planhub.html",
+      "priority": "high",
+      "vertical": "Construction"
+    },
+    {
+      "name": "Mixmax",
+      "url": "https://mixmax.com",
+      "local_playbook": "blueprint-gtm-playbook-mixmax.html",
+      "priority": "high",
+      "vertical": "Sales Engagement"
+    },
+    {
+      "name": "ProBLD",
+      "url": "https://probld.com",
+      "local_playbook": "blueprint-gtm-playbook-probld.html",
+      "priority": "medium",
+      "vertical": "Construction"
+    },
+    {
+      "name": "Interfold",
+      "url": "https://interfold.ai",
+      "local_playbook": "blueprint-gtm-playbook-interfold.html",
+      "priority": "medium",
+      "vertical": "AI"
+    },
+    {
+      "name": "Blinq",
+      "url": "https://blinq.me",
+      "local_playbook": "playbooks/blueprint-gtm-playbook-blinq.html",
+      "priority": "medium",
+      "vertical": "Networking"
+    },
+    {
+      "name": "Harvey",
+      "url": "https://harvey.ai",
+      "local_playbook": "playbooks/blueprint-gtm-playbook-harvey.html",
+      "priority": "medium",
+      "vertical": "Legal Tech"
+    },
+    {
+      "name": "Spear Education",
+      "url": "https://speareducation.com",
+      "local_playbook": "playbooks/blueprint-gtm-playbook-spear-education.html",
+      "priority": "medium",
+      "vertical": "Dental Education"
+    },
+    {
+      "name": "DealerEProcess",
+      "url": "https://dealereprocess.com",
+      "local_playbook": "playbooks/blueprint-gtm-playbook-dealereprocess.html",
+      "priority": "medium",
+      "vertical": "Automotive"
+    }
+  ],
+  "quick_test_set": [
+    "Owner.com",
+    "Canvas Medical",
+    "Mixmax"
+  ],
+  "success_thresholds": {
+    "pqs_count": 2,
+    "pvp_count": 2,
+    "avg_message_score": 8.0,
+    "data_specificity": 8,
+    "placeholder_count": 0,
+    "texada_pass_rate": 0.8
+  }
+}

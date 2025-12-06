@@ -1,0 +1,148 @@
+Loading results from: /Users/jordancrawford/Desktop/Blueprint-GTM-Skills/evaluation/results/yelp_940_results.json
+================================================================================
+SMB CONTACT DISCOVERY - SUCCESS PATTERN ANALYSIS
+================================================================================
+
+Total Companies Analyzed: 940
+Companies with Valid Contact: 656 (69.8%)
+Total Contacts Found: 1182
+Valid Contacts: 865 (73.2%)
+Avg Contacts per Company: 1.26
+Avg Valid Contacts per Successful Company: 1.32
+
+================================================================================
+1. DATA SOURCE EFFECTIVENESS
+================================================================================
+
+Source                         Total    Valid    Success%   Avg Conf  
+--------------------------------------------------------------------------------
+page_scrape                    6        6        100.0      83.3      
+google_maps_owner              627      565      90.1       83.7      
+social_links                   296      246      83.1       78.2      
+serper_osint                   144      104      72.2       67.9      
+openweb_contacts               397      189      47.6       53.6      
+schema_org                     8        1        12.5       37.5      
+
+================================================================================
+1B. SOURCE COMBINATION PATTERNS
+================================================================================
+
+Source Combination                                           Total    Valid    Success%  
+----------------------------------------------------------------------------------------------------
+page_scrape                                                  4        4        100.0     
+google_maps_owner                                            396      364      91.9      
+google_maps_owner + social_links                             231      201      87.0      
+serper_osint                                                 81       61       75.3      
+serper_osint + social_links                                  63       43       68.3      
+openweb_contacts                                             397      189      47.6      
+schema_org                                                   8        1        12.5      
+
+================================================================================
+2. BUSINESS VERTICAL SUCCESS RATES
+================================================================================
+
+Vertical                  Companies    Success%     Contacts     Valid%       Avg Conf  
+--------------------------------------------------------------------------------
+tree_services             100          81.0         119          84.9         0.0       
+junk_removal              100          77.0         135          71.9         0.0       
+general_contractors       100          76.0         143          79.7         0.0       
+landscaping               100          74.0         135          75.6         0.0       
+roofing                   100          70.0         130          71.5         0.0       
+plumbing                  100          70.0         117          79.5         0.0       
+electricians              58           67.2         84           59.5         0.0       
+auto_repair               92           63.0         96           74.0         0.0       
+movers                    100          60.0         115          67.0         0.0       
+hvac                      90           56.7         108          62.0         0.0       
+
+================================================================================
+3. PIPELINE STAGE PATTERNS
+================================================================================
+
+Stages Completed                                             Runs     Success%  
+--------------------------------------------------------------------------------
+bbb_discovery -> google_maps -> openweb_contacts -> social_links -> validation 11       100.0     
+bbb_discovery -> social_links -> validation -> website_fallback 1        100.0     
+google_maps -> openweb_contacts -> social_links -> validation 2        100.0     
+data_fill -> openweb_contacts -> social_links -> validation  10       90.0      
+data_fill -> google_maps -> openweb_contacts -> social_links -> validation 63       85.7      
+bbb_discovery -> google_maps -> social_links -> validation -> website_fallback 11       81.8      
+data_fill -> google_maps -> social_links -> validation -> website_fallback 74       77.0      
+early_exit_gmaps -> google_maps -> openweb_contacts -> social_links -> validation 392      71.9      
+bbb_discovery -> google_maps -> openweb_contacts -> social_links -> validation -> website_fallback 3        66.7      
+data_fill -> openweb_contacts -> social_links -> validation -> website_fallback 3        66.7      
+
+================================================================================
+4. DOMAIN CHARACTERISTICS
+================================================================================
+
+Has Domain: 940 companies, 69.8% success
+No Domain: 0 companies, 0.0% success
+
+Top TLDs by Success Rate:
+TLD             Total      Success%  
+----------------------------------------
+org             11         81.8      
+com…            5          80.0      
+c…              10         80.0      
+co…             15         73.3      
+com             820        70.5      
+…               6          66.7      
+net             26         61.5      
+site            7          57.1      
+biz             6          50.0      
+ca              8          37.5      
+
+================================================================================
+5. CONTACT CHARACTERISTICS (Valid vs Invalid)
+================================================================================
+
+Valid Contacts (n=865):
+  - Has Phone: 84.2%
+  - Has Email: 22.0%
+  - Has Owner Name: 0.0%
+  - Has Title: 78.0%
+
+Invalid Contacts (n=317):
+  - Has Phone: 74.8%
+  - Has Email: 67.5%
+  - Has Owner Name: 0.0%
+  - Has Title: 32.2%
+
+================================================================================
+6. KEY FINDINGS & RECOMMENDATIONS
+================================================================================
+
+KEY FINDINGS:
+----------------------------------------
+✓ Best performing source: page_scrape (100.0% success)
+✓ Best performing vertical: tree_services (81.0% success)
+✓ Most successful pipeline: bbb_discovery -> google_maps -> openweb_contacts -> social_links -> validation (100.0% success)
+✓ Companies with domains have 69.8% higher success rate
+
+RECOMMENDATIONS:
+----------------------------------------
+1. Prioritize these data sources:
+   1. page_scrape (100.0% success, 83.3 avg confidence)
+   2. google_maps_owner (90.1% success, 83.7 avg confidence)
+   3. social_links (83.1% success, 78.2 avg confidence)
+
+2. Focus on these high-success verticals:
+   1. tree_services (81.0% success, n=100)
+   2. junk_removal (77.0% success, n=100)
+   3. general_contractors (76.0% success, n=100)
+   4. landscaping (74.0% success, n=100)
+   5. roofing (70.0% success, n=100)
+
+3. Pipeline optimization:
+   Recommended stage sequences:
+   - bbb_discovery -> google_maps -> openweb_contacts -> social_links -> validation (100.0% success)
+   - bbb_discovery -> social_links -> validation -> website_fallback (100.0% success)
+   - google_maps -> openweb_contacts -> social_links -> validation (100.0% success)
+
+4. Data quality indicators:
+   - Phone presence correlates with validity (+9.4%)
+   - WARNING: Valid contacts have FEWER emails than invalid (-45.5%)
+     This suggests generic emails are being marked invalid (correct behavior)
+   - Title presence strongly correlates with validity (+45.9%)
+
+================================================================================

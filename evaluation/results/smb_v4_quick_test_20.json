@@ -1,0 +1,476 @@
+{
+  "metadata": {
+    "input_file": "evaluation/data/smb_sample_1400.json",
+    "limit": 20,
+    "concurrency": 5,
+    "skip_stages": [],
+    "timestamp": "2025-12-02T13:37:15.363627"
+  },
+  "summary": {
+    "total_companies": 20,
+    "companies_processed": 20,
+    "contacts_found": 9,
+    "contacts_validated": 8,
+    "serper_queries": 32,
+    "leadmagic_credits": 0,
+    "zenrows_requests": 41,
+    "estimated_cost": 0.558
+  },
+  "stage_stats": {
+    "input_analysis": {
+      "total_rows": 1400,
+      "companies_loaded": 20,
+      "detected_fields": [
+        "company_name",
+        "domain",
+        "vertical",
+        "address",
+        "phone",
+        "rating",
+        "reviews_count"
+      ],
+      "missing_fields": [],
+      "has_domain": "100.0%",
+      "has_owner": "0.0%"
+    }
+  },
+  "results": [
+    {
+      "company_name": "West Pavilion Dialysis",
+      "domain": "henryford.com",
+      "vertical": "dialysis_centers",
+      "stages_completed": [
+        "data_fill",
+        "website_fallback",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 6825.718879699707,
+      "contacts": [
+        {
+          "name": "Report Project",
+          "email": null,
+          "phone": null,
+          "title": "Owner",
+          "linkedin_url": null,
+          "sources": [
+            "serper_osint"
+          ],
+          "is_valid": false,
+          "confidence": 0.0,
+          "validation_reasons": [
+            "The name 'Report Project' appears to be a company name rather than a person's name, which disqualifies it as a valid contact.",
+            "RED FLAG: Name looks like a company name"
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Stacked | A Montana Grill",
+      "domain": "stackedamontanagrill.com",
+      "vertical": "bakeries",
+      "stages_completed": [
+        "data_fill",
+        "website_fallback",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 5844.766855239868,
+      "contacts": [
+        {
+          "name": "Stephan Hindman",
+          "email": null,
+          "phone": null,
+          "title": "Owner",
+          "linkedin_url": null,
+          "sources": [
+            "serper_osint"
+          ],
+          "is_valid": true,
+          "confidence": 70.0,
+          "validation_reasons": [
+            "Stephan Hindman is identified as the owner of Stacked | A Montana Grill, providing strong evidence for the contact (source: serper_osint)."
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "American RV Technology, Inc.",
+      "domain": "americanrvtechnology.com",
+      "vertical": "auto_body_shops",
+      "stages_completed": [
+        "data_fill",
+        "website_fallback",
+        "serper_osint",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 2973.540782928467,
+      "contacts": []
+    },
+    {
+      "company_name": "Pocatello Free Clinic",
+      "domain": "pocatellofreeclinic.com",
+      "vertical": "fertility_and_ivf_clinics",
+      "stages_completed": [
+        "data_fill",
+        "website_fallback",
+        "serper_osint",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 3722.468137741089,
+      "contacts": []
+    },
+    {
+      "company_name": "1 Stop Complete Auto Glass",
+      "domain": "1stopcompleteautoglass.com",
+      "vertical": "auto_body_shops",
+      "stages_completed": [
+        "data_fill",
+        "website_fallback",
+        "serper_osint",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 3264.709949493408,
+      "contacts": []
+    },
+    {
+      "company_name": "Brandon Collision",
+      "domain": "brandoncollision.com",
+      "vertical": "auto_body_shops",
+      "stages_completed": [
+        "data_fill",
+        "website_fallback",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 4733.196973800659,
+      "contacts": [
+        {
+          "name": "Matt Ebert",
+          "email": null,
+          "phone": null,
+          "title": "Owner",
+          "linkedin_url": null,
+          "sources": [
+            "serper_osint"
+          ],
+          "is_valid": true,
+          "confidence": 70.0,
+          "validation_reasons": [
+            "Matt Ebert is identified as the owner of Brandon Collision, providing strong evidence for the contact's validity (source: serper_osint)."
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Bentley Cadillac Collision Repair Center",
+      "domain": "bentleycadillac.com",
+      "vertical": "auto_body_shops",
+      "stages_completed": [
+        "data_fill",
+        "website_fallback",
+        "serper_osint",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 4361.479997634888,
+      "contacts": []
+    },
+    {
+      "company_name": "Fayetteville Woman's Care",
+      "domain": "fwc.net",
+      "vertical": "fertility_and_ivf_clinics",
+      "stages_completed": [
+        "data_fill",
+        "website_fallback",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 4022.2949981689453,
+      "contacts": [
+        {
+          "name": "Sidney Gardner",
+          "email": null,
+          "phone": null,
+          "title": "Owner",
+          "linkedin_url": null,
+          "sources": [
+            "serper_osint"
+          ],
+          "is_valid": true,
+          "confidence": 70.0,
+          "validation_reasons": [
+            "Sidney Gardner is identified as the owner of Fayetteville Woman's Care, providing strong evidence for the contact's validity (source: serper_osint)."
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "BJ's Restaurant & Brewhouse",
+      "domain": "bjsrestaurants.com",
+      "vertical": "breweries_and_brewpubs",
+      "stages_completed": [
+        "data_fill",
+        "website_fallback",
+        "serper_osint",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 6069.879770278931,
+      "contacts": [
+        {
+          "name": "Greg Trojan",
+          "email": null,
+          "phone": null,
+          "title": "Owner",
+          "linkedin_url": null,
+          "sources": [
+            "serper_osint"
+          ],
+          "is_valid": true,
+          "confidence": 70.0,
+          "validation_reasons": [
+            "Greg Trojan is identified as the owner of BJ's Restaurant & Brewhouse, providing strong evidence for the contact (source: serper_osint)."
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "BN Plumbing",
+      "domain": "sites.google.com",
+      "vertical": "plumbers",
+      "stages_completed": [
+        "data_fill",
+        "website_fallback",
+        "serper_osint",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 6108.56819152832,
+      "contacts": []
+    },
+    {
+      "company_name": "Baldwin Bagels",
+      "domain": "baldwinbagels.com",
+      "vertical": "bakeries",
+      "stages_completed": [
+        "data_fill",
+        "website_fallback",
+        "serper_osint",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 5109.238147735596,
+      "contacts": []
+    },
+    {
+      "company_name": "Westbridge Veterinary Referral Hospital",
+      "domain": "westbridgevets.com",
+      "vertical": "dialysis_centers",
+      "stages_completed": [
+        "data_fill",
+        "website_fallback",
+        "serper_osint",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 5349.968194961548,
+      "contacts": []
+    },
+    {
+      "company_name": "Fresenius Kidney Care Leawood",
+      "domain": "freseniuskidneycare.com",
+      "vertical": "dialysis_centers",
+      "stages_completed": [
+        "data_fill",
+        "website_fallback",
+        "serper_osint",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 3981.3690185546875,
+      "contacts": []
+    },
+    {
+      "company_name": "Starbucks",
+      "domain": "starbucks.com",
+      "vertical": "coffee_shops_in_the_usa",
+      "stages_completed": [
+        "data_fill",
+        "website_fallback",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 5756.984233856201,
+      "contacts": [
+        {
+          "name": "Howard Schultz",
+          "email": null,
+          "phone": null,
+          "title": "Owner",
+          "linkedin_url": null,
+          "sources": [
+            "serper_osint"
+          ],
+          "is_valid": true,
+          "confidence": 70.0,
+          "validation_reasons": [
+            "Howard Schultz is identified as the owner of Starbucks, providing strong evidence for the contact's validity (source: serper_osint)."
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Brewskis Oak Ridge",
+      "domain": "brewskis-oak-ridge.edan.io",
+      "vertical": "breweries_and_brewpubs",
+      "stages_completed": [
+        "data_fill",
+        "website_fallback",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 6141.072034835815,
+      "contacts": [
+        {
+          "name": "Taylor Fantasy",
+          "email": null,
+          "phone": null,
+          "title": "Owner",
+          "linkedin_url": null,
+          "sources": [
+            "serper_osint"
+          ],
+          "is_valid": true,
+          "confidence": 70.0,
+          "validation_reasons": [
+            "Taylor Fantasy is identified as the owner of Brewskis Oak Ridge, providing strong evidence for the contact's validity (source: serper_osint)."
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Plymwr Plumbing",
+      "domain": "plymwrplumbing.com",
+      "vertical": "plumbers",
+      "stages_completed": [
+        "data_fill",
+        "website_fallback",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 4747.921943664551,
+      "contacts": [
+        {
+          "name": "Nick Cannon",
+          "email": null,
+          "phone": null,
+          "title": "Owner",
+          "linkedin_url": null,
+          "sources": [
+            "serper_osint"
+          ],
+          "is_valid": true,
+          "confidence": 70.0,
+          "validation_reasons": [
+            "Nick Cannon is identified as the owner of Plymwr Plumbing, providing strong evidence for the contact's validity (source: serper_osint)."
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Bull Island Brewing Company",
+      "domain": "bullislandbrewing.com",
+      "vertical": "breweries_and_brewpubs",
+      "stages_completed": [
+        "data_fill",
+        "website_fallback",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 6970.679044723511,
+      "contacts": [
+        {
+          "name": "Doug Reier",
+          "email": null,
+          "phone": null,
+          "title": "Owner",
+          "linkedin_url": null,
+          "sources": [
+            "serper_osint"
+          ],
+          "is_valid": true,
+          "confidence": 70.0,
+          "validation_reasons": [
+            "Doug Reier is identified as the owner of Bull Island Brewing Company, providing strong evidence for his role (source: serper_osint)."
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Northeastern Health System Tahlequah : Emergency Room",
+      "domain": "alwaysnhs.org",
+      "vertical": "fertility_and_ivf_clinics",
+      "stages_completed": [
+        "data_fill",
+        "website_fallback",
+        "serper_osint",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 4427.170038223267,
+      "contacts": []
+    },
+    {
+      "company_name": "Range Cafe Downtown",
+      "domain": "rangecafe.com",
+      "vertical": "bakeries",
+      "stages_completed": [
+        "data_fill",
+        "website_fallback",
+        "serper_osint",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 5871.17075920105,
+      "contacts": []
+    },
+    {
+      "company_name": "Minnesota Perinatal Physicians - Coon Rapids",
+      "domain": "account.allinahealth.org",
+      "vertical": "fertility_and_ivf_clinics",
+      "stages_completed": [
+        "data_fill",
+        "website_fallback",
+        "serper_osint",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 2837.131977081299,
+      "contacts": []
+    }
+  ]
+}

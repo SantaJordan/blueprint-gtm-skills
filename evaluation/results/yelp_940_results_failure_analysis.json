@@ -1,0 +1,258 @@
+{
+  "failure_analysis": {
+    "summary": {
+      "total_companies": 940,
+      "no_contacts_found": 144,
+      "no_contacts_rate": "15.3%",
+      "all_invalid_contacts": 140,
+      "all_invalid_rate": "14.9%",
+      "total_failures": 284,
+      "total_failure_rate": "30.2%",
+      "has_valid_contacts": 656,
+      "has_valid_rate": "69.8%",
+      "has_errors": 0,
+      "has_errors_rate": "0.0%"
+    },
+    "error_patterns": {
+      "top_10_errors": [],
+      "total_unique_errors": 0
+    },
+    "vertical_analysis": {
+      "no_contacts_by_vertical": {
+        "movers": 24,
+        "auto_repair": 22,
+        "plumbing": 18,
+        "tree_services": 15,
+        "hvac": 14,
+        "junk_removal": 13,
+        "roofing": 12,
+        "general_contractors": 10,
+        "landscaping": 10,
+        "electricians": 6
+      },
+      "all_invalid_by_vertical": {
+        "hvac": 25,
+        "roofing": 18,
+        "landscaping": 16,
+        "movers": 16,
+        "general_contractors": 14,
+        "electricians": 13,
+        "auto_repair": 12,
+        "plumbing": 12,
+        "junk_removal": 10,
+        "tree_services": 4
+      },
+      "total_failures_by_vertical": {
+        "movers": 40,
+        "hvac": 39,
+        "auto_repair": 34,
+        "plumbing": 30,
+        "roofing": 30,
+        "landscaping": 26,
+        "general_contractors": 24,
+        "junk_removal": 23,
+        "electricians": 19,
+        "tree_services": 19
+      }
+    },
+    "failure_samples": {
+      "no_contacts_sample": [
+        {
+          "company": "Pittsburg Disposal",
+          "vertical": "junk_removal",
+          "errors": []
+        },
+        {
+          "company": "D M V Fire & Flood",
+          "vertical": "general_contractors",
+          "errors": []
+        },
+        {
+          "company": "Bowman Plumbing Heating & Air",
+          "vertical": "plumbing",
+          "errors": []
+        },
+        {
+          "company": "Delp Auto & Truck",
+          "vertical": "auto_repair",
+          "errors": []
+        },
+        {
+          "company": "Delo Drain & Septic Svce",
+          "vertical": "plumbing",
+          "errors": []
+        }
+      ],
+      "all_invalid_sample": [
+        {
+          "company": "Wilson Services",
+          "vertical": "electricians",
+          "contacts_count": 1,
+          "contacts": [
+            {
+              "name": null,
+              "email": "kim.peterson@colepublishing.com",
+              "phone": "973383211224",
+              "title": null,
+              "linkedin_url": "https://www.linkedin.com/company/wilson-services",
+              "sources": [
+                "openweb_contacts"
+              ],
+              "is_valid": false,
+              "confidence": 30.0,
+              "validation_reasons": [
+                "The contact information lacks a verified name and title, and the email is associated with a different domain, leading to significant uncertainty.",
+                "RED FLAG: Unknown name and title",
+                "RED FLAG: Email from a different domain",
+                "RED FLAG: No direct evidence linking contact to Wilson Services"
+              ]
+            }
+          ]
+        },
+        {
+          "company": "Jason Mazzer Plumbing & HVAC",
+          "vertical": "hvac",
+          "contacts_count": 1,
+          "contacts": [
+            {
+              "name": null,
+              "email": "workorders@mazzerplumbing.com",
+              "phone": "2016156672",
+              "title": null,
+              "linkedin_url": "https://www.linkedin.com/company/jason-mazzer-plumbing-hvac-llc",
+              "sources": [
+                "openweb_contacts"
+              ],
+              "is_valid": false,
+              "confidence": 30.0,
+              "validation_reasons": [
+                "The contact lacks a specific name and title, and the email is a generic role account, leading to significant uncertainty about the validity of the contact.",
+                "RED FLAG: Unknown name and title",
+                "RED FLAG: Generic role email account (workorders@)",
+                "RED FLAG: No specific individual associated with the contact"
+              ]
+            }
+          ]
+        },
+        {
+          "company": "Champion Mulch & Landscape Supply",
+          "vertical": "landscaping",
+          "contacts_count": 1,
+          "contacts": [
+            {
+              "name": null,
+              "email": "mailus@gardenhub.com",
+              "phone": "9372282730",
+              "title": null,
+              "linkedin_url": "https://www.linkedin.com/in/mimi-sofia",
+              "sources": [
+                "openweb_contacts"
+              ],
+              "is_valid": false,
+              "confidence": 30.0,
+              "validation_reasons": [
+                "The contact lacks a specific name and title, and the email is from a different domain with no strong evidence linking it to the business; the LinkedIn profile does not match the company owner.",
+                "RED FLAG: Unknown name and title",
+                "RED FLAG: Email from a different domain",
+                "RED FLAG: No direct link to the business owner"
+              ]
+            }
+          ]
+        },
+        {
+          "company": "608 Plumbing",
+          "vertical": "hvac",
+          "contacts_count": 1,
+          "contacts": [
+            {
+              "name": null,
+              "email": "hassanf@608plumbing.com",
+              "phone": "6086101355",
+              "title": null,
+              "linkedin_url": "https://www.linkedin.com/in/joseph-gunderson-801431202",
+              "sources": [
+                "openweb_contacts"
+              ],
+              "is_valid": false,
+              "confidence": 30.0,
+              "validation_reasons": [
+                "The contact lacks a verified name and title, and the LinkedIn profile does not match the company or role, leading to significant uncertainty.",
+                "RED FLAG: Unknown name and title",
+                "RED FLAG: LinkedIn profile does not match the company or role"
+              ]
+            }
+          ]
+        },
+        {
+          "company": "DV Elect",
+          "vertical": "electricians",
+          "contacts_count": 1,
+          "contacts": [
+            {
+              "name": "D&V Electronics",
+              "email": null,
+              "phone": "+18889791919",
+              "title": "Owner",
+              "linkedin_url": "https://www.linkedin.com/company/dv-electronics",
+              "sources": [
+                "google_maps_owner",
+                "social_links"
+              ],
+              "is_valid": false,
+              "confidence": 30.0,
+              "validation_reasons": [
+                "The contact name 'D&V Electronics' does not match the company name 'DV Elect', and the email is not provided, leading to significant uncertainty.",
+                "RED FLAG: Contact name does not match company name",
+                "RED FLAG: No email provided",
+                "RED FLAG: LinkedIn URL does not correspond to an individual"
+              ]
+            }
+          ]
+        }
+      ],
+      "with_errors_sample": [],
+      "partial_success_sample": [
+        {
+          "company": "Nickel Bros",
+          "vertical": "general_contractors",
+          "valid": 1,
+          "total": 2
+        },
+        {
+          "company": "Junkaway",
+          "vertical": "junk_removal",
+          "valid": 1,
+          "total": 2
+        },
+        {
+          "company": "Moover Dudes",
+          "vertical": "movers",
+          "valid": 1,
+          "total": 2
+        },
+        {
+          "company": "Colton's Handyman Services",
+          "vertical": "junk_removal",
+          "valid": 1,
+          "total": 3
+        },
+        {
+          "company": "Roofs by Bryan",
+          "vertical": "roofing",
+          "valid": 1,
+          "total": 2
+        }
+      ]
+    }
+  },
+  "invalid_analysis": {
+    "invalid_reasons": {
+      "zero_score": 317,
+      "no_name": 214,
+      "no_contact_info": 45
+    },
+    "validation_score_distribution": {
+      "0": 317
+    }
+  }
+}

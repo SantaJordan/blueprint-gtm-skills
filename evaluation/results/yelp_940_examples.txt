@@ -1,0 +1,289 @@
+Loading results from: /Users/jordancrawford/Desktop/Blueprint-GTM-Skills/evaluation/results/yelp_940_results.json
+Extracting best examples from 940 companies...
+================================================================================
+SUCCESS PATTERN EXAMPLES - Real Cases from Dataset
+================================================================================
+
+1. PERFECT CASES (Multiple valid contacts, high confidence)
+================================================================================
+
+1. Alford Plumbing (plumbing)
+   Domain: alfordplumbing.com
+   Valid Contacts: 2
+   Avg Confidence: 90.0
+
+   Contact 1:
+      Name: Alford Plumbing
+      Title: Owner
+      Phone: +19312880332
+      Email: None
+      Sources: google_maps_owner, social_links
+      Confidence: 90.0
+
+   Contact 2:
+      Name: None
+      Title: None
+      Phone: 9312880332
+      Email: alfordplumbing@gmail.com
+      Sources: openweb_contacts
+      Confidence: 90.0
+
+2. Doug Campbell Backhoe (plumbing)
+   Domain: backhoeman.com
+   Valid Contacts: 3
+   Avg Confidence: 90.0
+
+   Contact 1:
+      Name: Doug Campbell Backhoe
+      Title: Owner
+      Phone: +17062550714
+      Email: None
+      Sources: google_maps_owner
+      Confidence: 90.0
+
+   Contact 2:
+      Name: None
+      Title: None
+      Phone: 7062550714
+      Email: doug@backhoeman.com
+      Sources: openweb_contacts
+      Confidence: 90.0
+
+3. Buckley Disposal Service (junk_removal)
+   Domain: buckleydisposal.com
+   Valid Contacts: 2
+   Avg Confidence: 90.0
+
+   Contact 1:
+      Name: Buckley Disposal Services
+      Title: Owner
+      Phone: +16034290060
+      Email: None
+      Sources: google_maps_owner
+      Confidence: 90.0
+
+   Contact 2:
+      Name: Driver Consultant
+      Title: Owner
+      Phone: None
+      Email: None
+      Sources: page_scrape, social_links
+      Confidence: 90.0
+
+4. Baraboo Plumbing (plumbing)
+   Domain: barabooplumbing.com
+   Valid Contacts: 2
+   Avg Confidence: 90.0
+
+   Contact 1:
+      Name: Baraboo Plumbing LLC
+      Title: Owner
+      Phone: +16084482515
+      Email: None
+      Sources: google_maps_owner
+      Confidence: 90.0
+
+   Contact 2:
+      Name: None
+      Title: None
+      Phone: 6084482515
+      Email: tom@barabooplumbing.com
+      Sources: openweb_contacts
+      Confidence: 90.0
+
+5. Ron's Sewer Service (plumbing)
+   Domain: ronssewerservicellc.com
+   Valid Contacts: 2
+   Avg Confidence: 90.0
+
+   Contact 1:
+      Name: Ron's Sewer Service, LLC
+      Title: Owner
+      Phone: +17157490153
+      Email: None
+      Sources: google_maps_owner
+      Confidence: 90.0
+
+   Contact 2:
+      Name: None
+      Title: None
+      Phone: 7157490153
+      Email: ronssewerservice@gmail.com
+      Sources: openweb_contacts
+      Confidence: 90.0
+
+
+2. GOOGLE MAPS OWNER WINS (High confidence single-source)
+================================================================================
+
+1. Nickel Bros (general_contractors)
+   Name: Nickel Bros
+   Title: Owner
+   Phone: +12507532268
+   Confidence: 90.0
+   Why Valid: The contact is validated as the owner of Nickel Bros is confirmed via Google Maps and the company we...
+
+2. Esteban Construction (roofing)
+   Name: Esteban Construction LLC
+   Title: Owner
+   Phone: +13378896063
+   Confidence: 90.0
+   Why Valid: The contact is validated as the owner of Esteban Construction LLC is confirmed via Google Maps and m...
+
+3. Junkaway (junk_removal)
+   Name: Junk Away, LLC
+   Title: Owner
+   Phone: +18508035865
+   Confidence: 90.0
+   Why Valid: The contact is validated as the owner of Junk Away, LLC is confirmed via Google Maps and the busines...
+
+4. Miller's Services (hvac)
+   Name: Miller's Services
+   Title: Owner
+   Phone: +18047584314
+   Confidence: 90.0
+   Why Valid: The contact is validated as the owner of Miller's Services is confirmed via Google Maps and the comp...
+
+5. Moover Dudes (movers)
+   Name: Moover Dudes
+   Title: Owner
+   Phone: +16013920736
+   Confidence: 90.0
+   Why Valid: The contact Moover Dudes is confirmed as the owner from Google Maps and the company website, providi...
+
+
+3. SOCIAL LINKS WINS (LinkedIn verification)
+================================================================================
+
+1. Junkaway (junk_removal)
+   Name: Junk Away, LLC
+   Title: Owner
+   LinkedIn: https://www.linkedin.com/company/junkaway
+   Confidence: 90.0
+
+2. Miller's Services (hvac)
+   Name: Miller's Services
+   Title: Owner
+   LinkedIn: https://www.linkedin.com/in/marshall-miller-millerservices
+   Confidence: 90.0
+
+3. Moover Dudes (movers)
+   Name: Moover Dudes
+   Title: Owner
+   LinkedIn: https://www.linkedin.com/company/moverdudes
+   Confidence: 90.0
+
+4. Alford Plumbing (plumbing)
+   Name: Alford Plumbing
+   Title: Owner
+   LinkedIn: https://www.linkedin.com/company/langford-plumbing
+   Confidence: 90.0
+
+5. Mid TN Underground (electricians)
+   Name: Chris Adam
+   Title: Owner
+   LinkedIn: https://www.linkedin.com/in/chrisadam
+   Confidence: 90.0
+
+
+4. MULTI-SOURCE WINS (Corroborated data)
+================================================================================
+
+1. Junkaway (junk_removal)
+   Name: Junk Away, LLC
+   Title: Owner
+   Sources: google_maps_owner, social_links
+   Confidence: 90.0
+
+2. Miller's Services (hvac)
+   Name: Miller's Services
+   Title: Owner
+   Sources: google_maps_owner, social_links
+   Confidence: 90.0
+
+3. Moover Dudes (movers)
+   Name: Moover Dudes
+   Title: Owner
+   Sources: google_maps_owner, social_links
+   Confidence: 90.0
+
+4. Alford Plumbing (plumbing)
+   Name: Alford Plumbing
+   Title: Owner
+   Sources: google_maps_owner, social_links
+   Confidence: 90.0
+
+5. Mid TN Underground (electricians)
+   Name: Chris Adam
+   Title: Owner
+   Sources: serper_osint, social_links
+   Confidence: 90.0
+
+
+5. OPENWEB_CONTACTS FAILURES (Generic emails marked invalid)
+================================================================================
+These show correct validation - generic emails without names are rejected:
+
+1. C&B Landscape (candblandscapellc.com)
+   Email: smsinfo@thryv.com
+   Name: None
+   Title: None
+   Confidence: 30.0
+   Red Flags:
+      - Unknown name and title
+      - Email source is from a catch-all domain
+      - No LinkedIn profile
+
+
+6. TOP CONTACT BY VERTICAL
+================================================================================
+
+Tree Services:
+   Company: A&D Land Services
+   Name: A&D Land Services
+   Title: Owner
+   Phone: +12187662193
+   Sources: google_maps_owner
+   Confidence: 90.0
+
+Junk Removal:
+   Company: Junkaway
+   Name: Junk Away, LLC
+   Title: Owner
+   Phone: +18508035865
+   Sources: google_maps_owner, social_links
+   Confidence: 90.0
+
+General Contractors:
+   Company: Nickel Bros
+   Name: Nickel Bros
+   Title: Owner
+   Phone: +12507532268
+   Sources: google_maps_owner
+   Confidence: 90.0
+
+Landscaping:
+   Company: Property Proz Site Services
+   Name: Facility Proz
+   Title: Owner
+   Phone: +13167685868
+   Sources: google_maps_owner
+   Confidence: 90.0
+
+Roofing:
+   Company: Esteban Construction
+   Name: Esteban Construction LLC
+   Title: Owner
+   Phone: +13378896063
+   Sources: google_maps_owner
+   Confidence: 90.0
+
+Plumbing:
+   Company: Norhio Plumbing
+   Name: Norhio Plumbing Inc
+   Title: Owner
+   Phone: +13305629671
+   Sources: google_maps_owner
+   Confidence: 90.0
+
+================================================================================

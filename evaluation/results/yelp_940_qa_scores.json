@@ -1,0 +1,2390 @@
+{
+  "metadata": {
+    "timestamp": "2025-12-01T21:44:11.436900",
+    "input_file": "evaluation/results/yelp_940_results.json",
+    "total_results": 940,
+    "results_with_contacts": 669,
+    "results_without_contacts": 271,
+    "model": "gpt-4o-mini",
+    "batch_size": 50
+  },
+  "metrics": {
+    "total_evaluated": 219,
+    "name_plausible_yes": 46,
+    "name_plausible_yes_pct": 21.004566210045663,
+    "name_plausible_no": 172,
+    "name_plausible_no_pct": 78.53881278538813,
+    "name_plausible_unclear": 1,
+    "name_plausible_unclear_pct": 0.45662100456621,
+    "title_appropriate_yes": 219,
+    "title_appropriate_yes_pct": 100.0,
+    "title_appropriate_no": 0,
+    "title_appropriate_no_pct": 0.0,
+    "title_appropriate_unclear": 0,
+    "title_appropriate_unclear_pct": 0.0,
+    "title_appropriate_na": 0,
+    "title_appropriate_na_pct": 0.0,
+    "email_valid_yes": 0,
+    "email_valid_yes_pct": 0.0,
+    "email_valid_no": 0,
+    "email_valid_no_pct": 0.0,
+    "email_valid_na": 219,
+    "email_valid_na_pct": 100.0,
+    "avg_score": 54.77168949771689,
+    "score_high": 64,
+    "score_high_pct": 29.22374429223744,
+    "score_medium": 37,
+    "score_medium_pct": 16.894977168949772,
+    "score_low": 2,
+    "score_low_pct": 0.91324200913242,
+    "score_garbage": 116,
+    "score_garbage_pct": 52.96803652968037,
+    "top_red_flags": [
+      [
+        "Contact name is not a real person's name.",
+        57
+      ],
+      [
+        "Contact name is a company name.",
+        44
+      ],
+      [
+        "Company name used as contact name",
+        26
+      ],
+      [
+        "Garbage text in contact name",
+        23
+      ],
+      [
+        "Garbage text for name",
+        20
+      ],
+      [
+        "Contact name is a city utility name.",
+        1
+      ],
+      [
+        "Contact name is identical to company name.",
+        1
+      ]
+    ]
+  },
+  "scores": [
+    {
+      "company_name": "Heroes",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 70,
+      "reasoning": "Name is plausible and title indicates ownership.",
+      "red_flags": []
+    },
+    {
+      "company_name": "Calton's Lawn Care",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 70,
+      "reasoning": "Name is plausible and title indicates ownership.",
+      "red_flags": []
+    },
+    {
+      "company_name": "All Clear Texas",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "Affordable Lawn And Power",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "Auto Action Tire Recycling",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "JES",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "Willis Recycling",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "Recovery Technology Solutions",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "Frebar Construction Septic Service",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "NGP TECH",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "Blarney Hydroseeding",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Name is plausible and title indicates ownership.",
+      "red_flags": []
+    },
+    {
+      "company_name": "Sawtooth Handyman",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "Ultra Cuts Tree Service",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "Delta The Educated Plumber",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "Ratliff Tree Service",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "American Building & Construction",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "STP Construction",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "Adam's Lawn Service",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "Starr Plumbing",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "Above Expectations Contracting",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "Nellinger Excavation & Land Improvement",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "Jacmel Construction",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "H&S Construction Systems",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "FloHawks",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "Take Charge Electric",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "Premium NW Tree Service",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "Prospect Sanitaion Service",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "Johnny On The Spot Junk Removal Service",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "WM Pro Movers",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "JWH Asbestos Removal Svc",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "H and W Tree Service",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "Pipe Dreamz Water and Sewer Atlanta",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "UnclogU",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 85,
+      "reasoning": "Name is plausible and title indicates ownership.",
+      "red_flags": []
+    },
+    {
+      "company_name": "Thomasville City of Utilities",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a city utility name, not a person.",
+      "red_flags": [
+        "Contact name is a city utility name."
+      ]
+    },
+    {
+      "company_name": "Sivad Construction",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "American Tree & Shrub Removal",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "VB Demolition Services",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "Freedom Underground Plumbing",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "MB Land Solutions",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "ABC Cesspool",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Name is plausible and title indicates ownership.",
+      "red_flags": []
+    },
+    {
+      "company_name": "Manchester Landscaping",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 50,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "Miller Contracting",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "Windy Pine Log Homes",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "A&H Everything Service",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "Drainage Solutions",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "All Tek",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "Universal Septic Services",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "Midstate Contractors",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "Crandall Dirt Construction",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "Federal Metals",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is a company name, not a person.",
+      "red_flags": [
+        "Contact name is a company name."
+      ]
+    },
+    {
+      "company_name": "Dgi-Menard",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Garbage text in contact name"
+      ]
+    },
+    {
+      "company_name": "L&R Remodeling",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Garbage text in contact name"
+      ]
+    },
+    {
+      "company_name": "Blue & Green #1 Services - Landscaping and HVAC",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a plausible person's name.",
+      "red_flags": []
+    },
+    {
+      "company_name": "Best Rates Mechanical Services",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Garbage text in contact name"
+      ]
+    },
+    {
+      "company_name": "Quality First Restoration",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Garbage text in contact name"
+      ]
+    },
+    {
+      "company_name": "Block Building Properties",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Garbage text in contact name"
+      ]
+    },
+    {
+      "company_name": "Omar\u2019s Demolition And Construction",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a plausible person's name.",
+      "red_flags": []
+    },
+    {
+      "company_name": "Dylan\u2019s Landscaping Company",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a plausible person's name.",
+      "red_flags": []
+    },
+    {
+      "company_name": "Two Men and a Truck Moving",
+      "name_plausible": "unclear",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 70,
+      "reasoning": "Contact name is ambiguous.",
+      "red_flags": []
+    },
+    {
+      "company_name": "Ford Service Station",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Garbage text in contact name"
+      ]
+    },
+    {
+      "company_name": "Anderson Tree Services",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a plausible person's name.",
+      "red_flags": []
+    },
+    {
+      "company_name": "Metta Sewer And Excavating",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a plausible person's name.",
+      "red_flags": []
+    },
+    {
+      "company_name": "American Canyon Landscape",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a plausible person's name.",
+      "red_flags": []
+    },
+    {
+      "company_name": "State Line Tree Service",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a plausible person's name.",
+      "red_flags": []
+    },
+    {
+      "company_name": "Take Charge Electric",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a plausible person's name.",
+      "red_flags": []
+    },
+    {
+      "company_name": "DNA Powerwashing Debris and Junk Removal",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Garbage text in contact name"
+      ]
+    },
+    {
+      "company_name": "So Much More Space",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Garbage text in contact name"
+      ]
+    },
+    {
+      "company_name": "Patriot Property Solutions and Handyman Services",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Garbage text in contact name"
+      ]
+    },
+    {
+      "company_name": "Small Jobs Plumbing, Inc.",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Garbage text in contact name"
+      ]
+    },
+    {
+      "company_name": "All Junked Up",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Garbage text in contact name"
+      ]
+    },
+    {
+      "company_name": "The Cotton Group",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Garbage text in contact name"
+      ]
+    },
+    {
+      "company_name": "Central Oregon Handyman Service",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Garbage text in contact name"
+      ]
+    },
+    {
+      "company_name": "Piernon Building and Remodeling",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Garbage text in contact name"
+      ]
+    },
+    {
+      "company_name": "Soper Construction",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a plausible person's name.",
+      "red_flags": []
+    },
+    {
+      "company_name": "Little Bear Hauling & Demolition",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a plausible person's name.",
+      "red_flags": []
+    },
+    {
+      "company_name": "Work-A-Haulix",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Garbage text in contact name"
+      ]
+    },
+    {
+      "company_name": "Black Creek Excavating",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a plausible person's name.",
+      "red_flags": []
+    },
+    {
+      "company_name": "Coscia Land Management",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a plausible person's name.",
+      "red_flags": []
+    },
+    {
+      "company_name": "Emerald Terrace Landscaping",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a plausible person's name.",
+      "red_flags": []
+    },
+    {
+      "company_name": "Craig's Plumbing",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Garbage text in contact name"
+      ]
+    },
+    {
+      "company_name": "JLS Environmental Services",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a plausible person's name.",
+      "red_flags": []
+    },
+    {
+      "company_name": "Mr Speedy Gonzalez",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a plausible person's name.",
+      "red_flags": []
+    },
+    {
+      "company_name": "Eben Gray's Tree Service",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a plausible person's name.",
+      "red_flags": []
+    },
+    {
+      "company_name": "Earthbusters",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 70,
+      "reasoning": "Contact name is a plausible person's name.",
+      "red_flags": []
+    },
+    {
+      "company_name": "Eco Removal",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Garbage text in contact name"
+      ]
+    },
+    {
+      "company_name": "All Phazes Generall Contracting",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Garbage text in contact name"
+      ]
+    },
+    {
+      "company_name": "Bulldog Auto Parts & Service",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Garbage text in contact name"
+      ]
+    },
+    {
+      "company_name": "Dvorak Pumping",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a plausible person's name.",
+      "red_flags": []
+    },
+    {
+      "company_name": "Kruger",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Garbage text in contact name"
+      ]
+    },
+    {
+      "company_name": "Greystone Construction",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a plausible person's name.",
+      "red_flags": []
+    },
+    {
+      "company_name": "Kennedy Auto",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Garbage text in contact name"
+      ]
+    },
+    {
+      "company_name": "GatorBack Solutions",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 70,
+      "reasoning": "Contact name is a plausible person's name.",
+      "red_flags": []
+    },
+    {
+      "company_name": "CTS Contracting",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a plausible person's name.",
+      "red_flags": []
+    },
+    {
+      "company_name": "Junk Ousters",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Garbage text in contact name"
+      ]
+    },
+    {
+      "company_name": "Just in Time Home Services",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a plausible person's name.",
+      "red_flags": []
+    },
+    {
+      "company_name": "Baby Boomers Estate Sales",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a plausible person's name.",
+      "red_flags": []
+    },
+    {
+      "company_name": "Transitions Care Concierge",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a plausible person's name.",
+      "red_flags": []
+    },
+    {
+      "company_name": "Towing West Palm Beach",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a plausible person's name.",
+      "red_flags": []
+    },
+    {
+      "company_name": "K&J Property Services",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Garbage text in contact name"
+      ]
+    },
+    {
+      "company_name": "Install Certified Builders",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 90,
+      "reasoning": "Contact name is a plausible person's name.",
+      "red_flags": []
+    },
+    {
+      "company_name": "Property Hub",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is the same as the company name, which is not plausible.",
+      "red_flags": [
+        "Contact name is identical to company name."
+      ]
+    },
+    {
+      "company_name": "Guetta Construction",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "The Gravity Group",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 80,
+      "reasoning": "Contact name is plausible and title is appropriate.",
+      "red_flags": []
+    },
+    {
+      "company_name": "Cushnie Construction",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "Hathaway's Demo Construction Environmental Services",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "F W Carson",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "Hawkeye Services",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "Broadway Enterprises",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 70,
+      "reasoning": "Contact name is plausible and title is appropriate.",
+      "red_flags": []
+    },
+    {
+      "company_name": "Scott's Auto Repair",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "Terraform",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "DMV High Rise",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "NJ Roofing",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "Pegasus  Services",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "Benito Landscaping and Sod",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "Schaumburg Plumbing & Sewer",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "Kendra's Remediation",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "J's Junk Removal and Cleaners",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "Poske Corp",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "Leeses",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "Semper Fi Tree and Debris",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "TKO Construction Solutions",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "GreenStar Auto Recyclers",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "Outdoor Detail",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "Conejo Bros Plumbing",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "Alliance Environmental Group",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 80,
+      "reasoning": "Contact name is plausible and title is appropriate.",
+      "red_flags": []
+    },
+    {
+      "company_name": "Mitchell Brothers Elite",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "Teeter Contracting",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "SunCat Solutions",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "Sanitary Service",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "Torres Plumbing & Heating",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "BC Summit",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 70,
+      "reasoning": "Contact name is plausible and title is appropriate.",
+      "red_flags": []
+    },
+    {
+      "company_name": "Strong Arm Solutions",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "Bee On Demand",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "General Builders",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 70,
+      "reasoning": "Contact name is plausible and title is appropriate.",
+      "red_flags": []
+    },
+    {
+      "company_name": "Junkamento Hauling Services",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "College Hunks Hauling Junk & Moving - Orland Park",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "SWS Environmental Service",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "Larry Cook Heating and Cooling",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 80,
+      "reasoning": "Contact name is plausible and title is appropriate.",
+      "red_flags": []
+    },
+    {
+      "company_name": "National Concrete",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 80,
+      "reasoning": "Contact name is plausible and title is appropriate.",
+      "red_flags": []
+    },
+    {
+      "company_name": "Graham Construction",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "Wee Dig It",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "Crary Project Garage",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 80,
+      "reasoning": "Contact name is plausible and title is appropriate.",
+      "red_flags": []
+    },
+    {
+      "company_name": "Budget Lawn Care",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "Strother Built Construction",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "T & J Builders and Excavating",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "Savior Roofing",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "M2 Mechanical",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 80,
+      "reasoning": "Contact name is plausible and title is appropriate.",
+      "red_flags": []
+    },
+    {
+      "company_name": "Cesars Junk Hauling",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "Marshall Electric",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "Lees Unlimited",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a plausible person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "On Que Movers & Junk Removal",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a real person's name.",
+      "red_flags": [
+        "Garbage text for name"
+      ]
+    },
+    {
+      "company_name": "JC Roofing Supply",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is the same as the company name.",
+      "red_flags": [
+        "Company name used as contact name"
+      ]
+    },
+    {
+      "company_name": "Buy & Sell Roofing Supply",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a real person's name.",
+      "red_flags": [
+        "Garbage text for name"
+      ]
+    },
+    {
+      "company_name": "SS Appliances",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a real person's name.",
+      "red_flags": [
+        "Garbage text for name"
+      ]
+    },
+    {
+      "company_name": "A&W Promovers",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a real person's name.",
+      "red_flags": [
+        "Garbage text for name"
+      ]
+    },
+    {
+      "company_name": "Junk Brothers & Moving",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a real person's name.",
+      "red_flags": [
+        "Garbage text for name"
+      ]
+    },
+    {
+      "company_name": "Lindstrom Waste Service",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a real person's name.",
+      "red_flags": [
+        "Garbage text for name"
+      ]
+    },
+    {
+      "company_name": "Reemergence Constructions",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a real person's name.",
+      "red_flags": [
+        "Garbage text for name"
+      ]
+    },
+    {
+      "company_name": "Anytime",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a real person's name.",
+      "red_flags": [
+        "Garbage text for name"
+      ]
+    },
+    {
+      "company_name": "WM - Wathena",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a real person's name.",
+      "red_flags": [
+        "Garbage text for name"
+      ]
+    },
+    {
+      "company_name": "Lion Home Service",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is the same as the company name.",
+      "red_flags": [
+        "Company name used as contact name"
+      ]
+    },
+    {
+      "company_name": "Timo's Auto Wrecking",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is the same as the company name.",
+      "red_flags": [
+        "Company name used as contact name"
+      ]
+    },
+    {
+      "company_name": "Asheville Towing Aid",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is the same as the company name.",
+      "red_flags": [
+        "Company name used as contact name"
+      ]
+    },
+    {
+      "company_name": "Long's Lawn Care & Landscaping",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a real person's name.",
+      "red_flags": [
+        "Garbage text for name"
+      ]
+    },
+    {
+      "company_name": "Boggs Properties",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is the same as the company name.",
+      "red_flags": [
+        "Company name used as contact name"
+      ]
+    },
+    {
+      "company_name": "Bings Complete Services, LLC",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a real person's name.",
+      "red_flags": [
+        "Garbage text for name"
+      ]
+    },
+    {
+      "company_name": "Level 10 Construction",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 80,
+      "reasoning": "Contact name is a plausible name.",
+      "red_flags": []
+    },
+    {
+      "company_name": "Golden Ratio Mobile Automotive Repair",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is the same as the company name.",
+      "red_flags": [
+        "Company name used as contact name"
+      ]
+    },
+    {
+      "company_name": "Jimco",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 80,
+      "reasoning": "Contact name is a plausible name.",
+      "red_flags": []
+    },
+    {
+      "company_name": "After Junk",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 70,
+      "reasoning": "Contact name is a plausible name.",
+      "red_flags": []
+    },
+    {
+      "company_name": "Joseph's Junk Removal",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is the same as the company name.",
+      "red_flags": [
+        "Company name used as contact name"
+      ]
+    },
+    {
+      "company_name": "A.B. Construction Co.",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a real person's name.",
+      "red_flags": [
+        "Garbage text for name"
+      ]
+    },
+    {
+      "company_name": "Call Clint Plumbing",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is the same as the company name.",
+      "red_flags": [
+        "Company name used as contact name"
+      ]
+    },
+    {
+      "company_name": "Builder Services",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a real person's name.",
+      "red_flags": [
+        "Garbage text for name"
+      ]
+    },
+    {
+      "company_name": "NGS Contractors",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is the same as the company name.",
+      "red_flags": [
+        "Company name used as contact name"
+      ]
+    },
+    {
+      "company_name": "Brown Town Electrical",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is the same as the company name.",
+      "red_flags": [
+        "Company name used as contact name"
+      ]
+    },
+    {
+      "company_name": "Premium Property Maintenance",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a real person's name.",
+      "red_flags": [
+        "Garbage text for name"
+      ]
+    },
+    {
+      "company_name": "Pink's Moving",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is the same as the company name.",
+      "red_flags": [
+        "Company name used as contact name"
+      ]
+    },
+    {
+      "company_name": "Arboreal Tree Trimming Irvine",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is the same as the company name.",
+      "red_flags": [
+        "Company name used as contact name"
+      ]
+    },
+    {
+      "company_name": "MLD Services",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is the same as the company name.",
+      "red_flags": [
+        "Company name used as contact name"
+      ]
+    },
+    {
+      "company_name": "Sawtooth Moving Company",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is the same as the company name.",
+      "red_flags": [
+        "Company name used as contact name"
+      ]
+    },
+    {
+      "company_name": "Remedy My Junk",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a real person's name.",
+      "red_flags": [
+        "Garbage text for name"
+      ]
+    },
+    {
+      "company_name": "Beavers Septic Service",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is the same as the company name.",
+      "red_flags": [
+        "Company name used as contact name"
+      ]
+    },
+    {
+      "company_name": "Seven Oaks Landscaping",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is the same as the company name.",
+      "red_flags": [
+        "Company name used as contact name"
+      ]
+    },
+    {
+      "company_name": "Corona Family Enterprises",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a real person's name.",
+      "red_flags": [
+        "Garbage text for name"
+      ]
+    },
+    {
+      "company_name": "United American Moving",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is the same as the company name.",
+      "red_flags": [
+        "Company name used as contact name"
+      ]
+    },
+    {
+      "company_name": "The Flooring Lady",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 0,
+      "reasoning": "Contact name is not a real person's name.",
+      "red_flags": [
+        "Garbage text for name"
+      ]
+    },
+    {
+      "company_name": "McDaniel Construction",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is the same as the company name.",
+      "red_flags": [
+        "Company name used as contact name"
+      ]
+    },
+    {
+      "company_name": "Organicscapes",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is the same as the company name.",
+      "red_flags": [
+        "Company name used as contact name"
+      ]
+    },
+    {
+      "company_name": "Brush Grinders Land Maintenance",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is the same as the company name.",
+      "red_flags": [
+        "Company name used as contact name"
+      ]
+    },
+    {
+      "company_name": "Velazquez Gardening Service",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 70,
+      "reasoning": "Contact name is a plausible name.",
+      "red_flags": []
+    },
+    {
+      "company_name": "Rooter Man Plumbers",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is the same as the company name.",
+      "red_flags": [
+        "Company name used as contact name"
+      ]
+    },
+    {
+      "company_name": "All Seasons Landscape Service",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is the same as the company name.",
+      "red_flags": [
+        "Company name used as contact name"
+      ]
+    },
+    {
+      "company_name": "You're Callin' We're Hallin'",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a real person's name.",
+      "red_flags": [
+        "Garbage text for name"
+      ]
+    },
+    {
+      "company_name": "May Heating & Air",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a real person's name.",
+      "red_flags": [
+        "Garbage text for name"
+      ]
+    },
+    {
+      "company_name": "Allegro Construction",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is the same as the company name.",
+      "red_flags": [
+        "Company name used as contact name"
+      ]
+    },
+    {
+      "company_name": "Diamond Tree Experts",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is the same as the company name.",
+      "red_flags": [
+        "Company name used as contact name"
+      ]
+    },
+    {
+      "company_name": "Rapid Earthworx",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is not a real person's name.",
+      "red_flags": [
+        "Garbage text for name"
+      ]
+    },
+    {
+      "company_name": "SiteOne Landscape Supply Stone Center",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is the same as the company name.",
+      "red_flags": [
+        "Company name used as contact name"
+      ]
+    },
+    {
+      "company_name": "Wright Moving",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 30,
+      "reasoning": "Contact name is the same as the company name.",
+      "red_flags": [
+        "Company name used as contact name"
+      ]
+    },
+    {
+      "company_name": "GAJ Construction Service",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 70,
+      "reasoning": "Contact name is a company name, not a person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "Reliable Basement & Drain + Reliable Contractor Services",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 70,
+      "reasoning": "Contact name is a company name, not a person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "Olde Colonial Trucking Company",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 70,
+      "reasoning": "Contact name is a company name, not a person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "ASF Contracting",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 70,
+      "reasoning": "Contact name is a company name, not a person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "Precise Junk Removal",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 70,
+      "reasoning": "Contact name is a company name, not a person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "Dirty Workz Construction",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 70,
+      "reasoning": "Contact name is a company name, not a person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "GRD Roof Removal",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 70,
+      "reasoning": "Contact name is a company name, not a person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "Pierre Towing and Auto Repair",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 70,
+      "reasoning": "Contact name is not a real person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "Collin Bryan Construction",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 70,
+      "reasoning": "Contact name is a company name, not a person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "Haly Home Comfort",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 70,
+      "reasoning": "Contact name is a company name, not a person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "Morris County Towing & Car Repair",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 70,
+      "reasoning": "Contact name is not a real person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "Igo Construction",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 70,
+      "reasoning": "Contact name is a company name, not a person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "Bells Turf",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 70,
+      "reasoning": "Contact name is a company name, not a person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "Celtic Pride Contracting",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 70,
+      "reasoning": "Contact name is a company name, not a person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "Flatbush Moving Van",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 70,
+      "reasoning": "Contact name is a company name, not a person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "Flaherty Demolition",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 70,
+      "reasoning": "Contact name is a company name, not a person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "915 Siteworks",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 50,
+      "reasoning": "Contact name is a real person's name but lacks context.",
+      "red_flags": []
+    },
+    {
+      "company_name": "BDI Marine Contractors",
+      "name_plausible": "no",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 70,
+      "reasoning": "Contact name is a company name, not a person's name.",
+      "red_flags": [
+        "Contact name is not a real person's name."
+      ]
+    },
+    {
+      "company_name": "MJT Solutions",
+      "name_plausible": "yes",
+      "title_appropriate": "yes",
+      "email_valid": "na",
+      "overall_score": 70,
+      "reasoning": "Contact name is a real person's name but lacks context.",
+      "red_flags": []
+    }
+  ]
+}

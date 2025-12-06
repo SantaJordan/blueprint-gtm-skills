@@ -11,6 +11,23 @@
     {
       "source": "/status.html",
       "destination": "/public/status.html"
+    },
+    {
+      "source": "/api/:path*",
+      "destination": "/api/:path*"
+    },
+    {
+      "source": "/:domain((?!api|public|_next)[^/]+)",
+      "destination": "/public/playbook.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET, POST, OPTIONS" }
+      ]
     }
   ]
 }

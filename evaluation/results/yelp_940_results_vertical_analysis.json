@@ -1,0 +1,207 @@
+{
+  "general_contractors": {
+    "total_companies": 100,
+    "successful": 76,
+    "success_rate": 76.0,
+    "avg_confidence": 66.9,
+    "avg_contacts_per_company": 1.14,
+    "avg_processing_time": 10.71,
+    "has_email_pct": 23.0,
+    "has_phone_pct": 83.0,
+    "has_owner_pct": 70.0,
+    "high_confidence_pct": 75.0,
+    "medium_confidence_pct": 1.0,
+    "low_confidence_pct": 24.0,
+    "top_sources": {
+      "google_maps_owner": 65,
+      "social_links": 42,
+      "serper_osint": 26,
+      "openweb_contacts": 23
+    }
+  },
+  "roofing": {
+    "total_companies": 100,
+    "successful": 70,
+    "success_rate": 70.0,
+    "avg_confidence": 62.55,
+    "avg_contacts_per_company": 0.93,
+    "avg_processing_time": 9.65,
+    "has_email_pct": 20.0,
+    "has_phone_pct": 82.0,
+    "has_owner_pct": 57.0,
+    "high_confidence_pct": 70.0,
+    "medium_confidence_pct": 0.0,
+    "low_confidence_pct": 30.0,
+    "top_sources": {
+      "google_maps_owner": 62,
+      "social_links": 35,
+      "openweb_contacts": 20,
+      "serper_osint": 10,
+      "page_scrape": 1
+    }
+  },
+  "junk_removal": {
+    "total_companies": 100,
+    "successful": 77,
+    "success_rate": 77.0,
+    "avg_confidence": 67.45,
+    "avg_contacts_per_company": 0.97,
+    "avg_processing_time": 9.44,
+    "has_email_pct": 23.0,
+    "has_phone_pct": 84.0,
+    "has_owner_pct": 54.0,
+    "high_confidence_pct": 76.0,
+    "medium_confidence_pct": 1.0,
+    "low_confidence_pct": 23.0,
+    "top_sources": {
+      "google_maps_owner": 67,
+      "social_links": 23,
+      "openweb_contacts": 22,
+      "serper_osint": 6,
+      "page_scrape": 1
+    }
+  },
+  "hvac": {
+    "total_companies": 90,
+    "successful": 51,
+    "success_rate": 56.67,
+    "avg_confidence": 49.0,
+    "avg_contacts_per_company": 0.74,
+    "avg_processing_time": 9.4,
+    "has_email_pct": 21.11,
+    "has_phone_pct": 64.44,
+    "has_owner_pct": 33.33,
+    "high_confidence_pct": 55.56,
+    "medium_confidence_pct": 1.11,
+    "low_confidence_pct": 43.33,
+    "top_sources": {
+      "google_maps_owner": 40,
+      "social_links": 24,
+      "openweb_contacts": 19,
+      "serper_osint": 8
+    }
+  },
+  "movers": {
+    "total_companies": 100,
+    "successful": 60,
+    "success_rate": 60.0,
+    "avg_confidence": 53.3,
+    "avg_contacts_per_company": 0.77,
+    "avg_processing_time": 8.57,
+    "has_email_pct": 17.0,
+    "has_phone_pct": 68.0,
+    "has_owner_pct": 41.0,
+    "high_confidence_pct": 60.0,
+    "medium_confidence_pct": 0.0,
+    "low_confidence_pct": 40.0,
+    "top_sources": {
+      "google_maps_owner": 54,
+      "social_links": 22,
+      "openweb_contacts": 17,
+      "serper_osint": 6
+    }
+  },
+  "electricians": {
+    "total_companies": 58,
+    "successful": 39,
+    "success_rate": 67.24,
+    "avg_confidence": 59.05,
+    "avg_contacts_per_company": 0.86,
+    "avg_processing_time": 11.37,
+    "has_email_pct": 12.07,
+    "has_phone_pct": 67.24,
+    "has_owner_pct": 56.9,
+    "high_confidence_pct": 67.24,
+    "medium_confidence_pct": 0.0,
+    "low_confidence_pct": 32.76,
+    "top_sources": {
+      "google_maps_owner": 32,
+      "social_links": 25,
+      "serper_osint": 11,
+      "openweb_contacts": 7
+    }
+  },
+  "plumbing": {
+    "total_companies": 100,
+    "successful": 70,
+    "success_rate": 70.0,
+    "avg_confidence": 62.15,
+    "avg_contacts_per_company": 0.93,
+    "avg_processing_time": 8.65,
+    "has_email_pct": 25.0,
+    "has_phone_pct": 87.0,
+    "has_owner_pct": 49.0,
+    "high_confidence_pct": 70.0,
+    "medium_confidence_pct": 0.0,
+    "low_confidence_pct": 30.0,
+    "top_sources": {
+      "google_maps_owner": 62,
+      "openweb_contacts": 25,
+      "social_links": 22,
+      "serper_osint": 4,
+      "page_scrape": 2
+    }
+  },
+  "auto_repair": {
+    "total_companies": 92,
+    "successful": 58,
+    "success_rate": 63.04,
+    "avg_confidence": 55.22,
+    "avg_contacts_per_company": 0.77,
+    "avg_processing_time": 8.6,
+    "has_email_pct": 19.57,
+    "has_phone_pct": 68.48,
+    "has_owner_pct": 44.57,
+    "high_confidence_pct": 61.96,
+    "medium_confidence_pct": 1.09,
+    "low_confidence_pct": 36.96,
+    "top_sources": {
+      "google_maps_owner": 47,
+      "openweb_contacts": 18,
+      "social_links": 7,
+      "serper_osint": 6
+    }
+  },
+  "landscaping": {
+    "total_companies": 100,
+    "successful": 74,
+    "success_rate": 74.0,
+    "avg_confidence": 64.4,
+    "avg_contacts_per_company": 1.02,
+    "avg_processing_time": 10.29,
+    "has_email_pct": 21.0,
+    "has_phone_pct": 79.0,
+    "has_owner_pct": 64.0,
+    "high_confidence_pct": 73.0,
+    "medium_confidence_pct": 1.0,
+    "low_confidence_pct": 26.0,
+    "top_sources": {
+      "google_maps_owner": 62,
+      "social_links": 24,
+      "openweb_contacts": 21,
+      "serper_osint": 18,
+      "page_scrape": 1
+    }
+  },
+  "tree_services": {
+    "total_companies": 100,
+    "successful": 81,
+    "success_rate": 81.0,
+    "avg_confidence": 72.05,
+    "avg_contacts_per_company": 1.01,
+    "avg_processing_time": 9.37,
+    "has_email_pct": 17.0,
+    "has_phone_pct": 85.0,
+    "has_owner_pct": 63.0,
+    "high_confidence_pct": 81.0,
+    "medium_confidence_pct": 0.0,
+    "low_confidence_pct": 19.0,
+    "top_sources": {
+      "google_maps_owner": 74,
+      "social_links": 22,
+      "openweb_contacts": 17,
+      "serper_osint": 9,
+      "page_scrape": 1
+    }
+  }
+}

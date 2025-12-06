@@ -392,8 +392,8 @@ class SMBContactPipeline:
             # Collect all candidate contacts
             candidates = self._collect_candidates(result, company)
 
-            # Stage 6: Social Links Search (OpenWeb Ninja - find LinkedIn for names without it)
-            # $0.002/query - searches for LinkedIn profiles
+            # Stage 6: Social Links Search (OpenWeb Ninja - find LinkedIn/Facebook for names without it)
+            # $0.002/query - searches for LinkedIn profiles, then Facebook as fallback for SMBs
             if "social_links" not in skip_stages and self.openweb_ninja:
                 for candidate in candidates:
                     if candidate.get("name") and not candidate.get("linkedin_url"):
@@ -412,6 +412,24 @@ class SMBContactPipeline:
                                     candidate.setdefault("sources", []).append("social_links")
                                 result.social_links_result = social_result
                                 logger.debug(f"Found LinkedIn for {candidate['name']}: {social_result.primary_linkedin}")
+                            else:
+                                # SMB fallback: Search Facebook when LinkedIn fails
+                                # Many SMB owners have Facebook but not LinkedIn
+                                if not candidate.get("facebook_url"):
+                                    try:
+                                        fb_result = await self.openweb_ninja.search_social_links(
+                                            search_query,
+                                            platform="facebook"
+                                        )
+                                        self._openweb_ninja_queries += 1
+
+                                        if fb_result.facebook_urls:
+                                            candidate["facebook_url"] = fb_result.facebook_urls[0]
+                                            if "social_links_fb" not in candidate.get("sources", []):
+                                                candidate.setdefault("sources", []).append("social_links_fb")
+                                            logger.debug(f"Found Facebook for {candidate['name']}: {fb_result.facebook_urls[0]}")
+                                    except Exception as e:
+                                        logger.debug(f"Facebook search failed for {candidate.get('name')}: {e}")
 
                         except Exception as e:
                             logger.debug(f"Social Links Search failed for {candidate.get('name')}: {e}")
@@ -556,10 +574,10 @@ class SMBContactPipeline:
                 candidates.append(candidate)
                 seen_names.add(gmaps.owner_name.lower())
 
-        # From OpenWeb Ninja Website Contacts
+        # From OpenWeb Ninja Website Contacts - extract ALL emails
         if result.openweb_contacts_result and result.openweb_contacts_result.success:
             contacts = result.openweb_contacts_result
-            # Add email contacts (primary emails often belong to owner for SMBs)
+            # Add all email contacts (SMBs may have multiple relevant emails)
             for email_info in contacts.emails:
                 email = email_info.get("value")
                 if email:
@@ -567,6 +585,7 @@ class SMBContactPipeline:
                         "email": email,
                         "phone": contacts.primary_phone,
                         "sources": ["openweb_contacts"],
+                        "email_source": email_info.get("sources", []),  # Track source metadata
                     }
                     # Add social links
                     if contacts.linkedin:
@@ -578,7 +597,7 @@ class SMBContactPipeline:
                     if contacts.twitter:
                         candidate["twitter_url"] = contacts.twitter
                     candidates.append(candidate)
-                    break  # Only add primary email
+                    # Continue to add all emails, not just first
 
         # From Serper owner discovery
         if result.serper_owner and result.serper_owner.lower() not in seen_names:

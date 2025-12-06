@@ -1,0 +1,520 @@
+{
+  "config": {
+    "input": "evaluation/data/smb_random_200.json",
+    "limit": 20,
+    "concurrency": 5
+  },
+  "summary": {
+    "total": 20,
+    "with_contact": 10,
+    "total_cost": 0.09400000000000003,
+    "elapsed_seconds": 32.56933093070984
+  },
+  "results": [
+    {
+      "company_name": "Ragone's Plumbing Services",
+      "domain": "ragonesplumbingservices.com",
+      "business_type": "smb",
+      "strategy_used": "SMB Owner Discovery",
+      "strategy_pivoted": false,
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint",
+        "data_fill"
+      ],
+      "total_cost": 0.005,
+      "candidates": [
+        {
+          "name": "The Ragones",
+          "title": null,
+          "sources": [
+            "serper"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "The Ragones",
+        "email": null,
+        "phone": null,
+        "title": null,
+        "confidence": 50,
+        "validation_reason": "Max stages reached, returning best candidate"
+      }
+    },
+    {
+      "company_name": "Riverhead Brew House",
+      "domain": "riverheadbrewhouse.com",
+      "business_type": "smb",
+      "strategy_used": "SMB Owner Discovery",
+      "strategy_pivoted": false,
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint",
+        "data_fill"
+      ],
+      "total_cost": 0.005,
+      "candidates": [],
+      "contact": null,
+      "no_contact_reason": "Max stages reached, no candidates found"
+    },
+    {
+      "company_name": "K J Lee's Automotive",
+      "domain": "kjleesauto.com",
+      "business_type": "smb",
+      "strategy_used": "SMB Owner Discovery",
+      "strategy_pivoted": false,
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint",
+        "data_fill"
+      ],
+      "total_cost": 0.005,
+      "candidates": [
+        {
+          "name": "Reinaldo A. Piedra",
+          "title": null,
+          "sources": [
+            "serper"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Reinaldo A. Piedra",
+        "email": null,
+        "phone": null,
+        "title": null,
+        "confidence": 50,
+        "validation_reason": "Max stages reached, returning best candidate"
+      }
+    },
+    {
+      "company_name": "Pig Pounder Brewery",
+      "domain": "pigpounder.com",
+      "business_type": "smb",
+      "strategy_used": "SMB Owner Discovery",
+      "strategy_pivoted": false,
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint",
+        "data_fill"
+      ],
+      "total_cost": 0.005,
+      "candidates": [
+        {
+          "name": "Pig Pounder Brewery",
+          "title": null,
+          "sources": [
+            "serper"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Pig Pounder Brewery",
+        "email": null,
+        "phone": null,
+        "title": null,
+        "confidence": 50,
+        "validation_reason": "Max stages reached, returning best candidate"
+      }
+    },
+    {
+      "company_name": "DaVita Wilshire Dialysis Center",
+      "domain": "davita.com",
+      "business_type": "franchise",
+      "strategy_used": "Franchise Owner Discovery",
+      "strategy_pivoted": false,
+      "stages_completed": [
+        "linkedin_search",
+        "serper_osint",
+        "google_maps_lookup"
+      ],
+      "total_cost": 0.005,
+      "candidates": [],
+      "contact": null,
+      "no_contact_reason": "No valid contact found after trying all available tools."
+    },
+    {
+      "company_name": "Georgetown Cupcake",
+      "domain": "georgetowncupcake.com",
+      "business_type": "smb",
+      "strategy_used": "SMB Owner Discovery",
+      "strategy_pivoted": false,
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint",
+        "data_fill"
+      ],
+      "total_cost": 0.005,
+      "candidates": [
+        {
+          "name": "Katherine Kallinis",
+          "title": null,
+          "sources": [
+            "serper"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Katherine Kallinis",
+        "email": null,
+        "phone": null,
+        "title": null,
+        "confidence": 50,
+        "validation_reason": "Max stages reached, returning best candidate"
+      }
+    },
+    {
+      "company_name": "Dunkin'",
+      "domain": "locations.dunkindonuts.com",
+      "business_type": "franchise",
+      "strategy_used": "Franchise Owner Discovery",
+      "strategy_pivoted": false,
+      "stages_completed": [
+        "linkedin_search",
+        "serper_osint",
+        "google_maps_lookup"
+      ],
+      "total_cost": 0.005,
+      "candidates": [],
+      "contact": null,
+      "no_contact_reason": "No valid contact found after trying multiple tools."
+    },
+    {
+      "company_name": "DARCARS Honda Service Center",
+      "domain": "darcarshonda.com",
+      "business_type": "smb",
+      "strategy_used": "SMB Owner Discovery",
+      "strategy_pivoted": false,
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint",
+        "data_fill"
+      ],
+      "total_cost": 0.005,
+      "candidates": [],
+      "contact": null,
+      "no_contact_reason": "Max stages reached, no candidates found"
+    },
+    {
+      "company_name": "Los Angeles Kidney Center - Nephrology",
+      "domain": "losangeleskidneycenter.com",
+      "business_type": "healthcare",
+      "strategy_used": "Healthcare Contact Discovery",
+      "strategy_pivoted": false,
+      "stages_completed": [
+        "website_contacts",
+        "npi_lookup",
+        "linkedin_search",
+        "serper_osint"
+      ],
+      "total_cost": 0.005,
+      "candidates": [],
+      "contact": null,
+      "no_contact_reason": "No valid contact found after trying all available tools."
+    },
+    {
+      "company_name": "Christine's Kitchen",
+      "domain": "facebook.com",
+      "business_type": "smb",
+      "strategy_used": "SMB Owner Discovery",
+      "strategy_pivoted": false,
+      "stages_completed": [
+        "google_maps_lookup",
+        "serper_osint",
+        "data_fill"
+      ],
+      "total_cost": 0.003,
+      "candidates": [
+        {
+          "name": "Ms Christine Pattison",
+          "title": null,
+          "sources": [
+            "serper"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Christine Pattison",
+        "email": "None",
+        "phone": "None",
+        "title": "Owner",
+        "confidence": 70,
+        "validation_reason": ""
+      }
+    },
+    {
+      "company_name": "Atomic Rooter Plumbing Sewer & Drain Cleaning",
+      "domain": "atomicrooterinc.com",
+      "business_type": "smb",
+      "strategy_used": "SMB Owner Discovery",
+      "strategy_pivoted": false,
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint",
+        "data_fill"
+      ],
+      "total_cost": 0.005,
+      "candidates": [
+        {
+          "name": "Steven Tricarico",
+          "title": null,
+          "sources": [
+            "serper"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Steven Tricarico",
+        "email": null,
+        "phone": null,
+        "title": null,
+        "confidence": 50,
+        "validation_reason": "Max stages reached, returning best candidate"
+      }
+    },
+    {
+      "company_name": "The Baklava",
+      "domain": "thebaklavaca.com",
+      "business_type": "smb",
+      "strategy_used": "SMB Owner Discovery",
+      "strategy_pivoted": false,
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint",
+        "data_fill"
+      ],
+      "total_cost": 0.005,
+      "candidates": [
+        {
+          "name": "Zelfa Alizray",
+          "title": null,
+          "sources": [
+            "serper"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Zelfa Alizray",
+        "email": null,
+        "phone": null,
+        "title": null,
+        "confidence": 50,
+        "validation_reason": "Max stages reached, returning best candidate"
+      }
+    },
+    {
+      "company_name": "Fresenius Kidney Care Greece",
+      "domain": "freseniuskidneycare.com",
+      "business_type": "franchise",
+      "strategy_used": "Franchise Owner Discovery",
+      "strategy_pivoted": false,
+      "stages_completed": [
+        "linkedin_search",
+        "serper_osint"
+      ],
+      "total_cost": 0.003,
+      "candidates": [
+        {
+          "name": "Helen Giza",
+          "title": null,
+          "linkedin_url": null,
+          "sources": [
+            "linkedin"
+          ]
+        },
+        {
+          "name": "Helen Giza's Post",
+          "title": null,
+          "linkedin_url": null,
+          "sources": [
+            "linkedin"
+          ]
+        },
+        {
+          "name": "Helen Giza",
+          "title": null,
+          "sources": [
+            "serper"
+          ]
+        }
+      ],
+      "contact": null,
+      "no_contact_reason": "No valid contact found with a specific title or contact information for the franchisee."
+    },
+    {
+      "company_name": "Texacone Snowcones and Ice Cream",
+      "domain": "texacone.square.site",
+      "business_type": "smb",
+      "strategy_used": "SMB Owner Discovery",
+      "strategy_pivoted": false,
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint",
+        "data_fill"
+      ],
+      "total_cost": 0.005,
+      "candidates": [],
+      "contact": null,
+      "no_contact_reason": "Max stages reached, no candidates found"
+    },
+    {
+      "company_name": "Rivertowne Brewing Company",
+      "domain": "myrivertowne.com",
+      "business_type": "smb",
+      "strategy_used": "SMB Owner Discovery",
+      "strategy_pivoted": false,
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint",
+        "data_fill"
+      ],
+      "total_cost": 0.005,
+      "candidates": [],
+      "contact": null,
+      "no_contact_reason": "Max stages reached, no candidates found"
+    },
+    {
+      "company_name": "Thriftway Super Stops",
+      "domain": "thriftwayss.com",
+      "business_type": "smb",
+      "strategy_used": "SMB Owner Discovery",
+      "strategy_pivoted": false,
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint",
+        "data_fill"
+      ],
+      "total_cost": 0.005,
+      "candidates": [],
+      "contact": null,
+      "no_contact_reason": "Max stages reached, no candidates found"
+    },
+    {
+      "company_name": "Linc Home Services",
+      "domain": "linc-htx.com",
+      "business_type": "smb",
+      "strategy_used": "SMB Owner Discovery",
+      "strategy_pivoted": false,
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint",
+        "data_fill"
+      ],
+      "total_cost": 0.005,
+      "candidates": [
+        {
+          "name": "Brian Lincoln",
+          "title": null,
+          "sources": [
+            "serper"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Brian Lincoln",
+        "email": null,
+        "phone": null,
+        "title": null,
+        "confidence": 50,
+        "validation_reason": "Max stages reached, returning best candidate"
+      }
+    },
+    {
+      "company_name": "Morocho Auto Body",
+      "domain": "morochoautobody.wixsite.com",
+      "business_type": "smb",
+      "strategy_used": "SMB Owner Discovery",
+      "strategy_pivoted": false,
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint",
+        "data_fill"
+      ],
+      "total_cost": 0.005,
+      "candidates": [
+        {
+          "name": "Henry Morocho",
+          "title": "--",
+          "sources": [
+            "serper"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Henry Morocho",
+        "email": null,
+        "phone": null,
+        "title": "--",
+        "confidence": 50,
+        "validation_reason": "Max stages reached, returning best candidate"
+      }
+    },
+    {
+      "company_name": "Guillen Plumbing Inc",
+      "domain": "guillenplumbinginc.com",
+      "business_type": "smb",
+      "strategy_used": "SMB Owner Discovery",
+      "strategy_pivoted": false,
+      "stages_completed": [
+        "google_maps_lookup",
+        "website_contacts",
+        "serper_osint",
+        "data_fill"
+      ],
+      "total_cost": 0.005,
+      "candidates": [
+        {
+          "name": "Frank Guillen Jr",
+          "title": null,
+          "sources": [
+            "serper"
+          ]
+        }
+      ],
+      "contact": {
+        "name": "Frank Guillen Jr",
+        "email": null,
+        "phone": null,
+        "title": null,
+        "confidence": 50,
+        "validation_reason": "Max stages reached, returning best candidate"
+      }
+    },
+    {
+      "company_name": "Walmart Supercenter",
+      "domain": "walmart.com",
+      "business_type": "corporate",
+      "strategy_used": "Corporate Location Contact Discovery",
+      "strategy_pivoted": true,
+      "stages_completed": [
+        "serper_osint",
+        "linkedin_search"
+      ],
+      "total_cost": 0.003,
+      "candidates": [
+        {
+          "name": "Doug McMillon",
+          "title": null,
+          "sources": [
+            "serper"
+          ]
+        }
+      ],
+      "contact": null,
+      "no_contact_reason": "No valid local manager contact found for Walmart Supercenter, as it is a corporate location with no reachable decision-maker."
+    }
+  ]
+}

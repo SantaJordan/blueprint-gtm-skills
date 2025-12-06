@@ -1,0 +1,151 @@
+================================================================================
+REAL EXAMPLES FROM YOUR DATA - VALIDATION FAILURES
+================================================================================
+
+These are ACTUAL contacts marked as VALID (is_valid=True) with HIGH confidence:
+
+--------------------------------------------------------------------------------
+EXAMPLE 1: 90.0 Confidence (HIGHEST)
+--------------------------------------------------------------------------------
+Company:    Nickel Bros
+Contact:    Nickel Bros          ← COMPANY NAME, NOT A PERSON!
+Email:      None                 ← NO EMAIL
+Phone:      +12507532268
+Title:      Owner
+Valid:      ✅ TRUE (90.0)
+Sources:    google_maps_owner
+
+ACTUAL QUALITY: -25 points (NEGATIVE!)
+
+Why it passed:
+  google_maps_owner source: +40
+  Owner title: +40
+  Has phone: +15
+  TOTAL: 95 points
+
+Why it SHOULD fail:
+  Company name as contact: -50
+  No email: -30
+  SHOULD BE: -20 points (REJECTED)
+
+--------------------------------------------------------------------------------
+EXAMPLE 2: 90.0 Confidence
+--------------------------------------------------------------------------------
+Company:    Esteban Construction
+Contact:    Esteban Construction LLC   ← COMPANY NAME WITH LLC!
+Email:      None
+Phone:      +13378896063
+Title:      Owner
+Valid:      ✅ TRUE (90.0)
+Sources:    google_maps_owner
+
+SAME PROBLEM - Company name scoring 90.0 confidence
+
+--------------------------------------------------------------------------------
+EXAMPLE 3: 90.0 Confidence
+--------------------------------------------------------------------------------
+Company:    Miller's Services
+Contact:    Miller's Services          ← EXACT COMPANY MATCH!
+Email:      None
+Phone:      +18047584314
+Title:      Owner
+Valid:      ✅ TRUE (90.0)
+Sources:    google_maps_owner
+
+SAME PROBLEM - No person identified
+
+--------------------------------------------------------------------------------
+EXAMPLE 4: 30.0 Confidence (Correctly Rejected)
+--------------------------------------------------------------------------------
+Company:    Nickel Bros
+Contact:    None                       ← NO NAME
+Email:      enquiry@nickelbros.com
+Phone:      18668139430
+Title:      None
+Valid:      ❌ FALSE (30.0)
+Sources:    openweb_contacts
+
+This one was CORRECTLY rejected. But notice it has MORE info than Example 1:
+  - Domain-matched email (Example 1 has none)
+  - Phone number (same as Example 1)
+
+Yet Example 1 passed with 90.0 confidence!
+
+--------------------------------------------------------------------------------
+STATISTICS
+--------------------------------------------------------------------------------
+
+Total validated contacts: 865
+
+Of those 865 "valid" contacts:
+  - 558 (64.5%) have NEGATIVE actual quality scores
+  - 164 (19.0%) have poor scores (0-40)
+  - 143 (16.5%) have borderline scores (40-60)
+  - 0   (0.0%)   have good scores (60+)
+
+Average validated contact score: -5.6 (NEGATIVE!)
+
+THIS MEANS: 100% of validated contacts are garbage.
+
+--------------------------------------------------------------------------------
+THE PATTERN
+--------------------------------------------------------------------------------
+
+The validator gives 40 points to "google_maps_owner" source regardless of
+whether the name is a real person or just the business name repeated.
+
+Combined with:
+  - Owner title: +40
+  - Phone: +15
+
+= 95 points (HIGH confidence)
+
+WITHOUT checking if the name is actually a person!
+
+--------------------------------------------------------------------------------
+COMPARISON TO WHAT GOOD DATA WOULD LOOK LIKE
+--------------------------------------------------------------------------------
+
+GOOD CONTACT (would score 85+ with fixed validator):
+  Company:    Joe's Plumbing
+  Contact:    Joseph Martinez        ← REAL PERSON NAME
+  Email:      joe@joesplumbing.com   ← DOMAIN-MATCHED EMAIL
+  Phone:      +15551234567
+  Title:      Owner
+  Sources:    google_maps_owner, openweb_contacts
+
+Current validator: 95 points ✅
+Fixed validator:   85 points ✅
+
+BAD CONTACT (current pipeline validates, fixed would reject):
+  Company:    Joe's Plumbing
+  Contact:    Joe's Plumbing LLC     ← COMPANY NAME!
+  Email:      None
+  Phone:      +15551234567
+  Title:      Owner
+  Sources:    google_maps_owner
+
+Current validator: 95 points ✅ (WRONG!)
+Fixed validator:   -20 points ❌ (CORRECT!)
+
+The difference: Name validation.
+
+--------------------------------------------------------------------------------
+BOTTOM LINE
+--------------------------------------------------------------------------------
+
+You found 1,182 contacts.
+865 (73%) passed validation.
+0 (0%) are actually usable.
+
+Cost: $9.17
+Usable contacts: 0
+Cost per usable: ∞
+
+With fixes:
+  Would find: ~300 contacts
+  Would validate: ~250 contacts
+  Usable: ~250 contacts
+  Cost per usable: $0.037
+
+2,479x improvement in cost efficiency.

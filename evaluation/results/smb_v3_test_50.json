@@ -1,0 +1,1403 @@
+{
+  "metadata": {
+    "input_file": "evaluation/data/yelp_diverse_1000.json",
+    "limit": 50,
+    "concurrency": 10,
+    "skip_stages": [],
+    "timestamp": "2025-12-01T22:32:27.344309"
+  },
+  "summary": {
+    "total_companies": 50,
+    "companies_processed": 50,
+    "contacts_found": 35,
+    "contacts_validated": 6,
+    "serper_queries": 24,
+    "leadmagic_credits": 0,
+    "zenrows_requests": 0,
+    "estimated_cost": 0.334
+  },
+  "stage_stats": {
+    "input_analysis": {
+      "total_rows": 940,
+      "companies_loaded": 50,
+      "detected_fields": [
+        "company_name",
+        "domain",
+        "vertical",
+        "address",
+        "phone",
+        "rating",
+        "reviews_count"
+      ],
+      "missing_fields": [],
+      "has_domain": "100.0%",
+      "has_owner": "0.0%"
+    }
+  },
+  "results": [
+    {
+      "company_name": "Nickel Bros",
+      "domain": "nickelbros.com",
+      "vertical": "general_contractors",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 7650.139093399048,
+      "contacts": [
+        {
+          "name": null,
+          "email": "enquiry@nickelbros.com",
+          "phone": "18668139430",
+          "title": null,
+          "linkedin_url": "https://www.linkedin.com/company/nickel-bros-house-moving-ltd",
+          "sources": [
+            "openweb_contacts"
+          ],
+          "is_valid": false,
+          "confidence": 0.0,
+          "validation_reasons": [
+            "The contact name is unknown and the company name 'Nickel Bros' is posing as a person name, leading to rejection.",
+            "RED FLAG: Company name posing as a person name",
+            "RED FLAG: Unknown contact name and title"
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Esteban Construction",
+      "domain": "estebanconstruction.com",
+      "vertical": "roofing",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "data_fill",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 14194.91720199585,
+      "contacts": [
+        {
+          "name": "Juan Luis Esteban",
+          "email": null,
+          "phone": null,
+          "title": "Owner",
+          "linkedin_url": "https://www.linkedin.com/in/juanluisesteban",
+          "sources": [
+            "serper_osint",
+            "social_links"
+          ],
+          "is_valid": true,
+          "confidence": 70.0,
+          "validation_reasons": [
+            "Juan Luis Esteban is a valid person name associated with Esteban Construction, supported by evidence from Google Maps and the company website, but lacks a verified email.",
+            "RED FLAG: No email provided",
+            "RED FLAG: Phone number not verified"
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Junkaway",
+      "domain": "junkawayllc.com",
+      "vertical": "junk_removal",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 7141.486167907715,
+      "contacts": [
+        {
+          "name": null,
+          "email": "junkawayservicesllc@gmail.com",
+          "phone": "817357680610",
+          "title": null,
+          "linkedin_url": "https://www.linkedin.com/company/east-tennessee-junk-away-llc",
+          "sources": [
+            "openweb_contacts"
+          ],
+          "is_valid": false,
+          "confidence": 0.0,
+          "validation_reasons": [
+            "The contact name is listed as 'Unknown' and the company name is used as the owner, which violates the critical rules.",
+            "RED FLAG: Contact name is 'Unknown'",
+            "RED FLAG: Company name used as owner",
+            "RED FLAG: No valid person identified"
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Miller's Services",
+      "domain": "millers-va.com",
+      "vertical": "hvac",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 8832.746982574463,
+      "contacts": [
+        {
+          "name": null,
+          "email": "kristen@millers-va.com",
+          "phone": "8047584314",
+          "title": null,
+          "linkedin_url": "https://www.linkedin.com/company/millers-va",
+          "sources": [
+            "openweb_contacts"
+          ],
+          "is_valid": false,
+          "confidence": 0.0,
+          "validation_reasons": [
+            "The contact name is unknown and the company name is posing as a person name, leading to a rejection.",
+            "RED FLAG: Company name posing as a person name",
+            "RED FLAG: Unknown contact name and title"
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Moover Dudes",
+      "domain": "mooverdudes.com",
+      "vertical": "movers",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 9090.213060379028,
+      "contacts": [
+        {
+          "name": null,
+          "email": "apply@mooverdudes.com",
+          "phone": null,
+          "title": null,
+          "linkedin_url": "https://www.linkedin.com/in/davissharp",
+          "sources": [
+            "openweb_contacts"
+          ],
+          "is_valid": false,
+          "confidence": 0.0,
+          "validation_reasons": [
+            "The contact name is unknown and the owner is listed as 'Moover Dudes', which is a company name, leading to rejection.",
+            "RED FLAG: Company name posing as a person name",
+            "RED FLAG: Unknown contact name and title"
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Muscle Beach Moving and Transport",
+      "domain": "musclebeachmovingandtransport.\u2026",
+      "vertical": "movers",
+      "stages_completed": [
+        "google_maps",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 4633.121967315674,
+      "contacts": []
+    },
+    {
+      "company_name": "Wilson Services",
+      "domain": "wilsonservices.com",
+      "vertical": "electricians",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 7539.308071136475,
+      "contacts": [
+        {
+          "name": null,
+          "email": "kim.peterson@colepublishing.com",
+          "phone": "973383211224",
+          "title": null,
+          "linkedin_url": "https://www.linkedin.com/company/wilson-services",
+          "sources": [
+            "openweb_contacts"
+          ],
+          "is_valid": false,
+          "confidence": 0.0,
+          "validation_reasons": [
+            "The contact name is unknown and does not meet the criteria for a valid person name, and the company name is used as the contact without any real person identified.",
+            "RED FLAG: Unknown contact name",
+            "RED FLAG: Company name used as contact",
+            "RED FLAG: No valid person identified"
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Norhio Plumbing",
+      "domain": "norhioplumbing.com",
+      "vertical": "plumbing",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 5896.177053451538,
+      "contacts": []
+    },
+    {
+      "company_name": "Jason Mazzer Plumbing & HVAC",
+      "domain": "mazzerplumbing.com",
+      "vertical": "hvac",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 7648.830890655518,
+      "contacts": [
+        {
+          "name": null,
+          "email": "workorders@mazzerplumbing.com",
+          "phone": "2016156672",
+          "title": null,
+          "linkedin_url": "https://www.linkedin.com/company/jason-mazzer-plumbing-hvac-llc",
+          "sources": [
+            "openweb_contacts"
+          ],
+          "is_valid": false,
+          "confidence": 0.0,
+          "validation_reasons": [
+            "The contact name is unknown and the company name is used as the contact, which violates the critical rules.",
+            "RED FLAG: Contact name is unknown",
+            "RED FLAG: Company name is used as contact name"
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Kirk R. Wainwright Construction",
+      "domain": "krwainwrightconst.com",
+      "vertical": "general_contractors",
+      "stages_completed": [
+        "google_maps",
+        "data_fill",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 14204.33521270752,
+      "contacts": [
+        {
+          "name": "Mark Wainwright",
+          "email": null,
+          "phone": null,
+          "title": "Owner",
+          "linkedin_url": null,
+          "sources": [
+            "serper_osint"
+          ],
+          "is_valid": false,
+          "confidence": 30.0,
+          "validation_reasons": [
+            "The contact name 'Mark Wainwright' is a real person name, but the Google Maps evidence indicates the owner is 'Kirk R Wainwright Construction Inc', which raises doubts about the validity of the contact.",
+            "RED FLAG: Company name as contact, no email provided, Google Maps indicates a different owner name"
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Crary Project Garage",
+      "domain": "craryprojectgarage.com",
+      "vertical": "auto_repair",
+      "stages_completed": [
+        "google_maps",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 6554.60786819458,
+      "contacts": [
+        {
+          "name": "The Cherry Garage",
+          "email": null,
+          "phone": "+13148285777",
+          "title": "Owner",
+          "linkedin_url": null,
+          "sources": [
+            "google_maps_owner"
+          ],
+          "is_valid": false,
+          "confidence": 0.0,
+          "validation_reasons": [
+            "The contact name 'The Cherry Garage' is a company name, not a real person name, leading to rejection.",
+            "RED FLAG: Contact name is a company name posing as a person name"
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Champion Mulch & Landscape Supply",
+      "domain": "gotochampion.com",
+      "vertical": "landscaping",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 6909.796953201294,
+      "contacts": [
+        {
+          "name": null,
+          "email": "mailus@gardenhub.com",
+          "phone": "9372282730",
+          "title": null,
+          "linkedin_url": "https://www.linkedin.com/in/mimi-sofia",
+          "sources": [
+            "openweb_contacts"
+          ],
+          "is_valid": false,
+          "confidence": 0.0,
+          "validation_reasons": [
+            "The contact name is unknown and the owner is listed as the company name, which violates the critical rules.",
+            "RED FLAG: Contact name is unknown",
+            "RED FLAG: Owner listed as company name",
+            "RED FLAG: No valid person identified"
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Property Proz Site Services",
+      "domain": "propertyprozsiteservices.com",
+      "vertical": "landscaping",
+      "stages_completed": [
+        "google_maps",
+        "data_fill",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 10698.40383529663,
+      "contacts": [
+        {
+          "name": "Facility Proz",
+          "email": null,
+          "phone": "+13167685868",
+          "title": "Owner",
+          "linkedin_url": null,
+          "sources": [
+            "google_maps_owner"
+          ],
+          "is_valid": false,
+          "confidence": 0.0,
+          "validation_reasons": [
+            "The contact name 'Facility Proz' appears to be a company name rather than a real person name, leading to rejection.",
+            "RED FLAG: Contact name is a company name, not a real person name."
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Decook Excavating",
+      "domain": "decookexcavating.com",
+      "vertical": "landscaping",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 7864.330053329468,
+      "contacts": [
+        {
+          "name": null,
+          "email": "corey@decookexcavating.com",
+          "phone": null,
+          "title": null,
+          "linkedin_url": "https://www.linkedin.com/company/decook-companies",
+          "sources": [
+            "openweb_contacts"
+          ],
+          "is_valid": false,
+          "confidence": 0.0,
+          "validation_reasons": [
+            "The contact name is unknown and the company name is used as the owner, which does not meet the criteria for a valid person name.",
+            "RED FLAG: Contact name is unknown",
+            "RED FLAG: Company name used as owner"
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Alford Plumbing",
+      "domain": "alfordplumbing.com",
+      "vertical": "plumbing",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 7836.315870285034,
+      "contacts": [
+        {
+          "name": null,
+          "email": "alfordplumbing@gmail.com",
+          "phone": "9312880332",
+          "title": null,
+          "linkedin_url": null,
+          "sources": [
+            "openweb_contacts"
+          ],
+          "is_valid": false,
+          "confidence": 0.0,
+          "validation_reasons": [
+            "The contact name is unknown and the company name is used as the owner name, which violates the critical rules.",
+            "RED FLAG: Contact name is unknown",
+            "RED FLAG: Company name used as owner name"
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "A&D Land Services",
+      "domain": "adlandservice.com",
+      "vertical": "tree_services",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 4345.104932785034,
+      "contacts": []
+    },
+    {
+      "company_name": "Trash B Gone Junk Removal",
+      "domain": "trashbgonenc.com",
+      "vertical": "junk_removal",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 6189.838886260986,
+      "contacts": [
+        {
+          "name": null,
+          "email": "trashbgonellc@gmail.com",
+          "phone": "9199721854",
+          "title": null,
+          "linkedin_url": null,
+          "sources": [
+            "openweb_contacts"
+          ],
+          "is_valid": false,
+          "confidence": 0.0,
+          "validation_reasons": [
+            "The contact name is 'Unknown' and the company name is used as the owner name, which violates the critical rules.",
+            "RED FLAG: Contact name is 'Unknown'",
+            "RED FLAG: Company name used as owner name"
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Mid TN Underground",
+      "domain": "midtnunderground.com",
+      "vertical": "electricians",
+      "stages_completed": [
+        "google_maps",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 4709.971904754639,
+      "contacts": []
+    },
+    {
+      "company_name": "Colton's Handyman Services",
+      "domain": "coltonshandyman.wixsite.com",
+      "vertical": "junk_removal",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "data_fill",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 15910.926818847656,
+      "contacts": [
+        {
+          "name": null,
+          "email": "coltons022@icloud.com",
+          "phone": "3527373145",
+          "title": null,
+          "linkedin_url": null,
+          "sources": [
+            "openweb_contacts"
+          ],
+          "is_valid": false,
+          "confidence": 30.0,
+          "validation_reasons": [
+            "The contact name is unknown and does not match a real person, with the only potential name being Brian Justin found in evidence [3], which lacks verification as the owner of the company.",
+            "RED FLAG: Unknown contact name",
+            "RED FLAG: No title provided",
+            "RED FLAG: Company name as contact"
+          ]
+        },
+        {
+          "name": "Brian Justin",
+          "email": null,
+          "phone": null,
+          "title": "Owner",
+          "linkedin_url": null,
+          "sources": [
+            "serper_osint"
+          ],
+          "is_valid": true,
+          "confidence": 70.0,
+          "validation_reasons": [
+            "Brian Justin is identified as the owner from a reliable source (serper_osint), and the title matches the target titles.",
+            "RED FLAG: No email provided",
+            "RED FLAG: No phone number provided",
+            "RED FLAG: Location is unknown"
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Doug Campbell Backhoe",
+      "domain": "backhoeman.com",
+      "vertical": "plumbing",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "data_fill",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 14963.011741638184,
+      "contacts": [
+        {
+          "name": null,
+          "email": "doug@backhoeman.com",
+          "phone": "7062550714",
+          "title": null,
+          "linkedin_url": null,
+          "sources": [
+            "openweb_contacts"
+          ],
+          "is_valid": true,
+          "confidence": 90.0,
+          "validation_reasons": [
+            "Doug Campbell is a real person name associated with the business Doug Campbell Backhoe, verified through Google Maps and the company website (evidence [1], [2], [3])."
+          ]
+        },
+        {
+          "name": "Doug Campbell",
+          "email": null,
+          "phone": null,
+          "title": "Owner",
+          "linkedin_url": null,
+          "sources": [
+            "serper_osint"
+          ],
+          "is_valid": true,
+          "confidence": 90.0,
+          "validation_reasons": [
+            "Doug Campbell is a real person name verified as the owner of Doug Campbell Backhoe via Google Maps and the company website."
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Buckley Disposal Service",
+      "domain": "buckleydisposal.com",
+      "vertical": "junk_removal",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 4537.291049957275,
+      "contacts": []
+    },
+    {
+      "company_name": "American Auto Madison",
+      "domain": "americanautomadison.com",
+      "vertical": "auto_repair",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 6332.918167114258,
+      "contacts": []
+    },
+    {
+      "company_name": "Property Management General Contracting",
+      "domain": "pmgcnj.com",
+      "vertical": "roofing",
+      "stages_completed": [
+        "google_maps",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 5754.36806678772,
+      "contacts": []
+    },
+    {
+      "company_name": "608 Plumbing",
+      "domain": "608plumbing.com",
+      "vertical": "hvac",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 8913.421630859375,
+      "contacts": [
+        {
+          "name": null,
+          "email": "joeg@608plumbing.com",
+          "phone": "6086101355",
+          "title": null,
+          "linkedin_url": "https://www.linkedin.com/in/joseph-gunderson-801431202",
+          "sources": [
+            "openweb_contacts"
+          ],
+          "is_valid": false,
+          "confidence": 0.0,
+          "validation_reasons": [
+            "The contact name is unknown and the owner is listed as '608 Plumbing', which is a company name, leading to a rejection.",
+            "RED FLAG: Company name posing as person name",
+            "RED FLAG: Unknown contact name and title"
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "EastCoast EarthHomes",
+      "domain": "ecehconstruction.com",
+      "vertical": "electricians",
+      "stages_completed": [
+        "openweb_contacts",
+        "data_fill",
+        "serper_osint",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 10626.317024230957,
+      "contacts": [
+        {
+          "name": null,
+          "email": "hughescorey205@gmail.com",
+          "phone": "5405193396",
+          "title": null,
+          "linkedin_url": null,
+          "sources": [
+            "openweb_contacts"
+          ],
+          "is_valid": false,
+          "confidence": 0.0,
+          "validation_reasons": [
+            "The contact name is unknown, and there is no valid person identified for outreach, leading to a rejection.",
+            "RED FLAG: Contact name is unknown",
+            "RED FLAG: No title provided",
+            "RED FLAG: No real person identified"
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Precise Timing Transports",
+      "domain": "precisetimingtransports.com",
+      "vertical": "movers",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 7976.184844970703,
+      "contacts": [
+        {
+          "name": null,
+          "email": "precisetimingtransports@gmail.com",
+          "phone": null,
+          "title": null,
+          "linkedin_url": null,
+          "sources": [
+            "openweb_contacts"
+          ],
+          "is_valid": false,
+          "confidence": 0.0,
+          "validation_reasons": [
+            "The contact name is unknown and the company name is used as the contact, which violates the critical rules.",
+            "RED FLAG: Contact name is unknown",
+            "RED FLAG: Company name used as contact"
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Pittsburg Disposal",
+      "domain": "pittsburgdisposal.com",
+      "vertical": "junk_removal",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 4409.656763076782,
+      "contacts": []
+    },
+    {
+      "company_name": "Baraboo Plumbing",
+      "domain": "barabooplumbing.com",
+      "vertical": "plumbing",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 6817.7502155303955,
+      "contacts": [
+        {
+          "name": null,
+          "email": "tom@barabooplumbing.com",
+          "phone": "6084482515",
+          "title": null,
+          "linkedin_url": "https://www.linkedin.com/in/tom-brooks-1ab36345",
+          "sources": [
+            "openweb_contacts"
+          ],
+          "is_valid": false,
+          "confidence": 0.0,
+          "validation_reasons": [
+            "The contact name is unknown and the company name is used as the owner, which violates the critical rules.",
+            "RED FLAG: Contact name is unknown",
+            "RED FLAG: Company name used as owner"
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Matsa Construction",
+      "domain": "matsaconstruction.com",
+      "vertical": "general_contractors",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "data_fill",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 17013.976097106934,
+      "contacts": [
+        {
+          "name": null,
+          "email": "matt@matsaconstructions.com",
+          "phone": "3052355390",
+          "title": null,
+          "linkedin_url": "https://www.linkedin.com/in/mateo-sanchez-8953a719",
+          "sources": [
+            "openweb_contacts"
+          ],
+          "is_valid": true,
+          "confidence": 70.0,
+          "validation_reasons": [
+            "Mateo Sanchez is identified as the owner from multiple sources, including Google Maps and a search, and the email matches the company domain."
+          ]
+        },
+        {
+          "name": "Mateo Sanchez",
+          "email": null,
+          "phone": null,
+          "title": "Owner",
+          "linkedin_url": "https://www.linkedin.com/in/mateosanchez",
+          "sources": [
+            "serper_osint",
+            "social_links"
+          ],
+          "is_valid": false,
+          "confidence": 29.0,
+          "validation_reasons": [
+            "The contact name 'Mateo Sanchez' is valid, but the company name 'Matsa Construction Co Inc' is posing as a person name, leading to rejection.",
+            "RED FLAG: Company name posing as a person name",
+            "RED FLAG: No verified email provided",
+            "RED FLAG: Phone number not available"
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "D M V Fire & Flood",
+      "domain": "dmvfireandflood.com\u2026",
+      "vertical": "general_contractors",
+      "stages_completed": [
+        "google_maps",
+        "early_exit_gmaps",
+        "data_fill",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 4148.2789516448975,
+      "contacts": []
+    },
+    {
+      "company_name": "Bowman Plumbing Heating & Air",
+      "domain": "mumford.custominternet.biz",
+      "vertical": "plumbing",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 4706.171989440918,
+      "contacts": []
+    },
+    {
+      "company_name": "DV Elect",
+      "domain": "dv-elect.com",
+      "vertical": "electricians",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 9458.725929260254,
+      "contacts": [
+        {
+          "name": "D&V Electronics",
+          "email": null,
+          "phone": "+18889791919",
+          "title": "Owner",
+          "linkedin_url": "https://www.linkedin.com/company/dv-electronics",
+          "sources": [
+            "google_maps_owner",
+            "social_links"
+          ],
+          "is_valid": false,
+          "confidence": 0.0,
+          "validation_reasons": [
+            "The contact name 'D&V Electronics' is a company name, not a real person name, leading to rejection.",
+            "RED FLAG: Contact name is a company name",
+            "RED FLAG: No valid email provided",
+            "RED FLAG: LinkedIn URL points to a company profile"
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Southern Gardens Landscape",
+      "domain": "southerngardenslandscapeplus.c\u2026",
+      "vertical": "tree_services",
+      "stages_completed": [
+        "google_maps",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 3437.5202655792236,
+      "contacts": []
+    },
+    {
+      "company_name": "Signature Roofing",
+      "domain": "mysignatureroofing.com",
+      "vertical": "roofing",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 6853.137969970703,
+      "contacts": [
+        {
+          "name": null,
+          "email": "roofs@mysignatureroofing.com",
+          "phone": "2086099071",
+          "title": null,
+          "linkedin_url": "https://www.linkedin.com/company/signature-roofing-pros",
+          "sources": [
+            "openweb_contacts"
+          ],
+          "is_valid": false,
+          "confidence": 0.0,
+          "validation_reasons": [
+            "The contact name is unknown, and there is no valid person identified for outreach, leading to a rejection based on critical rules.",
+            "RED FLAG: Contact name is unknown",
+            "RED FLAG: No valid person identified for outreach"
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Bryson\u2019s Lawn Care Landscaping Services",
+      "domain": "landscaperbogartga.com",
+      "vertical": "landscaping",
+      "stages_completed": [
+        "google_maps",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 5621.701240539551,
+      "contacts": []
+    },
+    {
+      "company_name": "Dynamerican",
+      "domain": "godynamerican.com",
+      "vertical": "hvac",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 4443.932294845581,
+      "contacts": []
+    },
+    {
+      "company_name": "LJ Ram Enterprises",
+      "domain": "ljramenterprisesllc.com",
+      "vertical": "general_contractors",
+      "stages_completed": [
+        "google_maps",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 4801.945924758911,
+      "contacts": []
+    },
+    {
+      "company_name": "Roofs by Bryan",
+      "domain": "roofsbybryan.com",
+      "vertical": "roofing",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 6767.225742340088,
+      "contacts": [
+        {
+          "name": null,
+          "email": "officemanager@roofsbybryan.com",
+          "phone": "7166213567",
+          "title": null,
+          "linkedin_url": "https://www.linkedin.com/in/bryan-tramontana-89a7144b",
+          "sources": [
+            "openweb_contacts"
+          ],
+          "is_valid": false,
+          "confidence": 0.0,
+          "validation_reasons": [
+            "The contact name is unknown and the company name is used as the owner name, which violates the critical rules.",
+            "RED FLAG: Company name used as contact name",
+            "RED FLAG: Unknown contact name and title"
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Delp Auto & Truck",
+      "domain": "delpauto.com",
+      "vertical": "auto_repair",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 4097.5189208984375,
+      "contacts": []
+    },
+    {
+      "company_name": "888 Builders",
+      "domain": "888builderstx.com",
+      "vertical": "general_contractors",
+      "stages_completed": [
+        "data_fill",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 13989.284753799438,
+      "contacts": [
+        {
+          "name": "Arjun Pandey",
+          "email": null,
+          "phone": null,
+          "title": "Owner",
+          "linkedin_url": "https://www.linkedin.com/in/arjun-pandey",
+          "sources": [
+            "serper_osint",
+            "social_links"
+          ],
+          "is_valid": true,
+          "confidence": 70.0,
+          "validation_reasons": [
+            "Arjun Pandey is identified as the owner of 888 Builders, with a reliable source confirming the name, but lacks email and phone verification.",
+            "RED FLAG: No email provided",
+            "RED FLAG: No phone number available"
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Fiore & Sons",
+      "domain": "fioreandsons.com",
+      "vertical": "general_contractors",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 6772.851943969727,
+      "contacts": [
+        {
+          "name": null,
+          "email": "david@fioreandsons.com",
+          "phone": "3034292275",
+          "title": null,
+          "linkedin_url": null,
+          "sources": [
+            "openweb_contacts"
+          ],
+          "is_valid": false,
+          "confidence": 0.0,
+          "validation_reasons": [
+            "The contact name is unknown and the owner is listed as 'Fiore & Sons', which is a company name, leading to rejection.",
+            "RED FLAG: Contact name is unknown",
+            "RED FLAG: Owner name is a company name"
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Delo Drain & Septic Svce",
+      "domain": "delosepticservice.com",
+      "vertical": "plumbing",
+      "stages_completed": [
+        "google_maps",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 4786.61036491394,
+      "contacts": []
+    },
+    {
+      "company_name": "Blue Sky Lawn care",
+      "domain": "blueskylawncarellc.com",
+      "vertical": "landscaping",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "bbb_discovery",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 15175.187826156616,
+      "contacts": [
+        {
+          "name": null,
+          "email": "bblawncarekc@gmail.com",
+          "phone": null,
+          "title": null,
+          "linkedin_url": "https://www.linkedin.com/in/jacqui-johnson-b191a5336",
+          "sources": [
+            "openweb_contacts"
+          ],
+          "is_valid": false,
+          "confidence": 0.0,
+          "validation_reasons": [
+            "The contact name is unknown and the owner listed is a company name, which violates the critical rules.",
+            "RED FLAG: Contact name is unknown",
+            "RED FLAG: Owner name is a company name (Blue Sky Lawn)"
+          ]
+        },
+        {
+          "name": "Paul Smith",
+          "email": null,
+          "phone": null,
+          "title": "Owner",
+          "linkedin_url": null,
+          "sources": [
+            "serper_osint"
+          ],
+          "is_valid": false,
+          "confidence": 30.0,
+          "validation_reasons": [
+            "The contact name 'Paul Smith' is a real person name, but the Google Maps listing indicates the owner as 'Blue Sky Lawn', which raises doubts about the validity of the ownership claim.",
+            "RED FLAG: Owner name on Google Maps is listed as 'Blue Sky Lawn', not Paul Smith",
+            "RED FLAG: No email provided",
+            "RED FLAG: No phone number provided"
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "DRM United Demolition",
+      "domain": "drmuniteddemolition.com",
+      "vertical": "roofing",
+      "stages_completed": [
+        "google_maps",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 4656.137943267822,
+      "contacts": []
+    },
+    {
+      "company_name": "Redeemed Moving",
+      "domain": "redeemedmoving.com",
+      "vertical": "movers",
+      "stages_completed": [
+        "data_fill",
+        "serper_osint",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 8694.99397277832,
+      "contacts": []
+    },
+    {
+      "company_name": "Ron's Sewer Service",
+      "domain": "ronssewerservicellc.com",
+      "vertical": "plumbing",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 6711.11798286438,
+      "contacts": [
+        {
+          "name": null,
+          "email": "ronssewerservice@gmail.com",
+          "phone": "7157490153",
+          "title": null,
+          "linkedin_url": null,
+          "sources": [
+            "openweb_contacts"
+          ],
+          "is_valid": false,
+          "confidence": 0.0,
+          "validation_reasons": [
+            "The contact name is unknown and the company name is used as the contact, which violates the critical rules.",
+            "RED FLAG: Contact name is unknown",
+            "RED FLAG: Company name used as contact"
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Rugged Creek Land Service",
+      "domain": "ruggedcreekland.com",
+      "vertical": "junk_removal",
+      "stages_completed": [
+        "google_maps",
+        "data_fill",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 14899.274826049805,
+      "contacts": [
+        {
+          "name": "Amy Langbein Heath",
+          "email": null,
+          "phone": null,
+          "title": "Owner",
+          "linkedin_url": null,
+          "sources": [
+            "serper_osint"
+          ],
+          "is_valid": false,
+          "confidence": 30.0,
+          "validation_reasons": [
+            "The contact name 'Amy Langbein Heath' is a valid person name, but the Google Maps evidence indicates the owner is listed as the company name, which raises concerns about the validity of the ownership claim.",
+            "RED FLAG: Owner name on Google Maps is listed as the company name",
+            "RED FLAG: No email provided",
+            "RED FLAG: No phone number provided"
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Multiple Solutions Pittsburgh",
+      "domain": "mspittsburgh.com",
+      "vertical": "electricians",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 6681.384801864624,
+      "contacts": [
+        {
+          "name": null,
+          "email": "services@mspittsburgh.com",
+          "phone": "4125009518",
+          "title": null,
+          "linkedin_url": "https://www.linkedin.com/in/bhaskar-chakrabarti",
+          "sources": [
+            "openweb_contacts"
+          ],
+          "is_valid": false,
+          "confidence": 0.0,
+          "validation_reasons": [
+            "The contact name is unknown and the company name is used as the owner, which violates the critical rules.",
+            "RED FLAG: Company name posing as person name",
+            "RED FLAG: Unknown contact name and title"
+          ]
+        }
+      ]
+    },
+    {
+      "company_name": "Hanna's Auto And Truck Recycling",
+      "domain": "slatingtonautomobileremoval.co\u2026",
+      "vertical": "auto_repair",
+      "stages_completed": [
+        "google_maps",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 3852.118968963623,
+      "contacts": []
+    },
+    {
+      "company_name": "Thorold Auto Parts & Recycling",
+      "domain": "thoroldauto.com",
+      "vertical": "auto_repair",
+      "stages_completed": [
+        "google_maps",
+        "openweb_contacts",
+        "early_exit_gmaps",
+        "social_links",
+        "validation"
+      ],
+      "errors": [],
+      "processing_time_ms": 7449.690103530884,
+      "contacts": [
+        {
+          "name": null,
+          "email": "mike@thoroldauto.com",
+          "phone": "9052274118",
+          "title": null,
+          "linkedin_url": "https://www.linkedin.com/company/thorold-auto-solutions",
+          "sources": [
+            "openweb_contacts"
+          ],
+          "is_valid": false,
+          "confidence": 0.0,
+          "validation_reasons": [
+            "The contact name is listed as 'Unknown', which does not meet the criteria for a valid person name.",
+            "RED FLAG: Contact name is 'Unknown', no real person identified."
+          ]
+        }
+      ]
+    }
+  ]
+}
