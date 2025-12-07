@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+:root {
+  /* Blueprint Design System */
+  --print-blue: #5611A6;
+  --dark-print: #280A4A;
+  --light-print: #D6B2FF;
+  --corn: #FFF277;
+  --ice: #F5F8FF;
+
+  --background: var(--ice);
+  --foreground: var(--dark-print);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  /* Blueprint Colors */
+  --color-print-blue: var(--print-blue);
+  --color-dark-print: var(--dark-print);
+  --color-light-print: var(--light-print);
+  --color-corn: var(--corn);
+  --color-ice: var(--ice);
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography */
+h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--dark-print);
+  border-bottom: 2px solid var(--light-print);
+  padding-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--dark-print);
+  position: relative;
+  padding-left: 1rem;
+}
+
+h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--print-blue);
+  border-radius: 2px;
+}
+
+/* Links */
+a {
+  color: var(--print-blue);
+  text-decoration: underline;
+  text-decoration-color: var(--light-print);
+  text-underline-offset: 2px;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--dark-print);
+}
+
+/* Buttons */
+.btn-primary {
+  background: var(--print-blue);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none; /* Override link underline */
+}
+
+.btn-primary:hover {
+  background: var(--dark-print);
+  color: white; /* Keep text white on hover (override a:hover) */
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(86, 17, 166, 0.3);
+  text-decoration: none; /* Keep no underline on hover */
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Cards */
+.card {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(40, 10, 74, 0.1);
+  padding: 2rem;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="email"],
+input[type="url"] {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 2px solid var(--light-print);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background: white;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--print-blue);
+  box-shadow: 0 0 0 3px rgba(86, 17, 166, 0.1);
+}
+
+/* Pulse animation for loading states */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(0.98);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Progress bar shimmer */
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.progress-shimmer {
+  background: linear-gradient(90deg, var(--print-blue), var(--light-print), var(--print-blue));
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
