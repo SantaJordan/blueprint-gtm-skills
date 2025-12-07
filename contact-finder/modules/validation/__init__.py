@@ -18,6 +18,13 @@ from .contact_judge import (
     ContactJudgment,
     create_evidence_bundle
 )
+from .million_verifier import (
+    MillionVerifierClient,
+    VerificationResult,
+    EmailResult,
+    EmailQuality,
+    verify_email_quick
+)
 
 __all__ = [
     'EmailValidator',
@@ -33,4 +40,9 @@ __all__ = [
     'ContactJudge',
     'ContactJudgment',
     'create_evidence_bundle',
+    'MillionVerifierClient',
+    'VerificationResult',
+    'EmailResult',
+    'EmailQuality',
+    'verify_email_quick',
 ]

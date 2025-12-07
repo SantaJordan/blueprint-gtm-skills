@@ -10,6 +10,19 @@ from .openweb_ninja import (
     OpenWebContactResult,
     SocialLinksResult,
 )
+from .email_permutator import (
+    generate_email_permutations,
+    parse_name,
+    split_name,
+    is_valid_for_permutation,
+    NameComponents,
+)
+from .email_finder import (
+    EmailFinder,
+    EmailFinderResult,
+    EmailCandidate,
+    find_email_for_contact,
+)
 
 __all__ = [
     "LinkedInCompanyDiscovery",
@@ -21,4 +34,14 @@ __all__ = [
     "LocalBusinessResult",
     "OpenWebContactResult",
     "SocialLinksResult",
+    # Email Finder
+    "generate_email_permutations",
+    "parse_name",
+    "split_name",
+    "is_valid_for_permutation",
+    "NameComponents",
+    "EmailFinder",
+    "EmailFinderResult",
+    "EmailCandidate",
+    "find_email_for_contact",
 ]

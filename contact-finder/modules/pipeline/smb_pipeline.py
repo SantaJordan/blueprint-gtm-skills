@@ -22,6 +22,7 @@ from ..discovery.openweb_ninja import (
     SocialLinksResult,
 )
 from ..enrichment.leadmagic import LeadMagicClient, split_name
+from ..discovery.email_finder import EmailFinder, EmailFinderResult
 from ..validation.simple_validator import (
     SimpleContactValidator,
     ContactCandidate,
@@ -44,6 +45,10 @@ class ContactResult:
     linkedin_url: str | None = None
     sources: list[str] = field(default_factory=list)
     validation: ValidationResult | None = None
+    # Email verification fields
+    email_verified: bool = False
+    email_verification_source: str | None = None  # "million_verifier"
+    email_verification_result: str | None = None  # "ok", "catch_all", "invalid", etc.
 
 
 @dataclass
@@ -89,6 +94,7 @@ class SMBPipelineResult:
     leadmagic_credits: int = 0
     zenrows_requests: int = 0
     openweb_ninja_queries: int = 0  # $0.002 per query
+    million_verifier_credits: int = 0  # ~$0.00029 per verification
 
     # Results
     results: list[CompanyResult] = field(default_factory=list)
@@ -104,7 +110,8 @@ class SMBPipelineResult:
         leadmagic_cost = self.leadmagic_credits * 0.01  # Approx
         zenrows_cost = self.zenrows_requests * 0.01  # Approx
         openweb_cost = self.openweb_ninja_queries * 0.002  # $0.002/query
-        return serper_cost + leadmagic_cost + zenrows_cost + openweb_cost
+        million_verifier_cost = self.million_verifier_credits * 0.00029  # ~$0.29 per 1000
+        return serper_cost + leadmagic_cost + zenrows_cost + openweb_cost + million_verifier_cost
 
 
 class SMBContactPipeline:
@@ -130,18 +137,22 @@ class SMBContactPipeline:
         zenrows_api_key: str | None = None,
         rapidapi_key: str | None = None,
         openai_api_key: str | None = None,
+        million_verifier_api_key: str | None = None,
         min_validation_score: int = 50,
         concurrency: int = 10,
-        use_llm_validation: bool = True
+        use_llm_validation: bool = True,
+        use_email_verification: bool = True
     ):
         self.serper_api_key = serper_api_key or os.environ.get("SERPER_API_KEY")
         self.leadmagic_api_key = leadmagic_api_key or os.environ.get("LEADMAGIC_API_KEY")
         self.zenrows_api_key = zenrows_api_key or os.environ.get("ZENROWS_API_KEY")
         self.rapidapi_key = rapidapi_key or os.environ.get("RAPIDAPI_KEY")
         self.openai_api_key = openai_api_key or os.environ.get("OPENAI_API_KEY")
+        self.million_verifier_api_key = million_verifier_api_key or os.environ.get("MILLIONVERIFIER_API_KEY")
         self.min_validation_score = min_validation_score
         self.concurrency = concurrency
         self.use_llm_validation = use_llm_validation
+        self.use_email_verification = use_email_verification
 
         # Initialize components
         self.csv_explorer = CSVExplorer()
@@ -167,12 +178,26 @@ class SMBContactPipeline:
             except Exception as e:
                 logger.warning(f"Failed to initialize LLM judge: {e}. Using rule-based fallback.")
 
+        # Email Finder with MillionVerifier for email permutation + verification
+        self.email_finder: EmailFinder | None = None
+        if use_email_verification and self.million_verifier_api_key:
+            try:
+                self.email_finder = EmailFinder(
+                    million_verifier_api_key=self.million_verifier_api_key,
+                    max_concurrent=concurrency,
+                    verification_timeout=20
+                )
+                logger.info("Email verification enabled (MillionVerifier)")
+            except Exception as e:
+                logger.warning(f"Failed to initialize EmailFinder: {e}. Email verification disabled.")
+
         # Stats tracking
         self._serper_queries = 0
         self._leadmagic_credits = 0
         self._zenrows_requests = 0
         self._openweb_ninja_queries = 0
         self._llm_validations = 0
+        self._million_verifier_credits = 0
 
     async def close(self):
         """Cleanup resources"""
@@ -181,6 +206,8 @@ class SMBContactPipeline:
             await self.leadmagic.close()
         if self.openweb_ninja:
             await self.openweb_ninja.close()
+        if self.email_finder:
+            await self.email_finder.close()
 
     async def run(
         self,
@@ -263,6 +290,7 @@ class SMBContactPipeline:
             result.leadmagic_credits = self._leadmagic_credits
             result.zenrows_requests = self._zenrows_requests
             result.openweb_ninja_queries = self._openweb_ninja_queries
+            result.million_verifier_credits = self._million_verifier_credits
 
         except Exception as e:
             logger.error(f"Pipeline failed: {e}")
@@ -436,6 +464,12 @@ class SMBContactPipeline:
 
                 result.stages_completed.append("social_links")
 
+            # Stage 6.5: Email Verification (MillionVerifier)
+            # Generate email permutations and verify all candidates
+            if "email_verification" not in skip_stages and self.email_finder and result.domain:
+                await self._run_email_verification(result, candidates)
+                result.stages_completed.append("email_verification")
+
             # Stage 7: Enrichment (if we have emails and LeadMagic)
             if "enrichment" not in skip_stages and self.leadmagic:
                 for candidate in candidates:
@@ -517,7 +551,10 @@ class SMBContactPipeline:
                     title=candidate.get("title"),
                     linkedin_url=candidate.get("linkedin_url"),
                     sources=candidate.get("sources", []),
-                    validation=validation
+                    validation=validation,
+                    email_verified=candidate.get("email_verified", False),
+                    email_verification_source=candidate.get("email_verification_source"),
+                    email_verification_result=candidate.get("email_verification_result")
                 )
 
                 result.contacts.append(contact_result)
@@ -530,6 +567,87 @@ class SMBContactPipeline:
 
         result.processing_time_ms = (time.time() - start_time) * 1000
         return result
+
+    async def _run_email_verification(
+        self,
+        result: CompanyResult,
+        candidates: list[dict]
+    ):
+        """
+        Run email verification on all candidates.
+        Generates email permutations for candidates with names, verifies all emails.
+
+        Args:
+            result: Company result to update
+            candidates: List of candidate dicts to process
+        """
+        if not self.email_finder or not result.domain:
+            return
+
+        for candidate in candidates:
+            try:
+                # Collect existing emails for this candidate
+                existing_emails = []
+                if candidate.get("email"):
+                    existing_emails.append(candidate["email"])
+
+                # If candidate has a name, generate permutations and verify
+                if candidate.get("name"):
+                    finder_result = await self.email_finder.find_email(
+                        full_name=candidate["name"],
+                        domain=result.domain,
+                        existing_emails=existing_emails
+                    )
+
+                    # Update credits used
+                    self._million_verifier_credits += finder_result.credits_used
+
+                    # If we found a verified email, update the candidate
+                    if finder_result.found_valid_email:
+                        candidate["email"] = finder_result.best_email
+                        candidate["email_verified"] = True
+                        candidate["email_verification_result"] = finder_result.best_result_type
+                        candidate["email_verification_source"] = "million_verifier"
+                        candidate["email_confidence"] = finder_result.best_confidence
+
+                        # Add source if email came from permutation
+                        if finder_result.best_verification and "permutation" not in candidate.get("sources", []):
+                            # Check if this was a generated permutation
+                            original_email = existing_emails[0] if existing_emails else None
+                            if finder_result.best_email != original_email:
+                                candidate.setdefault("sources", []).append("email_permutation")
+
+                        logger.debug(
+                            f"Verified email for {candidate['name']}: "
+                            f"{finder_result.best_email} ({finder_result.best_result_type})"
+                        )
+                    elif existing_emails:
+                        # Mark existing email as unverified if no valid email found
+                        candidate["email_verified"] = False
+                        if finder_result.candidates_checked:
+                            # Get result for original email if available
+                            for ec in finder_result.candidates_checked:
+                                if ec.email == existing_emails[0].lower():
+                                    candidate["email_verification_result"] = ec.result_type
+                                    break
+
+                elif existing_emails:
+                    # No name but has email - just verify the existing email
+                    verification = await self.email_finder.verify_single(existing_emails[0])
+                    self._million_verifier_credits += 1
+
+                    if verification.is_deliverable:
+                        candidate["email_verified"] = True
+                        candidate["email_verification_result"] = verification.result.value
+                        candidate["email_verification_source"] = "million_verifier"
+                        candidate["email_confidence"] = verification.confidence_score
+                    else:
+                        candidate["email_verified"] = False
+                        candidate["email_verification_result"] = verification.result.value
+
+            except Exception as e:
+                logger.debug(f"Email verification failed for {candidate.get('name')}: {e}")
+                result.errors.append(f"Email verification failed: {e}")
 
     def _collect_candidates(self, result: CompanyResult, original_company: dict) -> list[dict]:
         """Collect all candidate contacts from various sources"""
@@ -749,6 +867,7 @@ def print_pipeline_result(result: SMBPipelineResult):
     print(f"  Serper queries: {result.serper_queries} (${result.serper_queries * 0.001:.3f})")
     print(f"  LeadMagic credits: {result.leadmagic_credits} (${result.leadmagic_credits * 0.01:.2f})")
     print(f"  ZenRows requests: {result.zenrows_requests}")
+    print(f"  MillionVerifier: {result.million_verifier_credits} credits (${result.million_verifier_credits * 0.00029:.3f})")
     print(f"  Total: ${result.total_cost:.3f}")
 
     print()
@@ -768,7 +887,12 @@ def print_pipeline_result(result: SMBPipelineResult):
             score = c.validation.confidence if c.validation else 0
             print(f"      - {c.name} ({c.title}) [{status} {score:.0f}]")
             if c.email:
-                print(f"        Email: {c.email}")
+                verified_str = ""
+                if c.email_verified:
+                    verified_str = f" [VERIFIED: {c.email_verification_result}]"
+                elif c.email_verification_result:
+                    verified_str = f" [{c.email_verification_result}]"
+                print(f"        Email: {c.email}{verified_str}")
             if c.linkedin_url:
                 print(f"        LinkedIn: {c.linkedin_url}")
 
