@@ -160,12 +160,89 @@
 
         .score-badge {
             display: inline-block;
-            background: var(--light-print);
-            color: var(--dark-print);
-            padding: 0.25rem 0.5rem;
+            background: #10B981;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+
+        .score-badge.medium {
+            background: #F59E0B;
+        }
+
+        .score-badge.low {
+            background: #EF4444;
+        }
+
+        .segment-label {
+            display: inline-block;
+            background: var(--ice);
+            color: var(--print-blue);
+            padding: 0.25rem 0.75rem;
             border-radius: 0.25rem;
             font-size: 0.75rem;
+            font-weight: 500;
             margin-left: 0.5rem;
+            border: 1px solid var(--light-print);
+        }
+
+        .calculation-worksheet {
+            background: #F0FDF4;
+            border: 1px solid #86EFAC;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+        }
+
+        .calculation-worksheet h4 {
+            color: #166534;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .data-confidence {
+            display: inline-block;
+            padding: 0.125rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.625rem;
+            font-weight: 600;
+            margin-left: 0.25rem;
+        }
+
+        .data-confidence.high {
+            background: #DCFCE7;
+            color: #166534;
+        }
+
+        .data-confidence.medium {
+            background: #FEF3C7;
+            color: #92400E;
+        }
+
+        .data-confidence.low {
+            background: #FEE2E2;
+            color: #991B1B;
+        }
+
+        .texada-badge {
+            display: inline-block;
+            background: var(--dark-print);
+            color: var(--corn);
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.625rem;
+            font-weight: 600;
+            margin-right: 0.25rem;
+        }
+
+        .texada-badge.fail {
+            background: #FEE2E2;
+            color: #991B1B;
         }
 
         @media (min-width: 768px) {
@@ -212,11 +289,11 @@
                 <p><strong>The Typical Mixmax SDR Email:</strong></p>
                 <div class="message-example">Subject: Quick Question about Mixmax
 
-Hi Sales,
+Hi there,
 
 I noticed on LinkedIn that your company recently expanded. Congrats on the growth!
 
-I wanted to reach out because we work with companies like yours to help with Mixmax sells an AI-powered sales execution platfor.
+I wanted to reach out because we work with companies like yours to help with .
 
 Our platform offers:
 - Feature 1
@@ -270,33 +347,7 @@ Generic SDR</div>
 
             <p>These messages provide actionable intelligence before asking for anything. The prospect can use this value today whether they respond or not. That's the power of permissionless value.</p>
 
-            
-            <div class="play-card">
-                <span class="play-type pvp">PVP</span>
-                <span class="score-badge">Score: 7.0/10</span>
-                <h3>Play 1: Sales Engagement Leaders</h3>
-
-                <div class="play-explanation">
-                    <p><strong>What's the play?</strong> Sales Engagement Leaders</p>
-                </div>
-
-                <div class="why-section">
-                    <p><strong>Why this works:</strong> This almost got me. 6.2 hours/week is tangible pain I feel. But WHO are these 200+ orgs? WHEN was this benchmark? WHICH similar company? Name them or I assume it's fiction. The inbox-native angle intrigued me - that's your hook. Lead with that, not generic time-saving claims.</p>
-                </div>
-
-                <div class="data-sources">
-                    <strong>Data source:</strong> Government databases
-                </div>
-
-                <p><strong>The message:</strong></p>
-                <div class="message-example">Subject: [company_name] could eliminate 6.2 hours/week of tool switching
-
-Hi [name], I benchmarked [company_name]'s sales stack against 200+ similar orgs and found your team likely wastes 6.2 hours weekly switching between [identified tools]. Companies consolidating to inbox-native workflows report 28% higher email engagement and 41% more meetings booked.
-
-Here's the specific consolidation path that worked for [similar company]: [brief roadmap].
-
-Who on your team should see the full efficiency analysis - you or your sales ops lead?</div>
-            </div>
+            <p>No messages generated for this category.</p>
         </div>
 
         <!-- SECTION 6: The Transformation -->
