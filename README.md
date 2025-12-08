@@ -603,6 +603,55 @@ This script will:
 
 ---
 
+## Cloud / Mobile Trigger System
+
+### Overview
+
+The Blueprint system supports triggering playbook generation from your phone via iOS Shortcuts → Vercel API → Supabase → Modal Worker → GitHub Pages.
+
+### Architecture
+
+```
+iPhone → Vercel API → Supabase → Agent SDK Worker → GitHub Pages
+                                        ↓
+                                 Claude Code Engine
+                                        ↓
+                                 .claude/skills/
+```
+
+### Components
+
+| Component | Location | Purpose |
+|-----------|----------|---------|
+| **Vercel Trigger API** | `blueprint-trigger-api/` | Receives URL, queues job |
+| **Agent SDK Worker** | `agent-sdk-worker/` | Runs Blueprint Turbo via Agent SDK |
+| **Modal Python Worker** | `blueprint-worker/` | Legacy worker (backup) |
+
+### Agent SDK Worker (Recommended)
+
+The Agent SDK Worker provides **90-95% quality parity** with local `/blueprint-turbo` by:
+- Loading `.claude/skills/` as the single source of truth
+- Using Sequential Thinking MCP for synthesis
+- Running the exact same command flow as local execution
+
+**Documentation:**
+- [README](agent-sdk-worker/README.md) - Quick start guide
+- [Runbook](docs/AGENT_SDK_RUNBOOK.md) - Operations guide
+- [Migration Notes](docs/AGENT_SDK_MIGRATION_NOTES.md) - Architecture decisions
+
+### Quick Start
+
+```bash
+# Deploy Agent SDK Worker to Modal
+cd agent-sdk-worker
+npm install
+modal deploy modal/wrapper.py
+```
+
+Then configure the Supabase webhook to point to the new Modal endpoint.
+
+---
+
 ## Next Steps
 
 1. **Choose your workflow:**
