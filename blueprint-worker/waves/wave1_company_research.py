@@ -5,12 +5,67 @@ Executes parallel WebFetch + WebSearch to gather:
 - Company context (offering, value prop, differentiators)
 - ICP profile (industries, company scale, operational context)
 - Target persona (title, responsibilities, KPIs, blind spots)
+
+V5: Added domain validation to fix product misidentification issues.
 """
 import asyncio
-from typing import Dict, List
+from typing import Dict, List, Optional
 import re
 
 from tools.claude_retry import call_claude_with_retry
+
+
+# Known domain-to-product mappings for disambiguation
+# These help prevent domain confusion (e.g., hint.com = Hint Water vs Hint Health)
+DOMAIN_HINTS = {
+    # Restaurant/Food Service
+    "owner.com": {
+        "expected_keywords": ["restaurant", "menu", "ordering", "food", "delivery", "online ordering"],
+        "product_category": "restaurant_platform",
+        "disambiguation_searches": [
+            "Owner.com restaurant online ordering platform",
+            "Owner.com restaurant website builder",
+            "Owner.com food service technology"
+        ]
+    },
+    # Healthcare/DPC
+    "hint.com": {
+        "expected_keywords": ["healthcare", "dpc", "primary care", "medical", "patient", "physician", "clinic"],
+        "product_category": "healthcare_dpc",
+        "disambiguation_searches": [
+            "Hint Health DPC software",
+            "Hint Health direct primary care",
+            "Hint Health membership management"
+        ]
+    },
+    # Sales Engagement
+    "mixmax.com": {
+        "expected_keywords": ["email", "sales", "engagement", "productivity", "sequence", "outreach"],
+        "product_category": "sales_engagement",
+        "disambiguation_searches": [
+            "Mixmax sales email platform",
+            "Mixmax sales engagement tool"
+        ]
+    },
+    # EHR/Healthcare
+    "canvasmedical.com": {
+        "expected_keywords": ["ehr", "electronic health record", "healthcare", "medical", "patient", "clinical"],
+        "product_category": "healthcare_ehr",
+        "disambiguation_searches": [
+            "Canvas Medical EHR platform",
+            "Canvas Medical healthcare API"
+        ]
+    },
+    # Digital Business Cards
+    "blinq.me": {
+        "expected_keywords": ["business card", "contact", "networking", "digital card", "qr code"],
+        "product_category": "contact_networking",
+        "disambiguation_searches": [
+            "Blinq digital business card",
+            "Blinq contact sharing app"
+        ]
+    }
+}
 
 
 class Wave1CompanyResearch:
@@ -82,8 +137,13 @@ class Wave1CompanyResearch:
         # Use Claude to synthesize
         synthesis = await self._synthesize_with_claude(company_name, all_content)
 
+        # V5: Validate company context against known domain hints
+        validated_synthesis = await self._validate_and_correct(
+            synthesis, domain, company_name
+        )
+
         return {
-            **synthesis,
+            **validated_synthesis,
             "company_name": company_name,
             "company_url": company_url,
             "domain": domain,
@@ -261,3 +321,140 @@ PERSONA_BLIND_SPOTS: [data gaps and hidden inefficiencies]"""
         name = domain.split('.')[0]
         # Capitalize
         return name.title()
+
+    async def _validate_and_correct(
+        self,
+        synthesis: Dict,
+        domain: str,
+        company_name: str
+    ) -> Dict:
+        """
+        V5: Validate company context against known domain hints.
+
+        If the extracted offering doesn't contain expected keywords,
+        re-run research with disambiguation searches.
+
+        Args:
+            synthesis: Initial synthesis from Claude
+            domain: Company domain
+            company_name: Inferred company name
+
+        Returns:
+            Validated/corrected synthesis dict
+        """
+        # Check if we have hints for this domain
+        hints = DOMAIN_HINTS.get(domain)
+        if not hints:
+            # Unknown domain, return as-is
+            return synthesis
+
+        # Check if offering contains expected keywords
+        offering = (synthesis.get("offering", "") or "").lower()
+        expected_keywords = hints["expected_keywords"]
+
+        has_expected = any(kw in offering for kw in expected_keywords)
+
+        if has_expected:
+            # Validation passed, add product category
+            synthesis["product_category"] = hints["product_category"]
+            print(f"[Wave 1] Domain validation PASSED: {domain} -> {hints['product_category']}")
+            return synthesis
+
+        # Validation FAILED - need to re-research
+        print(f"[Wave 1] Domain validation FAILED for {domain}")
+        print(f"[Wave 1] Expected keywords: {expected_keywords}")
+        print(f"[Wave 1] Found offering: {offering[:100]}...")
+        print(f"[Wave 1] Running disambiguation searches...")
+
+        # Run disambiguation searches
+        disambiguation_searches = hints.get("disambiguation_searches", [])
+        search_results = await self.web_search.search_parallel(disambiguation_searches)
+
+        # Combine new search results
+        new_content = self._combine_search_results(search_results)
+
+        # Re-synthesize with disambiguation focus
+        corrected = await self._synthesize_with_disambiguation(
+            company_name, new_content, expected_keywords, hints["product_category"]
+        )
+
+        # Merge corrected data, preferring corrected values
+        for key in ["offering", "value_prop", "industries_served"]:
+            if corrected.get(key):
+                synthesis[key] = corrected[key]
+
+        synthesis["product_category"] = hints["product_category"]
+        synthesis["disambiguation_applied"] = True
+
+        print(f"[Wave 1] Disambiguation complete: {synthesis.get('offering', '')[:100]}...")
+        return synthesis
+
+    def _combine_search_results(self, search_results: List[Dict]) -> str:
+        """Combine search results into text."""
+        parts = []
+        for result in search_results:
+            if result.get("success"):
+                for r in result.get("organic", [])[:5]:
+                    parts.append(f"Title: {r.get('title', '')}")
+                    parts.append(f"Snippet: {r.get('snippet', '')}")
+                    parts.append("")
+        return "\n".join(parts)
+
+    async def _synthesize_with_disambiguation(
+        self,
+        company_name: str,
+        content: str,
+        expected_keywords: List[str],
+        product_category: str
+    ) -> Dict:
+        """Re-synthesize with disambiguation focus."""
+        prompt = f"""Re-analyze this company with disambiguation focus.
+
+COMPANY: {company_name}
+EXPECTED PRODUCT CATEGORY: {product_category}
+EXPECTED KEYWORDS: {', '.join(expected_keywords)}
+
+This company has been confused with another company with a similar domain.
+Focus ONLY on extracting information about the product matching the expected category.
+
+RAW CONTENT:
+{content[:30000]}
+
+Extract:
+OFFERING: [Must contain at least one of: {', '.join(expected_keywords)}]
+VALUE_PROP: [Value proposition for this specific product]
+INDUSTRIES_SERVED: [Specific industries served by this product]
+
+If the content doesn't match the expected category, return DISAMBIGUATION_FAILED."""
+
+        response = await call_claude_with_retry(
+            self.claude,
+            model="claude-sonnet-4-5-20250929",
+            max_tokens=1024,
+            messages=[{"role": "user", "content": prompt}]
+        )
+
+        text = response.content[0].text
+
+        if "DISAMBIGUATION_FAILED" in text:
+            print(f"[Wave 1] WARNING: Disambiguation failed for {company_name}")
+            return {}
+
+        # Parse response
+        result = {}
+        patterns = {
+            "offering": r"OFFERING:\s*(.+?)(?=\n[A-Z_]+:|$)",
+            "value_prop": r"VALUE_PROP:\s*(.+?)(?=\n[A-Z_]+:|$)",
+            "industries_served": r"INDUSTRIES_SERVED:\s*(.+?)(?=\n[A-Z_]+:|$)",
+        }
+
+        for key, pattern in patterns.items():
+            match = re.search(pattern, text, re.DOTALL | re.IGNORECASE)
+            if match:
+                value = match.group(1).strip()
+                if key == "industries_served":
+                    result[key] = [i.strip() for i in re.split(r'[,\[\]]', value) if i.strip()]
+                else:
+                    result[key] = value
+
+        return result

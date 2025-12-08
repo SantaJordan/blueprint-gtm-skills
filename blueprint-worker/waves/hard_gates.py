@@ -313,6 +313,23 @@ CAN_REVISE: YES/NO (only YES if failed Gate 3 or 4 only)"""
 
     async def _validate_segment(self, segment: Dict, product_fit: Dict) -> Dict:
         """Validate a single segment against all 5 gates."""
+        # V5: Add pre-validation check for obvious product mismatches
+        pre_check_fail = self._pre_validate_gate5(segment, product_fit)
+        if pre_check_fail:
+            print(f"[Hard Gates] PRE-CHECK GATE 5 FAIL: {segment.get('name')} - {pre_check_fail}")
+            return {
+                "gates": {
+                    "gate_1": {"passed": True, "rationale": "Pre-check only"},
+                    "gate_2": {"passed": True, "rationale": "Pre-check only"},
+                    "gate_3": {"passed": True, "rationale": "Pre-check only"},
+                    "gate_4": {"passed": True, "rationale": "Pre-check only"},
+                    "gate_5": {"passed": False, "rationale": pre_check_fail}
+                },
+                "verdict": "DESTROY",
+                "can_revise": False,
+                "pre_check_fail": True
+            }
+
         prompt = self.VALIDATION_PROMPT.format(
             segment_name=segment.get("name", "Unknown"),
             segment_description=segment.get("description", ""),
@@ -462,3 +479,93 @@ REVISED_SEGMENT:
             segment["fields"] = [f.strip() for f in re.split(r'[,\[\]]', fields_text) if f.strip()]
 
         return segment
+
+    def _pre_validate_gate5(self, segment: Dict, product_fit: Dict) -> Optional[str]:
+        """
+        V5: Pre-validate Gate 5 without LLM call for obvious mismatches.
+
+        Returns:
+            None if validation passes
+            Error message string if validation fails
+        """
+        segment_name = segment.get("name", "").lower()
+        segment_desc = segment.get("description", "").lower()
+        combined_text = f"{segment_name} {segment_desc}"
+
+        # Get product type from product_fit (if Wave 0.5 detected it)
+        product_type = product_fit.get("product_type", "").lower()
+        valid_domains = [d.lower() for d in product_fit.get("valid_domains", [])]
+        invalid_domains = [d.lower() for d in product_fit.get("invalid_domains", [])]
+
+        # Hard-coded red flags that are NEVER valid for specific product types
+        # These are based on QA findings where Modal generated completely wrong segments
+        HARD_REJECTION_MAP = {
+            # Restaurant platforms should NEVER have engineering/SaaS segments
+            "restaurant": [
+                ("engineering team", "Engineering teams are not restaurant customers"),
+                ("series a", "Funding rounds are not restaurant pain points"),
+                ("series b", "Funding rounds are not restaurant pain points"),
+                ("saas metrics", "SaaS metrics don't apply to restaurants"),
+                ("software development", "Software development is not restaurant pain"),
+                ("tech startup", "Tech startups are not the ICP for restaurant platforms"),
+                ("venture capital", "VC funding is not relevant to restaurant platforms"),
+            ],
+            # Healthcare DPC platforms should NEVER have beverage segments
+            "healthcare": [
+                ("beverage", "Beverages are not healthcare pain points"),
+                ("vending machine", "Vending machines are not DPC pain points"),
+                ("sugary drink", "Sugary drinks are not healthcare software pain"),
+                ("water brand", "Water brands are not DPC customers"),
+                ("consumer packaged", "CPG is not healthcare software pain"),
+                ("retail distribution", "Retail distribution is not DPC pain"),
+            ],
+            "dpc": [
+                ("beverage", "Beverages are not DPC pain points"),
+                ("vending machine", "Vending machines are not DPC pain points"),
+                ("sugary drink", "Sugary drinks are not DPC pain"),
+                ("water brand", "Water brands are not DPC customers"),
+            ],
+            # Sales engagement should NEVER have healthcare compliance segments
+            "sales": [
+                ("healthcare compliance", "Healthcare compliance is not sales pain"),
+                ("medical billing", "Medical billing is not sales engagement pain"),
+                ("patient care", "Patient care is not sales engagement pain"),
+                ("nursing home", "Nursing homes are not sales engagement ICP"),
+                ("cms deficiency", "CMS deficiencies are not sales pain"),
+            ],
+            # Contact networking should NEVER have regulatory segments
+            "contact": [
+                ("regulatory violation", "Regulatory violations not solved by contact sharing"),
+                ("compliance deadline", "Compliance deadlines not solved by business cards"),
+                ("license renewal", "License renewal not solved by networking"),
+                ("epa citation", "EPA citations not solved by contact sharing"),
+                ("osha violation", "OSHA violations not solved by business cards"),
+            ],
+            "networking": [
+                ("regulatory violation", "Regulatory violations not solved by networking"),
+                ("compliance deadline", "Compliance deadlines not solved by networking"),
+                ("license renewal", "License renewal not solved by networking"),
+            ]
+        }
+
+        # Check if product type matches any rejection category
+        for category, rejections in HARD_REJECTION_MAP.items():
+            if category in product_type or any(category in vd for vd in valid_domains):
+                for (red_flag, reason) in rejections:
+                    if red_flag in combined_text:
+                        return f"Product-segment mismatch: {reason}"
+
+        # Check against explicit invalid domains from product_fit
+        for invalid in invalid_domains:
+            if invalid and invalid in combined_text:
+                return f"Segment mentions invalid domain: {invalid}"
+
+        # Additional check: segment should mention at least one valid domain
+        # (soft check - only warn, don't auto-fail)
+        if valid_domains:
+            has_valid = any(vd in combined_text for vd in valid_domains if vd)
+            if not has_valid:
+                # Log warning but don't auto-fail - let LLM make final call
+                print(f"[Hard Gates] WARNING: Segment '{segment.get('name')}' doesn't mention any valid domain")
+
+        return None  # Validation passed
