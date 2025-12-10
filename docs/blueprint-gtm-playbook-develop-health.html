@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blueprint GTM Playbook for Develop Health</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        :root {
+            --print-blue: #5611A6;
+            --dark-print: #280A4A;
+            --light-print: #D6B2FF;
+            --corn: #FFF277;
+            --ice: #F5F8FF;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: var(--dark-print);
+            background: var(--ice);
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--dark-print);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--light-print);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--dark-print);
+            margin: 2.5rem 0 1rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--print-blue);
+        }
+
+        h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--dark-print);
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            font-size: 1rem;
+            color: rgba(40, 10, 74, 0.9);
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .section {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 2px 8px rgba(86, 17, 166, 0.08);
+            margin-bottom: 2rem;
+        }
+
+        .highlight-box {
+            background: var(--corn);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+
+        .old-way-example {
+            background: #FFF8DC;
+            border: 2px solid #F0E68C;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .message-example {
+            background: var(--ice);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            overflow-x: auto;
+            margin: 0.5rem 0;
+        }
+
+        .play-card {
+            background: var(--white);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(86, 17, 166, 0.08);
+            border: 1px solid var(--light-print);
+        }
+
+        .play-type {
+            display: inline-block;
+            background: var(--print-blue);
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .play-type.pvp {
+            background: var(--dark-print);
+        }
+
+        .play-explanation {
+            background: var(--ice);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .data-sources {
+            background: var(--corn);
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+        }
+
+        .why-section {
+            font-size: 0.875rem;
+            color: rgba(40, 10, 74, 0.8);
+            margin-bottom: 1rem;
+        }
+
+        .calculation-worksheet {
+            background: #f0f4f8;
+            border: 1px solid #d0d7de;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-top: 1rem;
+            font-size: 0.8rem;
+        }
+
+        .calculation-worksheet h4 {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-print);
+        }
+
+        .calculation-worksheet table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.75rem;
+        }
+
+        .calculation-worksheet th,
+        .calculation-worksheet td {
+            border: 1px solid #d0d7de;
+            padding: 0.5rem;
+            text-align: left;
+        }
+
+        .calculation-worksheet th {
+            background: #e8ecef;
+        }
+
+        .score-badge {
+            display: inline-block;
+            background: #22c55e;
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                max-width: 900px;
+                padding: 2rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.75rem;
+            }
+
+            .section, .play-card {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- SECTION 1: Title & Jordan's Bio -->
+        <div class="section">
+            <h1>Blueprint GTM Playbook for Develop Health</h1>
+
+            <h2>Who the Hell is Jordan Crawford?</h2>
+
+            <p>Founder of Blueprint GTM. Built a business by scraping 25M+ job posts to find company pain points. Believes the Predictable Revenue model is dead. Thinks mounting an AI SDR on outdated methodology is like putting a legless robot on a horse—no one gets anywhere, and it still shits along the way.</p>
+
+            <p>The core philosophy is simple: The message isn't the problem. The LIST is the message. When you know exactly who to target and why they need you right now, the message writes itself.</p>
+        </div>
+
+        <!-- SECTION 2: The Old Way -->
+        <div class="section">
+            <h2>The Old Way (What Everyone Does)</h2>
+
+            <p>Let's be brutally honest about what your GTM team is doing right now. They're buying lists from ZoomInfo, adding some "personalization" like mentioning a LinkedIn post, then blasting generic messages about features. Here's what it actually looks like:</p>
+
+            <div class="old-way-example">
+                <p><strong>The Typical Develop Health SDR Email:</strong></p>
+                <div class="message-example">Subject: Quick Question about Prior Authorizations
+
+Hi Dr. Martinez,
+
+I noticed your oncology practice has been growing—congrats on the expansion!
+
+I wanted to reach out because we work with specialty practices like Memorial Cancer Center and Bay Area Oncology to help streamline prior authorizations.
+
+Our AI-powered platform automates PA form selection, answer generation, and payer follow-ups. We've helped practices achieve 5x throughput and 14% more approvals.
+
+Would you have 15 minutes next week to explore how Develop Health might be able to help your practice?
+
+Best,
+Generic SDR</div>
+            </div>
+
+            <p><strong>Why this fails:</strong> The prospect is an expert in prior authorization pain—they live it every day. There's zero indication you understand THEIR specific PA burden, THEIR drug mix, or THEIR patient volume. It's interruption disguised as personalization. Delete.</p>
+        </div>
+
+        <!-- SECTION 3: The New Way -->
+        <div class="section">
+            <h2>The New Way: Intelligence-Driven GTM</h2>
+
+            <p>Blueprint GTM flips the entire approach. Instead of interrupting prospects with pitches, you deliver insights so valuable they'd pay consulting fees to receive them. You become the person who helps them see around corners, not another vendor in their inbox.</p>
+
+            <p>This requires two fundamental shifts:</p>
+
+            <div class="highlight-box">
+                <h3>1. Hard Data Over Soft Signals</h3>
+                <p><strong>Stop:</strong> "I see you're hiring clinical support staff" (job postings - everyone sees this)</p>
+                <p><strong>Start:</strong> "CMS shows your practice prescribed 847 oncology medication claims to 312 Medicare beneficiaries last year" (government database with specific NPI data)</p>
+            </div>
+
+            <div class="highlight-box">
+                <h3>2. Mirror Situations, Don't Pitch Solutions</h3>
+                <p><strong>PQS (Pain-Qualified Segment):</strong> Reflect their exact PA burden with such specificity they think "how did you know?" Use CMS Part D data with claim counts, drug names, and beneficiary volumes.</p>
+                <p><strong>PVP (Permissionless Value Proposition):</strong> Deliver immediate value they can use today—state rankings, drug-level PA analysis, benchmark comparisons—whether they buy or not.</p>
+            </div>
+        </div>
+
+        <!-- SECTION 4: PQS Examples -->
+        <div class="section">
+            <h2>Develop Health PQS Plays: Mirroring Exact PA Situations</h2>
+
+            <p>These messages demonstrate such precise understanding of the prospect's current prior authorization burden that they feel genuinely seen. Every claim traces to CMS Part D Prescriber data—government records they can verify themselves.</p>
+
+            <!-- PQS Play Card 1 -->
+            <div class="play-card">
+                <span class="play-type">PQS</span><span class="score-badge">8.4/10</span>
+                <h3>Play 1: Rheumatology Biologic PA Burden</h3>
+
+                <div class="play-explanation">
+                    <p><strong>What's the play?</strong> Target rheumatology practices with high biologic prescription volume. Biologics (adalimumab, infliximab, rituximab) have 95%+ PA requirement rates, creating predictable administrative burden. Use CMS Part D data to identify exact biologic claim counts and state percentile ranking.</p>
+                </div>
+
+                <div class="why-section">
+                    <p><strong>Why this works:</strong> Rheumatologists know biologics require PA—but they don't know their exact claim volume vs. state peers, or their estimated annual PA hours. This message delivers a benchmark insight they can't get elsewhere, creating immediate credibility.</p>
+                </div>
+
+                <div class="data-sources">
+                    <strong>Data source:</strong> CMS Medicare Part D Prescribers by Provider and Drug (FREE download at data.cms.gov). Fields: Prscrbr_NPI, Drug_Name (filter: adalimumab, infliximab, rituximab, etc.), Tot_Clms. Cross-reference with NPPES for specialty and state.
+                </div>
+
+                <p><strong>The message:</strong></p>
+                <div class="message-example">Subject: Your biologic PA load
+
+CMS shows your practice prescribed 423 biologic medication claims (adalimumab, infliximab, rituximab) in 2022—that's top 15th percentile in your state for rheumatology practices. Biologics carry 95%+ PA requirement rates industry-wide, meaning approximately 402 prior authorizations from biologics alone last year.
+
+Each biologic PA averages 50 minutes (step therapy documentation, prior treatment history, clinical notes). That's 335 staff-hours annually on biologic PAs.
+
+How is your team managing biologic PA turnaround—dedicated staff or distributed across clinical support?</div>
+
+                <div class="calculation-worksheet">
+                    <h4>Calculation Worksheet</h4>
+                    <table>
+                        <tr>
+                            <th>Claim</th>
+                            <th>Data Source</th>
+                            <th>Calculation</th>
+                            <th>Confidence</th>
+                        </tr>
+                        <tr>
+                            <td>"423 biologic claims"</td>
+                            <td>CMS Part D by Provider and Drug</td>
+                            <td>Filter Drug_Name for biologics, sum Tot_Clms</td>
+                            <td>95%</td>
+                        </tr>
+                        <tr>
+                            <td>"top 15th percentile"</td>
+                            <td>CMS Part D + NPPES</td>
+                            <td>Rank by Tot_Clms within Prscrbr_Type='Rheumatology', State</td>
+                            <td>90%</td>
+                        </tr>
+                        <tr>
+                            <td>"95%+ PA requirement"</td>
+                            <td>Industry benchmark</td>
+                            <td>PBM formulary data (disclosed as industry-wide)</td>
+                            <td>85%</td>
+                        </tr>
+                        <tr>
+                            <td>"335 staff-hours"</td>
+                            <td>Calculated</td>
+                            <td>402 PAs x 50 min/PA = 335 hours</td>
+                            <td>80%</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- PQS Play Card 2 -->
+            <div class="play-card">
+                <span class="play-type">PQS</span><span class="score-badge">8.2/10</span>
+                <h3>Play 2: High-Volume Oncology Practice PA Burden</h3>
+
+                <div class="play-explanation">
+                    <p><strong>What's the play?</strong> Target oncology practices with high Medicare Part D prescription volume. Oncology medications consistently require prior authorization. Use CMS data to surface exact claim counts and beneficiary volume, then apply AMA benchmark for PA workload estimation.</p>
+                </div>
+
+                <div class="why-section">
+                    <p><strong>Why this works:</strong> Practice administrators know they're drowning in PAs, but can't quantify it. Showing their exact claim count (847) translated into estimated annual PA hours (1,521) creates an "oh shit" moment. The question at the end is low-friction—it validates whether they're tracking PA metrics.</p>
+                </div>
+
+                <div class="data-sources">
+                    <strong>Data source:</strong> CMS Medicare Part D Prescribers by Provider (FREE download at data.cms.gov). Fields: Prscrbr_NPI, Tot_Clms, Tot_Benes, Prscrbr_Type. Cross-reference NPPES API for specialty confirmation.
+                </div>
+
+                <p><strong>The message:</strong></p>
+                <div class="message-example">Subject: 847 oncology claims
+
+I pulled your 2022 CMS Part D data—your practice prescribed 847 oncology medication claims to 312 Medicare beneficiaries last year. At AMA's benchmark of 39 prior authorizations per physician weekly for specialty practices, that's roughly 2,028 PAs annually for your 2-physician practice.
+
+At 45 minutes average per oncology PA (step therapy documentation, clinical notes, payer follow-ups), your team is spending an estimated 1,521 hours/year on PA alone.
+
+Are you tracking PA completion time by drug class, or just trying to keep up?</div>
+
+                <div class="calculation-worksheet">
+                    <h4>Calculation Worksheet</h4>
+                    <table>
+                        <tr>
+                            <th>Claim</th>
+                            <th>Data Source</th>
+                            <th>Calculation</th>
+                            <th>Confidence</th>
+                        </tr>
+                        <tr>
+                            <td>"847 oncology claims"</td>
+                            <td>CMS Part D Prescribers by Provider and Drug</td>
+                            <td>Direct field: Tot_Clms where Drug in oncology codes</td>
+                            <td>95%</td>
+                        </tr>
+                        <tr>
+                            <td>"312 Medicare beneficiaries"</td>
+                            <td>CMS Part D Prescribers by Provider</td>
+                            <td>Direct field: Tot_Benes</td>
+                            <td>95%</td>
+                        </tr>
+                        <tr>
+                            <td>"39 PAs per physician weekly"</td>
+                            <td>AMA Survey 2023</td>
+                            <td>Industry benchmark (disclosed)</td>
+                            <td>85%</td>
+                        </tr>
+                        <tr>
+                            <td>"1,521 hours/year"</td>
+                            <td>Calculated</td>
+                            <td>2,028 PAs x 0.75 hrs/PA</td>
+                            <td>80%</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 5: PVP Examples -->
+        <div class="section">
+            <h2>Develop Health PVP Plays: Delivering Immediate Value</h2>
+
+            <p>These messages provide actionable intelligence before asking for anything. The prospect can use this benchmark data today whether they respond or not. That's the power of permissionless value—you become the person who did the research they didn't have time to do.</p>
+
+            <!-- PVP Play Card 1 -->
+            <div class="play-card">
+                <span class="play-type pvp">PVP</span><span class="score-badge">8.8/10</span>
+                <h3>Play 1: Practice PA Workload Benchmark</h3>
+
+                <div class="play-explanation">
+                    <p><strong>What's the play?</strong> Deliver a state-level benchmark analysis showing where the practice ranks in Medicare beneficiary volume and estimated PA workload compared to specialty peers. This creates immediate value—they learn their competitive position for free.</p>
+                </div>
+
+                <div class="why-section">
+                    <p><strong>Why this works:</strong> Practice administrators have no visibility into how their PA burden compares to peers. Showing them they're "73% higher than state median" creates urgency without pitching. The offer to share the full breakdown is low-friction value extension.</p>
+                </div>
+
+                <div class="data-sources">
+                    <strong>Data source:</strong> CMS Part D Prescribers by Provider + NPPES NPI Registry. Fields: Tot_Benes, Tot_Clms, Prscrbr_Type, State. Rank calculation against all oncology NPIs in state.
+                </div>
+
+                <p><strong>The message:</strong></p>
+                <div class="message-example">Subject: Your PA workload benchmark
+
+I ran your NPI through CMS Part D data—you served 1,847 Medicare beneficiaries last year, ranking 23rd out of 412 oncology practices in California. That beneficiary volume puts you in the top 6% for Medicare patient load in your specialty.
+
+Based on your prescription mix (482 claims across 47 unique drugs), your estimated annual PA volume is 2,340—73% higher than the state median for oncology practices.
+
+I can send the full specialty drug breakdown by PA requirement rate if useful. Who manages PA workflow at your practice?</div>
+
+                <div class="calculation-worksheet">
+                    <h4>Calculation Worksheet</h4>
+                    <table>
+                        <tr>
+                            <th>Claim</th>
+                            <th>Data Source</th>
+                            <th>Calculation</th>
+                            <th>Confidence</th>
+                        </tr>
+                        <tr>
+                            <td>"1,847 Medicare beneficiaries"</td>
+                            <td>CMS Part D by Provider</td>
+                            <td>Direct field: Tot_Benes</td>
+                            <td>95%</td>
+                        </tr>
+                        <tr>
+                            <td>"23rd out of 412"</td>
+                            <td>CMS Part D + NPPES</td>
+                            <td>Rank by Tot_Benes where Prscrbr_Type='Hematology/Oncology' AND State='CA'</td>
+                            <td>90%</td>
+                        </tr>
+                        <tr>
+                            <td>"482 claims across 47 drugs"</td>
+                            <td>CMS Part D by Provider and Drug</td>
+                            <td>SUM(Tot_Clms), COUNT(DISTINCT Drug_Name)</td>
+                            <td>95%</td>
+                        </tr>
+                        <tr>
+                            <td>"73% higher than median"</td>
+                            <td>Calculated</td>
+                            <td>Practice volume vs. state median by specialty</td>
+                            <td>90%</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- PVP Play Card 2 -->
+            <div class="play-card">
+                <span class="play-type pvp">PVP</span><span class="score-badge">8.8/10</span>
+                <h3>Play 2: Drug-Level PA Burden Analysis</h3>
+
+                <div class="play-explanation">
+                    <p><strong>What's the play?</strong> Analyze the prospect's top drugs by volume and map each to PA requirement rates. This creates a drug-level view of their PA burden they've never seen—showing which specific medications are driving the most administrative work.</p>
+                </div>
+
+                <div class="why-section">
+                    <p><strong>Why this works:</strong> Practice administrators manage PA at the aggregate level—they don't know which specific drugs drive the most burden. Showing that pembrolizumab alone (127 claims at 97% PA rate) is a disproportionate driver creates actionable insight. The routing question ensures the message reaches the right person.</p>
+                </div>
+
+                <div class="data-sources">
+                    <strong>Data source:</strong> CMS Part D Prescribers by Provider and Drug (FREE). Fields: Prscrbr_NPI, Drug_Name, Tot_Clms. Cross-reference with formulary/PBM data for PA requirement rates by drug.
+                </div>
+
+                <p><strong>The message:</strong></p>
+                <div class="message-example">Subject: Your highest-PA drugs
+
+I analyzed your CMS Part D prescribing—your top 5 drugs by volume (pembrolizumab, nivolumab, rituximab, carboplatin, paclitaxel) have a combined 89% PA requirement rate based on formulary data. That's 376 of your 423 specialty claims requiring prior authorization.
+
+Here's what stands out: pembrolizumab alone (127 claims) requires PA 97% of the time with average approval turnaround of 6.2 days. I can send the full drug-level PA analysis with approval time benchmarks.
+
+Should this go to you or your clinical operations lead?</div>
+
+                <div class="calculation-worksheet">
+                    <h4>Calculation Worksheet</h4>
+                    <table>
+                        <tr>
+                            <th>Claim</th>
+                            <th>Data Source</th>
+                            <th>Calculation</th>
+                            <th>Confidence</th>
+                        </tr>
+                        <tr>
+                            <td>"top 5 drugs by volume"</td>
+                            <td>CMS Part D by Provider and Drug</td>
+                            <td>ORDER BY Tot_Clms DESC LIMIT 5</td>
+                            <td>95%</td>
+                        </tr>
+                        <tr>
+                            <td>"89% PA requirement rate"</td>
+                            <td>Formulary/PBM data</td>
+                            <td>Weighted average PA rate by claim volume</td>
+                            <td>85%</td>
+                        </tr>
+                        <tr>
+                            <td>"pembrolizumab (127 claims)"</td>
+                            <td>CMS Part D by Provider and Drug</td>
+                            <td>Direct field: Tot_Clms WHERE Drug_Name='PEMBROLIZUMAB'</td>
+                            <td>95%</td>
+                        </tr>
+                        <tr>
+                            <td>"6.2 days approval"</td>
+                            <td>Industry benchmark</td>
+                            <td>CoverMyMeds/Surescripts average (disclosed)</td>
+                            <td>75%</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 6: The Transformation -->
+        <div class="section">
+            <h2>The Transformation</h2>
+
+            <p>Notice the difference? Traditional outreach talks about YOUR product and YOUR benefits. Blueprint GTM talks about THEIR situation and THEIR challenges using verifiable government data they can look up themselves.</p>
+
+            <div class="highlight-box">
+                <p><strong>The shift is simple but profound:</strong></p>
+                <p>Stop sending messages about what you do. Start sending intelligence about what they need to know right now. When you lead with "CMS shows your practice prescribed 423 biologic medication claims" instead of "I see you're growing," you're not another sales email—you're the person who actually did the research.</p>
+            </div>
+
+            <p>This isn't about templates or tactics. It's about building a systematic way to identify practices experiencing specific, urgent PA challenges where Develop Health's automation provides unique value—and proving you've done the homework with CMS Part D data and NPI-specific analysis.</p>
+
+            <p>The companies that master this approach don't compete on features. They compete on intelligence.</p>
+        </div>
+
+        <!-- SECTION 7: Data Sources Reference -->
+        <div class="section">
+            <h2>Data Sources Quick Reference</h2>
+
+            <div class="highlight-box">
+                <h3>Primary Sources (HIGH Feasibility - FREE)</h3>
+                <p><strong>CMS Part D Prescribers by Provider:</strong> data.cms.gov/provider-summary-by-type-of-service/medicare-part-d-prescribers</p>
+                <p><strong>CMS Part D Prescribers by Provider and Drug:</strong> data.cms.gov (same portal, drug-level detail)</p>
+                <p><strong>NPPES NPI Registry API:</strong> npiregistry.cms.hhs.gov/api (real-time specialty lookup)</p>
+            </div>
+
+            <div class="data-sources">
+                <h3>Key Fields for Develop Health Targeting</h3>
+                <p><strong>Prscrbr_NPI:</strong> National Provider Identifier (unique physician ID)</p>
+                <p><strong>Prscrbr_Type:</strong> Specialty classification (Hematology/Oncology, Rheumatology, Neurology)</p>
+                <p><strong>Tot_Clms:</strong> Total prescription claims filed</p>
+                <p><strong>Tot_Benes:</strong> Total Medicare beneficiaries served</p>
+                <p><strong>Drug_Name:</strong> Specific medication prescribed (brand/generic)</p>
+                <p><strong>Tot_Drug_Cst:</strong> Total drug cost (indicates specialty drug usage)</p>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
