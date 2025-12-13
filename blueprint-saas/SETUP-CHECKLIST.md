@@ -70,13 +70,13 @@ Create a new webhook:
 | Events | `INSERT` |
 | Type | HTTP Request |
 | Method | `POST` |
-| URL | `https://santajordan--blueprint-gtm-worker-process-blueprint-job.modal.run` |
+| URL | `https://[your-modal-workspace]--blueprint-agent-sdk-worker-process-blueprint-job.modal.run` |
 | Headers | `Content-Type: application/json` |
 
 **To get the Modal URL:**
 ```bash
 modal app list
-# Find blueprint-gtm-worker and note the URL
+# Find blueprint-agent-sdk-worker and note the URL
 ```
 
 ### Option B: Rely on Cron (Fallback)
@@ -86,7 +86,7 @@ If webhook setup is complex, this fallback will work (with 5-min delay).
 
 Check cron is deployed:
 ```bash
-modal app logs blueprint-gtm-worker
+modal app logs blueprint-agent-sdk-worker
 # Look for "[Cron] Found pending job:" messages
 ```
 
@@ -102,6 +102,8 @@ Required columns:
 - `status` (text) - values: pending, processing, completed, failed
 - `playbook_url` (text, nullable)
 - `error_message` (text, nullable)
+- `checkpoint_wave` (text, nullable) - optional, enables resume/checkpointing
+- `checkpoint_data` (jsonb, nullable) - optional, enables resume/checkpointing
 - `stripe_checkout_session_id` (text, nullable)
 - `stripe_payment_intent_id` (text, nullable)
 - `customer_email` (text, nullable)
@@ -145,7 +147,7 @@ npm run test:payment:live
 npx vercel logs playbooks.blueprintgtm.com --follow
 
 # Check Modal worker logs
-modal app logs blueprint-gtm-worker
+modal app logs blueprint-agent-sdk-worker
 
 # Query Supabase for recent jobs (via SQL editor)
 SELECT * FROM blueprint_jobs ORDER BY created_at DESC LIMIT 10;
@@ -162,7 +164,7 @@ SELECT * FROM blueprint_jobs ORDER BY created_at DESC LIMIT 10;
 5. `[stripe-webhook] Signature verified, event type: checkout.session.completed`
 6. `[stripe-webhook] Creating job in Supabase...`
 7. `[stripe-webhook] Job created successfully: { jobId, ... }`
-8. Modal worker: `[Blueprint Worker] Starting job {id} for {url}`
-9. (12-15 minutes of wave processing)
-10. Modal worker: `[Blueprint Worker] Job {id} completed`
+8. Modal worker: `[Worker] Processing job {id} for {url}`
+9. (execution time varies by company + data availability)
+10. Modal worker: `[Worker] Job {id} completed successfully`
 11. `[job-status] Found job: { status: completed, ... }`

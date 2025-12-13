@@ -31,7 +31,6 @@ This repo contains **4 main systems**:
 
 ### 2. Blueprint Cloud Workers (Online Execution)
 - **`agent-sdk-worker/`** - Node.js worker using Claude Agent SDK (Modal)
-- **`blueprint-worker/`** - Python worker with 10-wave pipeline (Modal)
 - **`blueprint-trigger-api/`** - Vercel API for mobile job queue
 - **`blueprint-saas/`** - Next.js dashboard with Stripe payments
 
@@ -633,7 +632,7 @@ This script will:
 
 ### Overview
 
-There are two supported cloud entrypoints:
+There are two supported entrypoints:
 
 1. **Mobile trigger (consultant / local execution):** iOS Shortcut → Vercel Trigger API → Supabase queue → local Mac worker (`scripts/blueprint-worker.js`) → GitHub Pages URL.
 2. **Paid SaaS (fully cloud, recommended):** `blueprint-saas` (Stripe checkout) → Stripe webhook inserts job in Supabase → Modal Agent SDK Worker → Vercel Playbooks hosting (`playbooks.blueprintgtm.com`) → optional payment capture.
@@ -651,7 +650,7 @@ iPhone → Vercel Trigger API → Supabase → Local Mac Worker → GitHub Pages
 ```
 User → blueprint-saas (Stripe) → Supabase → Modal Agent SDK Worker → Vercel Playbooks
                                                ↓
-                                          /blueprint-turbo
+                                    Blueprint Turbo orchestrator
 ```
 
 ### Components
@@ -661,15 +660,14 @@ User → blueprint-saas (Stripe) → Supabase → Modal Agent SDK Worker → Ver
 | **Vercel Trigger API** | `blueprint-trigger-api/` | Receives URL from iOS, queues job |
 | **Local Mac Worker** | `scripts/` | Polls Supabase and runs local Claude Code |
 | **SaaS Dashboard** | `blueprint-saas/` | Stripe checkout + status UI |
-| **Agent SDK Worker** | `agent-sdk-worker/` | Cloud worker running `/blueprint-turbo` and uploading to Vercel Playbooks |
-| **Modal Python Worker** | `blueprint-worker/` | Legacy worker (backup) |
+| **Agent SDK Worker** | `agent-sdk-worker/` | Cloud worker that runs the Blueprint Turbo orchestrator and publishes to Vercel Playbooks |
 
 ### Agent SDK Worker (Recommended for Cloud)
 
 The Agent SDK Worker provides **90-95% quality parity** with local `/blueprint-turbo` by:
 - Loading `.claude/skills/` as the single source of truth
 - Using Sequential Thinking MCP for synthesis
-- Running the exact same command flow as local execution
+- Executing the Blueprint Turbo orchestrator from `.claude/commands/blueprint-turbo.md` (embedded prompt with `$ARGUMENTS` substituted)
 - Publishing HTML to Vercel (`playbooks.blueprintgtm.com`)
 - Capturing Stripe payments after successful delivery (when jobs were created via SaaS)
 

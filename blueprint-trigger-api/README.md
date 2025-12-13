@@ -51,7 +51,7 @@ Response:
     "status": "pending",
     "createdAt": "2025-11-16T..."
   },
-  "message": "Job queued successfully! Your Mac will process it soon."
+  "message": "Job queued successfully! A worker will process it soon."
 }
 ```
 

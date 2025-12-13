@@ -8,7 +8,7 @@ Next.js app deployed on Vercel that handles Stripe checkout, Supabase job creati
 2. `/api/create-checkout` creates a Stripe Checkout Session with manual capture and metadata `{ domain, company_url }`.
 3. Stripe webhook `/api/stripe-webhook` listens for `checkout.session.completed` and inserts a `blueprint_jobs` row in Supabase (`status=pending`, `payment_status=authorized`).
 4. Supabase INSERT webhook triggers the Modal Agent SDK Worker (`agent-sdk-worker`).
-5. Worker runs `/blueprint-turbo`, uploads HTML to Vercel Playbooks, updates `playbook_url`, then calls `/api/capture-payment` to capture the Stripe intent.
+5. Worker executes the Blueprint Turbo orchestrator (`.claude/commands/blueprint-turbo.md`) via the Claude Agent SDK, uploads HTML to Vercel Playbooks, updates `playbook_url`, then calls `/api/capture-payment` to capture the Stripe intent.
 6. Status page `/status/:slug` polls `/api/job-status?domain=:slug` until completed, then redirects to `playbook_url`.
 7. Visiting `/:slug` redirects to the completed playbook, or to status if still running.
 

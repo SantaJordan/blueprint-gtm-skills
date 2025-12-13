@@ -1,7 +1,7 @@
 # Agent SDK Worker Runbook
 
 **Version:** 1.1.0
-**Last Updated:** 2025-12-12
+**Last Updated:** 2025-12-13
 
 This runbook describes how to operate the Agent SDK Worker for Blueprint Turbo.
 
@@ -9,12 +9,14 @@ This runbook describes how to operate the Agent SDK Worker for Blueprint Turbo.
 
 ## Overview
 
-The Agent SDK Worker replaces the previous Modal Python worker with a Claude Agent SDK-based implementation. It provides:
+The Agent SDK Worker is the production cloud worker for Blueprint Turbo. It provides:
 
 - **90-95% quality parity** with local `/blueprint-turbo` execution
 - **Single source of truth**: Uses `.claude/skills/` directly
-- **Native MCP support**: Sequential Thinking MCP for synthesis
-- **Automatic skill loading**: Via `settingSources: ['project', 'user']` (Linux user-level fallback enabled)
+- **Claude Code harness**: Runs with `systemPrompt: { preset: "claude_code" }`
+- **Native MCP support**: Sequential Thinking + Browser MCP (Chromium) in-container
+- **Deterministic execution**: Embeds `.claude/commands/blueprint-turbo.md` into the prompt (substitutes `$ARGUMENTS`)
+- **Cloud hardening**: Timeboxing + observability logs + optional Apify pre-fetch
 
 ---
 
@@ -26,7 +28,7 @@ Vercel Trigger API OR Stripe webhook (blueprint-saas)
 Supabase (blueprint_jobs)
         ↓ INSERT webhook
 Modal Agent SDK Worker (Node.js)
-        ↓ query("/blueprint-turbo {url}")
+        ↓ query(embedded blueprint-turbo orchestrator prompt)
 Claude Code Engine + .claude/skills
         ↓
 HTML playbook
@@ -67,13 +69,11 @@ export ANTHROPIC_API_KEY="sk-ant-..."
 export SUPABASE_URL="https://hvuwlhdaswixbkglnrxu.supabase.co"
 export SUPABASE_SERVICE_KEY="sb_secret_..."
 
-# GitHub
-export GITHUB_TOKEN="ghp_..."
-export GITHUB_OWNER="SantaJordan"
-export GITHUB_REPO="blueprint-gtm-playbooks"
-
 # Vercel hosting (primary for playbooks)
 export VERCEL_TOKEN="vercel_pat_..."
+
+# Optional: Apify pre-fetch (recommended for reliability)
+export APIFY_API_TOKEN="apify_api_..."
 
 # Payment capture (only for Stripe/SaaS jobs)
 export VERCEL_API_URL="https://playbooks.blueprintgtm.com"
@@ -114,11 +114,12 @@ Ensure Modal secrets contain:
   - `ANTHROPIC_API_KEY`
   - `SUPABASE_URL`
   - `SUPABASE_SERVICE_KEY`
-  - `GITHUB_TOKEN`
   - `VERCEL_API_URL` (required only for Stripe/manual capture)
   - `MODAL_WEBHOOK_SECRET` (required only for Stripe/manual capture)
 - `blueprint-vercel`:
   - `VERCEL_TOKEN`
+- `apify-token`:
+  - `APIFY_API_TOKEN` (optional feature, but the current Modal wrapper expects this secret to exist)
 
 ### Deploy
 
@@ -204,6 +205,12 @@ WHERE status = 'processing'
 AND started_at < NOW() - INTERVAL '30 minutes';
 ```
 
+### Optional: Enable Checkpoint/Resume
+
+The worker can save per-wave checkpoints (to resume after timeouts) if these columns exist:
+- `checkpoint_wave` (text, nullable)
+- `checkpoint_data` (jsonb, nullable)
+
 ---
 
 ## Troubleshooting
@@ -232,39 +239,13 @@ Common errors and fixes:
 | `Claude Agent SDK not installed` | SDK missing | Run `npm install` |
 | `Missing required environment variable` | Env not set | Check Modal secrets |
 | `Git pull failed` | Network issue | Will use cached repo |
-| `No playbook URL found` | Skill didn't publish | Check skill output, may need GitHub API fallback |
+| `No playbook URL found` | HTML not found or publish failed | Check Modal logs for `PLAYBOOK_PATH`, verify `VERCEL_TOKEN`, verify the playbook file exists under `/app/blueprint-skills/playbooks/` |
 
 ### MCP Server Issues
 
 If Sequential Thinking MCP fails:
-1. Check if `@sequentialthinking/mcp-server` is installed globally
-2. The worker will fall back to prompt-based reasoning (slightly lower quality)
-
----
-
-## Rollback Procedure
-
-If the Agent SDK Worker has issues:
-
-### 1. Revert Webhook
-
-Update Supabase webhook back to old Modal endpoint:
-```
-https://[workspace]--blueprint-gtm-worker-process-blueprint-job.modal.run
-```
-
-### 2. Verify Old Worker
-
-```bash
-cd blueprint-worker
-modal app list  # Check if old worker is still deployed
-```
-
-### 3. Test Old Worker
-
-```bash
-modal run main.py --url https://owner.com
-```
+1. Check if `@modelcontextprotocol/server-sequential-thinking` is available in the container image
+2. Re-deploy the worker image (`modal deploy modal/wrapper.py`)
 
 ---
 
@@ -304,7 +285,7 @@ modal run main.py --url https://owner.com
 For issues with the Agent SDK Worker, check:
 1. Modal logs: `modal app logs blueprint-agent-sdk-worker`
 2. Supabase job records
-3. GitHub Pages deployment status
+3. Vercel Playbooks deployment status (`playbooks.blueprintgtm.com`)
 
 ---
 

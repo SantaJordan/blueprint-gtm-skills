@@ -1,406 +1,88 @@
-# Agent SDK Migration Notes
+# Agent SDK Worker Notes
 
-**Document Version:** 1.0
-**Created:** 2025-12-08
-**Status:** Phase 0 - Discovery Complete
+**Document Version:** 1.2
+**Last Updated:** 2025-12-13
 
----
-
-## 1. How the System Works Today
-
-### The Local Flow (`/blueprint-turbo` inside Claude Code)
-
-When you run `/blueprint-turbo https://company.com` locally in Claude Code:
-
-```
-User types: /blueprint-turbo https://owner.com
-    ↓
-Claude Code CLI loads:
-  - .claude/commands/blueprint-turbo.md (61KB orchestrator)
-  - .claude/settings.json (hooks, allowed tools)
-  - .claude/settings.local.json (pre-approved permissions)
-  - CLAUDE.md (project instructions)
-    ↓
-Wave 0.5: Product Value Analysis
-  - Loads: modules/product-fit-triage.md
-  - Anchors all work on actual product capabilities
-    ↓
-Wave 1: Explosive Intelligence Gathering (0-4 min)
-  - 15-20 PARALLEL calls (Browser MCP or WebFetch)
-  - 4-5 company website pages
-  - 6-8 market research searches
-  - Output: Company context, ICP, persona
-    ↓
-Wave 1.5: Niche Conversion (automatic)
-  - Loads: modules/vertical-qualification.md
-  - Converts generic verticals → regulated niches
-  - Hard gate: Product-Solution Alignment ≥ 5/10
-    ↓
-Wave 2: Data Landscape Scan (4-9 min)
-  - 15-20 PARALLEL searches across 4 categories
-  - Government/regulatory, competitive intel, velocity signals, tech/operational
-  - Output: Data Availability Report with feasibility ratings
-    ↓
-Synthesis: Sequential Thinking MCP (9-11 min)
-  - Invokes: mcp__sequential-thinking__sequentialthinking
-  - Generates 2-3 pain segment hypotheses
-  - Uses ACTUAL data fields from Wave 2
-    ↓
-Hard Gate Validation (1-2 min)
-  - Invokes: Skill(blueprint-validator)
-  - 5 mandatory gates (product-pain alignment, anti-patterns, data detectability, specificity, completeness)
-    ↓
-Wave 3: Message Generation (11-14 min)
-  - 2 PQS + 2 PVP messages per segment
-  - Calculation worksheets (show math)
-  - Buyer critique (cynical persona, 7 criteria)
-  - Keep only messages scoring ≥8.0/10
-    ↓
-Wave 4: HTML Assembly (14-15 min)
-  - Loads: templates/html-template.html
-  - Self-contained, mobile-responsive HTML
-    ↓
-Wave 4.5: GitHub Pages Publishing (15-16 min)
-  - git add, commit, push to publish remote
-  - Generate shareable URL
-    ↓
-OUTPUT:
-  - Local file: blueprint-gtm-playbook-owner.html
-  - Shareable URL: https://santajordan.github.io/blueprint-gtm-playbooks/...
-```
-
-**Key characteristics:**
-- **Total time:** 12-15 minutes
-- **Parallelization:** 15-20 concurrent web calls per wave
-- **MCP dependencies:** Sequential Thinking (REQUIRED), Browser MCP (optional, +5-10 min without)
-- **Quality:** Rigorous 5-gate validation, buyer critique, 8.0+ score threshold
-- **Output:** Self-contained HTML playbook + GitHub Pages URL
-
-### Cloud Trigger Flows (Current)
-
-There are two cloud entrypoints depending on deployment.
-
-**A) Mobile trigger + local Mac worker (consultant):**
-```
-iPhone Safari → Share Sheet → "Analyze with Blueprint" Shortcut
-    ↓
-Vercel Trigger API (`blueprint-trigger-api`)
-    ↓
-Supabase job insert (status='pending')
-    ↓
-Local Mac worker (`scripts/blueprint-worker.js`)
-    ↓
-Local Claude Code runs `/blueprint-turbo`
-    ↓
-GitHub Pages URL stored in playbook_url
-```
-
-**B) Paid SaaS + Modal Agent SDK Worker (primary cloud path):**
-```
-User → blueprint-saas (Stripe Checkout)
-    ↓
-Stripe webhook → Supabase job insert (payment_status='authorized')
-    ↓ INSERT webhook
-Modal Agent SDK Worker (`agent-sdk-worker`)
-    ↓
-Claude Agent SDK runs `/blueprint-turbo`
-    ↓
-Uploads HTML to Vercel Playbooks (playbooks.blueprintgtm.com)
-    ↓
-Updates Supabase (status='completed', playbook_url=Vercel URL)
-    ↓
-Calls /api/capture-payment to capture funds
-```
-
-**Legacy note:** The Python Modal worker (`blueprint-worker/main.py`) remains as a backup only. The analysis below describes why the Agent SDK migration was needed.
+This document describes the **current** cloud execution path for Blueprint Turbo using the Claude Agent SDK (Modal worker). It intentionally omits retired worker flows.
 
 ---
 
-## 2. Where the Current Cloud Approach Sucks
+## 1. Current Cloud Flow
 
-### Root Cause Analysis
+All entrypoints converge on a single cloud worker:
 
-The Modal worker is a **complete reimplementation** of Blueprint Turbo in Python. It doesn't use Claude Code or the Agent SDK—it calls the Anthropic API directly with custom prompts for each wave.
-
-This explains the quality gap:
-
-| Factor | Local (Claude Code) | Cloud (Modal Worker) | Impact |
-|--------|---------------------|----------------------|--------|
-| **Tool Loop** | Claude's autonomous tool loop with Read/Write/Edit/Bash | None - just API text responses | Claude can't explore files, run scripts, or iterate |
-| **MCP Servers** | Sequential Thinking MCP, Browser MCP | Prompt-based simulation | Missing structured reasoning and parallel browsing |
-| **Skill Library** | Full .claude/skills/ with 60KB+ of methodology, templates, references | Python dicts with abbreviated versions | Less guidance, missing nuance |
-| **Parallelization** | 15-20 concurrent tool calls per wave | Sequential API calls (or OpenRouter dual-provider) | 2-3x slower |
-| **Validation** | blueprint-validator skill with 5-gate framework | Hardcoded Python validation | Less thorough, more brittle |
-| **Context Persistence** | Claude Code maintains session context | Fresh context per wave | Loses nuance between waves |
-| **Publishing** | Native git operations via Bash tool | PyGitHub API calls | Works but less integrated |
-
-### Specific Quality Issues
-
-1. **Missing Sequential Thinking MCP**
-   - Local: `mcp__sequential-thinking__sequentialthinking` enforces stepwise reasoning
-   - Cloud: `sequential_thinking.py` is a prompt template—Claude doesn't actually "think step by step" with external validation
-
-2. **No Browser MCP Parallelization**
-   - Local: 15-20 concurrent browser tabs in Wave 1 and Wave 2
-   - Cloud: Sequential WebSearch/WebFetch via Serper API
-
-3. **Abbreviated Prompts**
-   - Local: 60KB blueprint-turbo.md with full methodology, edge cases, examples
-   - Cloud: Wave files have shorter prompts, missing nuance
-
-4. **No Tool-Based Iteration**
-   - Local: Claude can Read files, grep for patterns, Write intermediate artifacts
-   - Cloud: Claude just generates text—can't verify, explore, or refine
-
-5. **Context Loss Between Waves**
-   - Local: Single Claude session maintains all context
-   - Cloud: Each wave is a separate API call, context passed via Python dicts
-
-6. **Validation Gaps**
-   - Local: blueprint-validator skill with banned-patterns-registry.md, hard-gate-validator.md
-   - Cloud: hard_gates.py with subset of validation rules
-
-### Cost/Performance Tradeoffs
-
-| Metric | Local | Cloud (Modal) |
-|--------|-------|---------------|
-| Execution time | 12-15 min | 15-20 min |
-| Claude API cost | ~$2-3 | ~$2.50 (Opus + Sonnet mix) |
-| Infrastructure cost | Free (local Mac) | ~$0.15 Modal + free tier (Supabase, Vercel) |
-| Total cost per job | ~$2-3 | ~$2.65 |
-| Quality score | 8.0+/10 consistently | 6-7/10 often |
-
----
-
-## 3. What the Claude Agent SDK Offers
-
-The Claude Agent SDK wraps the Claude Code CLI programmatically, providing:
-
-### Core Capabilities
-
-```python
-from claude_agent_sdk import query, ClaudeAgentOptions
-
-options = ClaudeAgentOptions(
-    # Use Claude Code's exact system prompt
-    system_prompt={"type": "preset", "preset": "claude_code"},
-
-    # Load .claude/settings.json and CLAUDE.md
-    setting_sources=["project"],
-
-    # Enable all Claude Code tools
-    tools={"type": "preset", "preset": "claude_code"},
-
-    # Load MCP servers
-    mcp_servers={
-        "sequential-thinking": {"command": "npx", "args": ["@sequentialthinking/mcp-server"]},
-        "browser": {"command": "npx", "args": ["@anthropic-ai/mcp-server-browser"]}
-    }
-)
-
-async for message in query(
-    prompt="/blueprint-turbo https://owner.com",
-    options=options
-):
-    print(message)
+```
+Mobile (iOS Shortcut) OR blueprint-saas (Stripe)
+        ↓
+Vercel API (optional, for mobile)
+        ↓
+Supabase (blueprint_jobs)
+        ↓ INSERT webhook (or poll cron fallback)
+Modal Agent SDK Worker (agent-sdk-worker)
+        ↓
+Claude Code Engine + .claude/skills + MCP
+        ↓
+HTML playbook
+        ↓
+Upload to Vercel Playbooks (playbooks.blueprintgtm.com/{slug})
+        ↓
+Update Supabase (status, playbook_url)
+        ↓ (Stripe jobs only)
+POST /api/capture-payment (manual capture)
 ```
 
-### What This Unlocks
+---
 
-1. **Full Tool Access**: Read, Write, Edit, Bash, Grep, Glob, WebFetch, WebSearch—same as local
-2. **MCP Server Support**: Can load Sequential Thinking MCP, Browser MCP, etc.
-3. **Skill Library Access**: Can load .claude/skills/ via setting_sources
-4. **Session Persistence**: Maintains context across multiple queries
-5. **Hooks**: Can intercept tool execution for logging/auditing
-6. **Cost Control**: max_budget_usd, max_turns limits
+## 2. What the Cloud Worker Does
 
-### Key Differences from Current Approach
+At a high level, the worker:
 
-| Current (Modal + API) | With Agent SDK |
-|-----------------------|----------------|
-| Python reimplementation | Claude Code engine directly |
-| No tools | Full tool loop |
-| Prompt-based thinking | MCP-based thinking |
-| Sequential waves | Single autonomous session |
-| Context passed manually | Context persists naturally |
-| Custom validation | Skill-based validation |
+1. **Claims a job** from `blueprint_jobs` and marks it `processing`.
+2. **Ensures skills/commands are available** in the container (project + user-level install for Linux compatibility).
+3. **Optionally pre-fetches context via Apify** (if `APIFY_API_TOKEN` is present):
+   - `apify/rag-web-browser` for key website pages (markdown)
+   - `apify/google-search-scraper` for fast external context
+4. **Builds the agent prompt** by combining:
+   - A strict timebox + “best-effort” rules (to prevent infinite research)
+   - The full Blueprint Turbo orchestrator from `.claude/commands/blueprint-turbo.md` with `$ARGUMENTS` replaced by the company URL
+   - The pre-fetched context block (when enabled)
+5. **Runs the Claude Agent SDK** with the Claude Code harness:
+   - `systemPrompt: { preset: "claude_code" }`
+   - `settingSources: ["project", "user"]`
+   - MCP servers enabled (Sequential Thinking + Browser MCP)
+6. **Finds the generated playbook HTML** (prefers `PLAYBOOK_PATH`, otherwise searches expected locations).
+7. **Uploads HTML to Vercel** and returns a shareable URL: `https://playbooks.blueprintgtm.com/{slug}`.
+8. **Updates Supabase** (`completed`/`failed`, `playbook_url`, error details).
+9. **Triggers payment capture** for Stripe-created jobs (if configured).
 
 ---
 
-## 4. Open Questions & Assumptions
+## 3. Why the Worker Embeds the Turbo Command File
 
-### Questions Requiring Clarification
+The worker embeds `.claude/commands/blueprint-turbo.md` directly into the Agent SDK prompt (with `$ARGUMENTS` substituted) to make execution deterministic in a non-interactive cloud environment.
 
-1. **MCP Server Portability**
-   - Can Sequential Thinking MCP run headless (no browser)?
-   - Answer: Yes, it's a stdio-based MCP server
-
-2. **Modal Compatibility**
-   - Can Agent SDK run on Modal (spawns Claude Code CLI as subprocess)?
-   - Assumption: Should work if Claude Code is installed in Modal image
-
-3. **Environment Variables**
-   - Agent SDK requires `ANTHROPIC_API_KEY` in environment
-   - Need to ensure Modal secrets are accessible
-
-4. **Timeout Constraints**
-   - Modal has 60-minute timeout
-   - Blueprint Turbo typically takes 12-15 minutes—should be fine
-
-5. **Git Authentication**
-   - Agent SDK uses Bash for git operations
-   - Need GitHub token configured in environment
-
-### Assumptions Made
-
-1. **Claude Code CLI can be installed in Modal image**
-   - Will need to add `npm install -g @anthropic-ai/claude-code` to image setup
-
-2. **MCP servers can run in Modal environment**
-   - Sequential Thinking MCP is stdio-based, should work
-   - Browser MCP may not work (needs Chrome)—but has WebFetch fallback
-
-3. **Agent SDK startup overhead is acceptable**
-   - ~1-2 seconds to spawn Claude Code subprocess
-   - Acceptable for 12-15 minute jobs
-
-4. **Session management not needed**
-   - Each Blueprint job is independent
-   - Can use query() instead of ClaudeSDKClient
+This keeps the cloud worker aligned to the same “source of truth” as local Turbo: the command file + skills in `.claude/skills/`.
 
 ---
 
-## 5. Next Steps
+## 4. Performance & Reliability Levers
 
-Phase 1 will evaluate these options:
-- **Option A**: Harden current Modal + API approach
-- **Option B**: Build Agent SDK–based worker
-- **Option C**: Use plain Messages API with manual tool handling
-- **Option D**: Other alternatives (containerized Claude Code, gateway, etc.)
+If cloud runs are slow or produce weaker evidence, these are the highest-impact levers:
 
-The evaluation will score each option on:
-- Quality parity with local `/blueprint-turbo`
-- Reliability / debuggability
-- Implementation complexity
-- Long-term maintainability
-- Ability to reuse `.claude/skills/`
+- **Browser MCP actually being used**: if you see 0 browser-mcp tool calls and lots of WebFetch, Wave 1/2 will drag.
+- **Apify pre-fetch**: reduces bot-blocking / JS-only page issues and cuts down tool-loop variance.
+- **Timeboxing**: forces completion and prevents “research spirals” that lead to timeouts.
+- **Observability logs**: wave transitions + tool call breakdown make it obvious where time is going.
 
 ---
 
-## 6. Options & Decision (Phase 1)
+## 5. Operations Checklist
 
-### Option Comparison Table
+- Supabase INSERT webhook points to: `https://[workspace]--blueprint-agent-sdk-worker-process-blueprint-job.modal.run`
+- Modal secrets exist:
+  - `blueprint-secrets` (Anthropic + Supabase + optional payment capture vars)
+  - `blueprint-vercel` (`VERCEL_TOKEN`)
+  - `apify-token` (`APIFY_API_TOKEN`, optional feature but expected by the wrapper)
+- Verify worker health via logs: `modal app logs blueprint-agent-sdk-worker`
+- For stuck jobs, reset via SQL (from the runbook): `docs/AGENT_SDK_RUNBOOK.md`
 
-| Option | Quality Parity | Implementation | Maintenance | Skill Reuse | Scalability |
-|--------|---------------|----------------|-------------|-------------|-------------|
-| **A: Harden Modal Worker** | 70-80% | 10-15 days | HIGH (sync prompts manually) | Partial (embed prompts) | HIGH |
-| **B: Agent SDK Worker** | 90-95% | 9-12 days | LOW (single source of truth) | Full (.claude/skills/) | MEDIUM |
-| **C: Plain API + Tool Loop** | 70-85% | 3-4 weeks | HIGH (build everything) | None | HIGH |
-| **D.1: Docker Container** | 95%+ | 2-3 weeks | MEDIUM | Full | MEDIUM |
-| **D.3: Hybrid Mac/Linux** | 98%+ | 4-6 weeks | HIGH (hardware) | Full | LOW |
-
-### Detailed Analysis
-
-#### Option A: Harden Current Modal Worker
-**What:** Improve the existing Python implementation by embedding full skill prompts, enhancing sequential thinking simulation, and implementing complete 5-gate validation.
-
-**Pros:**
-- No new dependencies
-- Faster iteration
-- Known cost model
-- Can ship improvements incrementally
-
-**Cons:**
-- Architectural ceiling at 70-80% quality
-- No true MCP server integration
-- Must manually sync prompts with .claude/skills/
-- Context management burden (pass context between waves)
-
-**Verdict:** Good for quick wins, but fundamentally limited.
-
-#### Option B: Claude Agent SDK Worker (RECOMMENDED)
-**What:** Build a new worker using the Claude Agent SDK (TypeScript or Python) that wraps the Claude Code CLI and can use the exact same skills, commands, and MCP servers as local execution.
-
-**Pros:**
-- Single source of truth: loads `.claude/skills/` directly
-- Native MCP support (Sequential Thinking, optionally Browser)
-- Claude Code's context management and prompt caching
-- Official Anthropic SDK with ongoing support
-- Higher quality ceiling (90-95%)
-
-**Cons:**
-- New dependency (SDK is pre-1.0)
-- Requires Node.js in Modal (subprocess or custom image)
-- Browser MCP may not work in serverless (WebFetch fallback acceptable)
-
-**Verdict:** Best balance of quality and implementation effort.
-
-#### Option C: Plain Messages API + Manual Tool Loop
-**What:** Build a custom tool execution loop that parses `tool_use` blocks and manually executes Read, Write, Bash, WebFetch, etc.
-
-**Pros:**
-- Full control over implementation
-- No SDK dependency
-
-**Cons:**
-- Must reverse-engineer Claude Code's tool schemas
-- No MCP server integration
-- Context explosion (no automatic compaction)
-- Highest implementation effort (3-4 weeks)
-
-**Verdict:** More work for same quality as Option A.
-
-#### Option D.1: Containerized Claude Code
-**What:** Run Claude Code CLI in a Docker container with bundled MCP servers.
-
-**Pros:**
-- Identical to local execution
-- All MCP servers work
-- 95%+ quality
-
-**Cons:**
-- Modal doesn't support Docker-in-Docker natively
-- Cold start latency (30-60 seconds)
-- More complex deployment
-
-**Verdict:** Good fallback if Agent SDK has compatibility issues.
-
-#### Option D.3: Hybrid Mac/Linux Remote Executor
-**What:** Modal handles queuing, remote Mac Mini runs Claude Code.
-
-**Pros:**
-- 98%+ quality (identical to local)
-- All features work
-
-**Cons:**
-- Single point of failure
-- Can't auto-scale
-- 4-6 weeks implementation
-- Hardware/maintenance burden
-
-**Verdict:** Overkill for current needs.
-
-### Decision: Option B (Agent SDK Worker)
-
-**Recommended Option: B - Claude Agent SDK Worker**
-
-**Rationale:**
-
-1. **Quality Parity**: Agent SDK can achieve 90-95% parity with local `/blueprint-turbo` because it uses the exact same Claude Code engine. The 5-10% gap is primarily from Browser MCP limitations in serverless (acceptable with WebFetch fallback).
-
-2. **Single Source of Truth**: By using `settingSources: ['project', 'user']`, the Agent SDK loads `.claude/skills/` and `CLAUDE.md` directly (with Linux user-level fallback). Updates to skills benefit both local and cloud execution automatically.
-
-3. **MCP Server Support**: Agent SDK natively supports MCP servers. Sequential Thinking MCP can run in serverless (stdio-based). Browser MCP can be omitted for v1 with graceful fallback.
-
-4. **Implementation Efficiency**: 9-12 days is comparable to Option A (10-15 days) but with higher quality ceiling and lower maintenance burden.
-
-5. **Anthropic Alignment**: The Agent SDK is Anthropic's official solution for programmatic agent execution. It will improve over time, and those improvements flow through automatically.
-
-**Implementation Strategy:**
-1. **Phase 1 (v1)**: Agent SDK on Modal with Sequential Thinking MCP, WebFetch fallback (no Browser MCP)
-2. **Phase 2 (v2)**: Add Browser MCP via Mac Mini or Playwright headless if needed
-3. **Phase 3 (v3)**: Hybrid architecture for premium tier if demand justifies
-
----
-
-*End of Phase 1 Options & Decision*
