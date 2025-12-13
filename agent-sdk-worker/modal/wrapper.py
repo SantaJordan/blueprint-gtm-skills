@@ -89,6 +89,7 @@ image = (
 secrets = [
     modal.Secret.from_name("blueprint-secrets"),
     modal.Secret.from_name("blueprint-vercel"),  # Contains VERCEL_TOKEN for HTML hosting
+    modal.Secret.from_name("apify-token"),  # Contains APIFY_API_TOKEN for pre-fetch
 ]
 
 

@@ -1,23 +1,25 @@
 /**
  * Blueprint Turbo Prompt Helper
  *
- * With systemPrompt preset: "claude_code", the agent uses /blueprint-turbo directly.
- * This module only provides a fallback if command discovery fails.
+ * IMPORTANT: This is the PRIMARY path for Agent SDK execution.
  *
- * PRIMARY PATH: Agent SDK uses `/blueprint-turbo ${companyUrl}` command
- * FALLBACK: Read command file from disk and substitute $ARGUMENTS
+ * Slash commands don't work properly in Agent SDK batch mode - the agent
+ * calls SlashCommand tool but then waits for expansion that never happens.
+ *
+ * Solution: Read the full .claude/commands/blueprint-turbo.md content and
+ * embed it directly in the prompt, replacing $ARGUMENTS with the company URL.
  */
 
 import { readFileSync, existsSync } from "fs";
 import { join } from "path";
 
 /**
- * Get the blueprint-turbo prompt with the URL substituted
+ * Get the full blueprint-turbo prompt with the URL substituted
  *
- * This is a FALLBACK function - the primary execution path is the
- * /blueprint-turbo slash command invoked directly by the Agent SDK.
+ * Reads the blueprint-turbo.md command file from disk and replaces
+ * $ARGUMENTS placeholders with the company URL.
  *
- * Only used if command discovery fails in the cloud environment.
+ * This is the PRIMARY execution path for the Agent SDK worker.
  */
 export function getBlueprintTurboPrompt(companyUrl: string): string {
   // Try to read from file system (for cases where command discovery fails)

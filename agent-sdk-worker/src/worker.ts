@@ -8,13 +8,17 @@ import { existsSync, readFileSync } from "fs";
 import path from "path";
 import { createClient } from "@supabase/supabase-js";
 import { getConfig } from "./config.js";
-// Note: getBlueprintTurboPrompt is kept as a fallback, but primary path is /blueprint-turbo slash command
 import {
   BlueprintJob,
+  CheckpointData,
   markJobProcessing,
   markJobCompleted,
   markJobFailed,
+  saveCheckpoint,
+  loadCheckpoint,
+  clearCheckpoint,
 } from "./supabase.js";
+import { getBlueprintTurboPrompt } from "./prompt.js";
 
 // Note: The actual Agent SDK import will be:
 // import { query, ClaudeAgentOptions } from "@anthropic-ai/claude-agent-sdk";
@@ -187,9 +191,10 @@ async function runApifyActor(
   try {
     console.log(`[Prefetch] Running Apify actor: ${actorId}`);
 
-    // Start the actor run
+    // Start the actor run (encode actorId for URL safety - slashes need encoding)
+    const encodedActorId = encodeURIComponent(actorId);
     const runResponse = await fetch(
-      `https://api.apify.com/v2/acts/${actorId}/runs?token=${apifyToken}`,
+      `https://api.apify.com/v2/acts/${encodedActorId}/runs?token=${apifyToken}`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -265,15 +270,11 @@ async function prefetchCompanyData(companyUrl: string): Promise<PrefetchResult> 
         requestTimeoutSecs: 30,
       }),
 
-      // Google Search for context
+      // Google Search for context (queries must be newline-separated string)
       runApifyActor("apify/google-search-scraper", {
-        queries: [
-          `${domain} products services`,
-          `${domain} customers case studies`,
-          `${domain} reviews`,
-        ],
+        queries: `${domain} products services\n${domain} customers case studies\n${domain} reviews`,
         maxPagesPerQuery: 3,
-        resultsPerPage: 5,
+        resultsPerPage: 10,
       }),
     ]);
 
@@ -477,6 +478,88 @@ function extractCompanyName(text: string): string | null {
   return null;
 }
 
+// ============================================================================
+// TWO-PASS QUALITY STRATEGY
+// Pass 1: Generate complete playbook (may have some 7.0-7.9 messages)
+// Pass 2: If any messages < 8.0, run targeted improvement pass
+// ============================================================================
+
+interface MessageScore {
+  type: "PQS" | "PVP" | "unknown";
+  title: string;
+  score: number;
+  rawText: string;
+}
+
+/**
+ * Extract message scores from agent output
+ * Looks for patterns like "Strong PQS at 7.4-8.6/10" or individual message scores
+ */
+function extractMessageScores(fullOutput: string): MessageScore[] {
+  const scores: MessageScore[] = [];
+
+  // Pattern 1: Summary format "N TRUE PVPs at X+, N Strong PQS at Y-Z/10"
+  const summaryMatch = fullOutput.match(/(\d+)\s*(?:TRUE\s*)?PVPs?\s*(?:at\s*)?(\d+\.?\d*)[\+\-]?/gi);
+  const pqsSummaryMatch = fullOutput.match(/(\d+)\s*Strong\s*PQS\s*at\s*(\d+\.?\d*)\s*[-–]\s*(\d+\.?\d*)/i);
+
+  if (pqsSummaryMatch) {
+    const count = parseInt(pqsSummaryMatch[1]);
+    const lowScore = parseFloat(pqsSummaryMatch[2]);
+    const highScore = parseFloat(pqsSummaryMatch[3]);
+    // Add placeholders for each PQS message
+    for (let i = 0; i < count; i++) {
+      scores.push({
+        type: "PQS",
+        title: `PQS Message ${i + 1}`,
+        score: (lowScore + highScore) / 2, // Use average as estimate
+        rawText: "",
+      });
+    }
+  }
+
+  // Pattern 2: Individual message scores "Score: X.X/10" or "scored X.X"
+  const individualScores = fullOutput.matchAll(/(?:Score|scored|rating)[\s:]*(\d+\.?\d*)\s*(?:\/10)?/gi);
+  for (const match of individualScores) {
+    const score = parseFloat(match[1]);
+    if (score >= 1 && score <= 10) {
+      // Try to find context around this score
+      const contextStart = Math.max(0, match.index! - 200);
+      const context = fullOutput.substring(contextStart, match.index! + 50);
+
+      const isPVP = /PVP|permissionless/i.test(context);
+      const isPQS = /PQS|pain.qualified/i.test(context);
+
+      scores.push({
+        type: isPVP ? "PVP" : isPQS ? "PQS" : "unknown",
+        title: context.match(/Subject:\s*([^\n]+)/i)?.[1] || `Message`,
+        score,
+        rawText: context,
+      });
+    }
+  }
+
+  // Deduplicate by removing scores that are too similar
+  const uniqueScores: MessageScore[] = [];
+  for (const score of scores) {
+    const isDuplicate = uniqueScores.some(
+      s => Math.abs(s.score - score.score) < 0.1 && s.type === score.type
+    );
+    if (!isDuplicate) {
+      uniqueScores.push(score);
+    }
+  }
+
+  return uniqueScores;
+}
+
+/**
+ * Check if two-pass improvement is needed
+ * Returns messages that scored below the threshold
+ */
+function getWeakMessages(scores: MessageScore[], threshold: number = 8.0): MessageScore[] {
+  return scores.filter(s => s.score < threshold && s.score >= 6.0);
+}
+
 /**
  * Extract playbook file path from agent output
  * Agent outputs: PLAYBOOK_PATH: playbooks/blueprint-gtm-playbook-owner.html
@@ -663,10 +746,15 @@ function findPlaybookFile(filename: string): string | null {
 /**
  * Run Blueprint Turbo via Agent SDK
  * This is the core function that invokes the /blueprint-turbo command
+ *
+ * @param companyUrl - The company URL to analyze
+ * @param workingDirectory - Working directory for the agent
+ * @param jobId - Optional job ID for checkpoint operations (enables resume on timeout)
  */
 export async function runBlueprintTurbo(
   companyUrl: string,
-  workingDirectory: string
+  workingDirectory: string,
+  jobId?: string
 ): Promise<{ playbookUrl: string; companyName?: string }> {
   const config = getConfig();
   const startTime = Date.now();
@@ -674,7 +762,72 @@ export async function runBlueprintTurbo(
 
   console.log(`[Worker] Starting Blueprint Turbo for ${companyUrl}`);
   console.log(`[Worker] Working directory: ${workingDirectory}`);
+  console.log(`[Worker] Job ID: ${jobId || "none (no checkpointing)"}`);
   console.log(`[Worker] Max execution time: ${maxExecutionMs / 60000} minutes`);
+
+  // ============================================================================
+  // CHECKPOINT LOADING
+  // If resuming from a previous run, load checkpoint data
+  // ============================================================================
+  let existingCheckpoint: CheckpointData | null = null;
+  let resumeContext = "";
+
+  if (jobId) {
+    existingCheckpoint = await loadCheckpoint(jobId);
+    if (existingCheckpoint) {
+      console.log(`[Worker] Resuming from checkpoint: ${existingCheckpoint.wave}`);
+      console.log(`[Worker] Checkpoint timestamp: ${existingCheckpoint.timestamp}`);
+
+      // Build resume context from checkpoint data
+      resumeContext = `
+=== RESUMING FROM CHECKPOINT ===
+Previous run completed wave: ${existingCheckpoint.wave}
+Checkpoint saved at: ${existingCheckpoint.timestamp}
+
+PREVIOUSLY COLLECTED DATA (use this, don't re-fetch):
+`;
+
+      if (existingCheckpoint.company_context) {
+        resumeContext += `
+Company Context:
+- Name: ${existingCheckpoint.company_context.name}
+- Offering: ${existingCheckpoint.company_context.offering}
+- Differentiators: ${existingCheckpoint.company_context.differentiators.join(", ")}
+`;
+      }
+
+      if (existingCheckpoint.icp) {
+        resumeContext += `
+ICP:
+- Industries: ${existingCheckpoint.icp.industries.join(", ")}
+- Company Types: ${existingCheckpoint.icp.company_types.join(", ")}
+- Context: ${existingCheckpoint.icp.operational_context}
+`;
+      }
+
+      if (existingCheckpoint.segments && existingCheckpoint.segments.length > 0) {
+        resumeContext += `
+Validated Segments:
+${existingCheckpoint.segments.map(s => `- ${s.name} (${s.type}, ${s.confidence}% confidence)`).join("\n")}
+`;
+      }
+
+      if (existingCheckpoint.messages && existingCheckpoint.messages.length > 0) {
+        resumeContext += `
+Generated Messages:
+${existingCheckpoint.messages.map(m => `- ${m.type}: "${m.subject}" (${m.score}/10)`).join("\n")}
+`;
+      }
+
+      resumeContext += `
+=== RESUME INSTRUCTIONS ===
+Skip to the NEXT wave after "${existingCheckpoint.wave}".
+Use the data above instead of re-fetching.
+Continue from where the previous run stopped.
+=========================
+`;
+    }
+  }
 
   // Log directory contents for debugging
   try {
@@ -713,16 +866,19 @@ export async function runBlueprintTurbo(
   let playbookPath: string | null = null;
   let companyName: string | null = null;
   let lastOutput = "";
+  let allOutputText = "";  // Accumulate all text for two-pass quality analysis
   let errorOutput = "";
 
   // Initialize metrics tracking
   const metrics = createMetrics();
 
   // Pre-fetch company data using Apify (if APIFY_API_TOKEN is set)
+  // Note: prefetchResult is declared outside if block so it's accessible in checkpoint save code
   let prefetchContext = "";
+  let prefetchResult: PrefetchResult | null = null;
   if (process.env.APIFY_API_TOKEN) {
     console.log(`[Worker] Pre-fetching company data via Apify...`);
-    const prefetchResult = await prefetchCompanyData(companyUrl);
+    prefetchResult = await prefetchCompanyData(companyUrl);
     if (prefetchResult.success) {
       prefetchContext = formatPrefetchContext(prefetchResult);
       console.log(`[Worker] Pre-fetch successful: ${prefetchResult.webPages?.length || 0} pages, ${prefetchResult.searchResults?.length || 0} search results`);
@@ -733,8 +889,11 @@ export async function runBlueprintTurbo(
     console.log(`[Worker] Skipping pre-fetch (APIFY_API_TOKEN not set)`);
   }
 
-  // Use slash command with claude_code preset (matches local behavior)
-  // The systemPrompt preset enables command discovery via progressive disclosure
+  // CRITICAL: Use full prompt content directly (not slash command)
+  // Slash commands don't expand properly in Agent SDK batch mode.
+  // The agent would call SlashCommand tool then wait for expansion that never happens.
+  // Solution: Read the full blueprint-turbo.md content and embed it in the prompt.
+  //
   // Add timing constraints to prevent infinite research behavior
   const timeboxInstructions = `
 IMPORTANT TIMING CONSTRAINTS FOR CLOUD EXECUTION:
@@ -755,11 +914,14 @@ CRITICAL RULES:
 5. Generate a COMPLETE playbook even if some sections are thinner than ideal
 ${prefetchContext ? "\n6. USE THE PRE-FETCHED DATA BELOW - avoid re-fetching the company website" : ""}
 ${prefetchContext}
-Now execute:
+${resumeContext}
 `;
 
-  const prompt = `${timeboxInstructions}/blueprint-turbo ${companyUrl}`;
-  console.log(`[Worker] Using slash command with timing constraints${prefetchContext ? " + pre-fetched data" : ""}`);
+  // Get the full blueprint-turbo prompt from the command file
+  // This reads .claude/commands/blueprint-turbo.md and substitutes $ARGUMENTS with the URL
+  const blueprintPrompt = getBlueprintTurboPrompt(companyUrl);
+  const prompt = `${timeboxInstructions}\n\n${blueprintPrompt}`;
+  console.log(`[Worker] Using full embedded prompt (${prompt.length} chars)${prefetchContext ? " + pre-fetched data" : ""}`);
 
   const queryOptions: QueryOptions = {
     prompt,
@@ -824,6 +986,7 @@ Now execute:
         for (const block of message.message.content) {
           if (block.type === "text") {
             lastOutput = block.text;
+            allOutputText += block.text + "\n";  // Accumulate for two-pass analysis
 
             // Detect wave transitions for timing
             const detectedWave = detectWave(block.text);
@@ -833,6 +996,32 @@ Now execute:
               if (prevWaveData) {
                 prevWaveData.endTime = Date.now();
               }
+
+              // Save checkpoint after completing a wave (if job ID is available)
+              if (jobId && metrics.currentWave !== "init") {
+                const checkpointData: Partial<CheckpointData> = {
+                  prefetch_data: prefetchResult?.success ? {
+                    webPages: prefetchResult.webPages || [],
+                    searchResults: prefetchResult.searchResults || [],
+                  } : undefined,
+                };
+
+                // Extract company name if found
+                if (companyName) {
+                  checkpointData.company_context = {
+                    name: companyName,
+                    offering: "", // Will be populated as we parse more output
+                    differentiators: [],
+                  };
+                }
+
+                // Save checkpoint asynchronously (don't await to avoid blocking)
+                saveCheckpoint(jobId, metrics.currentWave, checkpointData).catch(err => {
+                  console.warn(`[Worker] Checkpoint save failed: ${err}`);
+                });
+                console.log(`[Checkpoint] 💾 Saved after ${metrics.currentWave}`);
+              }
+
               // Start new wave
               metrics.currentWave = detectedWave;
               metrics.waves.set(detectedWave, {
@@ -919,6 +1108,102 @@ Now execute:
   // Log final metrics summary
   logMetricsSummary(metrics);
   console.log(`[Worker] Query finished. Total messages: ${messageCount}, elapsed: ${Math.round((Date.now() - startTime) / 1000)}s`);
+
+  // ============================================================================
+  // TWO-PASS QUALITY IMPROVEMENT
+  // If any messages scored below 8.0, run a targeted improvement pass
+  // ============================================================================
+
+  const messageScores = extractMessageScores(allOutputText);
+  const weakMessages = getWeakMessages(messageScores, 8.0);
+
+  if (weakMessages.length > 0) {
+    console.log(`[Worker] ========== TWO-PASS QUALITY CHECK ==========`);
+    console.log(`[Worker] Found ${messageScores.length} scored messages`);
+    console.log(`[Worker] ${weakMessages.length} messages below 8.0 threshold:`);
+    for (const msg of weakMessages) {
+      console.log(`[Worker]   - ${msg.type} "${msg.title}": ${msg.score}/10`);
+    }
+
+    // Check if we have time budget for improvement pass (max 45 min total)
+    const elapsedMinutes = (Date.now() - startTime) / 60000;
+    const timeRemaining = 45 - elapsedMinutes;
+
+    if (timeRemaining > 5) {
+      console.log(`[Worker] Time remaining: ${timeRemaining.toFixed(1)} min - running improvement pass`);
+
+      // Run improvement pass
+      try {
+        const improvementPrompt = `You previously generated a Blueprint GTM playbook for ${companyUrl}.
+
+The following messages scored below 8.0 and need improvement:
+${weakMessages.map(m => `- ${m.type} "${m.title}": ${m.score}/10`).join('\n')}
+
+TASK: Regenerate ONLY these weak messages to achieve 8.5+ scores.
+
+Requirements for improved messages:
+1. Add more specific data points (exact numbers, dates, record IDs)
+2. Strengthen the non-obvious insight (what they don't already know)
+3. Make the call-to-action lower friction (one-word answer possible)
+4. Ensure all claims are verifiable from the data sources
+
+Output each improved message in this format:
+
+IMPROVED_MESSAGE_START
+Type: PQS or PVP
+Subject: [2-4 word subject line]
+Body: [Full message text, under 75 words for PQS, under 100 for PVP]
+New_Score: [Your honest assessment, must be 8.0+]
+IMPROVED_MESSAGE_END
+
+Generate improved versions now:`;
+
+        console.log(`[Worker] Running improvement agent...`);
+        let improvementOutput = "";
+
+        for await (const message of query({
+          prompt: improvementPrompt,
+          options: {
+            cwd: workingDirectory,
+            settingSources: ["project", "user"],
+            permissionMode: "acceptEdits",
+            maxTurns: 20,
+            maxBudgetUsd: 3.0, // Lower budget for focused improvement
+          },
+        })) {
+          if (message.type === "assistant" && message.message?.content) {
+            for (const block of message.message.content) {
+              if (block.type === "text") {
+                improvementOutput += block.text;
+              }
+            }
+          }
+        }
+
+        // Parse improved messages
+        const improvedMatches = improvementOutput.matchAll(
+          /IMPROVED_MESSAGE_START[\s\S]*?Type:\s*(PQS|PVP)[\s\S]*?Subject:\s*([^\n]+)[\s\S]*?Body:\s*([\s\S]*?)[\s\S]*?New_Score:\s*(\d+\.?\d*)[\s\S]*?IMPROVED_MESSAGE_END/gi
+        );
+
+        const improvedMessages = [...improvedMatches];
+        console.log(`[Worker] Improvement pass generated ${improvedMessages.length} improved messages`);
+
+        // TODO: In future, merge improved messages into the playbook HTML
+        // For now, just log what was improved
+        for (const match of improvedMessages) {
+          console.log(`[Worker]   ✓ Improved ${match[1]} "${match[2].trim()}": ${match[4]}/10`);
+        }
+      } catch (improvementError) {
+        console.warn(`[Worker] Improvement pass failed: ${improvementError}`);
+        // Continue with original playbook
+      }
+    } else {
+      console.log(`[Worker] Time remaining: ${timeRemaining.toFixed(1)} min - skipping improvement pass (need 5+ min)`);
+    }
+    console.log(`[Worker] ============================================`);
+  } else if (messageScores.length > 0) {
+    console.log(`[Worker] All ${messageScores.length} messages scored 8.0+ - no improvement needed`);
+  }
 
   // UPLOAD STRATEGY:
   // 1. Check explicit paths first (Agent SDK writes to /app/blueprint-skills/playbooks/)
@@ -1064,8 +1349,11 @@ export async function processJob(job: BlueprintJob): Promise<{
     // Ensure skills repo is available
     const workingDirectory = await ensureSkillsRepo();
 
-    // Run Blueprint Turbo
-    const result = await runBlueprintTurbo(job.company_url, workingDirectory);
+    // Run Blueprint Turbo (pass job.id for checkpoint operations)
+    const result = await runBlueprintTurbo(job.company_url, workingDirectory, job.id);
+
+    // Clear checkpoint on successful completion (no longer needed)
+    await clearCheckpoint(job.id);
 
     // Mark job as completed
     await markJobCompleted(job.id, result.playbookUrl, result.companyName);

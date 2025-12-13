@@ -18,6 +18,56 @@ export interface BlueprintJob {
   created_at: string;
   started_at: string | null;
   completed_at: string | null;
+  // Checkpoint fields for resume capability
+  checkpoint_wave?: string | null;
+  checkpoint_data?: CheckpointData | null;
+}
+
+/**
+ * Checkpoint data structure for resume capability
+ * Saved after each wave to enable resumption on timeout
+ */
+export interface CheckpointData {
+  wave: string;  // Current wave identifier
+  timestamp: string;
+  company_context?: {
+    name: string;
+    offering: string;
+    differentiators: string[];
+  };
+  icp?: {
+    industries: string[];
+    company_types: string[];
+    operational_context: string;
+  };
+  persona?: {
+    title: string;
+    responsibilities: string[];
+    kpis: string[];
+  };
+  data_sources?: Array<{
+    name: string;
+    category: string;
+    feasibility: "HIGH" | "MEDIUM" | "LOW";
+    url?: string;
+    fields?: string[];
+  }>;
+  segments?: Array<{
+    name: string;
+    data_combination: string[];
+    confidence: number;
+    type: "PQS" | "PVP";
+  }>;
+  messages?: Array<{
+    type: "PQS" | "PVP";
+    subject: string;
+    body: string;
+    score: number;
+  }>;
+  prefetch_data?: {
+    webPages: Array<{ url: string; markdown: string }>;
+    searchResults: Array<{ title: string; url: string; snippet: string }>;
+  };
 }
 
 let supabaseClient: SupabaseClient | null = null;
@@ -176,4 +226,87 @@ export async function claimPendingJob(
 
   console.log(`[Supabase] Successfully claimed job ${jobId}`);
   return data as BlueprintJob;
+}
+
+// ============================================================================
+// CHECKPOINT FUNCTIONS FOR RESUME CAPABILITY
+// ============================================================================
+
+/**
+ * Save checkpoint data for a job
+ * Called after each wave completes to enable resume on timeout
+ */
+export async function saveCheckpoint(
+  jobId: string,
+  wave: string,
+  data: Partial<CheckpointData>
+): Promise<boolean> {
+  const checkpointData: CheckpointData = {
+    wave,
+    timestamp: new Date().toISOString(),
+    ...data,
+  };
+
+  const { error } = await getSupabase()
+    .from("blueprint_jobs")
+    .update({
+      checkpoint_wave: wave,
+      checkpoint_data: checkpointData,
+    })
+    .eq("id", jobId);
+
+  if (error) {
+    console.error(`[Supabase] Error saving checkpoint for job ${jobId}:`, error);
+    return false;
+  }
+
+  console.log(`[Supabase] Checkpoint saved: ${wave} for job ${jobId}`);
+  return true;
+}
+
+/**
+ * Load checkpoint data for a job
+ * Returns null if no checkpoint exists
+ */
+export async function loadCheckpoint(
+  jobId: string
+): Promise<CheckpointData | null> {
+  const { data, error } = await getSupabase()
+    .from("blueprint_jobs")
+    .select("checkpoint_wave, checkpoint_data")
+    .eq("id", jobId)
+    .single();
+
+  if (error) {
+    console.error(`[Supabase] Error loading checkpoint for job ${jobId}:`, error);
+    return null;
+  }
+
+  if (data?.checkpoint_data) {
+    console.log(`[Supabase] Loaded checkpoint: ${data.checkpoint_wave} for job ${jobId}`);
+    return data.checkpoint_data as CheckpointData;
+  }
+
+  return null;
+}
+
+/**
+ * Clear checkpoint data after successful completion
+ */
+export async function clearCheckpoint(jobId: string): Promise<boolean> {
+  const { error } = await getSupabase()
+    .from("blueprint_jobs")
+    .update({
+      checkpoint_wave: null,
+      checkpoint_data: null,
+    })
+    .eq("id", jobId);
+
+  if (error) {
+    console.error(`[Supabase] Error clearing checkpoint for job ${jobId}:`, error);
+    return false;
+  }
+
+  console.log(`[Supabase] Checkpoint cleared for job ${jobId}`);
+  return true;
 }
